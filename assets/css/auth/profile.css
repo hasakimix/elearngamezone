@@ -1,0 +1,225 @@
+.body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    background-color: #1386c9;
+    margin-bottom: 3%;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* For positioning the dropdown */
+}
+.profile-pic {
+    width: 180px; /* Increased size */
+    height: 180px; /* Increased size */
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder color */
+    display: flex;
+    align-items: flex; /* Center image */
+    justify-content: flex; /* Center image */
+    cursor: pointer; /* Change cursor to pointer */
+    overflow: center; /* Ensure image fits */
+    position: relative;
+}
+.profile-name {
+    margin-top: 5px; /* Space between picture and name */
+    text-align: center;
+}
+.hidden-input {
+    display: none; /* Hide file input */
+}
+.dropdown {
+    display: none; /* Initially hidden */
+    position: absolute;
+    bottom: -60px; /* Adjust as necessary */
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Ensure it appears on top */
+}
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: #000000;
+    text-decoration: none;
+}
+.dropdown a:hover {
+    background-color: #f0f0f0;
+}
+/* Modal Styles */
+#imageModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+#modalImage {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.progress {
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid #7091E6;
+    background-color:#7091E6  ;
+    border-radius: 12px;
+    margin-top: 12px;
+    align-items: center;
+}
+
+.progress-pie {
+    width: 250px !important;
+    height: 250px !important;
+}
+.chart-box {
+    border-right: 1px solid #dbdbdb;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    flex-direction: column;
+}
+
+.progress-title {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.box-end {
+    border: none !important;
+}
+
+.progress-bars {
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.progress-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    /* border: 1px solid #ccc; */ /* Comment out or remove this line */
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+label {
+    display: flex;
+    flex: 1;
+    font-size: 16px; /* Adjust the size */
+    padding: 10px; /* Optional: add padding */
+    margin: 5px; /* Optional: add margin */
+}
+
+.progress-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.row {
+    display: flex;                /* Arrange columns horizontally */
+    justify-content: center; /* Space between columns */
+    margin-bottom: 10px;          /* Space between rows */
+    gap: 10%;
+}
+
+.row2 {
+    display: flex;                /* Arrange columns horizontally */
+    justify-content: center; /* Space between columns */
+    margin-bottom: 10px;          /* Space between rows */
+    gap: 10%;
+}   
+
+.column {
+    flex: 100; /* Each column will take equal space */
+    padding: 100px; /* Padding for better spacing */
+    border: 1px solid #ccc; /* Optional: border for visibility */
+}
+
+@property --progress-value {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+}
+
+@keyframes progress {
+    from {
+        --progress-value: 0; /* Start from 0 */
+    }
+    to {
+       
+    }
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110%;
+    height: 110%;
+    border-radius: 50%;
+    background: 
+        radial-gradient(closest-side, white 79%, transparent 80%),
+        conic-gradient(#7091E6 calc(var(--progress-value) * 1%), #adc0f1 0);
+    
+    animation: progress 2s forwards; /* Animate from 0 to the set value */
+    position: relative; /* Ensure text is positioned correctly */
+}
+
+.progress-bar::before {
+    content: attr(aria-valuenow) '%'; /* Show the percentage */
+    font-size: 20px; /* Adjust font size as needed */
+    color: #7091E6; /* Adjust text color */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text */
+}
+.chart-boxs {
+    border-right: 1px solid #070707;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    
+}
+.profile-name{
+    font-size: 25px;
+}
