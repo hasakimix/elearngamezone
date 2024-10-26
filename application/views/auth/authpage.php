@@ -48,8 +48,13 @@
             text-align: center; /* Centers the input text */
         }
         .input-box::placeholder {
-            font-size: 100px; /* Make the placeholder text bigger */
-            color: #000; /* You can change the color of the placeholder if needed */
+            font-size: 19px;
+            text-align: center;
+            color: #999;
+            transition: color 0.3s ease; /* Smooth transition for placeholder */
+        }
+        .input-box:focus::placeholder {
+            color: transparent; /* Make the placeholder invisible on focus */
         }
         .submit-btn {
             width: 70%;
@@ -69,7 +74,7 @@
 <div class="container">
         <div class="padlock"></div>
         <p class="auth-text">Check your email to verify</p>
-        <input type="text" placeholder="" class="input-box">
+        <input type="text" placeholder="Enter your verification code..." class="input-box">
         <button class="submit-btn">Submit</button>
         
 </div>
