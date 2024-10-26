@@ -51,7 +51,7 @@
             <small class="text-danger mb-3"><strong class="field-error" data-field="email"></strong></small>
             <input type="password" placeholder="Password" name="password">
             <small class="text-danger mb-3"><strong class="field-error" data-field="password"></strong></small>
-            <a href="#">Forget Your Password?</a>
+            <a href="<?= base_url("forgotpass") ?>">Forget Your Password?</a>
             <button id="signIn1" type="submit">Sign In</button>
         </form>
     </div>

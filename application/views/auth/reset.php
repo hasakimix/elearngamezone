@@ -89,9 +89,11 @@
 <?php endif; ?>
 
 <div class="container">
-    <form class="text-center" action="<?= base_url("forgotpass/send_reset") ?>" id="verification" method="POST">
-        <p class="auth-text">Forgot Your Password?</p>
-        <input type="text" placeholder="Enter your Email Address" name="email" class="input-box">
+    <form class="text-center" action="<?= base_url("forgotpass/save_password") ?>" id="verification" method="POST">
+        <p class="auth-text">Reset Password</p>
+        <input type="hidden" name="email" value="<?= base64_decode($_GET["e"]) ?>">
+        <input type="password" placeholder="Enter New Password..." name="password" class="input-box">
+        <input type="password" placeholder="Confirm Password..." name="confirm" class="input-box">
         <button class="submit-btn" type="submit">Submit</button>
     </form>   
 </div>

@@ -41,6 +41,14 @@ class Model_auth_main extends MY_Model
                         ->get()->row_array();
     }
 
+    public function getUserByEmail(string $email)
+    {
+        return $this->writeDB->select("*")
+                        ->from("users")
+                        ->where("email", $email)
+                        ->get()->row_array();
+    }
+
     public function save_otp($id, $save_data){
 		$this->writeDB->where("id", $id)
 				->set($save_data)

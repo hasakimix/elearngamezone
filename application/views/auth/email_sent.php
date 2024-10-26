@@ -73,25 +73,9 @@
             text-decoration: underline;
         }
     </style>
-    
-<?php if(isset($_SESSION["error"])): ?>
-    <div class="alert alert-danger text-dark" role="alert">
-        <h5 class="mb-0">Something went wrong : <?= $_SESSION["error"] ?></h5>
-    </div>
-    <?php unset($_SESSION["error"]) ?>
-<?php endif; ?>
-
-<?php if(isset($_SESSION["success"])): ?>
-    <div class="alert alert-success text-dark" role="alert">
-        <h5 class="mb-0">Congratulations!: <?= $_SESSION["success"] ?></h5>
-    </div>
-    <?php unset($_SESSION["success"]) ?>
-<?php endif; ?>
 
 <div class="container">
-    <form class="text-center" action="<?= base_url("forgotpass/send_reset") ?>" id="verification" method="POST">
-        <p class="auth-text">Forgot Your Password?</p>
-        <input type="text" placeholder="Enter your Email Address" name="email" class="input-box">
-        <button class="submit-btn" type="submit">Submit</button>
-    </form>   
+    <div class="padlock"></div>
+    <p class="auth-text">Please check your email inbox.</p>
+    <p class="mb-0">We've sent you a link that will reset your password.</p>
 </div>
