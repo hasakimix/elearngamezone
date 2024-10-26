@@ -1,0 +1,229 @@
+
+.flex-container {
+    display: flex;
+    gap: 10px;
+    margin-left: 170px;
+  }
+  
+  .box {
+    flex: 1 0 21%;
+    padding: 100px;
+    background-color: #7091E6; 
+    border-radius: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px;
+    text-align: center;
+  }
+  
+  .btn{
+      text-decoration: none;
+      margin-top: 10px;
+      display: inline-block;
+      background:#A7C7E7;
+      color:#000000;
+      font-size: 17px;
+      border-radius: 10px;
+      padding: 5px 20px;
+      flex: 1 0 21%;
+  }
+  
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  
+  .box img {
+    width: 75%; 
+    height: auto;
+  }
+  
+  .box:hover {
+    background-color: #7091E6;
+  }
+  
+  .btn:hover {
+    background-color: #FFAF4D;
+  }
+
+  @media (max-width: 800px) {
+    .box { 
+        flex: 1 0 46%; /* 2 boxes per row */
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .box {
+        flex: 1 0 96%; /* 1 box per row */
+    }
+  }
+  /* popup info*/
+  
+  
+  
+  .menupopup {
+    width: 800px;
+    height: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 5px 5px 10px gray;
+    display: none;
+    border-radius: 20px;
+  }
+  
+  .menupopup h2 {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .menupopup p {
+    text-align: justify;
+    padding: 10px;
+  }
+  
+  .menupopup :hover{
+  color: var(--white-color);
+    background: #FFAF4D;
+  }
+  /* Style the buttons inside the pop up */
+  .menupopup button {
+    justify-content: center;
+    display: inline-block;
+    margin: 13px;
+    padding: 10px;
+    border: none;
+    background-color: #5d89ba;
+    color: var(--white-color);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  /* difficulty pop up*/
+  .popup {
+    width: 380px;
+    height: 150px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 5px 5px 10px gray;
+    display: none;
+    border-radius: 20px;
+  }
+  
+  /* Style the content inside the pop up */
+  .popup h2 {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .popup p {
+    text-align: justify;
+    padding: 10px;
+  }
+  
+  .popup :hover{
+  color: var(--white-color);
+    background: #FFAF4D;
+  }
+  /* Style the buttons inside the pop up */
+  .popup button {
+    
+    display: inline-block;
+    margin: 13px;
+    padding: 10px;
+    border: none;
+    background-color: #7091E6;
+    color: var(--white-color);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .flash_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards_container{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  margin-top: 1.3rem;
+}
+
+.cards, .card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card{
+  border-radius: 25px;
+  padding: 20px; 
+  width: 300px;
+  height: 200px;   
+  border: 10px solid rgb(0, 0, 0);
+  position: relative;
+  transition: all 1s linear;
+  transform-style: preserve-3d;
+}
+
+.back{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-size: 0.9rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.front{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  font-size: 0.9rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.front{
+  background-color: #7091E6;
+  backface-visibility: hidden;
+  z-index: 2;
+}
+
+.back{
+  background-color: #FFA500;
+  z-index: 1;
+  transform: rotateY(180deg);
+}
+
+.cards:hover .card{
+  transform: rotateY(180deg);
+}
+
+main {
+  margin-top: 0px !important;
+}

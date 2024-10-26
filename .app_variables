@@ -1,0 +1,24 @@
+## APPLICATION SPECIFIC VARIABLES
+## Some settings are customized to prevent framework detection, reduce known
+##  security holes and issues.
+## ex: https://www.wappalyzer.com/technologies/web-frameworks/codeigniter
+
+CI_ENVIRONMENT=development
+
+APP_NAME='elearngamezone'
+APP_DOMAIN_NAME='localhost/elearngamezone/'
+APP_MAIN='localhost'
+
+ADMIN_DEFAULT_USERNAME='devops@oh-hello.co'
+ADMIN_DEFAULT_PASSOWRD='OhH3lloP@ss'
+
+# APP DATABASE SETTINGS
+DB_WRITER_HOSTNAME=localhost
+DATABASE_NAME=elearngamezone
+DB_PASSWORD=''
+DB_USERNAME=root
+DB_PORT=3306
+
+# Login and Registration API requisites
+AUTH_TOKEN = 'PMnKm9VkHRUuSTwBaI875zIFmM7KStclHncg3imOlVQ'
+API_SECRET_TOKEN = 'b16eb6c7bf0f3361a605ce6ef38a3d83'

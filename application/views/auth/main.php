@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="<?= base_url("/assets/css/auth/main.css?version=".uniqid()) ?>" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<div class="container" id="container">
+    <div class="form-container sign-up">
+        <form action="<?= base_url("submit/register") ?>" id="regform" method="POST">
+            <h1>Create Account</h1>
+            <!-- First Name -->
+            <input type="text" placeholder="First Name" name="first_name">
+            <small class="text-danger mb-3"><strong class="field-error" data-field="first_name"></strong></small>
+            <!-- Last Name -->
+            <input type="text" placeholder="Last Name" name="last_name">
+            <small class="text-danger mb-3"><strong class="field-error" data-field="last_name"></strong></small>
+            <!-- Email -->
+            <input type="email" placeholder="Email" name="email">
+            <small class="text-danger mb-3"><strong class="field-error" data-field="email"></strong></small>
+            <!-- Password -->
+            <div class="password-container">
+                <input type="password" placeholder="Password" name="password" id="password">
+                <i class="fa fa-eye-slash password-icon" id="togglePassword" data-target="password"></i>
+            </div>
+            <small class="text-danger mb-3"><strong class="field-error" data-field="password"></strong></small>
+            <!-- Confirm Password -->
+            <div class="password-container">
+                <input type="password" placeholder="Confirm Password" name="confirm_password" id="confirm_password">
+                <i class="fa fa-eye-slash password-icon" id="toggleConfirmPassword" data-target="confirm_password"></i>
+            </div>
+            <small class="text-danger mb-3"><strong class="field-error" data-field="confirm_password"></strong></small>
+
+            <button id="signUp1" type="submit">Sign Up</button>
+        </form>
+    </div>
+    <div class="form-container sign-in">
+        <form action="<?= base_url("submit/login") ?>" id="personal-info-form" method="POST">
+            <h1>Sign In</h1>
+            <input type="email" placeholder="Email" name="email">
+            <small class="text-danger mb-3"><strong class="field-error" data-field="email"></strong></small>
+            <input type="password" placeholder="Password" name="password">
+            <small class="text-danger mb-3"><strong class="field-error" data-field="password"></strong></small>
+            <a href="#">Forget Your Password?</a>
+            <button id="signIn1" type="submit">Sign In</button>
+        </form>
+    </div>
+    <div class="toggle-container">
+        <div class="toggle">
+            <div class="toggle-panel toggle-left">
+                <h1>Welcome Back!</h1>
+                <p>Sign in with your existing account</p>
+                <button class="hidden" id="signIn2">Sign In</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>Hello, Gamer!</h1>
+                <p>Register to use all of eLearnGameZone features!</p>
+                <button class="hidden" id="signUp2">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="<?= base_url("assets/js/auth/main.js?version=".uniqid()) ?>"></script>
+<script src="<?= base_url("assets/js/auth/validation.js?version=".uniqid()) ?>"></script>
