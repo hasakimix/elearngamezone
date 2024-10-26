@@ -20,6 +20,22 @@ class Logout extends MY_Controller {
             setcookie('userUID', '', 1, '/'); // empty value and old timestamp
         }
 
+        if (isset($_COOKIE['elearngamezone_session'])) {
+            unset($_COOKIE['elearngamezone_session']);
+            setcookie('elearngamezone_session', '', 1, '/'); // empty value and old timestamp
+            $config = (array)$this->config;
+            $config = $config['config'];
+            
+            setcookie(
+                "elearngamezone_session",
+                NULL,
+                1,
+                $config['cookie_path'],
+                $config['cookie_domain'],
+                $config['cookie_secure'],
+                TRUE
+            );
+        }
         redirect(base_url('/'));
     }
 }

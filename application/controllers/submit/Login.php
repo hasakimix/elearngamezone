@@ -10,11 +10,11 @@ class Login extends MY_Controller {
     {
         parent::__construct();
         $this->load->library('session');
+        $this->load->model("auth/Model_auth_main", "m_main");
     }
 
 	public function index()
 	{
-        $this->load->model("auth/Model_auth_main", "m_main");
 
         $data = $this->input->post();
 
@@ -25,14 +25,17 @@ class Login extends MY_Controller {
             if($save_otp){
                 $send_email = $this->send_email($result["email"],$verification_code);
                 if($send_email){
-                    redirect(base_url('2fa'));
+                    redirect(base_url('auth'));
                 }else{
+                    $this->session->set_flashdata('error', 'Email sending Failed');
                     redirect(base_url('/'));
                 }
             }else{
+                $this->session->set_flashdata('error', 'Saving OTP Failed');
                 redirect(base_url('/'));
             }
         }else{
+            $this->session->set_flashdata('error', 'Invalid Credentials');
             redirect(base_url('/'));
         }
 	}
@@ -100,6 +103,30 @@ class Login extends MY_Controller {
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             die();
+        }
+    }
+
+    public function verification()
+    {
+        $data = $this->input->post();
+        $code = $data['verification'];
+        $get_otp = $this->m_main->validate_otp($code);
+        if($get_otp){
+            $this->m_main->save_otp($get_otp["id"], ["otp" => null]);
+            if($this->build_session($get_otp)){
+                if($this->buildCookies($get_otp)){
+                    redirect(base_url('/home'));
+                }else{
+                    $this->session->set_flashdata('error', 'Unable to build cookies');
+                    $this->end_sessions();
+                }
+            }else{
+                $this->session->set_flashdata('error', 'Unable to build session');
+                $this->end_sessions();
+            }
+        }else{
+            $this->session->set_flashdata('error', 'Invalid Code');
+            redirect(base_url('/'));
         }
     }
 

@@ -34,10 +34,7 @@ class MY_Controller extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-
-		if (ENVIRONMENT == 'development') {
-			// $this->output->enable_profiler(TRUE);
-		}
+        $this->load->library('session');
 
 		$this->data['csrf'] = array(
 			'name' => $this->security->get_csrf_token_name(),

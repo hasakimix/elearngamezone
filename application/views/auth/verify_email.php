@@ -72,10 +72,7 @@
     </style>
 
 <div class="container">
-    <form class="text-center" action="<?= base_url("submit/login/verification") ?>" id="verification" method="POST">
-        <div class="padlock" style="place-self: center;"></div>
-        <p class="auth-text">Check your email to verify</p>
-        <input name="verification" type="text" placeholder="Enter your verification code..." class="input-box">
-        <button class="submit-btn" type="submit">Submit</button>
-    </form>    
+    <div class="padlock"></div>
+    <p class="auth-text">Please check your email inbox.</p>
+    <p class="mb-0">We've sent you a link that will verify your email address.</p>
 </div>
