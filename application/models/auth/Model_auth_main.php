@@ -40,4 +40,16 @@ class Model_auth_main extends MY_Model
                         ->where("email", $username)
                         ->get()->row_array();
     }
+
+    public function save_otp($id, $save_data){
+		$this->writeDB->where("id", $id)
+				->set($save_data)
+				->update("users");
+
+		if ($this->writeDB->affected_rows() >= 0) {
+			return true;
+		} else {
+			return false;
+		}
+    }
 }

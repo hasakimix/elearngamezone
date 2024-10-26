@@ -1,5 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
 class Login extends MY_Controller {
 	
@@ -17,14 +20,17 @@ class Login extends MY_Controller {
 
         $result = $this->m_main->validateUsernamePassword(make_string_safe($data['email']), $data['password']);
         if($result){
-            if($this->build_session($result)){
-                if($this->buildCookies($result)){
-                    redirect(base_url('/home'));
+            $verification_code = rand(100000, 999999);
+            $save_otp = $this->m_main->save_otp($result["id"], ["otp" => $verification_code]);
+            if($save_otp){
+                $send_email = $this->send_email($result["email"],$verification_code);
+                if($send_email){
+                    redirect(base_url('2fa'));
                 }else{
-                    $this->end_sessions();
+                    redirect(base_url('/'));
                 }
             }else{
-                $this->end_sessions();
+                redirect(base_url('/'));
             }
         }else{
             redirect(base_url('/'));
@@ -65,5 +71,37 @@ class Login extends MY_Controller {
 
         redirect(base_url('/'));
     }
+
+    public function send_email($email, $code)
+    {
+        $mail = new PHPMailer(true);
+        try {
+            $mail->SMTPDebug = SMTP::DEBUG_CLIENT; 
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com'; // Your SMTP server
+            $mail->SMTPAuth = true;
+            $mail->Username = "elearngamessmtp@gmail.com"; // Your Gmail address
+            $mail->Password = "xifg dywi uxyi tvca"; // Your Gmail password or App password
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
+
+            // Recipients
+            $mail->setFrom('elearngamessmtp@gmail.com', 'Two Factor Authentication');
+            $mail->addAddress($email);
+
+            // Content
+            $mail->isHTML(true);
+            $mail->Subject = 'Email Verification Code';
+            $mail->Body = "Your verification code is: <b>$code</b>";
+
+            $mail->send();
+            
+            return true;
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            die();
+        }
+    }
+
 }
 
