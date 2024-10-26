@@ -24,13 +24,6 @@
             justify-content: center; /* Centers content vertically */
             border-radius: 10px;
         }
-        .padlock {
-            width: 50px;
-            height: 50px;
-            background-image: url('https://cdn-icons-png.flaticon.com/512/3064/3064197.png');
-            background-size: cover;
-            margin-bottom: 40px;
-        }
         .auth-text {
             font-size: 20px;
             font-weight: bold; /* Makes the text bold */
@@ -82,9 +75,7 @@
     </style>
 
 <div class="container">
-        <div class="padlock"></div>
-        <p class="auth-text">Check your email to verify</p>
-        <input type="text" placeholder="Enter your verification code..." class="input-box">
+        <p class="auth-text">Forgot Your Password?</p>
+        <input type="text" placeholder="Enter your Email Address" class="input-box">
         <button class="submit-btn">Submit</button>
-        <a href="forgotpass" class="forgot-password">Forgot Password?</a>
 </div>
