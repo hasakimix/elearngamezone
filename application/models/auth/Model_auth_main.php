@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-
 class Model_auth_main extends MY_Model
 {
     public function __construct()
@@ -38,6 +37,39 @@ class Model_auth_main extends MY_Model
         return $this->writeDB->select("*")
                         ->from("users")
                         ->where("email", $username)
+                        ->where("is_verified", "1")
+                        ->get()->row_array();
+    }
+
+    public function save_otp($id, $save_data){
+		$this->writeDB->where("id", $id)
+				->set($save_data)
+				->update("users");
+
+		if ($this->writeDB->affected_rows() >= 0) {
+			return true;
+		} else {
+			return false;
+		}
+    }
+
+    public function update_user($id, $save_data){
+		$this->writeDB->where("email", $id)
+				->set($save_data)
+				->update("users");
+
+		if ($this->writeDB->affected_rows() >= 0) {
+			return true;
+		} else {
+			return false;
+		}
+    }
+
+    public function validate_otp(string $code)
+    {
+        return $this->writeDB->select("*")
+                        ->from("users")
+                        ->where("otp", $code)
                         ->get()->row_array();
     }
 }

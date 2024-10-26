@@ -1,5 +1,20 @@
 <link rel="stylesheet" href="<?= base_url("/assets/css/auth/main.css?version=".uniqid()) ?>" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<?php if(isset($_SESSION["error"])): ?>
+    <div class="alert alert-danger text-dark" role="alert">
+        <h5 class="mb-0">Something went wrong : <?= $_SESSION["error"] ?></h5>
+    </div>
+    <?php unset($_SESSION["error"]) ?>
+<?php endif; ?>
+
+<?php if(isset($_SESSION["success"])): ?>
+    <div class="alert alert-success text-dark" role="alert">
+        <h5 class="mb-0">Congratulations!: <?= $_SESSION["success"] ?></h5>
+    </div>
+    <?php unset($_SESSION["success"]) ?>
+<?php endif; ?>
+
 <div class="container" id="container">
     <div class="form-container sign-up">
         <form action="<?= base_url("submit/register") ?>" id="regform" method="POST">
