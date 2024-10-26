@@ -86,5 +86,4 @@
         <p class="auth-text">Check your email to verify</p>
         <input type="text" placeholder="Enter your verification code..." class="input-box">
         <button class="submit-btn">Submit</button>
-        <a href="forgotpass" class="forgot-password">Forgot Password?</a>
 </div>
