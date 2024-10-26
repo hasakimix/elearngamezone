@@ -66,7 +66,9 @@ CREATE TABLE `users` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` text NOT NULL
+  `password` text NOT NULL,
+  `otp` varchar(255) NULL,
+  `is_verified` int(1) 0,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
