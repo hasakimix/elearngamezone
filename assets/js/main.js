@@ -11,14 +11,34 @@ function toggleDropdown() {
 
 document.addEventListener("DOMContentLoaded", function () {
   // Dark Mode Toggle
-  const body = document.querySelector("body");
-  const darkLight = document.querySelector("#darkLight");
+const body = document.querySelector("body");
+const darkLight = document.querySelector("#darkLight");
 
-  darkLight?.addEventListener("click", () => {
+// Apply saved theme on page load
+window.onload = function() {
+    if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark");
+        darkLight.classList.add("bx-moon");
+        darkLight.classList.remove("bx-sun");
+    } else {
+        darkLight.classList.add("bx-sun");
+        darkLight.classList.remove("bx-moon");
+    }
+}
+
+// Toggle dark mode and save preference
+darkLight?.addEventListener("click", () => {
     body.classList.toggle("dark");
-    darkLight.classList.toggle("bx-sun", !body.classList.contains("dark"));
-    darkLight.classList.toggle("bx-moon", body.classList.contains("dark"));
-  });
+    const isDarkMode = body.classList.contains("dark");
+
+    // Toggle icon classes based on mode
+    darkLight.classList.toggle("bx-sun", !isDarkMode);
+    darkLight.classList.toggle("bx-moon", isDarkMode);
+
+    // Save the theme in localStorage
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+});
+
 
   // Search Engine Logic
   const searchBar = document.querySelector('.search-bar');
