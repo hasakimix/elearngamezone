@@ -10,7 +10,7 @@ function toggleDropdown() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Dark Mode Toggle
+// Dark Mode Toggle
 const body = document.querySelector("body");
 const darkLight = document.querySelector("#darkLight");
 
