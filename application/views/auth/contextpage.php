@@ -202,7 +202,7 @@ body {
             
 
             <!-- Content Section -->
-            <section id="content1" class="content">
+            <section id="content" class="content">
                 <h1>Module 1: Getting started with PHP</h1>
                 <p>PHP 7.x</p>
                 <p>Version Supported Until Release Date</p>
