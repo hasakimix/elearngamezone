@@ -169,11 +169,11 @@ body {
                     <button class="collapsible">Module 1: Introduction of Java</button>
                     <div class="module-content">
                         <ul>
-                            <li><a href="#">Overview of Java</a></li>
-                            <li><a href="#">Setting Up Environment</a></li>
-                            <li><a href="#">Basic Java Syntax</a></li>
-                            <li><a href="#">Data Type and Variable</a></li>
-                            <li><a href="#">Operators in Java</a></li>
+                        <li><a href="#">JavaScript in &lt;head&gt; or &lt;body&gt;</a></li>
+                            <li><a href="#">JavaScript in &lt;head&gt;</a></li>
+                            <li><a href="#">JavaScript in &lt;body&gt;</a></li>
+                            <li><a href="#">External JavaScript Advantages</a></li>
+                            <li><a href="#">External References</a></li>
                         </ul>
                     </div>
                 </div>
@@ -181,11 +181,11 @@ body {
                     <button class="collapsible">Module 1: JavaScript Introduction</button>
                     <div class="module-content">
                         <ul>
-                            <li><a href="#">JavaScript in <head> or <body></a></li>
-                            <li><a href="#">JavaScript in <head></a></li>
-                            <li><a href="#">JavaScript in <body></a></li>
-                            <li><a href="#">Data Type and Variable</a></li>
-                            <li><a href="#">Operators in Java</a></li>
+                            <li><a href="#">JavaScript in &lt;head&gt; or &lt;body&gt;</a></li>
+                            <li><a href="#">JavaScript in &lt;head&gt;</a></li>
+                            <li><a href="#">JavaScript in &lt;body&gt;</a></li>
+                            <li><a href="#">External JavaScript Advantages</a></li>
+                            <li><a href="#">External References</a></li>
                         </ul>
                     </div>
                 </div>
@@ -203,48 +203,117 @@ body {
 
             <!-- Content Section -->
             <section class="content">
-                <h1>What is Java?</h1>
-                <p>Java is a popular programming language, created in 1995.</p>
-                <p>It is owned by Oracle, and more than 3 billion devices run Java.</p>
-                <p>It is used for:</p>
-                <ul>
-                    <li>Mobile applications (especially Android apps)</li>
-                    <li>Desktop applications</li>
-                    <li>Web applications</li>
-                    <li>Web servers and application servers</li>
-                    <li>Games</li>
-                    <li>Database connections</li>
-                    <li>And much more!</li>
-                    <li>Mobile applications (especially Android apps)</li>
-                    <li>Desktop applications</li>
-                    <li>Web applications</li>
-                    <li>Web servers and application servers</li>
-                    <li>Games</li>
-                    <li>Database connections</li>
-                    <li>And much more!</li>
-                    <li>Mobile applications (especially Android apps)</li>
-                    <li>Desktop applications</li>
-                    <li>Web applications</li>
-                    <li>Web servers and application servers</li>
-                    <li>Games</li>
-                    <li>Database connections</li>
-                    <li>And much more!</li>
-                    <li>Mobile applications (especially Android apps)</li>
-                    <li>Desktop applications</li>
-                    <li>Web applications</li>
-                    <li>Web servers and application servers</li>
-                    <li>Games</li>
-                    <li>Database connections</li>
-                    <li>And much more!</li>
-                    <li>Mobile applications (especially Android apps)</li>
-                    <li>Desktop applications</li>
-                    <li>Web applications</li>
-                    <li>Web servers and application servers</li>
-                    <li>Games</li>
-                    <li>Database connections</li>
-                    <li>And much more!</li>
-        
-                </ul>
+            <section id="content1" class="content">
+            <h1>JavaScript Can Change HTML Content</h1>
+    <p>One of many JavaScript HTML methods is <code>getElementById()</code>.</p>
+    <p>The example below "finds" an HTML element (with id="demo"), and changes the element content (innerHTML) to "Hello JavaScript":</p>
+
+    <pre>
+document.getElementById("demo").innerHTML = "Hello JavaScript";
+    </pre>
+
+    <h2>Example Output</h2>
+    <div id="demo">This text will change when you run the JavaScript code.</div>
+
+    <script>
+        // Change the content of the demo element
+        document.getElementById("demo").innerHTML = "Hello JavaScript";
+    </script>
+
+    <h1>JavaScript Can Change HTML Styles (CSS)</h1>
+    <p>Changing the style of an HTML element is a variant of changing an HTML attribute:</p>
+    <pre>
+document.getElementById("demo").style.fontSize = "35px";
+    </pre>
+
+    <h2>JavaScript Can Hide HTML Elements</h2>
+    <p>Hiding HTML elements can be done by changing the display style:</p>
+    <pre>
+document.getElementById("demo").style.display = "none";
+    </pre>
+
+    <h2>JavaScript Can Show HTML Elements</h2>
+    <p>Showing hidden HTML elements can also be done by changing the display style:</p>
+    <pre>
+document.getElementById("demo").style.display = "block";
+    </pre>
+
+    <h2>Example Output</h2>
+    <div id="demo">This text will change its style and visibility based on JavaScript actions.</div>
+    <button onclick="changeStyle()">Change Style</button>
+    <button onclick="hideElement()">Hide Element</button>
+    <button onclick="showElement()">Show Element</button>
+
+    <script>
+        function changeStyle() {
+            document.getElementById("demo").style.fontSize = "35px";
+        }
+
+        function hideElement() {
+            document.getElementById("demo").style.display = "none";
+        }
+
+        function showElement() {
+            document.getElementById("demo").style.display = "block";
+        }
+    </script>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Style Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow: auto;
+        }
+        code {
+            background-color: #eef;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        #demo {
+            font-size: 20px; /* Initial font size */
+        }
+    </style>
+</head>
+<body>
+<h1>JavaScript Can Change HTML Content</h1>
+    <p>One of many JavaScript HTML methods is <code>getElementById()</code>.</p>
+    <p>The example below "finds" an HTML element (with id="demo"), and changes the element content (innerHTML) to "Hello JavaScript":</p>
+    <pre>
+document.getElementById("demo").innerHTML = "Hello JavaScript";
+    </pre>
+
+    <h2>JavaScript Can Change HTML Styles (CSS)</h2>
+    <p>Changing the style of an HTML element is a variant of changing an HTML attribute:</p>
+    <pre>
+document.getElementById("demo").style.fontSize = "35px";
+    </pre>
+
+    <h2>JavaScript Can Hide HTML Elements</h2>
+    <p>Hiding HTML elements can be done by changing the display style:</p>
+    <pre>
+document.getElementById("demo").style.display = "none";
+    </pre>
+
+    <h2>JavaScript Can Show HTML Elements</h2>
+    <p>Showing hidden HTML elements can also be done by changing the display style:</p>
+    <pre>
+document.getElementById("demo").style.display = "block";
+    </pre>
+
+    
+</body>
+</html>
+
             </section>
         </div>
     </div>
