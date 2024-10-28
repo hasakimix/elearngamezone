@@ -202,49 +202,100 @@ body {
             
 
             <!-- Content Section -->
-            <section class="content">
-                <h1>What is Java?</h1>
-                <p>Java is a popular programming language, created in 1995.</p>
-                <p>It is owned by Oracle, and more than 3 billion devices run Java.</p>
-                <p>It is used for:</p>
+            <section id="content1" class="content">
+                <h1>Module 1: Getting started with PHP</h1>
+                <p>PHP 7.x</p>
+                <p>Version Supported Until Release Date</p>
                 <ul>
-                    <li>Mobile applications (especially Android apps)</li>
-                    <li>Desktop applications</li>
-                    <li>Web applications</li>
-                    <li>Web servers and application servers</li>
-                    <li>Games</li>
-                    <li>Database connections</li>
-                    <li>And much more!</li>
-                    <li>Mobile applications (especially Android apps)</li>
-                    <li>Desktop applications</li>
-                    <li>Web applications</li>
-                    <li>Web servers and application servers</li>
-                    <li>Games</li>
-                    <li>Database connections</li>
-                    <li>And much more!</li>
-                    <li>Mobile applications (especially Android apps)</li>
-                    <li>Desktop applications</li>
-                    <li>Web applications</li>
-                    <li>Web servers and application servers</li>
-                    <li>Games</li>
-                    <li>Database connections</li>
-                    <li>And much more!</li>
-                    <li>Mobile applications (especially Android apps)</li>
-                    <li>Desktop applications</li>
-                    <li>Web applications</li>
-                    <li>Web servers and application servers</li>
-                    <li>Games</li>
-                    <li>Database connections</li>
-                    <li>And much more!</li>
-                    <li>Mobile applications (especially Android apps)</li>
-                    <li>Desktop applications</li>
-                    <li>Web applications</li>
-                    <li>Web servers and application servers</li>
-                    <li>Games</li>
-                    <li>Database connections</li>
-                    <li>And much more!</li>
-        
+                    <li>7.1 2019-12-01 2016-12-01</li>
+                    <li>7.0 2018-12-03 2015-12-03</li>
                 </ul>
+                <p>PHP 5.x</p>
+                <p>Version Supported Until Release Date</p>
+                <ul>
+                    <li>5.6 2018-12-31 2014-08-28</li>
+                    <li>5.5 2016-07-21 2013-06-20</li>
+                    <li>5.4 2015-09-03 2012-03-01</li>
+                    <li>5.3 2014-08-14 2009-06-30</li>
+                    <li>5.2 2011-01-06 2006-11-02</li>
+                    <li>5.1 2006-08-24 2005-11-24</li>
+                    <li>5.0 2005-09-05 2004-07-13</li>
+                </ul>
+                <p>PHP 4.x</p>
+                <p>Version Supported Until Release Date</p>
+                <ul>
+                    <li>4.4 2008-08-07 2005-07-11</li>
+                    <li>4.3 2005-03-31 2002-12-27</li>
+                    <li>4.2 2002-09-06 2002-04-22</li>
+                    <li>4.1 2002-03-12 2001-12-10</li>
+                    <li>4.0 2001-06-23 2000-05-22</li>
+                </ul><p>Legacy Version</p>
+                <p>Version Supported Until Release Date</p>
+                <ul>
+                    <li>3.0 2000-10-20 1998-06-06</li>
+                    <li>2.0 __________1997-11-01</li>
+                    <li>1.0 __________1995-06-08</li>
+                </ul>
+            </section>
+
+            <section id="content2" class="content" style="display: none;">
+                <h1>HTML output from web server</h1>
+                <p>PHP can be used to add content to HTML files. While HTML is processed directly by a web browser, PHP scripts are executed by a web server and the resulting HTML is sent to the browser.</p>
+                <p>The following HTML markup contains a PHP statement that will add Hello World! to the output:</p>
+                <pre>
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;title&gt;PHP!&lt;/title&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;p&gt;&lt;?php echo "Hello world!"; ?&gt;&lt;/p&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </pre>
+                <p>When this is saved as a PHP script and executed by a web server, the following HTML will be sent to the user's browser:</p>
+                <pre>
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;title&gt;PHP!&lt;/title&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;p&gt;&lt;Hello world!&gt;&lt;/p&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </pre>
+                <p>PHP 5.x Version ≥ 5.4</p>
+                <p>echo also has a shortcut syntax, which lets you immediately print a value. Prior to PHP 5.4.0, this short syntax only works with the short_open_tag configuration setting enabled.</p>
+                <p>For example, consider the following code:</p>
+                <pre>
+                    &lt;p&gt;&lt;?= "Hello world!" ?&gt;&lt;/p&gt;
+                </pre>
+                <p>Its output is identical to the output of the following:</p>
+                <pre>
+                    &lt;p&gt;&lt;?php echo "Hello world!"; ?&gt;&lt;/p&gt;
+                </pre>
+                <p>In real-world applications, all data output by PHP to an HTML page should be properly escaped to prevent XSS (Cross-site scripting) attacks or text corruption.</p>
+                <p>See also: Strings and PSR-1, which describes best practices, including the proper use of short tags.</p>
+            </section>
+            <section id="content3" class="content" style="display: none;">
+                <h1>Hello, World!</h1>
+                <p>The most widely used language construct to print output in PHP is echo:</p>
+                <pre>
+                    &lt;echo "Hello, World!\n";&gt;
+                </pre>
+                <p>Alternatively, you can also use print:</p>
+                <pre>
+                    &lt;print "Hello, World!\n";&gt;
+                </pre>
+                <p>Both statements perform the same function, with minor differences:</p>
+                <ul>
+                    <li>echo has a void return, whereas print returns an int with a value of 1</li>
+                    <li>echo can take multiple arguments (without parentheses only), whereas print only takes one argument</li>
+                    <li>echo is slightly faster than print</li>
+                </ul>
+                <p>Both echo and print are language constructs, not functions. That means they do not require parentheses around their arguments. For cosmetic consistency with functions, parentheses can be included. Extensive examples of the use of echo and print are available elsewhere.</p>
+                <p>C-style printf and related functions are available as well, as in the following example:</p>
             </section>
         </div>
     </div>
