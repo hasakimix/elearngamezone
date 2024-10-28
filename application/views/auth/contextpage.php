@@ -143,20 +143,30 @@ body {
 
 .content h1 {
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 35px;
 }
 
 .content p {
     margin-bottom: 15px;
+    font-size: 25px;
 }
 
 .content ul {
     list-style-type: disc;
-    padding-left: 20px;
+    padding-left: 25px;
 }
 
 .content ul li {
     margin-bottom: 10px;
+}
+pre {
+    padding: 20px;
+    margin-left: 0;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    font-family: monospace;
+    white-space: pre-wrap; /* Allows wrapping */
+    word-wrap: break-word; /* Prevents long lines from overflowing */
 }
 
 </style>
@@ -178,7 +188,7 @@ body {
                     </div>
                 </div>
                 <div class="module">
-                    <button class="collapsible">Module 1: JavaScript Introduction</button>
+                    <button class="collapsible">Module 2: JavaScript Introduction</button>
                     <div class="module-content">
                         <ul>
                             <li><a href="#">JavaScript in &lt;head&gt; or &lt;body&gt;</a></li>
@@ -190,7 +200,7 @@ body {
                     </div>
                 </div>
                 <div class="module">
-                    <button class="collapsible">Module 2: Introduction of Java</button>
+                    <button class="collapsible">Module 3: Introduction of Java</button>
                     <div class="module-content">
                         <ul>
                             <li><a href="#">Java Output</a></li>
@@ -202,94 +212,18 @@ body {
             
 
             <!-- Content Section -->
-            <section class="content">
+            
             <section id="content1" class="content">
-            <h1>JavaScript Can Change HTML Content</h1>
-    <p>One of many JavaScript HTML methods is <code>getElementById()</code>.</p>
-    <p>The example below "finds" an HTML element (with id="demo"), and changes the element content (innerHTML) to "Hello JavaScript":</p>
-
-    <pre>
-document.getElementById("demo").innerHTML = "Hello JavaScript";
-    </pre>
-
-    <h2>Example Output</h2>
-    <div id="demo">This text will change when you run the JavaScript code.</div>
-
-    <script>
-        // Change the content of the demo element
-        document.getElementById("demo").innerHTML = "Hello JavaScript";
-    </script>
-
-    <h1>JavaScript Can Change HTML Styles (CSS)</h1>
-    <p>Changing the style of an HTML element is a variant of changing an HTML attribute:</p>
-    <pre>
-document.getElementById("demo").style.fontSize = "35px";
-    </pre>
-
-    <h2>JavaScript Can Hide HTML Elements</h2>
-    <p>Hiding HTML elements can be done by changing the display style:</p>
-    <pre>
-document.getElementById("demo").style.display = "none";
-    </pre>
-
-    <h2>JavaScript Can Show HTML Elements</h2>
-    <p>Showing hidden HTML elements can also be done by changing the display style:</p>
-    <pre>
-document.getElementById("demo").style.display = "block";
-    </pre>
-
-    <h2>Example Output</h2>
-    <div id="demo">This text will change its style and visibility based on JavaScript actions.</div>
-    <button onclick="changeStyle()">Change Style</button>
-    <button onclick="hideElement()">Hide Element</button>
-    <button onclick="showElement()">Show Element</button>
-
-    <script>
-        function changeStyle() {
-            document.getElementById("demo").style.fontSize = "35px";
-        }
-
-        function hideElement() {
-            document.getElementById("demo").style.display = "none";
-        }
-
-        function showElement() {
-            document.getElementById("demo").style.display = "block";
-        }
-    </script>
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Style Manipulation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        pre {
-            background-color: #f4f4f4;
-            padding: 10px;
-            border: 1px solid #ddd;
-            overflow: auto;
-        }
-        code {
-            background-color: #eef;
-            padding: 2px 4px;
-            border-radius: 4px;
-        }
-        #demo {
-            font-size: 20px; /* Initial font size */
-        }
-    </style>
-</head>
-<body>
-<h1>JavaScript Can Change HTML Content</h1>
+           <h1>JavaScript Can Change HTML Content</h1>
     <p>One of many JavaScript HTML methods is <code>getElementById()</code>.</p>
     <p>The example below "finds" an HTML element (with id="demo"), and changes the element content (innerHTML) to "Hello JavaScript":</p>
     <pre>
 document.getElementById("demo").innerHTML = "Hello JavaScript";
+    </pre>
+
+    <p>JavaScript accepts both double and single quotes:</p>
+    <pre>
+document.getElementById('demo').innerHTML = 'Hello JavaScript';
     </pre>
 
     <h2>JavaScript Can Change HTML Styles (CSS)</h2>
@@ -310,7 +244,125 @@ document.getElementById("demo").style.display = "none";
 document.getElementById("demo").style.display = "block";
     </pre>
 
-    
+    <h2>Example Output</h2>
+    <div id="demo">This text can be changed, hidden, or shown again.</div>
+</section>
+    <section id="content2" class="content" style="display: none;">
+    <h1>The <code>&lt;script&gt;</code> Tag</h1>
+    <p>In HTML, JavaScript code is inserted between <code>&lt;script&gt;</code> and <code>&lt;/script&gt;</code> tags.</p>
+    <p>Example:</p>
+    <pre>
+&lt;script&gt;
+document.getElementById("demo").innerHTML = "My First JavaScript";
+&lt;/script&gt;
+    </pre>
+
+    <h2>JavaScript Functions and Events</h2>
+    <p>A JavaScript function is a block of JavaScript code that can be executed when "called" for.</p>
+    <p>For example, a function can be called when an event occurs, like when the user clicks a button.</p>
+
+    <h2>JavaScript in <code>&lt;head&gt;</code> or <code>&lt;body&gt;</code></h2>
+    <p>You can place any number of scripts in an HTML document.</p>
+    <p>Scripts can be placed in the <code>&lt;body&gt;</code>, or in the <code>&lt;head&gt;</code> section of an HTML page, or in both.</p>
+
+    <h3>JavaScript in <code>&lt;head&gt;</code></h3>
+    <p>In this example, a JavaScript function is placed in the <code>&lt;head&gt;</code> section of an HTML page.</p>
+    <p>The function is invoked (called) when a button is clicked:</p>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script&gt;
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Demo JavaScript in Head&lt;/h2&gt;
+
+&lt;p id="demo"&gt;A Paragraph&lt;/p&gt;
+&lt;button type="button" onclick="myFunction()"&gt;Try it&lt;/button&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+
+    <h3>JavaScript in <code>&lt;body&gt;</code></h3>
+    <p>In this example, a JavaScript function is placed in the <code>&lt;body&gt;</code> section of an HTML page.</p>
+    <p>The function is invoked (called) when a button is clicked:</p>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h2&gt;Demo JavaScript in Body&lt;/h2&gt;
+
+&lt;p id="demo"&gt;A Paragraph&lt;/p&gt;
+
+&lt;button type="button" onclick="myFunction()"&gt;Try it&lt;/button&gt;
+
+&lt;script&gt;
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+
+    <h2>External JavaScript</h2>
+    <p>Scripts can also be placed in external files:</p>
+    <p>External file: <code>myScript.js</code></p>
+    <pre>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+    </pre>
+    <p>External scripts are practical when the same code is used in many different web pages.</p>
+    <p>JavaScript files have the file extension <code>.js</code>.</p>
+    <p>To use an external script, put the name of the script file in the <code>src</code> (source) attribute of a <code>&lt;script&gt;</code> tag:</p>
+    <pre>
+&lt;script src="myScript.js"&gt;&lt;/script&gt;
+    </pre>
+
+    <h2>External JavaScript Advantages</h2>
+    <p>Placing scripts in external files has some advantages:</p>
+    <ul>
+        <li>It separates HTML and code</li>
+        <li>It makes HTML and JavaScript easier to read and maintain</li>
+        <li>Cached JavaScript files can speed up page loads</li>
+    </ul>
+    <p>To add several script files to one page - use several script tags:</p>
+    <pre>
+&lt;script src="myScript1.js"&gt;&lt;/script&gt;
+&lt;script src="myScript2.js"&gt;&lt;/script&gt;
+    </pre>
+
+    <h2>External References</h2>
+    <p>An external script can be referenced in 3 different ways:</p>
+    <ul>
+        <li>With a full URL (a full web address)</li>
+        <li>With a file path (like <code>/js/</code>)</li>
+        <li>Without any path</li>
+    </ul>
+    <p>This example uses a full URL to link to <code>myScript.js</code>:</p>
+    <pre>
+&lt;script src="https://www.w3schools.com/js/myScript.js"&gt;&lt;/script&gt;
+    </pre>
+    <p>This example uses a file path to link to <code>myScript.js</code>:</p>
+    <pre>
+&lt;script src="/js/myScript.js"&gt;&lt;/script&gt;
+    </pre>
+    <p>This example uses no path to link to <code>myScript.js</code>:</p>
+    <pre>
+&lt;script src="myScript.js"&gt;&lt;/script&gt;
+    </pre>
+    </section>
+           
+    </div>
+    </div>
 </body>
 </html>
 
