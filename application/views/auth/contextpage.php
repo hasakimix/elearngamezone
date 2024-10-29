@@ -360,16 +360,6 @@ function myFunction() {
 &lt;script src="myScript.js"&gt;&lt;/script&gt;
     </pre>
     </section>
-           
-    </div>
-    </div>
-</body>
-</html>
-
-            </section>
-        </div>
-    </div>
-</body>
 <script>
     window.onload = function() {
     const openPopupBtn = document.querySelector("#open-popup");
@@ -397,14 +387,48 @@ function myFunction() {
         }
     });
 
-    // Collapsible functionality for each module
+    // Collapsible functionality for modules
     const collapsibleButtons = document.querySelectorAll(".collapsible");
+    const content1 = document.getElementById("content1");
+    const content2 = document.getElementById("content2");
+    
 
     collapsibleButtons.forEach(button => {
         button.addEventListener("click", function() {
             this.classList.toggle("active");
             const content = this.nextElementSibling;
             content.style.display = content.style.display === "block" ? "none" : "block";
+
+            // Reset all content to hidden when a collapsible button is clicked
+            content1.style.display = "none";
+            content2.style.display = "none";
+            
+            // Show content1 when any collapsible button is clicked
+            content1.style.display = "block";
+        });
+    });
+
+    // Content toggle based on link clicks
+    const links = document.querySelectorAll(".module-content ul li a");
+
+    links.forEach(link => {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+
+            // Hide all content sections initially
+            content1.style.display = "none";
+            content2.style.display = "none";
+            
+            // Show the corresponding content based on link text
+            if (this.textContent === "JavaScript in <head> or <body>") {
+                content2.style.display = "block";
+            } else if (this.textContent === "JavaScript in <head>") {
+                content3.style.display = "block";
+            
+            } else {
+                // Default to content1 for other cases (like the module header)
+                content1.style.display = "block";
+            }
         });
     });
 };
