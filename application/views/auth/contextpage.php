@@ -188,7 +188,7 @@ pre {
                     </div>
                 </div>
                 <div class="module">
-                    <button class="collapsible">Module 2: JavaScript Introduction</button>
+                    <button class="collapsible"data-module='module2'>Module 2: JavaScript Introduction</button>
                     <div class="module-content">
                         <ul>
                         <li><a href="#" data-target='content-accessing-variable'>Accessing A Variable Dynamically By Name (Variable variable)</a></li>
@@ -200,7 +200,7 @@ pre {
                     </div>
                 </div>
                 <div class="module">
-                    <button class="collapsible">Module 3: Introduction of Java</button>
+                    <button class="collapsible"data-module='module3'>Module 3: Introduction of Java</button>
                     <div class="module-content">
                         <ul>
                             <li><a href="#">Java Output</a></li>
@@ -789,6 +789,8 @@ document.getElementById("myH").innerHTML = "My First Page";
 document.getElementById("myP").innerHTML = "My first paragraph.";
 */
     </section>
+    <!-- Content Sections for Module 2 -->
+     
 <script>
     window.onload = function() {
     const openPopupBtn = document.querySelector("#open-popup");
