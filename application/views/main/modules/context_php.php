@@ -211,7 +211,7 @@ pre {
                         </ul>
                     </div>
                 </div>
-                <div class="module">
+                <!--<div class="module">
                     <button class="collapsible">Module 4: Superglobal Variables PHP</button>
                     <div class="module-content">
                         <ul>
@@ -232,7 +232,7 @@ pre {
                             <li><a href="#">Output a Multidimensional Array with index and value and print into the table</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             </aside>
             
 
