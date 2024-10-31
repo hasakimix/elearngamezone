@@ -190,7 +190,7 @@ th, td {
                     <button class="collapsible"data-module='module1'>Module 1: Introduction of Java</button>
                     <div class="module-content">
                         <ul>
-                        <li><a href= "#"data-target='content-JavaScript-Where To'>JavaScript Where To</a></li>
+                            <li><a href="#"data-target='content-JavaScript-Where To'>JavaScript Where To</a></li>
                             <li><a href="#"data-target='content-JavaScript-Output'>JavaScript Output</a></li>
                             <li><a href="#"data-target='content-JavaScript-Statements'>JavaScript Statements</a></li>
                             <li><a href="#"data-target='content-JavaScript-Syntax'>JavaScript Syntax</a></li>
@@ -202,37 +202,23 @@ th, td {
                     <button class="collapsible"data-module='module2'>Module 2: JavaScript Variables</button>
                     <div class="module-content">
                         <ul>
-<<<<<<< HEAD
-                        <li><a href="#" data-target='content-JavaScript-Variables'>JavaScript Variables</a></li>
-                        <li><a href="#" data-target='content-JavaScript-Let'>JavaScript Let</a></li>
-                        <li><a href="#" data-target='content-JavaScript-Const'>JavaScript Const</a></li>
-                        <li><a href="#" data-target='content-JavaScript-Operators'>JavaScript Operators</a></li>
-                        <li><a href="#" data-target='content-JavaScript-Arithmetic'>JavaScript Arithmetic</a></li>
-=======
-                        <li><a href="#" data-target='content-'>Accessing A Variable Dynamically By Name (Variable variable)</a></li>
-                        <li><a href="#" data-target='content-'>Data Type</a></li>
-                        <li><a href="#" data-target='content-'>Global Variable Best Practice</a></li>
-                        <li><a href="#" data-target='content-'>Default Values of Uninitialized Variables</a></li>
-                        <li><a href="#" data-target='content-'>Variable Value Truthiness And Identical Operator</a></li>
->>>>>>> 0a418a76be122e1aebea657efaa7836a25f60618
+                            <li><a href="#" data-target='content-JavaScript-Variables'>JavaScript Variables</a></li>
+                            <li><a href="#" data-target='content-JavaScript-Let'>JavaScript Let</a></li>
+                            <li><a href="#" data-target='content-JavaScript-Const'>JavaScript Const</a></li>
+                            <li><a href="#" data-target='content-JavaScript-Operators'>JavaScript Operators</a></li>
+                            <li><a href="#" data-target='content-JavaScript-Arithmetic'>JavaScript Arithmetic</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="module">
                     <button class="collapsible"data-module='module3'>Module 3: JavaScript Data Types</button>
                     <div class="module-content">
-<<<<<<< HEAD
-                    <ul>
-                        <li><a href="#" data-target='content-JavaScript-Data-Types'>JavaScript Data Types</a></li>
-                        <li><a href="#" data-target='content-JavaScript-Assignment'>JavaScript Assignment</a></li>
-                        <li><a href="#" data-target='content-JavaScript-Functions'>JavaScript Functions</a></li>
-                        <li><a href="#" data-target='content-JavaScript-Objects'>JavaScript Objects</a></li>
-                        <li><a href="#" data-target='content-JavaScript-Object-Properties'>JavaScript Object Properties</a></li>
-=======
                         <ul>
-                            <li><a href="#" data-target='content-java-output'>Java Output</a></li>
-                            <li><a href="#" data-target='content-print-text'>Print Text</a></li>
->>>>>>> 0a418a76be122e1aebea657efaa7836a25f60618
+                            <li><a href="#" data-target='content-JavaScript-Data-Types'>JavaScript Data Types</a></li>
+                            <li><a href="#" data-target='content-JavaScript-Assignment'>JavaScript Assignment</a></li>
+                            <li><a href="#" data-target='content-JavaScript-Functions'>JavaScript Functions</a></li>
+                            <li><a href="#" data-target='content-JavaScript-Objects'>JavaScript Objects</a></li>
+                            <li><a href="#" data-target='content-JavaScript-Object-Properties'>JavaScript Object Properties</a></li>
                         </ul>
                     </div>
                 </div>
@@ -817,9 +803,9 @@ document.getElementById("myH").innerHTML = "My First Page";
 document.getElementById("myP").innerHTML = "My first paragraph.";
 */
     </section>
-    <!-- Content Sections for Module 2 -->
-<<<<<<< HEAD
-    <section id="content-JavaScript-Variables" class="content" style="display: none;">
+
+        <!-- Content Sections for Module 2 -->
+        <section id="content-JavaScript-Variables" class="content" style="display: none;">
     <h1>JavaScript Variables</h1>
 <p>Variables are containers for storing data.</p>
 <p>JavaScript Variables can be declared in 4 ways:</p>
@@ -2266,23 +2252,9 @@ myObj["myCars"]["car2"];</pre>
 let p2 = "car2";
 myObj[p1][p2];</pre>
     </section>
-    
-                        
-     
-=======
-    <section id="content-" class="content" style="display: none;">
-        <h1>asdadas</h1>
-    </section>
-    
-    <!-- Content Sections for Module 2 -->
-    <section id="content-java-output" class="content" style="display: none;">
-        <h1>asdadasd</h1>
-    </section>
-    <section id="content-print-text" class="content" style="display: none;">
-        <h1>asdadasd</h1>
-    </section>
->>>>>>> 0a418a76be122e1aebea657efaa7836a25f60618
+
 <script>
+
     window.onload = function() {
     // Popup and collapsible functionality
     const openPopupBtn = document.querySelector("#open-popup");
@@ -2330,10 +2302,10 @@ myObj[p1][p2];</pre>
         if (module === "module1") {
                 content1.style.display = "block"; // Show Module 1 content
             } else if (module === "module2") {
-                document.getElementById("content-").style.display = "block"; // Show Module 2 content
+                document.getElementById("content-JavaScript-Variables").style.display = "block"; // Show Module 2 content
             } else if (module === "module3") {
                 // Show Module 3 default content (Superglobal Variables)
-                const superglobalContent = document.getElementById("content-");
+                const superglobalContent = document.getElementById("content-JavaScript-Data-Types");
                 superglobalContent.style.display = "block";
             }
         });
