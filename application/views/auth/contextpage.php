@@ -202,23 +202,37 @@ th, td {
                     <button class="collapsible"data-module='module2'>Module 2: JavaScript Variables</button>
                     <div class="module-content">
                         <ul>
+<<<<<<< HEAD
                         <li><a href="#" data-target='content-JavaScript-Variables'>JavaScript Variables</a></li>
                         <li><a href="#" data-target='content-JavaScript-Let'>JavaScript Let</a></li>
                         <li><a href="#" data-target='content-JavaScript-Const'>JavaScript Const</a></li>
                         <li><a href="#" data-target='content-JavaScript-Operators'>JavaScript Operators</a></li>
                         <li><a href="#" data-target='content-JavaScript-Arithmetic'>JavaScript Arithmetic</a></li>
+=======
+                        <li><a href="#" data-target='content-'>Accessing A Variable Dynamically By Name (Variable variable)</a></li>
+                        <li><a href="#" data-target='content-'>Data Type</a></li>
+                        <li><a href="#" data-target='content-'>Global Variable Best Practice</a></li>
+                        <li><a href="#" data-target='content-'>Default Values of Uninitialized Variables</a></li>
+                        <li><a href="#" data-target='content-'>Variable Value Truthiness And Identical Operator</a></li>
+>>>>>>> 0a418a76be122e1aebea657efaa7836a25f60618
                         </ul>
                     </div>
                 </div>
                 <div class="module">
-                    <button class="collapsible"data-module='module3'>Module 3: Introduction of Java</button>
+                    <button class="collapsible"data-module='module3'>Module 3: JavaScript Data Types</button>
                     <div class="module-content">
+<<<<<<< HEAD
                     <ul>
                         <li><a href="#" data-target='content-JavaScript-Data-Types'>JavaScript Data Types</a></li>
                         <li><a href="#" data-target='content-JavaScript-Assignment'>JavaScript Assignment</a></li>
                         <li><a href="#" data-target='content-JavaScript-Functions'>JavaScript Functions</a></li>
                         <li><a href="#" data-target='content-JavaScript-Objects'>JavaScript Objects</a></li>
                         <li><a href="#" data-target='content-JavaScript-Object-Properties'>JavaScript Object Properties</a></li>
+=======
+                        <ul>
+                            <li><a href="#" data-target='content-java-output'>Java Output</a></li>
+                            <li><a href="#" data-target='content-print-text'>Print Text</a></li>
+>>>>>>> 0a418a76be122e1aebea657efaa7836a25f60618
                         </ul>
                     </div>
                 </div>
@@ -804,6 +818,7 @@ document.getElementById("myP").innerHTML = "My first paragraph.";
 */
     </section>
     <!-- Content Sections for Module 2 -->
+<<<<<<< HEAD
     <section id="content-JavaScript-Variables" class="content" style="display: none;">
     <h1>JavaScript Variables</h1>
 <p>Variables are containers for storing data.</p>
@@ -2254,55 +2269,77 @@ myObj[p1][p2];</pre>
     
                         
      
+=======
+    <section id="content-" class="content" style="display: none;">
+        <h1>asdadas</h1>
+    </section>
+    
+    <!-- Content Sections for Module 2 -->
+    <section id="content-java-output" class="content" style="display: none;">
+        <h1>asdadasd</h1>
+    </section>
+    <section id="content-print-text" class="content" style="display: none;">
+        <h1>asdadasd</h1>
+    </section>
+>>>>>>> 0a418a76be122e1aebea657efaa7836a25f60618
 <script>
     window.onload = function() {
+    // Popup and collapsible functionality
     const openPopupBtn = document.querySelector("#open-popup");
     const closePopupBtn = document.querySelector(".popup .close-btn");
 
-    // Check if openPopupBtn exists
     if (openPopupBtn) {
         openPopupBtn.addEventListener("click", function(e) {
-            e.preventDefault(); // Prevent default behavior
-            document.body.classList.add("active-popup");
+            e.preventDefault();
+        document.body.classList.add("active-popup");
         });
     }
 
-    // Close Popup
     if (closePopupBtn) {
         closePopupBtn.addEventListener("click", function() {
             document.body.classList.remove("active-popup");
         });
     }
 
-    // Close the popup if clicked outside of it
     window.addEventListener("click", function(e) {
-        if (e.target.classList.contains("popup")) {
+    if (e.target.classList.contains("popup")) {
             document.body.classList.remove("active-popup");
         }
     });
 
-    // Collapsible functionality for modules
+    // Collapsible functionality and default content display based on module
     const collapsibleButtons = document.querySelectorAll(".collapsible");
-    const content1 = document.getElementById("content1");
-    const content2 = document.getElementById("content2");
-    
+    const content1 = document.getElementById("content1"); // Reference to Module 1 default content
+
+    // Initially hide all content sections and display content1 for Module 1
+    const contentSections = document.querySelectorAll(".content");
+    contentSections.forEach(section => section.style.display = "none");
+    content1.style.display = "block"; // Show Module 1 content by default
 
     collapsibleButtons.forEach(button => {
-        button.addEventListener("click", function() {
-            this.classList.toggle("active");
-            const content = this.nextElementSibling;
-            content.style.display = content.style.display === "block" ? "none" : "block";
+    button.addEventListener("click", function() {
+        // Toggle the collapsible button
+        this.classList.toggle("active");
+        const content = this.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
 
-            // Reset all content to hidden when a collapsible button is clicked
-            content1.style.display = "none";
-            content2.style.display = "none";
-            
-            // Show content1 when any collapsible button is clicked
-            content1.style.display = "block";
+        // Hide all content sections initially
+        contentSections.forEach(section => section.style.display = "none");
+
+        const module = this.getAttribute("data-module");
+        if (module === "module1") {
+                content1.style.display = "block"; // Show Module 1 content
+            } else if (module === "module2") {
+                document.getElementById("content-").style.display = "block"; // Show Module 2 content
+            } else if (module === "module3") {
+                // Show Module 3 default content (Superglobal Variables)
+                const superglobalContent = document.getElementById("content-");
+                superglobalContent.style.display = "block";
+            }
         });
     });
 
-    // Content toggle based on link clicks
+    // Content toggle based on link clicks in Module 3
     const links = document.querySelectorAll(".module-content ul li a");
 
     links.forEach(link => {
@@ -2310,18 +2347,13 @@ myObj[p1][p2];</pre>
             e.preventDefault();
 
             // Hide all content sections initially
-            content1.style.display = "none";
-            content2.style.display = "none";
-            
-            // Show the corresponding content based on link text
-            if (this.textContent === "JavaScript in <head> or <body>") {
-                content2.style.display = "block";
-            } else if (this.textContent === "JavaScript in <head>") {
-                content3.style.display = "block";
-            
-            } else {
-                // Default to content1 for other cases (like the module header)
-                content1.style.display = "block";
+            contentSections.forEach(section => section.style.display = "none");
+
+            // Show the content based on the link's data-target attribute
+            const targetContentId = this.getAttribute("data-target");
+            const targetContent = document.getElementById(targetContentId);
+            if (targetContent) {
+                targetContent.style.display = "block"; // Display the specific content
             }
         });
     });
