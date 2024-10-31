@@ -176,31 +176,31 @@ pre {
             <aside class="sidebar">
                 <button class="back-btn">&larr;</button>
                 <div class="module">
-                    <button class="collapsible">Module 1: Introduction of Java</button>
+                    <button class="collapsible"data-module='module1'>Module 1: Introduction of Java</button>
                     <div class="module-content">
                         <ul>
-                        <li><a href="#">JavaScript in &lt;head&gt; or &lt;body&gt;</a></li>
-                            <li><a href="#">JavaScript in &lt;head&gt;</a></li>
-                            <li><a href="#">JavaScript in &lt;body&gt;</a></li>
-                            <li><a href="#">External JavaScript Advantages</a></li>
-                            <li><a href="#">External References</a></li>
+                        <li><a href= "#"data-target='content-JavaScript-Where To'>JavaScript Where To</a></li>
+                            <li><a href="#"data-target='content-JavaScript-Output'>JavaScript Output</a></li>
+                            <li><a href="#"data-target='content-JavaScript-Statements'>JavaScript Statements</a></li>
+                            <li><a href="#"data-target='content-JavaScript-Syntax'>JavaScript Syntax</a></li>
+                            <li><a href="#"data-target='content-JavaScript-Comments'>JavaScript Comments</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="module">
-                    <button class="collapsible">Module 2: JavaScript Introduction</button>
+                    <button class="collapsible"data-module='module2'>Module 2: JavaScript Introduction</button>
                     <div class="module-content">
                         <ul>
-                            <li><a href="#">JavaScript in &lt;head&gt; or &lt;body&gt;</a></li>
-                            <li><a href="#">JavaScript in &lt;head&gt;</a></li>
-                            <li><a href="#">JavaScript in &lt;body&gt;</a></li>
-                            <li><a href="#">External JavaScript Advantages</a></li>
-                            <li><a href="#">External References</a></li>
+                        <li><a href="#" data-target='content-accessing-variable'>Accessing A Variable Dynamically By Name (Variable variable)</a></li>
+                        <li><a href="#" data-target='content-data-type'>Data Type</a></li>
+                        <li><a href="#" data-target='content-global-best-practice'>Global Variable Best Practice</a></li>
+                        <li><a href="#" data-target='content-default-values'>Default Values of Uninitialized Variables</a></li>
+                        <li><a href="#" data-target='content-truthiness'>Variable Value Truthiness And Identical Operator</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="module">
-                    <button class="collapsible">Module 3: Introduction of Java</button>
+                    <button class="collapsible"data-module='module3'>Module 3: Introduction of Java</button>
                     <div class="module-content">
                         <ul>
                             <li><a href="#">Java Output</a></li>
@@ -213,7 +213,7 @@ pre {
 
             <!-- Content Section -->
             
-            <section id="content1" class="content">
+            <section id="content1" class="content" style="display: none;">
            <h1>JavaScript Can Change HTML Content</h1>
     <p>One of many JavaScript HTML methods is <code>getElementById()</code>.</p>
     <p>The example below "finds" an HTML element (with id="demo"), and changes the element content (innerHTML) to "Hello JavaScript":</p>
@@ -247,7 +247,7 @@ document.getElementById("demo").style.display = "block";
     <h2>Example Output</h2>
     <div id="demo">This text can be changed, hidden, or shown again.</div>
 </section>
-    <section id="content2" class="content" style="display: none;">
+    <section id="content-JavaScript-Where To" class="content" style="display: none;">
     <h1>The <code>&lt;script&gt;</code> Tag</h1>
     <p>In HTML, JavaScript code is inserted between <code>&lt;script&gt;</code> and <code>&lt;/script&gt;</code> tags.</p>
     <p>Example:</p>
@@ -360,6 +360,437 @@ function myFunction() {
 &lt;script src="myScript.js"&gt;&lt;/script&gt;
     </pre>
     </section>
+    <section id="content-JavaScript-Output" class="content" style="display: none;">
+    <h1>JavaScript Display Possibilities</h1>
+<p>JavaScript can "display" data in different ways:</p>
+<ul>
+    <li>Writing into an HTML element, using <code>innerHTML</code>.</li>
+    <li>Writing into the HTML output using <code>document.write()</code>.</li>
+    <li>Writing into an alert box, using <code>window.alert()</code>.</li>
+    <li>Writing into the browser console, using <code>console.log()</code>.</li>
+</ul>
+
+<h2>Using <code>innerHTML</code></h2>
+<p>To access an HTML element, JavaScript can use the <code>document.getElementById(id)</code> method.</p>
+<p>The id attribute defines the HTML element. The innerHTML property defines the HTML content:</p>
+
+<h3>Example</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;My First Web Page&lt;/h1&gt;
+&lt;p&gt;My First Paragraph&lt;/p&gt;
+
+&lt;p id="demo"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+document.getElementById("demo").innerHTML = 5 + 6;
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>Changing the <code>innerHTML</code> property of an HTML element is a common way to display data in HTML.</p>
+
+<h2>Using <code>document.write()</code></h2>
+<p>For testing purposes, it is convenient to use <code>document.write()</code>:</p>
+
+<h3>Example</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;My First Web Page&lt;/h1&gt;
+&lt;p&gt;My first paragraph.&lt;/p&gt;
+
+&lt;script&gt;
+document.write(5 + 6);
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>Using <code>document.write()</code> after an HTML document is loaded will delete all existing HTML:</p>
+
+<h3>Example</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;My First Web Page&lt;/h1&gt;
+&lt;p&gt;My first paragraph.&lt;/p&gt;
+
+&lt;button type="button" onclick="document.write(5 + 6)"&gt;Try it&lt;/button&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>The <code>document.write()</code> method should only be used for testing.</p>
+
+<h2>Using <code>window.alert()</code></h2>
+<p>You can use an alert box to display data:</p>
+
+<h3>Example</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;My First Web Page&lt;/h1&gt;
+&lt;p&gt;My first paragraph.&lt;/p&gt;
+
+&lt;script&gt;
+window.alert(5 + 6);
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>You can skip the window keyword.</p>
+
+<h2>Using <code>console.log()</code></h2>
+<p>For debugging purposes, you can call the <code>console.log()</code> method in the browser to display data.</p>
+
+<h3>Example</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;script&gt;
+console.log(5 + 6);
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h2>JavaScript Print</h2>
+<p>JavaScript does not have any print object or print methods.</p>
+<p>The only exception is that you can call the <code>window.print()</code> method in the browser to print the content of the current window.</p>
+
+<h3>Example</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;button onclick="window.print()"&gt;Print this page&lt;/button&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+    </section>
+    <section id="content-JavaScript-Statements" class="content" style="display: none;">
+    <h1>JavaScript Statements</h1>
+
+<h2>Example</h2>
+<pre>
+let x, y, z;    // Statement 1
+x = 5;          // Statement 2
+y = 6;          // Statement 3
+z = x + y;      // Statement 4
+</pre>
+
+<h2>JavaScript Programs</h2>
+<p>A computer program is a list of "instructions" to be "executed" by a computer.</p>
+<p>In a programming language, these programming instructions are called statements.</p>
+<p>A JavaScript program is a list of programming statements.</p>
+<p>In HTML, JavaScript programs are executed by the web browser.</p>
+
+<h2>JavaScript Statements</h2>
+<p>JavaScript statements are composed of:</p>
+<ul>
+    <li>Values, Operators, Expressions, Keywords, and Comments.</li>
+</ul>
+<p>This statement tells the browser to write "Hello Dolly." inside an HTML element with id="demo":</p>
+<pre>
+document.getElementById("demo").innerHTML = "Hello Dolly.";
+</pre>
+<p>Most JavaScript programs contain many JavaScript statements.</p>
+<p>The statements are executed, one by one, in the same order as they are written.</p>
+<p>JavaScript programs (and JavaScript statements) are often called JavaScript code.</p>
+
+<h2>Semicolons ;</h2>
+<p>Semicolons separate JavaScript statements.</p>
+<p>Add a semicolon at the end of each executable statement:</p>
+<pre>
+let a, b, c;  // Declare 3 variables
+a = 5;        // Assign the value 5 to a
+b = 6;        // Assign the value 6 to b
+c = a + b;    // Assign the sum of a and b to c
+</pre>
+<p>When separated by semicolons, multiple statements on one line are allowed:</p>
+<pre>
+a = 5; b = 6; c = a + b;
+</pre>
+<p>On the web, you might see examples without semicolons. Ending statements with a semicolon is not required, but highly recommended.</p>
+
+<h2>JavaScript White Space</h2>
+<p>JavaScript ignores multiple spaces. You can add white space to your script to make it more readable.</p>
+<p>The following lines are equivalent:</p>
+<pre>
+let person = "Hege";
+let person="Hege";
+</pre>
+<p>A good practice is to put spaces around operators ( = + - * / ): </p>
+<pre>
+let x = y + z;
+</pre>
+
+<h2>JavaScript Line Length and Line Breaks</h2>
+<p>For best readability, programmers often like to avoid code lines longer than 80 characters.</p>
+<p>If a JavaScript statement does not fit on one line, the best place to break it is after an operator:</p>
+<pre>
+document.getElementById("demo").innerHTML =
+"Hello Dolly!";
+</pre>
+
+<h2>JavaScript Code Blocks</h2>
+<p>JavaScript statements can be grouped together in code blocks, inside curly brackets {...}.</p>
+<p>The purpose of code blocks is to define statements to be executed together.</p>
+<p>One place you will find statements grouped together in blocks is in JavaScript functions:</p>
+<pre>
+function myFunction() {
+  document.getElementById("demo1").innerHTML = "Hello Dolly!";
+  document.getElementById("demo2").innerHTML = "How are you?";
+}
+</pre>
+<p>In this tutorial, we use 2 spaces of indentation for code blocks. You will learn more about functions later in this tutorial.</p>
+
+<h2>JavaScript Keywords</h2>
+<p>JavaScript statements often start with a keyword to identify the JavaScript action to be performed.</p>
+<p>Here is a list of some of the keywords you will learn about in this tutorial:</p>
+<table border="1" style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th>Keyword</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>var</td>
+            <td>Declares a variable</td>
+        </tr>
+        <tr>
+            <td>let</td>
+            <td>Declares a block variable</td>
+        </tr>
+        <tr>
+            <td>const</td>
+            <td>Declares a block constant</td>
+        </tr>
+        <tr>
+            <td>if</td>
+            <td>Marks a block of statements to be executed on a condition</td>
+        </tr>
+        <tr>
+            <td>switch</td>
+            <td>Marks a block of statements to be executed in different cases</td>
+        </tr>
+        <tr>
+            <td>for</td>
+            <td>Marks a block of statements to be executed in a loop</td>
+        </tr>
+        <tr>
+            <td>function</td>
+            <td>Declares a function</td>
+        </tr>
+        <tr>
+            <td>return</td>
+            <td>Exits a function</td>
+        </tr>
+        <tr>
+            <td>try</td>
+            <td>Implements error handling to a block of statements</td>
+        </tr>
+    </tbody>
+</table>
+<p>JavaScript keywords are reserved words. Reserved words cannot be used as names for variables.</p>
+    </section>
+    <section id="content-JavaScript-Syntax" class="content" style="display: none;">
+    <h1>JavaScript Syntax</h1>
+
+<h2>Creating Variables</h2>
+<pre>
+// How to create variables:
+var x;
+let y;
+
+// How to use variables:
+x = 5;
+y = 6;
+let z = x + y;
+</pre>
+
+<h2>JavaScript Values</h2>
+<p>The JavaScript syntax defines two types of values:</p>
+<ul>
+    <li>Fixed values</li>
+    <li>Variable values</li>
+</ul>
+<p>Fixed values are called <strong>Literals</strong>.</p>
+
+<h2>JavaScript Literals</h2>
+<p>The two most important syntax rules for fixed values are:</p>
+<ol>
+    <li>Numbers are written with or without decimals:</li>
+    <pre>10.50</pre>
+    <pre>1001</pre>
+
+    <li>Strings are text, written within double or single quotes:</li>
+    <pre>"John Doe"</pre>
+    <pre>'John Doe'</pre>
+</ol>
+
+<h2>JavaScript Variables</h2>
+<p>In a programming language, variables are used to store data values.</p>
+<p>JavaScript uses the keywords <code>var</code>, <code>let</code>, and <code>const</code> to declare variables.</p>
+<p>An equal sign is used to assign values to variables. For example:</p>
+<pre>
+let x;
+x = 6;
+</pre>
+
+<h2>JavaScript Operators</h2>
+<p>JavaScript uses arithmetic operators (<code> + - * / </code>) to compute values:</p>
+<pre>(5 + 6) * 10</pre>
+
+<p>JavaScript uses an assignment operator (<code>=</code>) to assign values to variables:</p>
+<pre>
+let x, y;
+x = 5;
+y = 6;
+</pre>
+
+<h2>JavaScript Expressions</h2>
+<p>An expression is a combination of values, variables, and operators, which computes to a value. For example:</p>
+<pre>5 * 10</pre>
+
+<p>Expressions can also contain variable values:</p>
+<pre>x * 10</pre>
+
+<p>The values can be of various types, such as numbers and strings:</p>
+<pre>"John" + " " + "Doe"</pre>
+
+<h2>JavaScript Keywords</h2>
+<p>JavaScript keywords are used to identify actions to be performed. For example:</p>
+<pre>
+let x, y;
+x = 5 + 6;
+y = x * 10;
+</pre>
+
+<h2>JavaScript Comments</h2>
+<p>Not all JavaScript statements are "executed". Code after double slashes <code>//</code> or between <code>/*</code> and <code>*/</code> is treated as a comment:</p>
+<pre>
+let x = 5;   // I will be executed
+
+// x = 6;   I will NOT be executed
+</pre>
+
+<h2>JavaScript Identifiers / Names</h2>
+<p>Identifiers are JavaScript names used to name variables and functions. The rules for legal names are:</p>
+<ul>
+    <li>A JavaScript name must begin with:</li>
+    <ul>
+        <li>A letter (A-Z or a-z)</li>
+        <li>A dollar sign ($)</li>
+        <li>An underscore (_)</li>
+    </ul>
+    <li>Subsequent characters may be letters, digits, underscores, or dollar signs.</li>
+    <li>Numbers are not allowed as the first character in names.</li>
+</ul>
+
+<h2>JavaScript is Case Sensitive</h2>
+<p>All JavaScript identifiers are case sensitive. For example:</p>
+<pre>
+let lastname, lastName;
+lastName = "Doe";
+lastname = "Peterson";
+</pre>
+
+<h2>JavaScript and Camel Case</h2>
+<p>JavaScript programmers tend to use camel case that starts with a lowercase letter:</p>
+<pre>
+firstName, lastName, masterCard, interCity.
+</pre>
+
+<h2>JavaScript Character Set</h2>
+<p>JavaScript uses the Unicode character set.</p>
+
+    </section>
+    <section id="content-JavaScript-Comments" class="content" style="display: none;">
+    <h1>JavaScript Comments</h1>
+
+<p>JavaScript comments can be used to explain JavaScript code, and to make it more readable.</p>
+<p>They can also be used to prevent execution, when testing alternative code.</p>
+
+<h2>Single Line Comments</h2>
+<p>Single line comments start with <code>//</code>.</p>
+<p>Any text between <code>//</code> and the end of the line will be ignored by JavaScript (will not be executed).</p>
+
+<p>This example uses a single-line comment before each code line:</p>
+<pre>
+// Change heading:
+document.getElementById("myH").innerHTML = "My First Page";
+
+// Change paragraph:
+document.getElementById("myP").innerHTML = "My first paragraph.";
+</pre>
+
+<p>This example uses a single line comment at the end of each line to explain the code:</p>
+<pre>
+let x = 5;      // Declare x, give it the value of 5
+let y = x + 2;  // Declare y, give it the value of x + 2
+</pre>
+
+<h2>Multi-line Comments</h2>
+<p>Multi-line comments start with <code>/*</code> and end with <code>*/</code>.</p>
+<p>Any text between <code>/*</code> and <code>*/</code> will be ignored by JavaScript.</p>
+
+<p>This example uses a multi-line comment (a comment block) to explain the code:</p>
+<pre>
+/*
+The code below will change
+the heading with id = "myH"
+and the paragraph with id = "myP"
+in my web page:
+*/
+document.getElementById("myH").innerHTML = "My First Page";
+document.getElementById("myP").innerHTML = "My first paragraph.";
+</pre>
+
+<p>It is most common to use single line comments. Block comments are often used for formal documentation.</p>
+
+<h2>Using Comments to Prevent Execution</h2>
+<p>Using comments to prevent execution of code is suitable for code testing.</p>
+<p>Adding <code>//</code> in front of a code line changes the code line from an executable line to a comment.</p>
+
+<p>This example uses <code>//</code> to prevent execution of one of the code lines:</p>
+<pre>
+//document.getElementById("myH").innerHTML = "My First Page";
+document.getElementById("myP").innerHTML = "My first paragraph.";
+</pre>
+
+<p>This example uses a comment block to prevent execution of multiple lines:</p>
+<pre>
+/*
+document.getElementById("myH").innerHTML = "My First Page";
+document.getElementById("myP").innerHTML = "My first paragraph.";
+*/
+    </section>
+    <!-- Content Sections for Module 2 -->
+     
 <script>
     window.onload = function() {
     const openPopupBtn = document.querySelector("#open-popup");
