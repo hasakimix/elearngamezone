@@ -195,7 +195,7 @@ pre {
                         <li><a href="#" data-target='content-'>Data Type</a></li>
                         <li><a href="#" data-target='content-'>Global Variable Best Practice</a></li>
                         <li><a href="#" data-target='content-'>Default Values of Uninitialized Variables</a></li>
-                        <li><a href="#" data-target='content-|'>Variable Value Truthiness And Identical Operator</a></li>
+                        <li><a href="#" data-target='content-'>Variable Value Truthiness And Identical Operator</a></li>
                         </ul>
                     </div>
                 </div>
