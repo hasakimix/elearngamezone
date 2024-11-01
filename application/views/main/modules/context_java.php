@@ -190,8 +190,7 @@ code {
                             <li><a href="#" data-target='content-Numeric-primitive-casting'>Numeric primitive casting</a></li>
                             <li><a href="#" data-target='content-Non-numeric-primitive-casting'>Non-numeric primitive casting</a></li>
                             <li><a href="#" data-target='content-Object-casting'>Object casting</a></li>
-                            <li><a href="#" data-target='content-Testing if an-object-can be-cast using-instanceof'>Testing if an object can be cast using instanceof</a></li>
-                            
+                            <li><a href="#" data-target='content-Testing if an-object-can be-cast using-instanceof'>Testing if an object can be cast using instanceof</a></li> 
                         </ul>
                     </div>
                 </div>
@@ -217,7 +216,7 @@ code {
                         </ul>
                     </div>
                 </div>
-                
+            </aside>    
         
             <!-- Content Section -->
             <section id="content1" class="content" style="display: none;">
