@@ -170,10 +170,10 @@ pre {
 
 }
 code {
-            background-color: #e8e8e8;
-            padding: 2px 4px;
-            border-radius: 4px;
-        }
+    background-color: #e8e8e8;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
 
 </style>
       <!-- Main Content Section -->
@@ -891,10 +891,10 @@ com/example/HelloWorld.java</code></pre>
         if (module === "module1") {
                 content1.style.display = "block"; // Show Module 1 content
             } else if (module === "module2") {
-                document.getElementById("content-accessing-variable").style.display = "block"; // Show Module 2 content
+                document.getElementById("content-Using a setter-or getter to-implement a-constraint").style.display = "block"; // Show Module 2 content
             } else if (module === "module3") {
                 // Show Module 3 default content (Superglobal Variables)
-                const superglobalContent = document.getElementById("content-superglobal");
+                const superglobalContent = document.getElementById("content-Dereferencing");
                 superglobalContent.style.display = "block";
             }
         });
@@ -919,6 +919,7 @@ com/example/HelloWorld.java</code></pre>
         });
     });
 };
+
 
 </script>
 </html>
