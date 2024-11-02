@@ -57,7 +57,7 @@ body {
     background-color: #f5f5f5;
     padding: 20px;
     border-right: 2px solid #ccc;
-    max-height: 100vh; /* Full viewport height */
+    height: 100vh; /* Full viewport height */
     overflow-y: auto; /* Enable scrolling */
 }
 
@@ -193,11 +193,7 @@ caption {
         <div class="main-content">
             <!-- Left Sidebar -->
             <aside class="sidebar">
-                <button>
-                <ul>
-            <li><i class="ri-arrow-left-line"></i></li>
-            </ul>
-            </button>
+                <button class="back-btn">&larr;</button>
                 <div class="module">
                     <button class="collapsible" data-module='module1'>Module 1: Getting started with HTML</button>
                     <div class="module-content">

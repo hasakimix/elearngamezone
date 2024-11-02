@@ -136,7 +136,7 @@ function previewModule(language) {
       overview: "Understanding core concepts like variables, data type, control structures, and object-oriented programming(OOP).",
       modules: [
         "Introduction to Java: Setting up your environment and writing your first program.",
-        "Data Tpyes & Variables: Learn how to store and manipulate data.",
+        "Data Types & Variables: Learn how to store and manipulate data.",
         "Control Flow: Master conditional statements and loops.",
         "OOP Basics: Classes, objects, methods, and inheritance."
       ]
@@ -190,10 +190,8 @@ function previewModule(language) {
       overview: "This is a preview of the SQL module. You'll learn about querying databases and data manipulation.",
       modules: [
         "Introduction to SQL",
-        "Basic Queries",
-        "Joins and Subqueries",
-        "Data Manipulation Language (DML)",
-        "Data Definition Language (DDL)"
+        "Joins and Unions:",
+        "Aggregate Functions",
       ]
     }
   };
