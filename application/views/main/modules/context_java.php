@@ -137,7 +137,7 @@ body {
     background-color: white;
     border-radius: 10px;
     margin: 20px;
-    max-height: 500px; /* Set a maximum height */
+    height: 100vh;
     overflow-y: auto; /* Enable vertical scroll */
 }
 
