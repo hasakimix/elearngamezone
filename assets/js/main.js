@@ -2,10 +2,21 @@ const body = document.querySelector("body");
 const darkLight = document.querySelector("#darkLight");
 const submenuItems = document.querySelectorAll(".submenu_item");
 
-/* Profile dropdown */
 function toggleDropdown() {
-  const dropdown = document.getElementById("myDropdown");
-  dropdown.classList.toggle("show");
+  document.getElementById("DropDown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
 }
 
 
@@ -253,3 +264,31 @@ function closeModal() {
 function addToLibrary() {
   alert("Added to library!");
 }
+
+// Library
+document.addEventListener("DOMContentLoaded", function() {
+	const closePopupBtn = document.querySelector("#java-popup .close-btn");
+	const overlay = document.getElementById("overlay");
+	const popup = document.getElementById("java-popup");
+	const mainContent = document.querySelector(".main-content");
+
+	// Function to show the custom popup and overlay
+	window.showCustomPopup = function() {
+			document.body.classList.add("active-custom-popup");
+			overlay.classList.add("active");
+			popup.classList.add("active");
+	};
+
+	// Function to hide the custom popup and overlay
+	function hidePopup() {
+			document.body.classList.remove("active-custom-popup");
+			overlay.classList.remove("active");
+			popup.classList.remove("active");
+	}
+
+	// Event listener for the close button
+	closePopupBtn.addEventListener("click", hidePopup);
+
+	// Event listener for clicking outside the popup (on the overlay)
+	overlay.addEventListener("click", hidePopup);
+});
