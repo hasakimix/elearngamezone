@@ -75,33 +75,50 @@ body.dark {
   height: 47px;
   max-width: 430px;
   width: 100%;
-}
-
-::placeholder {
-  color: white;
-  opacity: 1; /* Firefox */
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
 }
 
 .search_bar input {
   height: 100%;
   width: 100%;
-  border-radius: 25px;
+  border-radius: 25px; 
   font-size: 18px;
   outline: none;
-  background-color: #2C84D5;
-  color: var(--white-color);
-  border: 3px solid var(--white-color);
+  background-color: #f1f1f1; 
+  color: #202020; 
+  border: 2px solid #535353; 
   padding: 0 20px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.search_bar input::placeholder {
+  color: #1f1e1e; 
+  opacity: 1; 
+}
+
+/* Hover effect for input field */
+.search_bar input:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: #aaa; 
+}
+
+/* Focus effect for input field */
+.search_bar input:focus {
+  border-color: #2c84d5; 
+  box-shadow: 0px 4px 12px rgba(44, 132, 213, 0.3); 
 }
 
 .nav-btn {
-  background-color: #1f5c96; /* Slightly darker than navbar for contrast */
+  background-color: #1f5c96; 
   color: var(--white-color);
-  border: 2px solid transparent; /* Removed border for sleeker look */
-  border-radius: 12px; /* More rounded corners */
-  padding: 10px 20px; /* Increased padding */
+  border: 2px solid transparent; 
+  border-radius: 12px; 
+  padding: 10px 20px; 
   font-size: 18px;
-  font-weight: 500; /* Bolder for prominence */
+  font-weight: 500; 
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -110,27 +127,27 @@ body.dark {
   background-color: var(--white-color);
   color: #1f5c96;
   border: 2px solid #1f5c96;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
 }
 
 .nav_link {
-  margin-right: -25px; /* Decrease the space between the buttons */
+  margin-right: -25px;
 }
 
 .nav-btn {
-  padding: 10px 20px; /* Optional: Adjust button padding if necessary */
+  padding: 10px 20px; 
 }
 
 .nav-btn.active {
   background-color: white;
-  color: #2C84D5; /* The original button color */
+  color: #2C84D5; 
   border-color: white;
 }
 
 .navbar_content {
   display: flex;
   align-items: center;
-  column-gap: 15px; /* Adjusted spacing for better layout */
+  column-gap: 15px; 
 }
   
 
@@ -164,14 +181,14 @@ header {
 main {  
   margin:100px auto;
   padding: auto;
-  justify-content: center; /* Center horizontally */
+  justify-content: center; 
 }
 nav {
   color: #fff;
   margin: auto;
   padding: auto;
   padding-top: 30px;
-  justify-content: center; /* Center horizontally */
+  justify-content: center; 
 }
 
 .flex-container {
@@ -187,17 +204,17 @@ nav {
 }
 
 .box {
-  display: block; /* Adjust this as needed */
+  display: block; 
   margin: 10px;
-  width: 400px; /* Set your desired width */
-  height: 550px; /* Set your desired height */
+  width: 400px;
+  height: 550px; 
   padding: 100px;
   background-color: #2C84D5;
   border-radius: 50px;
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s;
-  flex-grow: 3; /* Allow the box to grow */
+  flex-grow: 3; 
   flex-direction: column;
   align-items: center;
   font-size: 25px;
@@ -206,9 +223,9 @@ nav {
 
 
 .box img {
-  pointer-events: none; /* Allow click events to pass through the image */
+  pointer-events: none; 
   width: 90%;
-  margin-bottom: 20px; /* Adjust margin as needed */
+  margin-bottom: 20px; 
   height: auto;
 }
 
@@ -237,43 +254,91 @@ nav {
 }
 
 
-/* Dropdown content (hidden by default) */
+/* Profile icon styling */
+.dropbtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.dropbtn:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dropdown content */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background-color: #f1f1f1; 
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  border: 2px solid #ccc; 
+  border-radius: 8px;
+  overflow: hidden;
+  right: 0;
+  margin-top: 15px;
   z-index: 1;
-  left: -100px; /* Adjust this value to position the dropdown to the left */
-  border-radius: 10px; /* Add border-radius for rounded corners */
-
+  padding: 8px 0;
+  color: #020202; 
 }
 
-/* Style the dropdown items */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
+/* Triangle pointer on the dropdown */
+.dropdown-content::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 16px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #f1f1f1; 
+  box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown item styling */
+.dropdown-item {
+  color: #333;
+  padding: 10px 16px;
   text-decoration: none;
-  display: block;
-  border-radius: 10px; /* Add border-radius for rounded corners */
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  font-size: 0.95em;
 }
 
-/* Change color on hover */
-.dropdown-content a:hover {
-  background-color: #FFAF4D;
-  color: white;
-  border-radius: 8px; /* Add border-radius for rounded corners on hover */
+.dropdown-item:hover {
+  background-color: #cac5c5;
 }
 
-/* Show the dropdown content when the dropdown button is clicked */
+.dropdown-item::after {
+  content: '›';
+  margin-left: auto;
+  color: #888;
+  font-size: 1.2em;
+}
+
+/* Optional: Add icons to each item */
+.dropdown-item:nth-child(1)::before {
+  content: '👤'; 
+  margin-right: 10px;
+}
+
+.dropdown-item:nth-child(2)::before {
+  content: '🚪'; 
+  margin-right: 10px;
+}
+
 .show {
   display: block;
 }
 
+
 /*modal/popup content */
 .main-content {
-  transition: filter 300ms ease-in-out; /* Smooth transition for blur effect */
+  transition: filter 300ms ease-in-out; 
 }
 
 .modal-content {
@@ -281,12 +346,12 @@ nav {
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 50%; /* Adjust the width to fit your design */
-  text-align: center; /* Center the content */
+  width: 50%; 
+  text-align: center; 
 }
 
 button {
-  margin: 10px; /* Add some space between buttons */
+  margin: 10px; 
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -297,14 +362,14 @@ button:hover {
 }
 
 .popup {
-  display: none; /* Ensure the popup is hidden initially */
+  display: none; 
   position: fixed; 
   top: 50%; 
   left: 50%; 
-  transform: translate(-50%, -50%); /* Center the popup */
-  width: 400px; /* Set a width for your popup */
-  max-height: 80%; /* Limit the height of the popup */
-  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+  transform: translate(-50%, -50%); 
+  width: 400px;
+  max-height: 80%; 
+  overflow-y: auto; 
   padding: 20px; 
   background: #fff; 
   border-radius: 10px; 
@@ -314,8 +379,8 @@ button:hover {
 }
 
 body.active-popup .popup {
-  display: flex; /* Show flex when active */
-  opacity: 1; /* Make it fully visible */
+  display: flex; 
+  opacity: 1; 
 }
 
 
@@ -341,11 +406,11 @@ body.active-popup .popup {
 }
 
 body.active-popup .main-content {
-    filter: blur(5px); /* Adjust the blur intensity as needed */
+    filter: blur(5px); 
 }
 
 body.active-preview .main-content {
-  filter: blur(5px); /* Adjust the blur intensity as needed */
+  filter: blur(5px); 
 }
 
 body.active-popup .popup {
@@ -476,11 +541,11 @@ body.blur .background {
 
 /* When the modal is active, make it visible */
 body.active-preview #previewModal {
-  display: flex; /* Change from display none to flex */
-  opacity: 1; /* Make it visible */
-  transform: translate(-50%, -50%) scale(1); /* Restore to original size */
-  justify-content: center; /* Center content inside the modal */
-  align-items: center; /* Vertically align content */
+  display: flex; 
+  opacity: 1; 
+  transform: translate(-50%, -50%) scale(1); 
+  justify-content: center; 
+  align-items: center; 
 }
 
 #preview-content {

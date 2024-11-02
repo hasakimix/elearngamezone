@@ -1,3 +1,16 @@
+<?php if(isset($_SESSION["error"])): ?>
+    <div class="alert alert-danger text-dark" role="alert">
+        <h5 class="mb-0">Something went wrong : <?= $_SESSION["error"] ?></h5>
+    </div>
+    <?php unset($_SESSION["error"]) ?>
+<?php endif; ?>
+
+<?php if(isset($_SESSION["success"])): ?>
+    <div class="alert alert-success text-dark" role="alert">
+        <h5 class="mb-0">Congratulations!: <?= $_SESSION["success"] ?></h5>
+    </div>
+    <?php unset($_SESSION["success"]) ?>
+<?php endif; ?>
 <main>
   <nav class="main-content">
     <div class="flex-container">
@@ -36,8 +49,12 @@
       <button class="preview-btn" onclick="previewModule('Java')">Preview</button>
       <h2 class="add-library-text">Add Java to Library?</h2>
       <div class="decision-buttons">
-        <button class="yes-btn" onclick="addToLibrary()">Yes</button>
-        <button class="no-btn" onclick="closeModal()">No</button>
+				<form action="<?= base_url("home/add_library") ?>" id="add-library-java" method="POST">
+					<input type="hidden" value="<?= $user_id?>" name="user_id">
+					<input type="hidden" value="java" name="library">
+					<button class="yes-btn" type="submit">Yes</button>
+					<button class="no-btn" onclick="closeModal()" type="button">No</button>
+				</form>
       </div>
     </div>
   </div>

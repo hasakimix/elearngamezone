@@ -3,9 +3,9 @@
     <img src="<?= base_url("/assets/img/elearn.jpg") ?>">eLearnGameZone
   </div>
 
-  <div class="search_bar">
-    <input type="text" placeholder="Search" class="search-bar" />
-  </div>
+	<div class="search_bar">
+  <input type="text" placeholder="Search" class="search-bar" />
+	</div>
 
   <div class="navbar_content">
     <a href="<?= base_url("home")?>" class="nav_link">
@@ -18,12 +18,14 @@
     <i class='bx bx-sun' id="darkLight"></i>
     <i class='bx bx-bell'></i>
 
-    <div class="dropdown">
-      <img src="<?= base_url("/assets/img/profileicon.png") ?>" onclick="toggleDropdown()" class="dropbtn">
-      <div id="myDropdown" class="dropdown-content">
-        <a href="profile">Profile</a>
-        <a href="<?= base_url("submit/logout") ?>">Logout</a>
-      </div>
+		<div class="dropdown">
+			<img src="<?= base_url("/assets/img/profileicon.png") ?>" onclick="toggleDropdown()" class="dropbtn">
+			<div id="DropDown" class="dropdown-content">
+				<a href="profile" class="dropdown-item">Profile</a>
+				<a href="<?= base_url("submit/logout") ?>" class="dropdown-item">Logout</a>
+			</div>
+		</div>
+		</div>
     </div>
   </div>
 </nav>
