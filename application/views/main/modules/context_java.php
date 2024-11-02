@@ -174,16 +174,54 @@ code {
     padding: 2px 4px;
     border-radius: 4px;
 }
+button {
+    min-width: var(--width);
+    width: var(----width);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: var(----width);
+    overflow: hidden;
+    background-color: #7091E6;
+    border-top: 1px solid #0006;
+    border-bottom: #0005;
+    transition: background-color 400ms ease;
+}
+button ul{
+    display: flex;
+    width: fit-content;
+    transform: translate(-50%);
+    transition: ul 400ms ease, transform 400ms ease;
+    list-style: none;
+}
+button li{
+    width: var(--width);
+}
+button i{
+    font-size: 20px;
+    color: #e7ebf8;
+    transition: color 400ms ease;
+    line-height: calc(var(--width) / 2);
+}
+button:hover{
+    transform: translateX(0);
+}
+button:hover i {
+    color: black;
+}
 
 </style>
       <!-- Main Content Section -->
         <div class="main-content">
             <!-- Left Sidebar -->
             <aside class="sidebar">
-                <button class="back-btn">&larr;</button>
+                <button>
+                <ul>
+            <li><i class="ri-arrow-left-line"></i></li>
+            </ul>
+            </button>
                 <div class="module">
-                    <button class="collapsible" data-module='module1'>Module 1: Getting started with Java
-                    Language</button>
+                    <button class="collapsible" data-module='module1'>Module 1: Getting started with Java Language</button>
                     <div class="module-content">
                         <ul>
                             <li><a href="#" data-target='content-Creating-Your-First-Java-Program'>Creating Your First Java Program</a></li>
@@ -217,6 +255,7 @@ code {
                         </ul>
                     </div>
                 </div>
+                </aside>
                 
         
             <!-- Content Section -->
