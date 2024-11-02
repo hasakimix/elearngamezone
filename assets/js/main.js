@@ -264,3 +264,31 @@ function closeModal() {
 function addToLibrary() {
   alert("Added to library!");
 }
+
+// Library
+document.addEventListener("DOMContentLoaded", function() {
+	const closePopupBtn = document.querySelector("#java-popup .close-btn");
+	const overlay = document.getElementById("overlay");
+	const popup = document.getElementById("java-popup");
+	const mainContent = document.querySelector(".main-content");
+
+	// Function to show the custom popup and overlay
+	window.showCustomPopup = function() {
+			document.body.classList.add("active-custom-popup");
+			overlay.classList.add("active");
+			popup.classList.add("active");
+	};
+
+	// Function to hide the custom popup and overlay
+	function hidePopup() {
+			document.body.classList.remove("active-custom-popup");
+			overlay.classList.remove("active");
+			popup.classList.remove("active");
+	}
+
+	// Event listener for the close button
+	closePopupBtn.addEventListener("click", hidePopup);
+
+	// Event listener for clicking outside the popup (on the overlay)
+	overlay.addEventListener("click", hidePopup);
+});
