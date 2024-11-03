@@ -292,3 +292,20 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Event listener for clicking outside the popup (on the overlay)
 	overlay.addEventListener("click", hidePopup);
 });
+
+
+// Notification Dropdown
+function toggleNotification() {
+  const dropdown = document.getElementById("notificationDropdown");
+  dropdown.style.display = dropdown.style.display === "none" || dropdown.style.display === "" ? "block" : "none";
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.bx-bell')) {
+    const dropdown = document.getElementById("notificationDropdown");
+    if (dropdown.style.display === "block") {
+      dropdown.style.display = "none";
+    }
+  }
+};
