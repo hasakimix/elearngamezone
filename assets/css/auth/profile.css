@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    min-height: 100vh;
 }
 
 .header {
@@ -15,7 +16,11 @@
     width: 100%;
     padding: 20px;
 }
-
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .profile-container {
     display: flex;
     flex-direction: column;
@@ -23,15 +28,12 @@
     position: relative; /* For positioning the dropdown */
 }
 .profile-pic {
-    width: 180px; /* Increased size */
-    height: 180px; /* Increased size */
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    background-color: #ccc; /* Placeholder color */
-    display: flex;
-    align-items: flex; /* Center image */
-    justify-content: flex; /* Center image */
-    cursor: pointer; /* Change cursor to pointer */
-    overflow: center; /* Ensure image fits */
+    background-color: #ccc;
+    cursor: pointer;
+    overflow: hidden;
     position: relative;
 }
 .profile-name {
@@ -60,6 +62,24 @@
 .dropdown a:hover {
     background-color: #f0f0f0;
 }
+
+.input-field {
+    height: 25px;
+    max-width: 200px;
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .input-field input {
+    height: 100%;
+    width: 100%; 
+    font-size: 24px;
+    outline: none;
+    background-color: #f1f1f1; 
+    color: #202020; 
+    border: 2px solid #535353; 
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
 /* Modal Styles */
 #imageModal {
     display: none;
@@ -79,7 +99,9 @@
 
 .progress {
     display: flex;
+    padding-right: 10px;
     flex-direction: column;
+    width: 97%;
 }
 
 .chart-container {
@@ -87,12 +109,39 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    border: 1px solid #7091E6;
-    background-color:#7091E6  ;
+    border: 1px solid #2C84D5;
+    background-color:#2C84D5  ;
     border-radius: 12px;
     margin-top: 12px;
     align-items: center;
 }
+.save-button{
+    margin: 10px;
+
+}
+.edit-btn,.save-button {
+    background-color: #1f5c96;
+    color: #ffffff;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.save-button:hover {
+    background-color: var(--white-color);
+    color: #1f5c96;
+    border: 2px solid #1f5c96;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+  }
+.edit-btn:hover {
+    background-color: var(--white-color);
+    color: #1f5c96;
+    border: 2px solid #1f5c96;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+  }
 
 .progress-pie {
     width: 250px !important;
@@ -151,19 +200,13 @@ label {
     height: 200px;
 }
 
-.row {
-    display: flex;                /* Arrange columns horizontally */
-    justify-content: center; /* Space between columns */
-    margin-bottom: 10px;          /* Space between rows */
-    gap: 10%;
-}
 
-.row2 {
-    display: flex;                /* Arrange columns horizontally */
-    justify-content: center; /* Space between columns */
-    margin-bottom: 10px;          /* Space between rows */
+.row  {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
     gap: 10%;
-}   
+} 
 
 .column {
     flex: 100; /* Each column will take equal space */
@@ -195,7 +238,7 @@ label {
     border-radius: 50%;
     background: 
         radial-gradient(closest-side, white 79%, transparent 80%),
-        conic-gradient(#7091E6 calc(var(--progress-value) * 1%), #adc0f1 0);
+        conic-gradient(#2C84D5 calc(var(--progress-value) * 1%), #adc0f1 0);
     
     animation: progress 2s forwards; /* Animate from 0 to the set value */
     position: relative; /* Ensure text is positioned correctly */
@@ -204,7 +247,7 @@ label {
 .progress-bar::before {
     content: attr(aria-valuenow) '%'; /* Show the percentage */
     font-size: 20px; /* Adjust font size as needed */
-    color: #7091E6; /* Adjust text color */
+    color: #2C84D5; /* Adjust text color */
     position: absolute;
     top: 50%;
     left: 50%;
