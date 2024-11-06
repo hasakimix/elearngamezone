@@ -254,7 +254,7 @@ button:hover i {
                         </ul>
                     </div>
                 </div>
-                
+               </aside> 
         
             <!-- Content Section -->
             <section id="content1" class="content" style="display: none;">

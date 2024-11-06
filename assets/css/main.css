@@ -686,3 +686,52 @@ body.active-custom-popup #java-popup {
 	opacity: 1;
 }
 
+/* Notification Dropdown Styling - Facebook Style without Image */
+.notification-dropdown {
+  display: none; 
+  position: absolute;
+  margin-top: 30px;
+  top: 50px;
+  right: 25px; 
+  width: 300px;
+  border-radius: 8px;
+  z-index: 1000;
+  padding: 10px 0;
+  overflow: hidden;
+	background-color: #f1f1f1; 
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  border: 2px solid #ccc; 
+}
+
+.notification-dropdown .notification-title {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  color: #444;
+}
+
+.notification-dropdown .notification-item {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.notification-dropdown .notification-item:hover {
+  background-color: #cac5c5;
+}
+
+.notification-dropdown .notification-message {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.notification-dropdown .notification-timestamp {
+  font-size: 12px;
+  color: #888;
+}
