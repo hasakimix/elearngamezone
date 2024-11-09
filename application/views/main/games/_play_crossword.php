@@ -118,49 +118,49 @@ function can_place_word($grid, $word, $row, $col, $direction) {
     return true;
 }
 
-// Function to display the grid with input fields
+// Function to display the crossword grid
 function display_grid($grid) {
-    echo '<form id="crossword-form">';
     echo '<table class="crossword">';
     foreach ($grid as $row) {
         echo '<tr>';
         foreach ($row as $cell) {
-            if ($cell['letter'] == " ") {
-                echo '<td class="empty"><input type="text" maxlength="1" style="width: 30px; height: 30px; text-align: center; visibility: hidden;"></td>';
+            if ($cell['letter'] != " ") {
+                // If the cell has a letter, display input
+                echo '<td data-letter="' . $cell['letter'] . '">
+                        <input type="text" maxlength="1" />
+                        <sup>' . $cell['number'] . '</sup>
+                      </td>';
             } else {
-                $number = $cell['number'] ? '<sup>' . $cell['number'] . '</sup>' : '';
-                echo '<td data-letter="' . htmlspecialchars($cell['letter']) . '"><input type="text" maxlength="1" style="width: 30px; height: 30px; text-align: center;">' . $number . '</td>';
+                // If the cell is empty, display an empty cell with no input
+                echo '<td class="empty"></td>';
             }
         }
         echo '</tr>';
     }
     echo '</table>';
-    echo '</form>';
 }
 
 // Function to display the questions
-function display_questions($words) {
-    echo '<div class="questions">';
-    echo '<h2>Questions</h2>';
-    echo '<ul>';
-    foreach ($words as $index => $word) {
-        echo '<li>' . ($index + 1) . '. ' . htmlspecialchars($word['question']) . '</li>';
+function display_questions($words_with_questions) {
+    foreach ($words_with_questions as $index => $word) {
+        echo "<p>" . ($index + 1) . ". " . $word['question'] . "</p>";
     }
-    echo '</ul>';
-    echo '</div>';
 }
 
-// Main game loop
-function main() {
-    global $words_with_questions;
+// Main function
+function main($words_with_questions) {
     $size = 10;
     $grid = generate_grid($size);
-    shuffle($words_with_questions);
-    place_words($grid, array_slice($words_with_questions, 0, 5));  // Place a subset of words
+    shuffle($words_with_questions); // Shuffle the words with questions array
+    place_words($grid, array_slice($words_with_questions, 0, 5)); // Place a subset of words
     display_grid($grid);
     display_questions(array_slice($words_with_questions, 0, 5));
 }
+
+// Call the main function
+main($words_with_questions);
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -173,22 +173,18 @@ function main() {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            height: 130vh;
             background-color: #e6f7ff;
         }
         .score {
             font-size: 24px;
-            margin-bottom: 20px;
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
             font-weight: bold;
         }
         .crossword {
             border-collapse: collapse;
             margin-top: 20px;
         }
+        
         .crossword td {
             width: 30px;
             height: 30px;
@@ -200,8 +196,18 @@ function main() {
             position: relative;
         }
         .crossword td.empty {
-            border: none;
+            background-color: transparent;  /* No background for empty cells */
+            border: none;                   /* No border for empty cells */
+        }
+        .crossword td input {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 18px;
             background-color: transparent;
+            border: none;
+            outline: none;
+            text-transform: uppercase;
         }
         .crossword sup {
             position: absolute;
@@ -230,6 +236,7 @@ function main() {
         }
         .questions {
             margin-top: 20px;
+            text-align: center; /* Aligns the questions block to the center */
         }
         .questions h2 {
             margin-bottom: 10px;
@@ -241,26 +248,6 @@ function main() {
         .questions li {
             margin-bottom: 5px;
         }
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-        .popup {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .popup button {
-            margin: 5px;
-        }
         .correct {
             background-color: green;
         }
@@ -270,14 +257,7 @@ function main() {
     </style>
 </head>
 <body>
-    <?php main(); ?>
     <div class="score">Score: <span id="score">0</span></div>
-    <div class="overlay" id="overlay">
-        <div class="popup">
-            <p>Do you want to play again?</p>
-            <button onclick="location.reload()">Yes</button>
-            <button onclick="hidePlayAgain()">No</button>
-        </div>
     </div>
     <div class="button-container">
         <button type="button" onclick="checkAnswers()">Check Answers</button>
@@ -309,37 +289,38 @@ function main() {
         }
 
         function checkAnswers() {
-    const inputs = document.querySelectorAll('.crossword input[type="text"]');
-    let correctCount = 0;
-    
-    inputs.forEach(input => {
-        const correctLetter = input.parentElement.dataset.letter?.toUpperCase();
-        const userInput = input.value.toUpperCase();
+        const inputs = document.querySelectorAll('.crossword input[type="text"]');
+        let correctCount = 0;
         
-        if (correctLetter) {
-            if (userInput === correctLetter) {
-                input.style.backgroundColor = 'lightgreen';
-                input.style.color = 'green';
-                correctCount++;
-            } else {
-                input.style.backgroundColor = 'lightcoral';
-                input.value = correctLetter;  // Fill in the correct answer
-                input.style.color = 'red';
+        inputs.forEach(input => {
+            const correctLetter = input.parentElement.dataset.letter?.toUpperCase();
+            const userInput = input.value.toUpperCase();
+            
+            if (correctLetter) {
+                if (userInput === correctLetter) {
+                    input.style.backgroundColor = 'lightgreen';
+                    input.style.color = 'green';
+                    correctCount++;
+                } else {
+                    input.style.backgroundColor = 'lightcoral';
+                    input.value = correctLetter;  // Fill in the correct answer
+                    input.style.color = 'red';
+                }
             }
-        }
-    });
-    
-    // Update score
-    score = correctCount;
-    document.getElementById('score').textContent = score;
-    
-    // Show the popup
-    document.getElementById('overlay').style.display = 'flex';
-}
+        });
+        
+        // Update score
+        score = correctCount;
+        document.getElementById('score').textContent = score;
+        
+        // Show the popup
+        document.getElementById('overlay').style.display = 'flex';
+    }
 
-function hidePlayAgain() {
-    document.getElementById('overlay').style.display = 'none';
-}
+        function hidePlayAgain() {
+        document.getElementById('overlay').style.display = 'none';
+    }
+
     </script>
 </body>
 </html>
