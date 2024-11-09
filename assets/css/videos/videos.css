@@ -16,7 +16,6 @@
 
 body {
   display: flex;
-  background-image:url('../images/background1.jpg');
   background-size: cover;
   justify-content: center;
 }

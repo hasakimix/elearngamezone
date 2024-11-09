@@ -239,3 +239,24 @@ function guid()
 	mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535),
 	mt_rand(0, 65535), mt_rand(0, 65535));
 }
+
+function validate_library($user_libraries, $library)
+{
+	$result = false;
+
+	foreach ($user_libraries as $key => $lib) {
+		if($result == false){
+			if($lib["library"] == $library){
+				$result = true;
+			}
+		}
+	}
+
+	return $result;
+}
+
+function pascal_to_snake_case($string)
+{
+	$string = str_replace(" ","",$string);
+	return strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $string));
+}

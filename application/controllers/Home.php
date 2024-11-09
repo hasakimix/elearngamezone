@@ -22,7 +22,10 @@ class Home extends Auth_Controller {
         $data['primary_view'] = $this->_primary_view.'home';
 
 		$data['user_id'] = $session["id"];
-		$data['user_libraries'] = $this->m_lib->get($session["id"]);
+		$user_libraries = $this->m_lib->get($session["id"]);
+		$user_library_ids = array_map(function($data){ return $data["library_id"]; },$user_libraries);
+		$data['user_libraries'] = $user_library_ids;
+		$data['libraries'] = $this->m_lib->get_libraries();
 		$this->load->view($data['final_view'], $data);
 	}
 
@@ -31,7 +34,7 @@ class Home extends Auth_Controller {
 		$data = $this->input->post();
 		$save_data = [
 			"user_id" => $data["user_id"],
-			"library" => $data["library"]
+			"library_id" => $data["library"]
 		];
 
 		$save_result = $this->m_lib->save($save_data);
