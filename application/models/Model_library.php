@@ -17,6 +17,13 @@ class Model_library extends MY_Model
                         ->get()->result_array();
     }
 
+	public function get_libraries()
+    {
+        return $this->db->select("*")
+                        ->from("library")
+                        ->get()->result_array();
+    }
+
 	public function save($save_data)
 	{
 		$this->writeDB->insert("users_library", $save_data);

@@ -1,22 +1,26 @@
 <link rel="stylesheet" href="<?= base_url("/assets/css/lib.css?version=".uniqid()) ?>" />
 
+<div id="modal_pop_up_overlay"></div>
+
 <main>
   <nav class="main-content">
     <div class="flex-container">
-      <div class="box" onclick="showCustomPopup()" data-search="Java">
-        <img src="<?= base_url('/assets/img/Java.png') ?>">
-        <p>Java</p>
-      </div>
+      <?php foreach ($libraries as $key => $library): ?>
+        <?php if(in_array($library["library_id"], $user_libraries)): ?>
+          <div class="box" onclick="showPopup('<?= pascal_to_snake_case($library['library_name']) ?>Modal')" data-search="Java">
+            <img src="<?= $library['image_url'] ?>">
+            <p><?= $library['library_name'] ?></p>
+          </div>
+        <?php endif; ?>
+      <?php endforeach; ?>
     </div>
   </nav>
 
-      <!-- Overlay -->
-      <div id="overlay" class="overlay"></div>
-
-      <!-- Custom Popup Structure -->
-      <div id="java-popup" class="custom-popup">
-        <button class="close-btn">&times;</button>
-        <h2>Java</h2>
+  <?php foreach ($libraries as $key => $library): ?>
+    <?php if(in_array($library["library_id"], $user_libraries)): ?>
+      <div id="<?= pascal_to_snake_case($library['library_name']) ?>Modal" class="popup justify-items-center">
+        <button class="close-btn" onclick="hidePopup()">&times;</button>
+        <h2><?= $library['library_name'] ?></h2>
         <div class="button-grid">
           <button>Module</button>
           <button>Videos</button>
@@ -24,4 +28,11 @@
           <button>Games</button>
         </div>
       </div>
-    </main>
+      <?php endif; ?>
+    </div>
+  <?php endforeach; ?>
+  
+</main>
+
+
+<script src="<?= base_url("assets/js/library.js?version=".uniqid()) ?>"></script>
