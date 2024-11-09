@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2024 at 05:05 PM
+-- Generation Time: Nov 09, 2024 at 06:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -48,6 +48,66 @@ INSERT INTO `app_sessions` (`id`, `data`, `ip_address`, `timestamp`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `chapter`
+--
+
+CREATE TABLE `chapter` (
+  `chapter_id` int(11) NOT NULL,
+  `module_id` varchar(255) NOT NULL,
+  `chapter_name` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `flashcard`
+--
+
+CREATE TABLE `flashcard` (
+  `flashcard_id` int(11) NOT NULL,
+  `library_id` varchar(255) NOT NULL,
+  `question` longtext NOT NULL,
+  `answer` longtext NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `games`
+--
+
+CREATE TABLE `games` (
+  `games_id` int(11) NOT NULL,
+  `library_id` varchar(255) NOT NULL,
+  `game_name` varchar(255) NOT NULL,
+  `game_key` varchar(255) NOT NULL,
+  `game_url` longtext NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `game_progress`
+--
+
+CREATE TABLE `game_progress` (
+  `progress_id` int(11) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `game_id` int(11) NOT NULL,
+  `progress` float NOT NULL,
+  `created_at` int(11) NOT NULL,
+  `updated_at` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `library`
 --
 
@@ -75,6 +135,79 @@ INSERT INTO `library` (`library_id`, `library_name`, `image_url`, `description`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `module`
+--
+
+CREATE TABLE `module` (
+  `module_id` int(11) NOT NULL,
+  `library_id` varchar(255) NOT NULL,
+  `module_topic` text NOT NULL,
+  `creted_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `module_progress`
+--
+
+CREATE TABLE `module_progress` (
+  `progress_id` int(11) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `module_id` int(11) NOT NULL,
+  `quiz_id` int(11) NOT NULL,
+  `progress` float NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `options`
+--
+
+CREATE TABLE `options` (
+  `options_id` int(11) NOT NULL,
+  `solutions_id` varchar(255) NOT NULL,
+  `answer` text NOT NULL,
+  `is_correct` tinyint(1) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quizzes`
+--
+
+CREATE TABLE `quizzes` (
+  `quiz_id` int(11) NOT NULL,
+  `chapter_id` varchar(255) NOT NULL,
+  `quiz_name` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `solutions`
+--
+
+CREATE TABLE `solutions` (
+  `solution_id` int(11) NOT NULL,
+  `quiz_id` int(11) NOT NULL,
+  `query` longtext NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -85,39 +218,63 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` text NOT NULL,
   `otp` varchar(255) DEFAULT NULL,
-  `is_verified` tinyint(1) NOT NULL DEFAULT 0
+  `is_verified` tinyint(1) NOT NULL DEFAULT 0,
+  `information` text NOT NULL,
+  `profile` text NOT NULL,
+  `bio` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `otp`, `is_verified`) VALUES
-(13, 'ronaldo', 'burat', 'buratmoto@gmail.com', '$2y$10$ixEwoXVVKfKhiN8S2uCTJ.NdDUNT.4IzV0uWhURb9Yl8xA4XyN2L.', NULL, 0),
-(15, 'admin', 'admin', 'admin@gmail.com', '$2y$10$UMrQDQOMQ7E54b60Ywqai.7WRXcn0kz7.sRn3WePnaEbZKfDI.ozu', NULL, 0),
-(17, 'test', 'test', 'mickoaira@gmail.com', '$2y$10$6gkfK405TruK/c2weJrInOgRUNU8dgE74x65hMRfoiGPULV51SFK6', NULL, 1);
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `otp`, `is_verified`, `information`, `profile`, `bio`) VALUES
+(13, 'ronaldo', 'burat', 'buratmoto@gmail.com', '$2y$10$ixEwoXVVKfKhiN8S2uCTJ.NdDUNT.4IzV0uWhURb9Yl8xA4XyN2L.', NULL, 0, '', '', ''),
+(15, 'admin', 'admin', 'admin@gmail.com', '$2y$10$UMrQDQOMQ7E54b60Ywqai.7WRXcn0kz7.sRn3WePnaEbZKfDI.ozu', NULL, 0, '', '', ''),
+(17, 'test', 'test', 'mickoaira@gmail.com', '$2y$10$6gkfK405TruK/c2weJrInOgRUNU8dgE74x65hMRfoiGPULV51SFK6', NULL, 1, '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_library`
+-- Table structure for table `user_library`
 --
 
-CREATE TABLE `users_library` (
-  `user_library_id` int(11) NOT NULL COMMENT 'unique id',
-  `user_id` int(11) NOT NULL,
+CREATE TABLE `user_library` (
+  `user_library_id` int(11) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
   `library_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `users_library`
+-- Table structure for table `video`
 --
 
-INSERT INTO `users_library` (`user_library_id`, `user_id`, `library_id`, `created_at`, `updated_at`) VALUES
-(1, 17, 3, '2024-11-09 15:47:05', NULL),
-(2, 17, 1, '2024-11-09 15:47:19', NULL);
+CREATE TABLE `video` (
+  `video_id` int(11) NOT NULL,
+  `library_id` varchar(255) NOT NULL,
+  `video_url` varchar(255) NOT NULL,
+  `creted_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `video_progress`
+--
+
+CREATE TABLE `video_progress` (
+  `progress_id` int(11) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `video_id` int(11) NOT NULL,
+  `prgoress` float NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -130,10 +287,64 @@ ALTER TABLE `app_sessions`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `chapter`
+--
+ALTER TABLE `chapter`
+  ADD PRIMARY KEY (`chapter_id`);
+
+--
+-- Indexes for table `flashcard`
+--
+ALTER TABLE `flashcard`
+  ADD PRIMARY KEY (`flashcard_id`);
+
+--
+-- Indexes for table `games`
+--
+ALTER TABLE `games`
+  ADD PRIMARY KEY (`games_id`);
+
+--
+-- Indexes for table `game_progress`
+--
+ALTER TABLE `game_progress`
+  ADD PRIMARY KEY (`progress_id`);
+
+--
 -- Indexes for table `library`
 --
 ALTER TABLE `library`
   ADD PRIMARY KEY (`library_id`);
+
+--
+-- Indexes for table `module`
+--
+ALTER TABLE `module`
+  ADD PRIMARY KEY (`module_id`);
+
+--
+-- Indexes for table `module_progress`
+--
+ALTER TABLE `module_progress`
+  ADD PRIMARY KEY (`progress_id`);
+
+--
+-- Indexes for table `options`
+--
+ALTER TABLE `options`
+  ADD PRIMARY KEY (`options_id`);
+
+--
+-- Indexes for table `quizzes`
+--
+ALTER TABLE `quizzes`
+  ADD PRIMARY KEY (`quiz_id`);
+
+--
+-- Indexes for table `solutions`
+--
+ALTER TABLE `solutions`
+  ADD PRIMARY KEY (`solution_id`);
 
 --
 -- Indexes for table `users`
@@ -143,10 +354,22 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `index_email` (`email`);
 
 --
--- Indexes for table `users_library`
+-- Indexes for table `user_library`
 --
-ALTER TABLE `users_library`
+ALTER TABLE `user_library`
   ADD PRIMARY KEY (`user_library_id`);
+
+--
+-- Indexes for table `video`
+--
+ALTER TABLE `video`
+  ADD PRIMARY KEY (`video_id`);
+
+--
+-- Indexes for table `video_progress`
+--
+ALTER TABLE `video_progress`
+  ADD PRIMARY KEY (`progress_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -169,12 +392,6 @@ ALTER TABLE `library`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT for table `users_library`
---
-ALTER TABLE `users_library`
-  MODIFY `user_library_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'unique id', AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
