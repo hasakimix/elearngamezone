@@ -22,3 +22,4 @@ class Games extends Auth_Controller {
 		$this->load->view($data['final_view'], $data);
 	}
 }
+
