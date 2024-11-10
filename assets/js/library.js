@@ -12,7 +12,7 @@ const showPopup = (popupId) => {
     }
 
     popup.style.display = 'block';
-    popup.style.width = '50%';
+    popup.style.width = '26%';
     $("#modal_pop_up_overlay").removeClass("d-none");
 }
 
