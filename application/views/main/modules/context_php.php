@@ -549,135 +549,67 @@ echo "Here we use a semicolon but leave out the closing tag";</pre>
                         <input type="radio" name="q1" value="D"> D) PHP and HTML cannot be used together.<br>
                     </div>
                     <div class="question" id="q2">
-                        <p>2. In the example &lt;p>&lt;?php echo "Hello world!"; ?>&lt;/p>, what will appear in the browser when the PHP code is executed?</p>
-                        <input type="radio" name="q2" value="A"> A) &lt;?php echo "Hello world!"; ?><br>
-                        <input type="radio" name="q2" value="B"> B) &lt;p>Hello world!&lt;/p><br>
-                        <input type="radio" name="q2" value="C"> C) Hello world!<br>
-                        <input type="radio" name="q1" value="D"> D) &lt;p>&lt;Hello world!>&lt;/p><br>
+                        <p>2. Which PHP version introduced the shorthand syntax &lt;?= "Hello world!" ?> without requiring the short_open_tag setting?</p>
+                        <input type="radio" name="q2" value="A"> A) PHP 4.3<br>
+                        <input type="radio" name="q2" value="B"> B) PHP 5.0<br>
+                        <input type="radio" name="q2" value="C"> C) PHP 5.4<br>
+                        <input type="radio" name="q2" value="D"> D) PHP 7.0<br>
                     </div>
                     <div class="question" id="q3">
-                        <p>3. Which PHP version introduced the shorthand syntax &lt;?= "Hello world!" ?> without requiring the short_open_tag setting?</p>
-                        <input type="radio" name="q3" value="A"> A) PHP 4.3<br>
-                        <input type="radio" name="q3" value="B"> B) PHP 5.0<br>
-                        <input type="radio" name="q3" value="C"> C) PHP 5.4<br>
-                        <input type="radio" name="q3" value="D"> D) PHP 7.0<br>
+                        <p>3. What is the purpose of the PSR-1 standard in PHP?</p>
+                        <input type="radio" name="q3" value="A"> A) It describes best practices for file naming conventions only.<br>
+                        <input type="radio" name="q3" value="B"> B) It includes guidelines for using short tags and code formatting.<br>
+                        <input type="radio" name="q3" value="C"> C) It enforces HTML output to be generated only through echo statements.<br>
+                        <input type="radio" name="q3" value="D"> D) It is deprecated and no longer in use.<br>
                     </div>
                     <div class="question" id="q4">
-                        <p>4. In PHP, why is it important to escape data output to an HTML page?</p>
-                        <input type="radio" name="q4" value="A"> A) To improve server performance.<br>
-                        <input type="radio" name="q4" value="B"> B) To prevent XSS (Cross-Site Scripting) attacks and text corruption.<br>
-                        <input type="radio" name="q4" value="C"> C) To make the code shorter.<br>
-                        <input type="radio" name="q4" value="D"> D) To ensure compatibility with all PHP versions.<br>
+                        <p>4. Which output statement can take multiple arguments in PHP?</p>
+                        <input type="radio" name="q4" value="A"> A) print()<br>
+                        <input type="radio" name="q4" value="B"> B) echo<br>
+                        <input type="radio" name="q4" value="C"> C) printf<br>
+                        <input type="radio" name="q4" value="D"> D) Both print and echo<br>
                     </div>
                     <div class="question" id="q5">
-                        <p>5. What is the purpose of the PSR-1 standard in PHP?</p>
-                        <input type="radio" name="q5" value="A"> A) It describes best practices for file naming conventions only.<br>
-                        <input type="radio" name="q5" value="B"> B) It includes guidelines for using short tags and code formatting.<br>
-                        <input type="radio" name="q5" value="C"> C) It enforces HTML output to be generated only through echo statements.<br>
-                        <input type="radio" name="q5" value="D"> D) It is deprecated and no longer in use.<br>
+                        <p>5. Which of the following content types would you set in the header() function to produce a JSON response in PHP?</p>
+                        <input type="radio" name="q5" value="A"> A) text/plain<br>
+                        <input type="radio" name="q5" value="B"> B) application/json<br>
+                        <input type="radio" name="q5" value="C"> C) text/html<br>
+                        <input type="radio" name="q5" value="D"> D) application/xml<br>
                     </div>
                     <div class="question" id="q6">
-                        <p>6. Which of the following statements about echo and print is correct?</p>
-                        <input type="radio" name="q6" value="A"> A) Both echo and print can take multiple arguments.<br>
-                        <input type="radio" name="q6" value="B"> B) print is slightly faster than echo<br>
-                        <input type="radio" name="q6" value="C"> C) echo does not return a value, whereas print returns an integer.<br>
-                        <input type="radio" name="q6" value="D"> D) Both echo and print are functions.<br>
+                        <p>6. What is the main purpose of the PHP built-in server introduced in PHP 5.4?</p>
+                        <input type="radio" name="q6" value="A"> A) To deploy websites in production environments.<br>
+                        <input type="radio" name="q6" value="B"> B) To provide a development environment without needing a full HTTP server like Apache or Nginx.<br>
+                        <input type="radio" name="q6" value="C"> C) To improve the performance of web servers.<br>
+                        <input type="radio" name="q6" value="D"> D) To replace web server software like Nginx and Apache for live sites.<br>
                     </div>
                     <div class="question" id="q7">
-                        <p>7. Which output statement can take multiple arguments in PHP?</p>
-                        <input type="radio" name="q7" value="A"> A) print()<br>
-                        <input type="radio" name="q7" value="B"> B) echo<br>
-                        <input type="radio" name="q7" value="C"> C) printf<br>
-                        <input type="radio" name="q7" value="D"> D) Both print and echo<br>
+                        <p>7. Which of the following is a correct way to run PHP code directly from the command line using the PHP CLI?</p>
+                        <input type="radio" name="q7" value="A"> A) php hello_world.php<br>
+                        <input type="radio" name="q7" value="B"> B) php -r 'echo "Hello world!";'<br>
+                        <input type="radio" name="q7" value="C"> C) echo '&lt;?php echo "Hello world!";' | php<br>
+                        <input type="radio" name="q7" value="D"> D) All of the above<br>
                     </div>
                     <div class="question" id="q8">
-                        <p>8. True or False: echo and print are language constructs in PHP, which means they do not require parentheses around their arguments.</p>
-                        <input type="radio" name="q8" value="A"> A) True<br>
-                        <input type="radio" name="q8" value="B"> B) False<br>
+                        <p>8. When is it optional to leave out the PHP closing tag (?>) at the end of a PHP block?</p>
+                        <input type="radio" name="q8" value="A"> A) When there is no code following the PHP block and the last statement ends with a semicolon.<br>
+                        <input type="radio" name="q8" value="B"> B) When the last statement in the block is a function.<br>
+                        <input type="radio" name="q8" value="C"> C) When the PHP block contains only a single statement.<br>
+                        <input type="radio" name="q8" value="D"> D) The closing tag is never optional.<br>
                     </div>
                     <div class="question" id="q9">
-                        <p>9. Which of the following content types would you set in the header() function to produce a JSON response in PHP?</p>
-                        <input type="radio" name="q9" value="A"> A) text/plain<br>
-                        <input type="radio" name="q9" value="B"> B) application/json<br>
-                        <input type="radio" name="q9" value="C"> C) text/html<br>
-                        <input type="radio" name="q9" value="D"> D) application/xml<br>
+                        <p>9. Which of the following is true about short tags in PHP?</p>
+                        <input type="radio" name="q9" value="A"> A) Short tags are always enabled by default in all PHP versions.<br>
+                        <input type="radio" name="q9" value="B"> B) Short tags are disabled by default in most PHP distributions and discouraged in official documentation.<br>
+                        <input type="radio" name="q9" value="C"> C) Short tags are the standard method to embed PHP code in a file.<br>
+                        <input type="radio" name="q9" value="D"> D) Short tags are recommended for use in modern PHP development.<br>
                     </div>
                     <div class="question" id="q10">
-                        <p>10. Why must the header() function be called before any other output in PHP?</p>
-                        <input type="radio" name="q10" value="A"> A) Because headers are required to be the last output in a file.<br>
-                        <input type="radio" name="q10" value="B"> B) Because PHP automatically sends headers only at the end of the file.<br>
-                        <input type="radio" name="q10" value="C"> C) Because once any output is sent, headers can no longer be modified by PHP.<br>
-                        <input type="radio" name="q10" value="D"> D) Because the header() function is only compatible with JSON content.<br>
-                    </div>
-                    <div class="question" id="q11">
-                        <p>11. What is the main purpose of the PHP built-in server introduced in PHP 5.4?</p>
-                        <input type="radio" name="q11" value="A"> A) To deploy websites in production environments.<br>
-                        <input type="radio" name="q11" value="B"> B) To provide a development environment without needing a full HTTP server like Apache or Nginx.<br>
-                        <input type="radio" name="q11" value="C"> C) To improve the performance of web servers.<br>
-                        <input type="radio" name="q11" value="D"> D) To replace web server software like Nginx and Apache for live sites.<br>
-                    </div>
-                    <div class="question" id="q12">
-                        <p>12. How do you specify a custom directory as the document root when starting the PHP built-in server?</p>
-                        <input type="radio" name="q12" value="A"> A) Use the -r flag<br>
-                        <input type="radio" name="q12" value="B"> B) Use the -t flag<br>
-                        <input type="radio" name="q12" value="C"> C) Use the -d flag<br>
-                        <input type="radio" name="q12" value="D"> D) Use the -s flag<br>
-                    </div>
-                    <div class="question" id="q13">
-                        <p>13. Which of the following is a correct way to run PHP code directly from the command line using the PHP CLI?</p>
-                        <input type="radio" name="q13" value="A"> A) php hello_world.php<br>
-                        <input type="radio" name="q13" value="B"> B) php -r 'echo "Hello world!";'<br>
-                        <input type="radio" name="q13" value="C"> C) echo '&lt;?php echo "Hello world!";' | php<br>
-                        <input type="radio" name="q13" value="D"> D) All of the above<br>
-                    </div>
-                    <div class="question" id="q14">
-                        <p>14. In PHP CLI, what does the 2> operator do when redirecting output?</p>
-                        <input type="radio" name="q14" value="A"> A) Redirects standard output (stdout) to a file.<br>
-                        <input type="radio" name="q14" value="B"> B) Redirects error output (stderr) to a file.<br>
-                        <input type="radio" name="q14" value="C"> C) Redirects both stdout and stderr to the same file.<br>
-                        <input type="radio" name="q14" value="D"> D) Redirects only standard input (stdin) to a file.<br>
-                    </div>
-                    <div class="question" id="q15">
-                        <p>15. When is it optional to leave out the PHP closing tag (?>) at the end of a PHP block?</p>
-                        <input type="radio" name="q15" value="A"> A) When there is no code following the PHP block and the last statement ends with a semicolon.<br>
-                        <input type="radio" name="q15" value="B"> B) When the last statement in the block is a function.<br>
-                        <input type="radio" name="q15" value="C"> C) When the PHP block contains only a single statement.<br>
-                        <input type="radio" name="q15" value="D"> D) The closing tag is never optional.<br>
-                    </div>
-                    <div class="question" id="q16">
-                        <p>16. What is the general recommendation regarding semicolons and closing tags in PHP code blocks?</p>
-                        <input type="radio" name="q16" value="A"> A) Semicolons should always be used, but closing tags should never be included.<br>
-                        <input type="radio" name="q16" value="B"> B) Semicolons should be omitted for the last statement if there is no closing tag.<br>
-                        <input type="radio" name="q16" value="C"> C) Both semicolons and closing tags should always be used, except for the last PHP block if no more code follows.<br>
-                        <input type="radio" name="q16" value="D"> D) Semicolons are optional, and closing tags should always be omitted.<br>
-                    </div>
-                    <div class="question" id="q17">
-                        <p>17. Which of the following is true about short tags in PHP?</p>
-                        <input type="radio" name="q17" value="A"> A) Short tags are always enabled by default in all PHP versions.<br>
-                        <input type="radio" name="q17" value="B"> B) Short tags are disabled by default in most PHP distributions and discouraged in official documentation.<br>
-                        <input type="radio" name="q17" value="C"> C) Short tags are the standard method to embed PHP code in a file.<br>
-                        <input type="radio" name="q17" value="D"> D) Short tags are recommended for use in modern PHP development.<br>
-                    </div>
-                    <div class="question" id="q18">
-                        <p>18. What is the purpose of the ASP tags in PHP?</p>
-                        <input type="radio" name="q18" value="A"> A) They are a standard method to embed PHP code in files.<br>
-                        <input type="radio" name="q18" value="B"> B) They are an older feature, now removed in PHP 7.0, and should never be used.<br>
-                        <input type="radio" name="q18" value="C"> C) They allow for inline XML processing.<br>
-                        <input type="radio" name="q18" value="D"> D) They are an alternative to short tags for PHP code embedding.<br>
-                    </div>
-                    <div class="question" id="q19">
-                        <p>19. Which PHP tag is recommended for modern development and is always enabled since PHP 5.4?</p>
-                        <input type="radio" name="q19" value="A"> A) ASP tags<br>
-                        <input type="radio" name="q19" value="B"> B) Short tags<br>
-                        <input type="radio" name="q19" value="C"> C) Echo tags<br>
-                        <input type="radio" name="q19" value="D"> D) Standard tags<br>
-                    </div>
-                    <div class="question" id="q20">
-                        <p>20. What is the main issue with using short tags (&lt;?) in PHP?</p>
-                        <input type="radio" name="q20" value="A"> A) They are enabled by default in all PHP versions.<br>
-                        <input type="radio" name="q20" value="B"> B) They interfere with XML's processing instructions.<br>
-                        <input type="radio" name="q20" value="C"> C) They are required for inline JavaScript code.<br>
-                        <input type="radio" name="q20" value="D"> D) They are only available in PHP 5.6 and later versions.<br>
+                        <p>10. Which PHP tag is recommended for modern development and is always enabled since PHP 5.4?</p>
+                        <input type="radio" name="q10" value="A"> A) ASP tags<br>
+                        <input type="radio" name="q10" value="B"> B) Short tags<br>
+                        <input type="radio" name="q10" value="C"> C) Echo tags<br>
+                        <input type="radio" name="q10" value="D"> D) Standard tags<br>
                     </div>
                 </form>
                 <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
@@ -1075,147 +1007,69 @@ else
                         <input type="radio" name="q1" value="D"> D) A variable whose name is the result of another variable's value.<br>
                     </div>
                     <div class="question" id="q2">
-                        <p>2. How would you access a variable using a dynamic name in PHP?</p>
-                        <input type="radio" name="q2" value="A"> A) You can simply use $variableName.<br>
-                        <input type="radio" name="q2" value="B"> B) Use the syntax $$variableName or ${$variableName}.<br>
-                        <input type="radio" name="q2" value="C"> C) Dynamic variables can only be accessed in classes.<br>
-                        <input type="radio" name="q1" value="D"> D) Use $variableName->variableName.<br>
+                        <p>2. What is the primary difference in how dynamic variables are evaluated between PHP 5 and PHP 7?</p>
+                        <input type="radio" name="q2" value="A"> A) PHP 7 evaluates dynamic variables from right to left, while PHP 5 uses left to right.<br>
+                        <input type="radio" name="q2" value="B"> B) PHP 7 always requires parentheses around dynamic variables.<br>
+                        <input type="radio" name="q2" value="C"> C) PHP 5 evaluates dynamic variables strictly from left to right.<br>
+                        <input type="radio" name="q2" value="D"> D) PHP 7 evaluates dynamic variables strictly in left-to-right order, whereas PHP 5 has special cases.<br>
                     </div>
                     <div class="question" id="q3">
-                        <p>3. What is the primary difference in how dynamic variables are evaluated between PHP 5 and PHP 7?</p>
-                        <input type="radio" name="q3" value="A"> A) PHP 7 evaluates dynamic variables from right to left, while PHP 5 uses left to right.<br>
-                        <input type="radio" name="q3" value="B"> B) PHP 7 always requires parentheses around dynamic variables.<br>
-                        <input type="radio" name="q3" value="C"> C) PHP 5 evaluates dynamic variables strictly from left to right.<br>
-                        <input type="radio" name="q3" value="D"> D) PHP 7 evaluates dynamic variables strictly in left-to-right order, whereas PHP 5 has special cases.<br>
+                        <p>3. What is the main advantage of using curly braces {} around dynamic variable names in PHP?</p>
+                        <input type="radio" name="q3" value="A"> A) They make the code harder to read but faster to execute.<br>
+                        <input type="radio" name="q3" value="B"> B) They are required in all PHP versions.<br>
+                        <input type="radio" name="q3" value="C"> C) They improve code readability and avoid ambiguity when concatenating variable names.<br>
+                        <input type="radio" name="q3" value="D"> D) They allow variables to store arrays and objects.<br>
                     </div>
                     <div class="question" id="q4">
-                        <p>4. Which of the following is considered bad practice when using variable variables in PHP?</p>
-                        <input type="radio" name="q4" value="A"> A) Using ${$variableName} to access variables dynamically.<br>
-                        <input type="radio" name="q4" value="B"> B) Chaining excessive variable variables, such as $$$$$$$$DoNotTryThisAtHomeKids.<br>
-                        <input type="radio" name="q4" value="C"> C) Storing the name of a variable in another variable.<br>
-                        <input type="radio" name="q4" value="D"> D) Using dynamic method calls in classes.<br>
+                        <p>4. Which of the following is NOT a valid way to define an integer in PHP?</p>
+                        <input type="radio" name="q4" value="A"> A) $foo = 0;<br>
+                        <input type="radio" name="q4" value="B"> B) $foo = 0xAB;<br>
+                        <input type="radio" name="q4" value="C"> C) $foo = 0123;<br>
+                        <input type="radio" name="q4" value="D"> D) $foo = "123";<br>
                     </div>
                     <div class="question" id="q5">
-                        <p>5. What is the main advantage of using curly braces {} around dynamic variable names in PHP?</p>
-                        <input type="radio" name="q5" value="A"> A) They make the code harder to read but faster to execute.<br>
-                        <input type="radio" name="q5" value="B"> B) They are required in all PHP versions.<br>
-                        <input type="radio" name="q5" value="C"> C) They improve code readability and avoid ambiguity when concatenating variable names.<br>
-                        <input type="radio" name="q5" value="D"> D) They allow variables to store arrays and objects.<br>
+                        <p>5. Which data type is used to store key-value pairs in PHP?</p>
+                        <input type="radio" name="q5" value="A"> A) Array<br>
+                        <input type="radio" name="q5" value="B"> B) Integer<br>
+                        <input type="radio" name="q5" value="C"> C) Float<br>
+                        <input type="radio" name="q5" value="D"> D) String<br>
                     </div>
                     <div class="question" id="q6">
-                        <p>6. What does the null data type represent in PHP?</p>
-                        <input type="radio" name="q6" value="A"> A) A variable with an undefined value<br>
-                        <input type="radio" name="q6" value="B"> B) A variable containing an integer<br>
-                        <input type="radio" name="q6" value="C"> C) A variable holding an empty string<br>
-                        <input type="radio" name="q6" value="D"> D) A variable that has been deleted from memory<br>
+                        <p>6. Why are global variables considered bad practice in PHP?</p>
+                        <input type="radio" name="q6" value="A"> A) They are not secure.<br>
+                        <input type="radio" name="q6" value="B"> B) They make code harder to maintain and test.<br>
+                        <input type="radio" name="q6" value="C"> C) They improve performance.<br>
+                        <input type="radio" name="q6" value="D"> D) They are only accessible within the function where defined.<br>
                     </div>
                     <div class="question" id="q7">
-                        <p>7. Which of the following is NOT a valid way to define an integer in PHP?</p>
-                        <input type="radio" name="q7" value="A"> A) $foo = 0;<br>
-                        <input type="radio" name="q7" value="B"> B) $foo = 0xAB;<br>
-                        <input type="radio" name="q7" value="C"> C) $foo = 0123;<br>
-                        <input type="radio" name="q7" value="D"> D) $foo = "123";<br>
+                        <p>7. Which of the following is a superglobal variable in PHP?</p>
+                        <input type="radio" name="q7" value="A"> A) $dbConnector<br>
+                        <input type="radio" name="q7" value="B"> B) $_POST<br>
+                        <input type="radio" name="q7" value="C"> C) $bob<br>
+                        <input type="radio" name="q7" value="D"> D) $functionName<br>
                     </div>
                     <div class="question" id="q8">
-                        <p>8. What is the purpose of the gettype() function in PHP?</p>
-                        <input type="radio" name="q8" value="A"> A) To check if a variable is of a certain type<br>
-                        <input type="radio" name="q8" value="B"> B) To retrieve the type of a variable as a string<br>
-                        <input type="radio" name="q8" value="C"> C) To cast a variable to a specific type<br>
-                        <input type="radio" name="q8" value="D"> D) To change the type of a variable to boolean<br>
+                        <p>8. What is the main advantage of using type declarations in PHP functions?</p>
+                        <input type="radio" name="q8" value="A"> A) They speed up code execution.<br>
+                        <input type="radio" name="q8" value="B"> B) They help with error handling.<br>
+                        <input type="radio" name="q8" value="C"> C) They provide type safety and better code clarity.<br>
+                        <input type="radio" name="q8" value="D"> D) They make variables accessible globally.<br>
                     </div>
                     <div class="question" id="q9">
-                        <p>9. Which data type is used to store key-value pairs in PHP?</p>
-                        <input type="radio" name="q9" value="A"> A) Array<br>
-                        <input type="radio" name="q9" value="B"> B) Integer<br>
-                        <input type="radio" name="q9" value="C"> C) Float<br>
-                        <input type="radio" name="q9" value="D"> D) String<br>
+                        <p>9. When using the strpos() function, which of the following is the correct way to check if the needle was not found in the haystack?</p>
+                        <input type="radio" name="q9" value="A"> A) if ($idx == false)<br>
+                        <input type="radio" name="q9" value="B"> B) if ($idx === false)<br>
+                        <input type="radio" name="q9" value="C"> C) if ($idx != false)<br>
+                        <input type="radio" name="q9" value="D"> D) if ($idx == 0)<br>
                     </div>
                     <div class="question" id="q10">
-                        <p>10. What will the following code output?</p>
-<pre>$bar = "hello";
-echo $bar[0];</pre>
-                        <input type="radio" name="q10" value="A"> A) h<br>
-                        <input type="radio" name="q10" value="B"> B) hello<br>
-                        <input type="radio" name="q10" value="C"> C) NULL<br>
-                        <input type="radio" name="q10" value="D"> D) 0<br>
-                    </div>
-                    <div class="question" id="q11">
-                        <p>11. Why are global variables considered bad practice in PHP?</p>
-                        <input type="radio" name="q11" value="A"> A) They are not secure.<br>
-                        <input type="radio" name="q11" value="B"> B) They make code harder to maintain and test.<br>
-                        <input type="radio" name="q11" value="C"> C) They improve performance.<br>
-                        <input type="radio" name="q11" value="D"> D) They are only accessible within the function where defined.<br>
-                    </div>
-                    <div class="question" id="q12">
-                        <p>12. What is Dependency Injection in PHP?</p>
-                        <input type="radio" name="q12" value="A"> A) Passing global variables into a function.<br>
-                        <input type="radio" name="q12" value="B"> B) Passing necessary objects or dependencies into a class or function explicitly.<br>
-                        <input type="radio" name="q12" value="C"> C) Automatically assigning values to variables.<br>
-                        <input type="radio" name="q12" value="D"> D) A way to use superglobal variables directly in functions.<br>
-                    </div>
-                    <div class="question" id="q13">
-                        <p>13. Which of the following is a superglobal variable in PHP?</p>
-                        <input type="radio" name="q13" value="A"> A) $dbConnector<br>
-                        <input type="radio" name="q13" value="B"> B) $_POST<br>
-                        <input type="radio" name="q13" value="C"> C) $bob<br>
-                        <input type="radio" name="q13" value="D"> D) $functionName<br>
-                    </div>
-                    <div class="question" id="q14">
-                        <p>14. In the following code, what is the purpose of $GLOBALS?</p>
-<pre>$x = 10;
-function test() {
-    $GLOBALS['x'] = 20;
-}
-test();
-echo $x;</pre>
-                        <input type="radio" name="q14" value="A"> A) It stores global variables.<br>
-                        <input type="radio" name="q14" value="B"> B) It prevents access to global variables inside functions.<br>
-                        <input type="radio" name="q14" value="C"> C) It allows the modification of global variables within functions.<br>
-                        <input type="radio" name="q14" value="D"> D) It makes variables private within the function.<br>
-                    </div>
-                    <div class="question" id="q15">
-                        <p>15. What is the main advantage of using type declarations in PHP functions?</p>
-                        <input type="radio" name="q15" value="A"> A) They speed up code execution.<br>
-                        <input type="radio" name="q15" value="B"> B) They help with error handling.<br>
-                        <input type="radio" name="q15" value="C"> C) They provide type safety and better code clarity.<br>
-                        <input type="radio" name="q15" value="D"> D) They make variables accessible globally.<br>
-                    </div>
-                    <div class="question" id="q16">
-                        <p>16. Which of the following values will equate to false when used in a boolean context in PHP?</p>
-                        <input type="radio" name="q16" value="A"> A) The string '0'<br>
-                        <input type="radio" name="q16" value="B"> B) The string ' ' (space)<br>
-                        <input type="radio" name="q16" value="C"> C) The integer 99<br>
-                        <input type="radio" name="q16" value="D"> D) NAN (Not-a-Number)<br>
-                    </div>
-                    <div class="question" id="q17">
-                        <p>17. When using the strpos() function, which of the following is the correct way to check if the needle was not found in the haystack?</p>
-                        <input type="radio" name="q17" value="A"> A) if ($idx == false)<br>
-                        <input type="radio" name="q17" value="B"> B) if ($idx === false)<br>
-                        <input type="radio" name="q17" value="C"> C) if ($idx != false)<br>
-                        <input type="radio" name="q17" value="D"> D) if ($idx == 0)<br>
-                    </div>
-                    <div class="question" id="q18">
-                        <p>18. What is the default value of an uninitialized variable in PHP when used in a boolean context?</p>
-                        <input type="radio" name="q18" value="A"> A) true<br>
-                        <input type="radio" name="q18" value="B"> B) false<br>
-                        <input type="radio" name="q18" value="C"> C) NULL<br>
-                        <input type="radio" name="q18" value="D"> D) An empty string<br>
-                    </div>
-                    <div class="question" id="q19">
-                        <p>19. What will be the output of the following code?</p>
+                        <p>10. What will be the output of the following code?</p>
 <pre>$unset_int += 25;
 var_dump($unset_int);</pre>
-                        <input type="radio" name="q19" value="A"> A) int(0)<br>
-                        <input type="radio" name="q19" value="B"> B) int(25)<br>
-                        <input type="radio" name="q19" value="C"> C) string(25)<br>
-                        <input type="radio" name="q19" value="D"> D) NULL<br>
-                    </div>
-                    <div class="question" id="q20">
-                        <p>20. If you try to access an uninitialized object property like $unset_obj->foo = 'bar';, what will happen?</p>
-                        <input type="radio" name="q20" value="A"> A) It will throw an error.<br>
-                        <input type="radio" name="q20" value="B"> B) It will create a new object and assign the property.<br>
-                        <input type="radio" name="q20" value="C"> C) It will print NULL.<br>
-                        <input type="radio" name="q20" value="D"> D) It will ignore the assignment.<br>
+                        <input type="radio" name="q10" value="A"> A) int(0)<br>
+                        <input type="radio" name="q10" value="B"> B) int(25)<br>
+                        <input type="radio" name="q10" value="C"> C) string(25)<br>
+                        <input type="radio" name="q10" value="D"> D) NULL<br>
                     </div>
                 </form>
                 <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
@@ -1354,103 +1208,42 @@ function log_message($message) {
                         <input type="radio" name="q3" value="B"> B) The default value provided<br>
                         <input type="radio" name="q3" value="C"> C) false<br>
                         <input type="radio" name="q3" value="D"> D) empty string<br>
-                    </div>
+                    </div>                        
                     <div class="question" id="q4">
-                        <p>4. If you want to use $_POST inside a function without declaring it as global, what is the best practice?</p>
-                        <input type="radio" name="q4" value="A"> A) Always use the global keyword.<br>
-                        <input type="radio" name="q4" value="B"> B) Use $_POST directly within the function, no need for any declaration.<br>
-                        <input type="radio" name="q4" value="C"> C) Pass $_POST as a parameter to the function.<br>
-                        <input type="radio" name="q4" value="D"> D) Use global $_POST; inside the function.<br>
+                        <p>4. What is the main difference between a regular class property and a static class property in PHP?</p>
+                        <input type="radio" name="q4" value="A"> A) A static class property can only be accessed within the class.<br>
+                        <input type="radio" name="q4" value="B"> B) A static class property must be declared as private.<br>
+                        <input type="radio" name="q4" value="C"> C) A static class property can be accessed without instantiating the class.<br>
+                        <input type="radio" name="q4" value="D"> D) A regular class property can be accessed from anywhere.<br>
                     </div>
                     <div class="question" id="q5">
-                        <p>5. Which of the following scope blocks is available globally in a PHP script?</p>
-                        <input type="radio" name="q5" value="A"> A) Function scope<br>
-                        <input type="radio" name="q5" value="B"> B) Class scope<br>
-                        <input type="radio" name="q5" value="C"> C) Global scope<br>
-                        <input type="radio" name="q5" value="D"> D) Local scope<br>
-                    </div>
-                    <div class="question" id="q6">
-                        <p>6. What will be the output of the following code if $_POST['username'] is not set?</p>
-<pre>echo getPostValue('username');</pre>
-                        <input type="radio" name="q6" value="A"> A) It will raise an error.<br>
-                        <input type="radio" name="q6" value="B"> B) It will output NULL.<br>
-                        <input type="radio" name="q6" value="C"> C) It will output the default value (NULL).<br>
-                        <input type="radio" name="q6" value="D"> D) It will output nothing.<br>
-                    </div>
-                    <div class="question" id="q7">
-                        <p>7. What is the correct way to access the superglobal variable $_GET inside a function without using the global keyword?</p>
-                        <input type="radio" name="q7" value="A"> A) $GLOBALS['GET']<br>
-                        <input type="radio" name="q7" value="B"> B) $_GET can be accessed directly inside the function.$_GET can be accessed directly inside the function.<br>
-                        <input type="radio" name="q7" value="C"> C) You must pass $_GET as a parameter to the function.<br>
-                        <input type="radio" name="q7" value="D"> D) You must declare global $_GET; inside the function.<br>
-                    </div>
-                    <div class="question" id="q8">
-                        <p>8. What is the main difference between a regular class property and a static class property in PHP?</p>
-                        <input type="radio" name="q8" value="A"> A) A static class property can only be accessed within the class.<br>
-                        <input type="radio" name="q8" value="B"> B) A static class property must be declared as private.<br>
-                        <input type="radio" name="q8" value="C"> C) A static class property can be accessed without instantiating the class.<br>
-                        <input type="radio" name="q8" value="D"> D) A regular class property can be accessed from anywhere.<br>
-                    </div>
-                    <div class="question" id="q9">
-                        <p>9. In the code below, what will be the value of SomeClass::$counter after the following execution?</p>
+                        <p>5. In the code below, what will be the value of SomeClass::$counter after the following execution?</p>
 <pre>class SomeClass {
     public static int $counter = 0;
 }
 
 SomeClass::$counter += 1;</pre>
-                        <input type="radio" name="q9" value="A"> A) 0<br>
-                        <input type="radio" name="q9" value="B"> B) 1<br>
-                        <input type="radio" name="q9" value="C"> C) null<br>
-                        <input type="radio" name="q9" value="D"> D) Error<br>
+                        <input type="radio" name="q5" value="A"> A) 0<br>
+                        <input type="radio" name="q5" value="B"> B) 1<br>
+                        <input type="radio" name="q5" value="C"> C) null<br>
+                        <input type="radio" name="q5" value="D"> D) Error<br>
                     </div>
-                    <div class="question" id="q10">
-                        <p>10. How does a static variable inside a function behave in PHP?</p>
-                        <input type="radio" name="q10" value="A"> A) It gets reset every time the function is called.<br>
-                        <input type="radio" name="q10" value="B"> B) It persists its value between function calls.<br>
-                        <input type="radio" name="q10" value="C"> C) It can only be accessed from outside the function.<br>
-                        <input type="radio" name="q10" value="D"> D) It can only hold integer values.<br>
+                    <div class="question" id="q6">
+                        <p>6. How does a static variable inside a function behave in PHP?</p>
+                        <input type="radio" name="q6" value="A"> A) It gets reset every time the function is called.<br>
+                        <input type="radio" name="q6" value="B"> B) It persists its value between function calls.<br>
+                        <input type="radio" name="q6" value="C"> C) It can only be accessed from outside the function.<br>
+                        <input type="radio" name="q6" value="D"> D) It can only hold integer values.<br>
                     </div>
-                    <div class="question" id="q11">
-                        <p>11. Which design pattern is often implemented using static variables inside a function in PHP?</p>
-                        <input type="radio" name="q11" value="A"> A) Factory pattern<br>
-                        <input type="radio" name="q11" value="B"> B) Observer pattern<br>
-                        <input type="radio" name="q11" value="C"> C) Singleton pattern<br>
-                        <input type="radio" name="q11" value="D"> D) Decorator pattern<br>
+                    <div class="question" id="q7">
+                        <p>7. What is the purpose of the global keyword in PHP?</p>
+                        <input type="radio" name="q7" value="A"> A) It is used to define a variable within the function scope.<br>
+                        <input type="radio" name="q7" value="B"> B) It allows a function to access and modify variables in the global scope.<br>
+                        <input type="radio" name="q7" value="C"> C) It defines a variable as static within a function.<br>
+                        <input type="radio" name="q7" value="D"> D) It is used to include external files.<br>
                     </div>
-                    <div class="question" id="q12">
-                        <p>12. In the Singleton class example, what does the static variable $instance do?</p>
-                        <input type="radio" name="q12" value="A"> A) It stores the first instance of the class and ensures the same instance is returned on subsequent calls.<br>
-                        <input type="radio" name="q12" value="B"> B) It stores the class method.<br>
-                        <input type="radio" name="q12" value="C"> C) It prevents the class from being instantiated.<br>
-                        <input type="radio" name="q12" value="D"> D) It holds a collection of all class instances.<br>
-                    </div>
-                    <div class="question" id="q13">
-                        <p>13. What will the following code output?</p>
-<pre>$instance1 = Singleton::getInstance();
-$instance2 = Singleton::getInstance();
-
-var_dump($instance1 === $instance2);</pre>
-                        <input type="radio" name="q13" value="A"> A) false<br>
-                        <input type="radio" name="q13" value="B"> B) true<br>
-                        <input type="radio" name="q13" value="C"> C) null<br>
-                        <input type="radio" name="q13" value="D"> D) Error<br>
-                    </div>
-                    <div class="question" id="q14">
-                        <p>14. Can a static property in PHP be accessed directly without creating an instance of the class?</p>
-                        <input type="radio" name="q14" value="A"> A) Yes, it can be accessed using ClassName::$property.<br>
-                        <input type="radio" name="q14" value="B"> B) No, static properties can only be accessed via an object instance.<br>
-                        <input type="radio" name="q14" value="C"> C) Yes, but only within the class.<br>
-                        <input type="radio" name="q14" value="D"> D) No, static properties must be private.<br>
-                    </div>
-                    <div class="question" id="q15">
-                        <p>15. What is the purpose of the global keyword in PHP?</p>
-                        <input type="radio" name="q15" value="A"> A) It is used to define a variable within the function scope.<br>
-                        <input type="radio" name="q15" value="B"> B) It allows a function to access and modify variables in the global scope.<br>
-                        <input type="radio" name="q15" value="C"> C) It defines a variable as static within a function.<br>
-                        <input type="radio" name="q15" value="D"> D) It is used to include external files.<br>
-                    </div>
-                    <div class="question" id="q16">
-                        <p>16. In the following code, what will be the value of $amount_of_log_calls after calling the log_message() function twice?</p>
+                    <div class="question" id="q8">
+                        <p>8. In the following code, what will be the value of $amount_of_log_calls after calling the log_message() function twice?</p>
 <pre>$amount_of_log_calls = 0;
 
 function log_message($message) {
@@ -1461,55 +1254,24 @@ function log_message($message) {
 
 log_message("First log message!");
 log_message("Second log message!");</pre>
-                        <input type="radio" name="q16" value="A"> A) 0<br>
-                        <input type="radio" name="q16" value="B"> B) 1<br>
-                        <input type="radio" name="q16" value="C"> C) 2<br>
-                        <input type="radio" name="q16" value="D"> D) 3<br>
+                        <input type="radio" name="q8" value="A"> A) 0<br>
+                        <input type="radio" name="q8" value="B"> B) 1<br>
+                        <input type="radio" name="q8" value="C"> C) 2<br>
+                        <input type="radio" name="q8" value="D"> D) 3<br>
                     </div>
-                    <div class="question" id="q17">
-                        <p>17. How can you access a global variable from within a function without using the global keyword?</p>
-                        <input type="radio" name="q17" value="A"> A) Use the $GLOBALS array.<br>
-                        <input type="radio" name="q17" value="B"> B) Directly access the global variable.<br>
-                        <input type="radio" name="q17" value="C"> C) Declare the variable within the function.<br>
-                        <input type="radio" name="q17" value="D"> D) Use the global keyword within the function.<br>
+                    <div class="question" id="q9">
+                        <p>9. How can you access a global variable from within a function without using the global keyword?</p>
+                        <input type="radio" name="q9" value="A"> A) Use the $GLOBALS array.<br>
+                        <input type="radio" name="q9" value="B"> B) Directly access the global variable.<br>
+                        <input type="radio" name="q9" value="C"> C) Declare the variable within the function.<br>
+                        <input type="radio" name="q9" value="D"> D) Use the global keyword within the function.<br>
                     </div>
-                    <div class="question" id="q18">
-                        <p>18. What is the advantage of using the $GLOBALS array over the global keyword in PHP?</p>
-                        <input type="radio" name="q18" value="A"> A) $GLOBALS makes the variable private.<br>
-                        <input type="radio" name="q18" value="B"> B) $GLOBALS does not change the scope of the variable and can be reused in the function.<br>
-                        <input type="radio" name="q18" value="C"> C) The global keyword is more efficient than $GLOBALS.<br>
-                        <input type="radio" name="q18" value="D"> D) $GLOBALS can only be used for arrays.<br>
-                    </div>
-                    <div class="question" id="q19">
-                        <p>19. In the code example provided, if the function log_message() was rewritten using $GLOBALS to access the global variable, how would it look?</p>
-                        <input type="radio" name="q19" value="A"> A) 
-<pre>function log_message($message) {
-    global $amount_of_log_calls;
-    $amount_of_log_calls += 1;
-    echo $message;
-}</pre><br>
-                        <input type="radio" name="q19" value="B"> B) 
-<pre>function log_message($message) {
-    $GLOBALS['amount_of_log_calls'] += 1;
-    echo $message;
-}</pre><br>
-                        <input type="radio" name="q19" value="C"> C) 
-<pre>function log_message($message) {
-    $GLOBALS->amount_of_log_calls += 1;
-    echo $message;
-}</pre><br>
-                        <input type="radio" name="q19" value="D"> D) 
-<pre>function log_message($message) {
-    $GLOBALS::amount_of_log_calls += 1;
-    echo $message;
-}</pre><br>
-                    </div>
-                    <div class="question" id="q20">
-                        <p>20. What happens if you use the global keyword to access a global variable inside a function and then try to reuse the same variable name within that function?</p>
-                        <input type="radio" name="q20" value="A"> A) The global variable will be overwritten by the local variable.<br>
-                        <input type="radio" name="q20" value="B"> B) It causes a conflict and PHP throws an error.<br>
-                        <input type="radio" name="q20" value="C"> C) The local variable will override the global variable within that function only.<br>
-                        <input type="radio" name="q20" value="D"> D) It has no effect on the global variable.<br>
+                    <div class="question" id="q10">
+                        <p>10. What is the advantage of using the $GLOBALS array over the global keyword in PHP?</p>
+                        <input type="radio" name="q10" value="A"> A) $GLOBALS makes the variable private.<br>
+                        <input type="radio" name="q10" value="B"> B) $GLOBALS does not change the scope of the variable and can be reused in the function.<br>
+                        <input type="radio" name="q10" value="C"> C) The global keyword is more efficient than $GLOBALS.<br>
+                        <input type="radio" name="q10" value="D"> D) $GLOBALS can only be used for arrays.<br>
                     </div>
                 </form>
                 <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
