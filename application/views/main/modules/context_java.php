@@ -229,6 +229,7 @@ button:hover i {
                             <li><a href="#" data-target='content-Non-numeric-primitive-casting'>Non-numeric primitive casting</a></li>
                             <li><a href="#" data-target='content-Object-casting'>Object casting</a></li>
                             <li><a href="#" data-target='content-Testing if an-object-can be-cast using-instanceof'>Testing if an object can be cast using instanceof</a></li> 
+                            <li><a href="#" data-target='content-module1-quiz'>Module 1 Quiz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -239,6 +240,7 @@ button:hover i {
                             <li><a href="#" data-target='content-Using a setter-or getter to-implement a-constraint'> Using a setter or getter to implement a constraint</a></li>
                             <li><a href="#" data-target='content-Why Use-Getters-and-Setters?'> Why Use Getters and Setters?</a></li>
                             <li><a href="#" data-target='content-Adding-Getters-and-Setters'>Adding Getters and Setters</a></li>
+                            <li><a href="#" data-target='content-module2-quiz'>Module 2 Quiz</a></li>
                             
                         </ul>
                     </div>
@@ -251,6 +253,7 @@ button:hover i {
                             <li><a href="#" data-target='content-Instantiating-a-reference-type'>Instantiating a reference type</a></li>
                             <li><a href="#" data-target='content-The javac command - getting started'>The 'javac' command - getting started</a></li>
                             <li><a href="#" data-target='content-Compiling for a different version of Java'>Compiling for a different version of Java</a></li>
+                            <li><a href="#" data-target='content-module3-quiz'>Module 3 Quiz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -557,7 +560,123 @@ if(obj instanceof Date) {
 }</code></pre>
             </section>
             
-               
+            <section id="content-module1-quiz" class="content" style="display: none;">
+                <h1>Module 1 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1. How can a global variable be accessed from within a function without using the global keyword in PHP?</p>
+                        <input type="radio" name="q1" value="A"> A) Use the $GLOBALS array.<br>
+                        <input type="radio" name="q1" value="B"> B) Declare the variable again within the function.<br>
+                        <input type="radio" name="q1" value="C"> C) Use the static keyword.<br>
+                        <input type="radio" name="q1" value="D"> D) Use the public access modifier.<br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2. Which of the following statements about $_POST superglobal is correct?</p>
+                        <input type="radio" name="q2" value="A"> A) It is used to collect form data after submitting a form using the GET method.<br>
+                        <input type="radio" name="q2" value="B"> B) It is a superglobal variable that can be accessed anywhere without the global keyword.<br>
+                        <input type="radio" name="q2" value="C"> C)  It can only be used inside functions.<br>
+                        <input type="radio" name="q2" value="D"> D) It is used to store data in cookies.<br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. What will the following Java code output?</p>
+                        <pre>java
+byte byteVar = 42;
+short shortVar = byteVar;
+int intVar = shortVar;
+long longVar = intVar;
+float floatVar = longVar;
+double doubleVar = floatVar;
+System.out.println(doubleVar);</pre>
+                        <input type="radio" name="q3" value="A"> A) 42.0<br>
+                        <input type="radio" name="q3" value="B"> B) 42<br>
+                        <input type="radio" name="q3" value="C"> C) Error: Cannot convert from int to short<br>
+                        <input type="radio" name="q3" value="D"> D) Error: Cannot convert from byte to short<br>
+                    </div>
+                    <div class="question" id="q4">
+                        <p>4. What will the following Java code output? </p>
+                        <pre>java
+double doubleVar = 42.99;
+int intVar = (int) doubleVar;
+System.out.println(intVar);</pre>
+                        <input type="radio" name="q4" value="A"> A) 42.99<br>
+                        <input type="radio" name="q4" value="B"> B) 43<br>
+                        <input type="radio" name="q4" value="C"> C) 42<br>
+                        <input type="radio" name="q4" value="D"> D) Compilation Error<br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5.  What will the following code output?</p>
+                        <pre>java
+float floatVar = 12.75f;
+int intVar = (int) floatVar;
+System.out.println(intVar);</pre>
+                        <input type="radio" name="q5" value="A"> A) 12.75<br>
+                        <input type="radio" name="q5" value="B"> B) 12<br>
+                        <input type="radio" name="q5" value="C"> C) 13<br>
+                        <input type="radio" name="q5" value="D"> D) Compilation Error<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. What will the following code output?</p>
+                        <pre>java
+long longVar = 1234567890L;
+short shortVar = (short) longVar;
+System.out.println(shortVar);</pre>
+                        <input type="radio" name="q6" value="A"> A) 1234567890<br>
+                        <input type="radio" name="q6" value="B"> B)12345<br>
+                        <input type="radio" name="q6" value="C"> C) -16194<br>
+                        <input type="radio" name="q6" value="D"> D)  Compilation Error<br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. 1. What is the result of the following code?</p>
+                        <pre>char char1 = (char) 65;
+byte byte1 = (byte) 'A';
+short short1 = (short) 'A';
+int int1 = (int) 'A';
+System.out.println(byte1);
+System.out.println(short1);
+System.out.println(int1);
+</pre>
+                        <input type="radio" name="q7" value="A"> A) 65 65 65<br>
+                        <input type="radio" name="q7" value="B"> B) 65 65 66<br>
+                        <input type="radio" name="q7" value="C"> C) 65 66 66<br>
+                        <input type="radio" name="q7" value="D"> D) Compilation Error<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. What is the output of the following code?</p>
+                        <pre>char char2 = (char) 8253;
+byte byte2 = (byte) '‽';
+short short2 = (short) '‽';
+int int2 = (int) '‽';
+System.out.println(byte2);
+System.out.println(short2);
+System.out.println(int2);
+</pre>
+                        <input type="radio" name="q8" value="A"> A) 8253 8253 8253<br>
+                        <input type="radio" name="q8" value="B"> B) 61 8253 8253<br>
+                        <input type="radio" name="q8" value="C"> C)  61 61 8253<br>
+                        <input type="radio" name="q8" value="D"> D) 8253 61 8253.<br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. What is the result of the following code?</p>
+                        <pre>Object obj = new Integer(10);
+String str = (String) obj;
+System.out.println(str);
+</pre>
+                        <input type="radio" name="q9" value="A"> A) 10<br>
+                        <input type="radio" name="q9" value="B"> B) Compilation Error<br>
+                        <input type="radio" name="q9" value="C"> C) ClassCastException.<br>
+                        <input type="radio" name="q9" value="D"> D) NullPointerException<br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. What is the result of the following code?</p>
+                        <input type="radio" name="q10" value="A"> A) 42.0<br>
+                        <input type="radio" name="q10" value="B"> B) Compilation Error<br>
+                        <input type="radio" name="q10" value="C"> C)  ClassCastException<br>
+                        <input type="radio" name="q10" value="D"> D) NullPointerException<br>
+                    </div>
+                </form>
+                <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+            </section>
+        
             
             <!-- Content Sections for Module 2 -->
             <section id="content-Using a setter-or getter to-implement a-constraint" class="content" style="display: none;">
@@ -699,7 +818,187 @@ if(obj instanceof Date) {
 
 <p>Public Getters and Setters are part of the Property definition of a Java Bean.</p>
             </section>
-            
+            <!-- Quiz 2 -->
+            <section id="content-module2-quiz" class="content" style="display: none;">
+            <h1>Module 2 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1. What will the following code print when executed?</p>
+                        <pre>public class Person {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if(name != null && name.length() > 2)
+            this.name = name;
+    }
+
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("Jo");
+        System.out.println(person.getName());
+    }
+}
+</pre>
+                        <input type="radio" name="q1" value="A"> A)  Jo<br>
+                        <input type="radio" name="q1" value="B"> B) null<br>
+                        <input type="radio" name="q1" value="C"> C) Compilation Error<br>
+                        <input type="radio" name="q1" value="D"> D) No output.<br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2. In the following code, what will happen when setName("Alexandra") is called?</p>
+                        <pre>public class Person {
+    private String name;
+
+    public String getName() {
+        if(name.length() > 16)
+            return "Name is too large!";
+        else
+            return name;
+    }
+
+    public void setName(String name) {
+        if(name != null && name.length() > 2)
+            this.name = name;
+    }
+
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("Alexandra");
+        System.out.println(person.getName());
+    }
+}
+</pre>
+                        <input type="radio" name="q2" value="A"> A)  Alexandra<br>
+                        <input type="radio" name="q2" value="B"> B)  Name is too large!<br>
+                        <input type="radio" name="q2" value="C"> C) Compilation Error<br>
+                        <input type="radio" name="q2" value="D"> D) null<br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. What will the following code print when executed?</p>
+                        <pre>public class Person {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if(name != null && name.length() > 2)
+            this.name = name;
+    }
+
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("A");
+        System.out.println(person.getName());
+    }
+}
+</pre>
+                        <input type="radio" name="q3" value="A"> A) A<br>
+                        <input type="radio" name="q3" value="B"> B) null<br>
+                        <input type="radio" name="q3" value="C"> C) Compilation Error<br>
+                        <input type="radio" name="q3" value="D"> D) No output<br>
+                    </div>
+                    <div class="question" id="q4">
+                        <p>4. In the following <code>CountHolder</code> class, why is it better to use a getter and setter method instead of making <code>count</code> public?</p>
+                        <pre>public class CountHolder {
+    private int count = 0;
+    
+    public int getCount() { 
+        return count; 
+    }
+    
+    public void setCount(int c) { 
+        count = c; 
+    }
+}
+</pre>
+                        <input type="radio" name="q4" value="A"> A) It allows better control over the modification of <code>count</code>.<br>
+                        <input type="radio" name="q4" value="B"> B) It ensures that <code>count</code> can never be modified.<br>
+                        <input type="radio" name="q4" value="C"> C) It makes the code less readable and harder to understand.<br>
+                        <input type="radio" name="q4" value="D"> D) It reduces the performance of the program.<br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5.  What is the advantage of synchronizing access to <code>count</code> in the following <code>CountHolder</code> class?</p>
+                        <pre>public class CountHolder {
+    private int count = 0;
+    
+    public synchronized int getCount() { 
+        return count; 
+    }
+    
+    public synchronized void setCount(int c) { 
+        count = c; 
+    }
+}
+</pre>
+                        <input type="radio" name="q5" value="A"> A) It prevents multiple threads from modifying <code>count</code> simultaneously, ensuring thread safety.<br>
+                        <input type="radio" name="q5" value="B"> B) It makes the <code>count</code>variable public.<br>
+                        <input type="radio" name="q5" value="C"> C) It improves the performance of the code.<br>
+                        <input type="radio" name="q5" value="D"> D) It simplifies the code by eliminating the need for a getter and setter.<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. What potential downside does making <code>count</code> public in the <code>CountHolder</code> class have?</p>
+                        <pre>public class CountHolder {
+    public int count = 0;
+}
+</pre>
+                        <input type="radio" name="q6" value="A"> A)  It allows any code to modify <code>count</code> without any restrictions or control.<br>
+                        <input type="radio" name="q6" value="B"> B)  It makes <code>count</code>  thread-safe.<br>
+                        <input type="radio" name="q6" value="C"> C)  It ensures that <code>count</code>  is only accessible within the class.<br>
+                        <input type="radio" name="q6" value="D"> D)  It makes the class more extensible and flexible.<br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. Why are private variables in Java classes typically accessed using Getters and Setters instead of being directly accessed?</p>
+                        <input type="radio" name="q7" value="A"> A) It allows for better control over how variables are modified and accessed, providing flexibility for future changes.<br>
+                        <input type="radio" name="q7" value="B"> B)  It makes the variables easier to access directly.<br>
+                        <input type="radio" name="q7" value="C"> C) It prevents the use of inheritance in Java.<br>
+                        <input type="radio" name="q7" value="D"> D) It improves the performance of the program by reducing method calls.<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8.  In the following <code>Sample</code> class, what is the purpose of the ]<code>getAge()</code> and <code>setAge()</code> methods?</p>
+                        <pre>public class Sample {
+    private String name;
+    private int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+</pre>
+                        <input type="radio" name="q8" value="A"> A) To allow direct access to the <code>age</code> variable from outside the class<br>
+                        <input type="radio" name="q8" value="B"> B) To encapsulate the <code>age</code> variable and allow controlled access and modification.<br>
+                        <input type="radio" name="q8" value="C"> C) To provide access to the <code>age</code> variable only for the class itself.
+                        <input type="radio" name="q8" value="D"> D) To modify the <code>name</code> variable directly.<br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. According to Java naming conventions, how should a boolean variable's getter and setter methods be named?</p>
+                        <input type="radio" name="q9" value="A"> A) getVariableName() for the getter and setVariableName() for the setter.<br>
+                        <input type="radio" name="q9" value="B"> B) isVariableName() for the getter and setVariableName() for the setter.<br>
+                        <input type="radio" name="q9" value="C"> C) getVariableName() for both getter and setter.<br>
+                        <input type="radio" name="q9" value="D"> D) isVariableName() for both getter and setter.<br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>What is the benefit of making a variable private in Java and providing a <code>public</code> getter and setter for it?</p>
+                        <input type="radio" name="q10" value="A"> A) It allows external classes to directly modify the variable's value without any restrictions.<br>
+                        <input type="radio" name="q10" value="B"> B) It makes the variable accessible to all classes in the same package.<br>
+                        <input type="radio" name="q10" value="C"> C) It ensures that the variable is only modified in controlled ways through the setter method, protecting the integrity of the object's state.<br>
+                        <input type="radio" name="q10" value="D"> D) It eliminates the need for the getter and setter methods.<br>
+                    </div>
+                </form>
+                <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+            </section>
+            </section>
+
+
             <!-- Content Sections for Module 3 -->
             <section id="content-Dereferencing" class="content" style="display: none;">
             <h1>Dereferencing in Java</h1>
@@ -875,7 +1174,83 @@ com/example/HelloWorld.java</code></pre>
 <pre><code>$ javac -target 1.4 --bootclasspath path/to/java1.4/rt.jar SomeClass.java</code></pre>
 <p>will compile against an alternative set of runtime libraries. If the class being compiled has (accidental) dependencies on newer libraries, this will give you compilation errors.</p>
             </section>
-            
+             <!-- Quiz 3 -->
+             <section id="content-module3-quiz" class="content" style="display: none;">
+                <h1>Module 3 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1. What happens when you attempt to dereference a null reference in Java?</p>
+                        <input type="radio" name="q1" value="A"> A) The program compiles but runs without any output.<br>
+                        <input type="radio" name="q1" value="B"> B) The program executes, but the method call is ignored<br>
+                        <input type="radio" name="q1" value="C"> C) The program throws a <code>NullPointerException</code>.<br>
+                        <input type="radio" name="q1" value="D"> D) The program defaults to the method of a default object.<br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2. What does the . (dot) operator do in Java when used with an object? </p>
+                        <input type="radio" name="q2" value="A"> A) It assigns a value to an object reference.<br>
+                        <input type="radio" name="q2" value="B"> B) It dereferences the reference to access the object's members (fields or methods).<br>
+                        <input type="radio" name="q2" value="C"> C) It checks if the object reference is null.<br>
+                        <input type="radio" name="q2" value="D"> D) It creates a new reference to the object.<br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. What does the <code>new</code> keyword do when creating an object in Java?</p>
+                        <input type="radio" name="q3" value="A"> A) It assigns an existing object to the reference variable.<br>
+                        <input type="radio" name="q3" value="B"> B) It creates a new reference variable for an existing object.<br>
+                        <input type="radio" name="q3" value="C"> C) It allocates memory for the object and calls its constructor to initialize the object.<br>
+                        <input type="radio" name="q3" value="D"> D)  It creates a new primitive variable and stores the reference to the object.<br>
+                    </div>
+                    <div class="question" id="q4">
+                        <p>4.  What is the key difference between creating an object using <Code>new</Code> and assigning a value to a primitive type in Java?</p>
+                        <input type="radio" name="q4" value="A"> A) Objects are stored in a different memory area than primitives.<br>
+                        <input type="radio" name="q4" value="B"> B) Primitives do not require memory allocation.<br>
+                        <input type="radio" name="q4" value="C"> C) Primitives are reference types while objects are value types.<br>
+                        <input type="radio" name="q4" value="D"> D) Objects store the actual data, while primitives store references.<br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5. What is the reason the source filename <code>HelloWorld.java</code> must match the class name <code>HelloWorld</code> in Java?</p>
+                        <input type="radio" name="q5" value="A"> A) The JVM requires the filenames to match for security purposes.<br>
+                        <input type="radio" name="q5" value="B"> B) The class name must match the filename for correct compilation and runtime execution.<br>
+                        <input type="radio" name="q5" value="C"> C) The Java compiler automatically renames the source file to match the class name.<br>
+                        <input type="radio" name="q5" value="D"> D) It is a best practice but not necessary for Java to run correctly.<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. If your Java program is organized in a package called <code>com.example</code>, how would you compile the <code>HelloWorld.java</code> file?</p>
+                        <input type="radio" name="q6" value="A"> A) <code>$ javac HelloWorld.java</code><br>
+                        <input type="radio" name="q6" value="B"> B) <code>$ javac com/example/HelloWorld.java</code><br>
+                        <input type="radio" name="q6" value="C"> C) <code>$ javac -package com.example HelloWorld.java</code><br>
+                        <input type="radio" name="q6" value="D"> D) <code>$ javac package com.example HelloWorld.java</code><br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. When running a Java program that uses a package, which command would you use to run the <code>HelloWorld</code> class in the <code>com.example</code> package?</p>
+                        <input type="radio" name="q7" value="A"> A) <code>$ java HelloWorld</code><br>
+                        <input type="radio" name="q7" value="B"> B) <code>$ java com.example.HelloWorld</code><br>
+                        <input type="radio" name="q7" value="C"> C) <code>$ java -cp com.example HelloWorld</code><br>
+                        <input type="radio" name="q7" value="D"> D) <code>$ java com/example/HelloWorld</code><br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. What does it mean that Java is "backwards compatible"?</p>
+                        <input type="radio" name="q8" value="A"> A) Java programs compiled with an older Java version will not run on newer Java platforms.<br>
+                        <input type="radio" name="q8" value="B"> B) Java programs written with an older version of Java will fail to compile on newer versions.<br>
+                        <input type="radio" name="q8" value="C"> C) Java programs compiled with an older Java version will run on newer versions of the Java platform without recompilation.<br>
+                        <input type="radio" name="q8" value="D"> D) Java programs written in a newer version will not compile with older Java compilers.<br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. What compilation flag would you use to compile a Java program that uses a syntax introduced in Java 5, like the <code>enum</code> keyword, using an older Java compiler (Java 1.4)?</p>
+                        <input type="radio" name="q9" value="A"> A) <code>-target 1.4</code><br>
+                        <input type="radio" name="q9" value="B"> B) <code>-source 1.4</code><br>
+                        <input type="radio" name="q9" value="C"> C) <code>-source 1.5</code><br>
+                        <input type="radio" name="q9" value="D"> D) <code>-disable-enum</code><br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. When compiling Java code for an older execution platform, why might you need to use the <code>-bootclasspath</code> option in addition to the <code>-target</code> option?</p>
+                        <input type="radio" name="q10" value="A"> A)  To specify a different JDK version for compilation<br>
+                        <input type="radio" name="q10" value="B"> B) To link the program against the older platform's runtime libraries.<br>
+                        <input type="radio" name="q10" value="C"> C) To ensure that newer Java features can still be used.<br>
+                        <input type="radio" name="q10" value="D"> D) To compile Java code to work with third-party libraries.<br>
+                    </div>
+                </form>
+                <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+            </section>
             
         </div>
     </div>
