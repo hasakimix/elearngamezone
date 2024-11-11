@@ -1,307 +1,281 @@
-<?php
-session_start();
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "elearngamezone"; // Replace with your database name
-
-// Establish a database connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Assuming user's ID is stored in the session
-$userId = 1;
-
-// Fetch user info from the `user_info` table
-$query = "SELECT name, profile_picture FROM user_info WHERE id='$userId'";
-$result = $conn->query($query);
-if ($result->num_rows > 0) {
-    $user = $result->fetch_assoc();
-    $userName = $user['name'];
-    $profilePicture = $user['profile_picture'] ?: '#';
-} else {
-    die("User not found.");
-}
-
-// Handle profile update form submission
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Update name
-    if (!empty($_POST['name'])) {
-        $newName = $conn->real_escape_string($_POST['name']);
-        $conn->query("UPDATE user_info SET name='$newName' WHERE id='$userId'");
-        $userName = $newName; // Update local variable for display
-    }
-
-    // Handle profile picture upload if a file was selected
-    if (!empty($_FILES['profile-pic']['name'])) {
-        $target_dir = "uploaded_img/";
-        $file_name = basename($_FILES["profile-pic"]["name"]);
-        $target_file = $target_dir . $file_name;
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-        // Validate image file
-        $check = getimagesize($_FILES["profile-pic"]["tmp_name"]);
-        if ($check === false) {
-            $uploadOk = 0;
-            $_SESSION['errorMessage'] = "File is not an image.";
-        }
-        if ($_FILES["profile-pic"]["size"] > 5000000) {
-            $uploadOk = 0;
-            $_SESSION['errorMessage'] = "Sorry, your file is too large.";
-        }
-        if (!in_array($imageFileType, ['jpg', 'jpeg', 'png', 'gif'])) {
-            $uploadOk = 0;
-            $_SESSION['errorMessage'] = "Only JPG, JPEG, PNG & GIF files are allowed.";
-        }
-
-        // Move the uploaded file if validation passed
-        if ($uploadOk == 1 && move_uploaded_file($_FILES["profile-pic"]["tmp_name"], $target_file)) {
-            $conn->query("UPDATE user_info SET profile_picture='$target_file' WHERE id='$userId'");
-            $profilePicture = $target_file; // Update local variable for display
-        }
-    }
-
-    header("Location: " . $_SERVER['PHP_SELF']); // Refresh to apply changes
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="ind.css">
-    <link rel="stylesheet" href="./assets/css/auth/profile.css">
-    <link rel="stylesheet" href="./assets/css-charts/css/progress_pie_compiled.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Learning Management System</title>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .main-profile { padding: 20px; }
+        .profile-card { background-color: #f8f9fa; }
+        .profile-card-body { padding: 20px; }
+        .edit-icon { position: absolute; top: 5px; right: 5px; color: #007bff; cursor: pointer; }
+        .progress-section, .collapsible-section { margin-top: 20px; }
+        .card.bg-light { background-color: #e9ecef; border-radius: 8px; padding: 15px; }
+        .nav-tabs .nav-link { color: #495057; }
+        .nav-tabs .nav-link.active { background-color: #007bff; color: white; }
+        .tab-content h5 { font-weight: bold; }
+        .progress-bar { background-color: #007bff; }
+        .card-body label { font-weight: bold; }
+        .card-body {height: 850px;}
+        .card-edit label { font-weight: bold; }
+        .card-edit {height: 400px; padding: 20px;}
+    </style>
 </head>
-
 <body>
-    <div class="profile-container">
-        <form class="profile-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
-            <div class="profile-pic" onclick="toggleDropdown()">
-                <input type="file" name="profile-pic" class="hidden-input" accept="image/*" onchange="previewImage(event)">
-                <img id="profileImage" src="<?php echo htmlspecialchars($profilePicture); ?>" alt="Profile Picture" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; <?php echo ($profilePicture === '#' ? 'display:none;' : ''); ?>">
-            </div>
-            <div class="profile-name" id="profileName"><?php echo htmlspecialchars($userName); ?></div>
-            <button type="button" class="edit-btn" id="editButton" onclick="editName()">Edit</button>
 
-            <!-- Editable name input and save button -->
-            <div>
-                <input id="name-edit" style="display: none;" type="text" name="name" class="input-field" placeholder="Type new name..." value="<?php echo htmlspecialchars($userName); ?>">
-                <button type="submit" class="save-button" id="saveButton" style="display: none;">Save</button> <!-- Save button -->
+<!-- Main Profile Section -->
+<div class="main-profile container">
+    <div class="row">
+        <!-- Profile Card -->
+        <div class="col-lg-4">
+            <div class="card profile-card mb-4">
+                <div class="card-body profile-card-body text-center">
+                    <div class="profile-picture-container position-relative">
+                        <img src="<?= base_url("/assets/img/pfp.jpg") ?>" alt="Profile Picture" class="rounded-circle p-1 bg-primary" width="110">
+                        <div class="edit-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                    </div>
+                    <h4 class="mt-3">Jett Gods</h4>
+                    <p class="text-secondary mb-1">Radiant Player</p>
+                    <p class="text-muted font-size-sm">HasakiMix</p>
+                    <button class="btn btn-outline-primary" id="editButton">Edit</button>
+                    <hr class="my-4">
+                    <h5>About Me</h5>
+                    <p class="text-muted">Passionate gamer with a love for competitive play and a keen interest in software development. Always excited to learn new skills and level up, both in-game and in life!</p>
+                </div>
             </div>
-        </form>
+        </div>
 
-        <!-- Profile picture options dropdown -->
-        <div class="dropdown" id="dropdownMenu">
-            <a href="#" onclick="document.querySelector('.hidden-input').click();">Upload New Picture</a>
-            <a href="#" onclick="viewPicture()">View Picture</a>
-            <a href="#" onclick="removePicture()">Remove Picture</a>
+        <!-- Collapsible Section and Tabs -->
+        <div class="col-lg-8">
+            <!-- Collapsible Edit Section -->
+            <div class="collapsible-section" id="collapsibleSection" style="display: none;">
+                <div class="card mb-4">
+                    <div class="card-edit">
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <label>Full Name</label>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <label>Status</label>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <label>Nickname</label>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <label>About Me</label>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="button" class="btn btn-primary px-4" value="Save Changes">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Tabs -->
+            <div class="progress-section">
+                <ul class="nav nav-tabs" id="progressTabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="java-tab" data-toggle="tab" href="#java" role="tab">Java</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="html-tab" data-toggle="tab" href="#html" role="tab">HTML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="javascript-tab" data-toggle="tab" href="#javascript" role="tab">JavaScript</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="php-tab" data-toggle="tab" href="#php" role="tab">PHP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="python-tab" data-toggle="tab" href="#python" role="tab">Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="sql-tab" data-toggle="tab" href="#sql" role="tab">SQL</a>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content mt-3" id="progressTabsContent">
+                    <!-- Java Tab Content -->
+                    <div class="tab-pane fade show active" id="java" role="tabpanel">
+                        <div class="card bg-light p-3">
+                            <h5>Java Progress</h5>
+                            <p>Modules <span class="float-right">75%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 75%">75%</div>
+                            </div>
+                            <p>Quizzes <span class="float-right">65%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 65%">65%</div>
+                            </div>
+                            <p>Videos <span class="float-right">50%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 50%">50%</div>
+                            </div>
+                            <p>Games <span class="float-right">80%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 80%">80%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HTML Tab Content -->
+                    <div class="tab-pane fade" id="html" role="tabpanel">
+                        <div class="card bg-light p-3">
+                            <h5>HTML Progress</h5>
+                            <p>Modules <span class="float-right">85%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 85%">85%</div>
+                            </div>
+                            <p>Quizzes <span class="float-right">60%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 60%">60%</div>
+                            </div>
+                            <p>Videos <span class="float-right">90%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 90%">90%</div>
+                            </div>
+                            <p>Games <span class="float-right">40%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 40%">40%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- JavaScript Tab Content -->
+                    <div class="tab-pane fade" id="javascript" role="tabpanel">
+                        <div class="card bg-light p-3">
+                            <h5>JavaScript Progress</h5>
+                            <p>Modules <span class="float-right">55%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 55%">55%</div>
+                            </div>
+                            <p>Quizzes <span class="float-right">70%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 70%">70%</div>
+                            </div>
+                            <p>Videos <span class="float-right">65%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 65%">65%</div>
+                            </div>
+                            <p>Games <span class="float-right">75%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 75%">75%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PHP Tab Content -->
+                    <div class="tab-pane fade" id="php" role="tabpanel">
+                        <div class="card bg-light p-3">
+                            <h5>PHP Progress</h5>
+                            <p>Modules <span class="float-right">75%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 75%">75%</div>
+                            </div>
+                            <p>Quizzes <span class="float-right">65%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 65%">65%</div>
+                            </div>
+                            <p>Videos <span class="float-right">50%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 50%">50%</div>
+                            </div>
+                            <p>Games <span class="float-right">80%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 80%">80%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Python Tab Content -->
+                    <div class="tab-pane fade" id="python" role="tabpanel">
+                        <div class="card bg-light p-3">
+                            <h5>Python Progress</h5>
+                            <p>Modules <span class="float-right">85%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 85%">85%</div>
+                            </div>
+                            <p>Quizzes <span class="float-right">60%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 60%">60%</div>
+                            </div>
+                            <p>Videos <span class="float-right">90%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 90%">90%</div>
+                            </div>
+                            <p>Games <span class="float-right">40%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 40%">40%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SQL Tab Content -->
+                    <div class="tab-pane fade" id="sql" role="tabpanel">
+                        <div class="card bg-light p-3">
+                            <h5>SQL Progress</h5>
+                            <p>Modules <span class="float-right">55%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 55%">55%</div>
+                            </div>
+                            <p>Quizzes <span class="float-right">70%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 70%">70%</div>
+                            </div>
+                            <p>Videos <span class="float-right">65%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 65%">65%</div>
+                            </div>
+                            <p>Games <span class="float-right">75%</span></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 75%">75%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
-    <h2>Progress</h2>
-    <div class="progress">
-        <div class="chart-container">
-            <div class="progress-pie" data-value="50"></div>
-            <div class="chart-box">
-                <h2 class="progress-title">Trained</h2>
-                <h1 class="progress-percentatge">73.3%</h1>
-            </div>
-            <div class="chart-box">
-                <h2 class="progress-title">Passed</h2>
-                <h1 class="progress-percentatge">41</h1>
-            </div>
-            <div class="chart-box">
-                <h2 class="progress-title">Failed</h2>
-                <h1 class="progress-percentatge">3</h1>
-            </div>
-            <div class="chart-box box-end">
-                <h2 class="progress-title">In Progress</h2>
-                <h1 class="progress-percentatge">6</h1>
-            </div>
-        </div>
-
-        <div class="progress-bars"> </div>
-        <div class="progress-container">
-            <h2 class="title">Exercises</h2>
-            <!-- Progress boxes for Exercises -->
-        </div>
-
-        <div class="progress-bars">
-            <div class="row">
-                <div class="progress-box">
-                    <div class="progress-container">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="--progress-value: 80;"></div>
-                    </div>
-                    <label>CSS</label>
-                </div>
-                <div class="chart-boxs"></div>
-                <div class="progress-box">
-                    <div class="progress-container">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="--progress-value: 100;"></div>
-                    </div>
-                    <label>HTML</label>
-                </div>
-                <div class="chart-boxs"></div>
-                <div class="progress-box">
-                    <div class="progress-container">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="--progress-value: 80;"></div>
-                    </div>
-                    <label>JavaScript</label>
-                </div>
-                <div class="chart-boxs"></div>
-            </div>
-            <div class="row">
-                <div class="progress-box">
-                    <div class="progress-container">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100" style="--progress-value: 32;"></div>
-                    </div>
-                    <label>PHP</label>
-                </div>
-                <div class="chart-boxs"></div>
-                <div class="progress-box">
-                    <div class="progress-container">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="--progress-value: 72;"></div>
-                    </div>
-                    <label>Python</label>
-                </div>
-                <div class="chart-boxs"></div>
-                <div class="progress-box">
-                    <div class="progress-container">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" style="--progress-value: 82;"></div>
-                    </div>
-                    <label>SQL</label>
-                </div>
-                <div class="chart-boxs"></div>
-            </div>
-        </div>
-        <div class="progress-container">
-            <h2 class="title">Quizzes</h2>
-            <!-- Progress boxes for Quizzes -->
-        </div>
-        <div class="progress-bars">
-            <div class="row">
-                <div class="progress-box">
-                    <div class="progress-container">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="--progress-value: 80;"></div>
-                    </div>
-                    <label>CSS</label>
-                </div>
-                <div class="chart-boxs"></div>
-                <div class="progress-box">
-                    <div class="progress-container">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="--progress-value: 100;"></div>
-                    </div>
-                    <label>HTML</label>
-                </div>
-                <div class="chart-boxs"></div>
-                <div class="progress-box">
-                    <div class="progress-container">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="--progress-value: 80;"></div>
-                    </div>
-                    <label>JavaScript</label>
-                </div>
-                <div class="chart-boxs"></div>
-            </div>
-            <div class="row">
-                <div class="progress-box">
-                    <div class="progress-container">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100" style="--progress-value: 32;"></div>
-                    </div>
-                    <label>PHP</label>
-                </div>
-                <div class="chart-boxs"></div>
-                <div class="progress-box">
-                    <div class="progress-container">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="--progress-value: 72;"></div>
-                    </div>
-                    <label>Python</label>
-                </div>
-                <div class="chart-boxs"></div>
-                <div class="progress-box">
-                    <div class="progress-container">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" style="--progress-value: 82;"></div>
-                    </div>
-                    <label>SQL</label>
-                </div>
-                <div class="chart-boxs"></div>
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
-    <div id="imageModal" style="display: none;">
-        <img id="modalImage" />
-    </div>
-
-    <script>
-        // Toggle the edit mode to show input and save button
-        function editName() {
-            document.getElementById('name-edit').style.display = 'block';
-            document.getElementById('profileName').style.display = 'none';
-            document.getElementById('editButton').style.display = 'none';
-            document.getElementById('saveButton').style.display = 'inline'; // Show the save button
-        }
-
-
-        function toggleDropdown() {
-            const dropdown = document.getElementById('dropdownMenu');
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-        }
-
-        function previewImage(event) {
-            const file = event.target.files[0];
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const profileImage = document.getElementById('profileImage');
-                profileImage.src = e.target.result;
-                profileImage.style.display = 'block';
-                toggleDropdown(); // Close dropdown after selecting an image
-
-                // Show save button and hide edit button when a new image is selected
-                document.getElementById('editButton').style.display = 'none';
-                document.getElementById('saveButton').style.display = 'inline';
-            }
-            if (file) {
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function viewPicture() {
-            const profileImage = document.getElementById('profileImage').src;
-            if (profileImage && profileImage !== "#") {
-                const modal = document.getElementById('imageModal');
-                const modalImage = document.getElementById('modalImage');
-                modalImage.src = profileImage;
-                modal.style.display = 'flex';
-            } else {
-                alert('No picture uploaded yet.');
-            }
-            toggleDropdown();
-        }
-
-        function removePicture() {
-            document.getElementById('profileImage').src = "#";
-            document.getElementById('profileImage').style.display = 'none';
-            document.getElementById('editButton').style.display = 'none';
-            document.getElementById('saveButton').style.display = 'inline';
-            toggleDropdown();
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('imageModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        }
-    </script>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById("editButton").addEventListener("click", function() {
+        const collapsible = document.getElementById("collapsibleSection");
+        collapsible.style.display = collapsible.style.display === "none" ? "block" : "none";
+    });
+</script>
 </body>
-
 </html>
