@@ -195,6 +195,7 @@ th, td {
                             <li><a href="#"data-target='content-JavaScript-Statements'>JavaScript Statements</a></li>
                             <li><a href="#"data-target='content-JavaScript-Syntax'>JavaScript Syntax</a></li>
                             <li><a href="#"data-target='content-JavaScript-Comments'>JavaScript Comments</a></li>
+                            <li><a href="#" data-target='content-module1-quiz'>Module 1 Quiz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -207,6 +208,7 @@ th, td {
                             <li><a href="#" data-target='content-JavaScript-Const'>JavaScript Const</a></li>
                             <li><a href="#" data-target='content-JavaScript-Operators'>JavaScript Operators</a></li>
                             <li><a href="#" data-target='content-JavaScript-Arithmetic'>JavaScript Arithmetic</a></li>
+                            <li><a href="#" data-target='content-module2-quiz'>Module 2 Quiz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -219,6 +221,7 @@ th, td {
                             <li><a href="#" data-target='content-JavaScript-Functions'>JavaScript Functions</a></li>
                             <li><a href="#" data-target='content-JavaScript-Objects'>JavaScript Objects</a></li>
                             <li><a href="#" data-target='content-JavaScript-Object-Properties'>JavaScript Object Properties</a></li>
+                            <li><a href="#" data-target='content-module3-quiz'>Module 3 Quiz</a></li>   
                         </ul>
                     </div>
                 </div>
@@ -803,7 +806,84 @@ document.getElementById("myH").innerHTML = "My First Page";
 document.getElementById("myP").innerHTML = "My first paragraph.";
 */
     </section>
-
+    <section id="content-module1-quiz" class="content" style="display: none;">
+                <h1>Module 1 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1. Where is JavaScript typically placed within an HTML document?</p>
+                        <input type="radio" name="q1" value="A"> A) Only in the <code>&lt;head&gt;</code> section<br>
+                        <input type="radio" name="q1" value="B"> B) Only in the <code>&lt;body&gt;</code> section<br>
+                        <input type="radio" name="q1" value="C"> C) In both the <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> sections<br>
+                        <input type="radio" name="q1" value="D"> D)  In an external file only.<br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2. What is one of the key advantages of using external JavaScript files?</p>
+                        <input type="radio" name="q2" value="A"> A) It makes HTML and JavaScript harder to read and maintain<br>
+                        <input type="radio" name="q2" value="B"> B) It allows JavaScript to be cached, which can speed up page loads<br>
+                        <input type="radio" name="q2" value="C"> C) It removes the need for the <code>&lt;scpript&gt;</code> tag in HTML<br>
+                        <input type="radio" name="q2" value="D"> D) It increases the page's load time by embedding scripts directly in HTML<br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. What happens if you use <code>document.write()</code>after the HTML document has loaded?</p>
+                     
+                        <input type="radio" name="q3" value="A"> A) It appends content to the existing document.<br>
+                        <input type="radio" name="q3" value="B"> B) It will add a new paragraph to the document.<br>
+                        <input type="radio" name="q3" value="C"> C) It deletes all existing HTML content in the document.<br>
+                        <input type="radio" name="q3" value="D"> D) It will only display content in the browser's console.<br>
+                    </div>
+                    <div class="question" id="q4">
+                        <p>4. Which of the following methods is commonly used to display data in an HTML element using JavaScript? </p>
+                    
+                        <input type="radio" name="q4" value="A"> A) <code>console.log()</code><br>
+                        <input type="radio" name="q4" value="B"> B) <code>document.write()</code><br>
+                        <input type="radio" name="q4" value="C"> C) <code>innerHTML</code><br>
+                        <input type="radio" name="q4" value="D"> D) <code>window.print()</code><br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5. What is the purpose of a semicolon in JavaScript?</p>
+                        <input type="radio" name="q5" value="A"> A) To mark the end of a program<br>
+                        <input type="radio" name="q5" value="B"> B) To separate multiple statements on the same line<br>
+                        <input type="radio" name="q5" value="C"> C) To indicate the start of a comment<br>
+                        <input type="radio" name="q5" value="D"> D) To declare variables<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. Which of the following is a reserved keyword in JavaScript?</p>
+                        <input type="radio" name="q6" value="A"> A) <code>variable</code><br>
+                        <input type="radio" name="q6" value="B"> B) <code>let</code><br>
+                        <input type="radio" name="q6" value="C"> C) <code>declare</code><br>
+                        <input type="radio" name="q6" value="D"> D) <code>int</code><br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7.  Which of the following is true about JavaScript identifiers?</p>
+                        <input type="radio" name="q7" value="A"> A) They can begin with a number.<br>
+                        <input type="radio" name="q7" value="B"> B) They must always start with a capital letter.<br>
+                        <input type="radio" name="q7" value="C"> C) They can include spaces.<br>
+                        <input type="radio" name="q7" value="D"> D) They must start with a letter, underscore, or dollar sign.<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. What is the purpose of the <code>let</code> keyword in JavaScript?</p>
+                        <input type="radio" name="q8" value="A"> A) To declare a constant variable.<br>
+                        <input type="radio" name="q8" value="B"> B) To declare a block-scoped variable.<br>
+                        <input type="radio" name="q8" value="C"> C)  To assign a value to a variable.<br>
+                        <input type="radio" name="q8" value="D"> D) To create a new function.<br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. Which of the following is the correct way to write a single-line comment in JavaScript?</p>
+                        <input type="radio" name="q9" value="A"> A) <code>/* comment */</code><br>
+                        <input type="radio" name="q9" value="B"> B) <code>// comment</code><br>
+                        <input type="radio" name="q9" value="C"> C) <code>&lt;-- comment --&gt;</code><br>
+                        <input type="radio" name="q9" value="D"> D) <code># comment</code><br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. What is the primary use of multi-line comments in JavaScript?</p>
+                        <input type="radio" name="q10" value="A"> A) To explain small code snippets.<br>
+                        <input type="radio" name="q10" value="B"> B) To comment out a single line of code.<br>
+                        <input type="radio" name="q10" value="C"> C) To provide formal documentation and explanations for larger sections of code.<br>
+                        <input type="radio" name="q10" value="D"> D) To execute a block of code conditionally.<br>
+                    </div>
+                </form>
+                <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+            </section>
         <!-- Content Sections for Module 2 -->
         <section id="content-JavaScript-Variables" class="content" style="display: none;">
     <h1>JavaScript Variables</h1>
@@ -1549,6 +1629,89 @@ let x = 100 + 50 - 3;
 let x = 100 / 50 * 3;
     </pre>
     </section>
+    <section id="content-module2-quiz" class="content" style="display: none;">
+            <h1>Module 2 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1. Which of the following keywords should you use to declare a variable whose value will not change throughout the program?</p>
+                        <input type="radio" name="q1" value="A"> A) <code>var</code><br>
+                        <input type="radio" name="q1" value="B"> B) <code>let</code><br>
+                        <input type="radio" name="q1" value="C"> C) <code>const</code><br>
+                        <input type="radio" name="q1" value="D"> D) <code>auto</code><br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2. What happens if you re-declare a JavaScript variable that was declared using the var keyword?</p>
+                        <input type="radio" name="q2" value="A"> A) The variable loses its value.<br>
+                        <input type="radio" name="q2" value="B"> B) The variable retains its previous value.<br>
+                        <input type="radio" name="q2" value="C"> C) The program will throw an error.<br>
+                        <input type="radio" name="q2" value="D"> D) The variable is deleted.<br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. Which of the following statements is true about variables declared with the <code>let</code> keyword?</p>
+                        <input type="radio" name="q3" value="A"> A) They are hoisted and initialized at the top of the block.<br>
+                        <input type="radio" name="q3" value="B"> B) They can be redeclared within the same block.<br>
+                        <input type="radio" name="q3" value="C"> C) They have block scope.<br>
+                        <input type="radio" name="q3" value="D"> D) They can be accessed before being declared.<br>
+                    </div>
+                    <div class="question" id="q4">
+                        <p>4. What will happen if you try to redeclare a variable declared with <code>let</code> in the same block?</p>
+                        <input type="radio" name="q4" value="A"> A) It will throw a SyntaxError.<br>
+                        <input type="radio" name="q4" value="B"> B) The variable will be overwritten with the new value.<br>
+                        <input type="radio" name="q4" value="C"> C) It will allow the redeclaration without error.<br>
+                        <input type="radio" name="q4" value="D"> D) It will throw a ReferenceError.<br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5. Which of the following is true about variables declared with <code>const</code> in JavaScript?</p>
+                        <input type="radio" name="q5" value="A"> A) They can be reassigned to a new value.<br>
+                        <input type="radio" name="q5" value="B"> B) They must be assigned a value at the time of declaration.<br>
+                        <input type="radio" name="q5" value="C"> C) They can be redeclared within the same block scope.<br>
+                        <input type="radio" name="q5" value="D"> D) They do not have block scope.<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. What happens if you try to reassign a value to a <code>const</code> array or object in JavaScript?</p>
+                        <input type="radio" name="q6" value="A"> A) It will give a syntax error because <code>const</code> prohibits reassignment for both arrays and objects.<br>
+                        <input type="radio" name="q6" value="B"> B) It will result in an error if you try to reassign the array or object itself, but modifying elements or properties is allowed.<br>
+                        <input type="radio" name="q6" value="C"> C) It will give an error only if you attempt to modify properties of an object.<br>
+                        <input type="radio" name="q6" value="D"> D) It will allow reassignment of the array but not the object.<br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. What is the result of the following JavaScript expression:</p>
+                        <pre>let x = "5" + 5;
+                        </pre>
+                        <input type="radio" name="q7" value="A"> A) 55<br>
+                        <input type="radio" name="q7" value="B"> B) 10<br>
+                        <input type="radio" name="q7" value="C"> C) "55"<br>
+                        <input type="radio" name="q7" value="D"> D) 55 (as a number)<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. Which of the following JavaScript operators is used to perform logical AND operation?</p>
+                        <input type="radio" name="q8" value="A"> A) <code>&&</code><br>
+                        <input type="radio" name="q8" value="B"> B) <code>||</code><br>
+                        <input type="radio" name="q8" value="C"> C) <code>!</code><br>
+                        <input type="radio" name="q8" value="D"> D) <code>&</code><br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9.  What is the result of the following expression?</p>
+                        <pre>let x = 100 + 50 * 3;</pre>
+                        <input type="radio" name="q9" value="A"> A) 150 * 3<br>
+                        <input type="radio" name="q9" value="B"> B) 100 + 150<br>
+                        <input type="radio" name="q9" value="C"> C) 250<br>
+                        <input type="radio" name="q9" value="D"> D) 550<br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. What is the result of the following expression?</p>
+                        <pre>let x = 5;let z = x ** 2;</pre>
+                        <input type="radio" name="q10" value="A"> A) 5<br>
+                        <input type="radio" name="q10" value="B"> B) 10<br>
+                        <input type="radio" name="q10" value="C"> C) 25<br>
+                        <input type="radio" name="q10" value="D"> D) 2<br>
+                    </div>
+                </form>
+                <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+            </section>
+            </section>
+
+
     <!-- Content Sections for Module 3 -->
     <section id="content-JavaScript-Data-Types" class="content" style="display: none;">
     <h1>JavaScript Data Types</h1>
@@ -2252,6 +2415,134 @@ myObj["myCars"]["car2"];</pre>
 let p2 = "car2";
 myObj[p1][p2];</pre>
     </section>
+    <section id="content-module3-quiz" class="content" style="display: none;">
+            <h1>Module 3 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1.  What will be the result of the following expression?</p>
+                        <pre>let x = 16 + "Volvo";
+                        </pre>
+                        <input type="radio" name="q1" value="A"> A) "16Volvo"<br>
+                        <input type="radio" name="q1" value="B"> B) 16<br>
+                        <input type="radio" name="q1" value="C"> C) "Volvo16"<br>
+                        <input type="radio" name="q1" value="D"> D) NaN<br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2. Which of the following statements about JavaScript data types is correct?</p>
+                        <input type="radio" name="q2" value="A"> A) JavaScript numbers can only store integers.<br>
+                        <input type="radio" name="q2" value="B"> B) JavaScript uses multiple data types for numbers, like byte, short, and long.<br>
+                        <input type="radio" name="q2" value="C"> C) JavaScript stores all numbers as 64-bit floating point.<br>
+                        <input type="radio" name="q2" value="D"> D) JavaScript does not have support for large numbers beyond <code>Number.MAX_SAFE_INTEGER</code>.<br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3.  What is the result of the following code snippet?</p>
+                         <pre>let x = 10;x += 5;</pre>
+                        <input type="radio" name="q3" value="A"> A)  5<br>
+                        <input type="radio" name="q3" value="B"> B) 10<br>
+                        <input type="radio" name="q3" value="C"> C) 15<br>
+                        <input type="radio" name="q3" value="D"> D) "105"<br>
+                    </div>                        
+                    <div class="question" id="q4">
+                        <p>4. Which of the following operators performs a bitwise AND operation and assigns the result to a variable?</p>
+                        <input type="radio" name="q4" value="A"> A) <code>|=</code><br>
+                        <input type="radio" name="q4" value="B"> B) <code>&=</code><br>
+                        <input type="radio" name="q4" value="C"> C) <code>^=</code><br>
+                        <input type="radio" name="q4" value="D"> D) <code>&&=</code><br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5. What will happen if a function is called without the correct number of arguments?</p>
+                        <pre>function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit - 32);
+}
+
+let value = toCelsius();
+</pre>
+                        <input type="radio" name="q5" value="A"> A) The function will throw an error.<br>
+                        <input type="radio" name="q5" value="B"> B) The function will return <code>undefined</code>.<br>
+                        <input type="radio" name="q5" value="C"> C) The function will return <code>NaN</code>.<br>
+                        <input type="radio" name="q5" value="D"> D) The function will return 0.<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. What is the output of the following code snippet?</p>
+                        <pre>function myFunction(a, b) {
+  return a * b;
+}
+
+let result = myFunction(4, 3);
+console.log(result);
+</pre>
+                        <input type="radio" name="q6" value="A"> A) <code>4</code><br>
+                        <input type="radio" name="q6" value="B"> B) <code>3</code><br>
+                        <input type="radio" name="q6" value="C"> C) <code>12</code><br>
+                        <input type="radio" name="q6" value="D"> D) <code>NaN</code><br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. What will happen if you modify an object assigned to another object?</p>
+                        <pre>const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+
+const x = person;
+x.age = 10;
+console.log(person.age);
+</pre>
+                        <input type="radio" name="q7" value="A"> A)  The <code>age</code> property of <code>person</code> will remain <code>50</code>.<br>
+                        <input type="radio" name="q7" value="B"> B) The <code>age</code> property of <code>person</code> will be changed to <code>10</code>.<br>
+                        <input type="radio" name="q7" value="C"> C) The code will throw an error.<br>
+                        <input type="radio" name="q7" value="D"> D) The code will throw a <code>TypeError</code>.<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. How can you access the <code>lastName</code> property of the <code>person</code> object?</p>
+                        <pre>const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+</pre>
+                        <input type="radio" name="q8" value="A"> A) <code>person[lastName]</code><br>
+                        <input type="radio" name="q8" value="B"> B) <code>person.getLastName()</code><br>
+                        <input type="radio" name="q8" value="C"> C) <code>person.lastName</code><br>
+                        <input type="radio" name="q8" value="D"> D) <code>person("lastName")</code><br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. How would you access the <code>age</code> property of the following object using dot notation?</p>
+                        <pre>const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+</pre>
+                        <input type="radio" name="q9" value="A"> A) <code>person.age</code><br>
+                        <input type="radio" name="q9" value="B"> B) <code>person["age"]</code><br>
+                        <input type="radio" name="q9" value="C"> C) <code>person[age]</code><br>
+                        <input type="radio" name="q9" value="D"> D) <code>person["person.age"]</code><br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. What is the result of the following code?</p>
+                        <pre>const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+
+delete person.age;
+console.log(person.age);
+</pre>
+                        <input type="radio" name="q10" value="A"> A) <code>50</code><br>
+                        <input type="radio" name="q10" value="B"> B) <code>undefined</code><br>
+                        <input type="radio" name="q10" value="C"> C) <code>null</code><br>
+                        <input type="radio" name="q10" value="D"> D) <code>Error: Cannot read property 'age' of undefined</code><br>
+                    </div>
+                </form>
+                <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+            </section>
+            </section>
 
 <script>
 
