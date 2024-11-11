@@ -24,3 +24,12 @@ const hidePopup = () => {
         popup.style.display = 'none';
     });
 }
+
+// Function to remove a box
+const removeBox = (event) => {
+    event.stopPropagation(); // Prevent triggering the popup
+    const box = event.target.closest('.box');
+    if (box) {
+        box.remove();
+    }
+}
