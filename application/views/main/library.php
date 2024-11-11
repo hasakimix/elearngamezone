@@ -8,11 +8,13 @@
       <?php foreach ($libraries as $key => $library): ?>
         <?php if (in_array($library["library_id"], $user_libraries)): ?>
           <div class="box" onclick="showPopup('<?= pascal_to_snake_case($library['library_name']) ?>Modal')" data-search="Java">
-            <!-- X Button -->
+            <!-- Remove Button -->
             <form action="<?= base_url("home/remove_library") ?>" method="POST" class="remove-form">
               <input type="hidden" value="<?= $user_id ?>" name="user_id">
               <input type="hidden" value="<?= $library['library_id'] ?>" name="library">
-              <button type="submit" class="x-btn" onclick="event.stopPropagation()">×</button>
+              <button type="submit" class="remove-btn" onclick="event.stopPropagation()">
+                <img class="trash-icon" src="<?= base_url("/assets/img/trashcan.svg") ?>" alt="Trash Icon">
+              </button>
             </form>
             <img src="<?= $library['image_url'] ?>">
             <p><?= $library['library_name'] ?></p>
