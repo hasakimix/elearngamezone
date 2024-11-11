@@ -168,6 +168,27 @@ pre {
     white-space: pre-wrap; /* Allows wrapping */
     word-wrap: break-word; /* Prevents long lines from overflowing */
 }
+.question {
+    margin: 20px 0;
+}
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+.check-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.check-button:hover {
+    background-color: #45a049;
+}
 
 </style>
       <!-- Main Content Section -->
@@ -191,6 +212,7 @@ pre {
                             <li><a href="#" data-target='content-string-function'>String function - str() and repr()</a></li>
                             <li><a href="#" data-target='content-installing-external'>Installing external modules using pip</a></li>
                             <li><a href="#" data-target='content-help-utility'>Help Utility</a></li>
+                            <li><a href="#" data-target='content-module1-quiz'>Module 1 Quiz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -204,6 +226,7 @@ pre {
                             <li><a href="#" data-target='content-list-data-type'>List Data Type</a></li>
                             <li><a href="#" data-target='content-dictionary-data-type'>Dictionary Data Type</a></li>
                             <li><a href="#" data-target='content-tuple-data-type'>Tuple Data Type</a></li>
+                            <li><a href="#" data-target='content-module2-quiz'>Module 2 Quiz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -213,6 +236,7 @@ pre {
                         <ul>
                             <li><a href="#" data-target='content-how-Indentation-parsed'>How Indentation is Parsed</a></li>
                             <li><a href="#" data-target='content-indentation-errors'>Indentation Errors</a></li>
+                            <li><a href="#" data-target='content-module3-quiz'>Module 3 Quiz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1538,6 +1562,82 @@ help(pymysql.connections)</pre>
                     <p>And now you will get a list of the available methods in the module, but only AFTER you have imported it.</p>       
                     <p>Close the helper with quit</p>             
             </section>
+            <section id="content-module1-quiz" class="content" style="display: none;">
+                <h1>Module 1 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1. Which of the following statements about variable assignment in Python is correct?</p>
+                        <input type="radio" name="q1" value="A"> A) You must declare a variable's data type before assigning a value to it.<br>
+                        <input type="radio" name="q1" value="B"> B) Python allows you to assign multiple variables in one line as long as the number of variables on the left matches the number of values on the right.<br>
+                        <input type="radio" name="q1" value="C"> C) Variables in Python must always remain the same type as when they were first defined.<br>
+                        <input type="radio" name="q1" value="D"> D) Python does not allow the use of an underscore (_) as a variable name.<br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2. In Python, what will happen if you mix tabs and spaces for indentation in a Python 3.x script?</p>
+                        <input type="radio" name="q2" value="A"> A) The code will run, but it might generate warnings.<br>
+                        <input type="radio" name="q2" value="B"> B) The code will generate a runtime error if tabs and spaces are mixed.<br>
+                        <input type="radio" name="q2" value="C"> C) The code will raise a compile-time error due to inconsistent indentation.<br>
+                        <input type="radio" name="q2" value="D"> D) Python will ignore the mixed indentation and proceed to execute the script.<br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. Which of the following statements is true regarding mutable and immutable data types in Python?</p>
+                        <input type="radio" name="q3" value="A"> A) list and tuple are both mutable data types.<br>
+                        <input type="radio" name="q3" value="B"> B) str and dict are both immutable data types.<br>
+                        <input type="radio" name="q3" value="C"> C) int and frozenset are immutable data types.<br>
+                        <input type="radio" name="q3" value="D"> D) set and tuple are both mutable data types.<br>
+                    </div>
+                    <div class="question" id="q4">
+                        <p>4. Which of the following statements about Python collections is incorrect?</p>
+                        <input type="radio" name="q4" value="A"> A) Lists are mutable, ordered collections, and support adding, removing, and modifying elements.<br>
+                        <input type="radio" name="q4" value="B"> B) Tuples are immutable and fixed-length, meaning that once created, their elements cannot be changed.<br>
+                        <input type="radio" name="q4" value="C"> C) Sets are ordered collections, with each element appearing only once.<br>
+                        <input type="radio" name="q4" value="D"> D) Dictionaries store key-value pairs and allow quick access to values using their keys.<br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5. What is the primary purpose of IDLE in Python?</p>
+                        <input type="radio" name="q5" value="A"> A) IDLE is only used for advanced Python programming and debugging.<br>
+                        <input type="radio" name="q5" value="B"> B) IDLE provides an integrated environment for writing, running, and debugging Python code, useful especially for beginners.<br>
+                        <input type="radio" name="q5" value="C"> C) IDLE is a command-line interface for running Python scripts.<br>
+                        <input type="radio" name="q5" value="D"> D) IDLE is required to run Python code on all operating systems.<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. What is a key security recommendation when using input functions for interactive input in Python 2.x?</p>
+                        <input type="radio" name="q6" value="A"> A) Always use input() instead of raw_input().<br>
+                        <input type="radio" name="q6" value="B"> B) Avoid using raw_input() to prevent security vulnerabilities.<br>
+                        <input type="radio" name="q6" value="C"> C) Do not use input() in Python 2.x, as it evaluates input like a Python expression.<br>
+                        <input type="radio" name="q6" value="D"> D) Use input() without any validation in both Python 2.x and Python 3.x.<br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. Which function can be used to access the documentation for a built-in Python function or module?</p>
+                        <input type="radio" name="q7" value="A"> A) dir()<br>
+                        <input type="radio" name="q7" value="B"> B) help()<br>
+                        <input type="radio" name="q7" value="C"> C) print()<br>
+                        <input type="radio" name="q7" value="D"> D) str()<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. How can a module in Python be made runnable as a standalone script?</p>
+                        <input type="radio" name="q8" value="A"> A) Add from hello import say_hello at the top<br>
+                        <input type="radio" name="q8" value="B"> B) Create a main function<br>
+                        <input type="radio" name="q8" value="C"> C) Use if __name__ == '__main__':<br>
+                        <input type="radio" name="q8" value="D"> D) Alias the module with as<br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. What is the primary difference between the repr() and str() functions in Python?</p>
+                        <input type="radio" name="q9" value="A"> A) repr() is used for creating a human-readable string, while str() is for technical representation.<br>
+                        <input type="radio" name="q9" value="B"> B) str() is for human-readable strings, and repr() attempts to return a string that could recreate the object with eval().<br>
+                        <input type="radio" name="q9" value="C"> C) str() returns a technical string, and repr() is used for printing objects.<br>
+                        <input type="radio" name="q9" value="D"> D) There is no difference between repr() and str().<br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. What command would you use to install a specific version of a package using pip?</p>
+                        <input type="radio" name="q10" value="A"> A) pip install [package_name]==x.x.x<br>
+                        <input type="radio" name="q10" value="B"> B) pip install [package_name]<br>
+                        <input type="radio" name="q10" value="C"> C) pip install [package_name]==latest<br>
+                        <input type="radio" name="q10" value="D"> D) pip install [package_name] --upgrade<br>
+                    </div>
+                    <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+                </form>
+            </section>
 
 
             <!-- Content Sections for Module 2 -->
@@ -1624,6 +1724,106 @@ print(tuple[0]) #will output first value. (123)
 print(tuple + tuple1) #will output (123,'hello','world')
 tuple[1]='update' #this will give you error.</pre>    
             </section>
+            <section id="content-module2-quiz" class="content" style="display: none;">
+                <h1>Module 2 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1. What will the following Python code output?</p>
+<pre>a_str = 'Hello World'
+print(a_str)
+print(a_str[0])
+print(a_str[0:5])</pre>
+                        <input type="radio" name="q1" value="A"> A) Hello World, H, Hello<br>
+                        <input type="radio" name="q1" value="B"> B) Hello World, H, World<br>
+                        <input type="radio" name="q1" value="C"> C) Hello World, e, Hello<br>
+                        <input type="radio" name="q1" value="D"> D) H, Hello World, Hello<br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2. What will the following Python code output?</p>
+<pre>basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+print(basket)
+a = set('abracadabra')
+print(a)
+a.add('z')
+print(a)</pre>
+                        <input type="radio" name="q2" value="A"> A) {'apple', 'orange', 'pear', 'banana'}, {'a', 'r', 'b', 'c', 'd'}, {'a', 'r', 'b', 'c', 'd', 'z'}<br>
+                        <input type="radio" name="q2" value="B"> B) {'apple', 'orange', 'pear', 'banana'}, {'a', 'b', 'r', 'c', 'd'}, {'a', 'r', 'b', 'c', 'd', 'z'}<br>
+                        <input type="radio" name="q2" value="C"> C) {'apple', 'pear', 'banana', 'orange'}, {'a', 'r', 'b', 'c', 'd'}, {'a', 'r', 'b', 'c', 'd', 'z'}<br>
+                        <input type="radio" name="q2" value="D"> D) {'apple', 'orange', 'pear', 'banana'}, {'a', 'b', 'r', 'c', 'd'}, {'a', 'r', 'b', 'c', 'd', 'z'}<br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. What will be the output of the following Python code?</p>
+<pre>b = frozenset('asdfagsa')
+print(b)
+cities = frozenset(["Frankfurt", "Basel", "Freiburg"])
+print(cities)</pre>
+                        <input type="radio" name="q3" value="A"> A) frozenset({'a', 's', 'd', 'f', 'g'}), frozenset({'Frankfurt', 'Basel', 'Freiburg'})<br>
+                        <input type="radio" name="q3" value="B"> B) frozenset({'f', 'g', 'd', 'a', 's'}), frozenset({'Frankfurt', 'Basel', 'Freiburg'})<br>
+                        <input type="radio" name="q3" value="C"> C) frozenset({'f', 'g', 'd', 's', 'a'}), frozenset({'Frankfurt', 'Basel', 'Freiburg'})<br>
+                        <input type="radio" name="q3" value="D"> D) frozenset({'a', 's', 'f', 'g', 'd'}), frozenset({'Frankfurt', 'Basel', 'Freiburg'})<br>
+                    </div>
+                    <div class="question" id="q4">
+                        <p>4. Which of the following is a valid representation of a long number in Python 3?</p>
+                        <input type="radio" name="q4" value="A"> A) 1234567L<br>
+                        <input type="radio" name="q4" value="B"> B) 1234567<br>
+                        <input type="radio" name="q4" value="C"> C) 10.2L<br>
+                        <input type="radio" name="q4" value="D"> D) 3.14jL<br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5. What will the following code output?</p>
+<pre>list = [123, 'abcd', 10.2, 'd']
+print(list[0:2])</pre>
+                        <input type="radio" name="q5" value="A"> A) [123, 'abcd', 10.2]<br>
+                        <input type="radio" name="q5" value="B"> B) [123, 'abcd']<br>
+                        <input type="radio" name="q5" value="C"> C) [123]<br>
+                        <input type="radio" name="q5" value="D"> D) ['abcd', 10.2]<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. What will the following code output?</p>
+<pre>list1 = ['hello', 'world']
+print(list1 * 2)</pre>
+                        <input type="radio" name="q6" value="A"> A) ['hello', 'world', 'hello', 'world']<br>
+                        <input type="radio" name="q6" value="B"> B) ['hellohello', 'worldworld']<br>
+                        <input type="radio" name="q6" value="C"> C) ['hello', 'world']<br>
+                        <input type="radio" name="q6" value="D"> D) ['hello', 'world'] * 2<br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. What will the following code output?</p>
+<pre>dic = {'name': 'red', 'age': 10}
+print(dic['name'])</pre>
+                        <input type="radio" name="q7" value="A"> A) red<br>
+                        <input type="radio" name="q7" value="B"> B) 'name'<br>
+                        <input type="radio" name="q7" value="C"> C) 10<br>
+                        <input type="radio" name="q7" value="D"> D) {'name': 'red', 'age': 10}<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. What will the following code output?</p>
+<pre>tuple = (123, 'hello')
+print(tuple)</pre>
+                        <input type="radio" name="q8" value="A"> A) [123, 'hello']<br>
+                        <input type="radio" name="q8" value="B"> B) (123, 'hello')<br>
+                        <input type="radio" name="q8" value="C"> C) 123 hello<br>
+                        <input type="radio" name="q8" value="D"> D) hello 123<br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. What will the following code result in?</p>
+<pre>tuple = (123, 'hello')
+tuple[1] = 'update'</pre>
+                        <input type="radio" name="q9" value="A"> A) (123, 'update')<br>
+                        <input type="radio" name="q9" value="B"> B) 'update'<br>
+                        <input type="radio" name="q9" value="C"> C) TypeError: 'tuple' object does not support item assignment<br>
+                        <input type="radio" name="q9" value="D"> D) No output, the code runs successfully.<br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. Which of the following statements about Python data types is correct?</p>
+                        <input type="radio" name="q10" value="A"> A) Variables in Python require explicit memory allocation before they can be used.<br>
+                        <input type="radio" name="q10" value="B"> B) Python automatically reserves memory for a variable when a value is assigned to it.<br>
+                        <input type="radio" name="q10" value="C"> C) Python requires all variables to be declared before they are assigned a value.<br>
+                        <input type="radio" name="q10" value="D"> D) Python only supports a fixed number of data types.<br>
+                    </div>
+                    <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+                </form>
+            </section>
             
             <!-- Content Sections for Module 3 -->
             <section id="content-indentation" class="content" style="display: none;">                    
@@ -1704,6 +1904,114 @@ def isEven(a):
     #this next line should be even with the if
     return False
 print isEven(7)</pre>
+            </section>
+            <section id="content-module3-quiz" class="content" style="display: none;">
+                <h1>Module 3 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1. How does Python handle indentation during the lexical analysis phase?</p>
+                        <input type="radio" name="q1" value="A"> A) It uses indentation to define the scope of variables, but it does not generate any tokens related to indentation.<br>
+                        <input type="radio" name="q1" value="B"> B) The lexical analyzer uses a stack to keep track of indentation levels and generates "INDENT" and "DEDENT" tokens for nested blocks.<br>
+                        <input type="radio" name="q1" value="C"> C) Python ignores indentation in code and treats it as whitespace.<br>
+                        <input type="radio" name="q1" value="D"> D) Indentation is handled only by the compiler during the parsing phase.<br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2. What happens when a line in Python has a smaller indentation level than the previous line?</p>
+                        <input type="radio" name="q2" value="A"> A) Python generates a syntax error if the indentation level decreases.<br>
+                        <input type="radio" name="q2" value="B"> B) The parser simply ignores the line with a smaller indentation.<br>
+                        <input type="radio" name="q2" value="C"> C) The lexical analyzer pops values from the stack until the indentation level matches, generating "DEDENT" tokens.<br>
+                        <input type="radio" name="q2" value="D"> D) Python automatically increases the indentation level to match the previous line.<br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. What will happen if the "INDENT" token appears consecutively in the token stream?</p>
+                        <input type="radio" name="q3" value="A"> A) It will be ignored because consecutive "INDENT" tokens are allowed in Python.<br>
+                        <input type="radio" name="q3" value="B"> B) A syntax error will occur, as there cannot be more than one "INDENT" token in a row.<br>
+                        <input type="radio" name="q3" value="C"> C) The program will automatically increase the indentation level.<br>
+                        <input type="radio" name="q3" value="D"> D) The lexical analyzer will skip over the "INDENT" token until the next valid indentation is found.<br>
+                    </div>
+                    <div class="question" id="q4">
+                        <p>4. What role does the "DEDENT" token play in Python's indentation parsing?</p>
+                        <input type="radio" name="q4" value="A"> A) It defines the beginning of a new code block.<br>
+                        <input type="radio" name="q4" value="B"> B) It indicates that a block of code is completed, and the indentation level has decreased.<br>
+                        <input type="radio" name="q4" value="C"> C) It is used to add new levels of indentation to the code.<br>
+                        <input type="radio" name="q4" value="D"> D) It has no special function and is used only for formatting.<br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5. In the following code snippet, which of the following tokens will be generated by the lexical analyzer?</p>
+<pre>if foo:
+    if bar:
+        x = 42
+else:
+    print(foo)</pre>
+                        <input type="radio" name="q5" value="A"> A) The tokens generated will only include "if", "else", "x", and "print".<br>
+                        <input type="radio" name="q5" value="B"> B) The tokens will include "INDENT", "DEDENT", and the corresponding statements at each indentation level.<br>
+                        <input type="radio" name="q5" value="C"> C) Only "if", "else", and "print" tokens will be generated, ignoring the indentation.<br>
+                        <input type="radio" name="q5" value="D"> D) "INDENT" tokens will not be generated because the code is simple.<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. What is the most common reason for an IndentationError in Python?</p>
+                        <input type="radio" name="q6" value="A"> A) Using different types of quotes for strings in the code.<br>
+                        <input type="radio" name="q6" value="B"> B) Incorrect or inconsistent use of whitespace (spaces or tabs) to define code blocks.<br>
+                        <input type="radio" name="q6" value="C"> C) Writing a function outside of a class definition.<br>
+                        <input type="radio" name="q6" value="D"> D) Using a variable that has not been initialized.<br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. Which of the following examples will result in an IndentationError?</p>
+                        <input type="radio" name="q7" value="A"> A) 
+<pre>if a > 5:
+    print("foo")
+else:
+    print("bar")</pre><br>
+                        <input type="radio" name="q7" value="B"> B) 
+<pre>if True:
+print("true")</pre><br>
+                        <input type="radio" name="q7" value="C"> C) 
+<pre>if a == 10:
+    print("correct")</pre><br>
+                        <input type="radio" name="q7" value="D"> D) 
+<pre>def isEven(a):
+    if a % 2 == 0:
+        return True
+    return False</pre><br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. What will happen if you add unnecessary indentation in Python?</p>
+                        <input type="radio" name="q8" value="A"> A) The program will automatically remove the extra indentation and run correctly.<br>
+                        <input type="radio" name="q8" value="B"> B) An IndentationError will be raised because Python expects the code to follow proper indentation rules.<br>
+                        <input type="radio" name="q8" value="C"> C) The indentation will be ignored, and the program will run as expected.<br>
+                        <input type="radio" name="q8" value="D"> D) The program will execute with an indentation warning.<br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. Which of the following code snippets will cause an IndentationError due to improper indentation?</p>
+                        <input type="radio" name="q9" value="A"> A) 
+<pre>if True:
+    a = 6
+    b = 5</pre><br>
+                        <input type="radio" name="q9" value="B"> B) 
+<pre>def isEven(a):
+    if a % 2 == 0:
+        return True
+    return False</pre><br>
+                        <input type="radio" name="q9" value="C"> C) 
+<pre>if a > 5:
+    print("foo")
+else:
+    print("bar")</pre><br>
+                        <input type="radio" name="q9" value="D"> D) 
+<pre>def isEven(a):
+if a % 2 == 0:
+    return True
+return False</pre><br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. What happens if you forget to un-indent the code after an if block?</p>
+                        <input type="radio" name="q10" value="A"> A) The code will raise a SyntaxError.<br>
+                        <input type="radio" name="q10" value="B"> B) The program will not execute the code correctly and will return None instead of the expected value.<br>
+                        <input type="radio" name="q10" value="C"> C) The code will run without any errors, but it will not perform the desired action.<br>
+                        <input type="radio" name="q10" value="D"> D) The code will execute, but it will throw an error later in the program.<br>
+                    </div>
+                    <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+                </form>
             </section>
         </div>
     </div>

@@ -178,7 +178,27 @@ th, td {
   border: 1px solid black;
   padding: 8px;
 }
+.question {
+    margin: 20px 0;
+}
+.correct {
+    color: green;
+}
 
+.incorrect {
+    color: red;
+}
+.check-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.check-button:hover {
+    background-color: #45a049;
+}
 </style>
     <!-- Main Content Section -->
     <div class="main-content">
@@ -198,6 +218,7 @@ th, td {
                             <li><a href="#" data-target='content-null-values'>MySQL NULL Values</a></li>
                             <li><a href="#" data-target='content-update-statement'>MySQL UPDATE Statement</a></li>
                             <li><a href="#" data-target='content-delete-statement'>MySQL DELETE Statement</a></li>
+                            <li><a href="#" data-target='content-module1-quiz'>Module 1 Quiz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -211,6 +232,7 @@ th, td {
                             <li><a href="#" data-target='content-cross-join'>MySQL CROSS JOIN Keyword</a></li>
                             <li><a href="#" data-target='content-self-join'>MySQL Self Join</a></li>
                             <li><a href="#" data-target='content-union'>MySQL UNION Operator</a></li>
+                            <li><a href="#" data-target='content-module2-quiz'>Module 2 Quiz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -220,6 +242,7 @@ th, td {
                         <ul>
                             <li><a href="#" data-target='content-min-max'>MySQL MIN and MAX Functions</a></li>
                             <li><a href="#" data-target='content-group-by'>MySQL GROUP BY Statement</a></li>
+                            <li><a href="#" data-target='content-module3-quiz'>Module 3 Quiz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1595,6 +1618,82 @@ th, td {
 
 <span style="color: blue;">DELETE FROM</span> Customers;</pre>            
             </section>
+            <section id="content-module1-quiz" class="content" style="display: none;">
+                <h1>Module 1 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1. What is MySQL, and what are some of its key features?</p>
+                        <input type="radio" name="q1" value="A"> A) MySQL is a relational database management system (RDBMS), open-source, and free. It is fast, reliable, scalable, cross-platform, and compliant with the ANSI SQL standard.<br>
+                        <input type="radio" name="q1" value="B"> B) MySQL is a commercial database management system that is not free and not open-source.<br>
+                        <input type="radio" name="q1" value="C"> C) MySQL is a document-based database that is used only for small applications.<br>
+                        <input type="radio" name="q1" value="D"> D) MySQL is a non-relational database management system (NoSQL) used exclusively for e-commerce platforms.<br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2. What is an RDBMS?</p>
+                        <input type="radio" name="q2" value="A"> A) An RDBMS is a program used to maintain a relational database and uses SQL queries to access the data in the database.<br>
+                        <input type="radio" name="q2" value="B"> B) An RDBMS is a program that manages non-relational data without the use of SQL queries.<br>
+                        <input type="radio" name="q2" value="C"> C) An RDBMS is a file storage system for managing large data files.<br>
+                        <input type="radio" name="q2" value="D"> D) An RDBMS is a cloud service for storing and accessing data without SQL.<br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. What does the SELECT DISTINCT statement do in MySQL?</p>
+                        <input type="radio" name="q3" value="A"> A) It selects only the first row from the table.<br>
+                        <input type="radio" name="q3" value="B"> B) It selects all rows, including duplicates, from a table.<br>
+                        <input type="radio" name="q3" value="C"> C) It returns only distinct (different) values from a specified column in a table.<br>
+                        <input type="radio" name="q3" value="D"> D) It selects all columns from a table, but only for a specific condition.<br>
+                    </div>
+                    <div class="question" id="q4">
+                        <p>4. What does the WHERE clause do in a MySQL query?</p>
+                        <input type="radio" name="q4" value="A"> A) It selects all records from a table.<br>
+                        <input type="radio" name="q4" value="B"> B) It filters records based on a specified condition.<br>
+                        <input type="radio" name="q4" value="C"> C) It updates the values in a specified table.<br>
+                        <input type="radio" name="q4" value="D"> D) It groups the records based on a column.<br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5. Which of the following operators in MySQL's WHERE clause is used to display records when a condition is NOT TRUE?</p>
+                        <input type="radio" name="q5" value="A"> A) AND<br>
+                        <input type="radio" name="q5" value="B"> B) OR<br>
+                        <input type="radio" name="q5" value="C"> C) NOT<br>
+                        <input type="radio" name="q5" value="D"> D) BETWEEN<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. Which of the following SQL statements will sort the "Customers" table by the "Country" column in descending order?</p>
+                        <input type="radio" name="q6" value="A"> A) SELECT * FROM Customers ORDER BY Country;<br>
+                        <input type="radio" name="q6" value="B"> B) SELECT * FROM Customers ORDER BY Country DESC;<br>
+                        <input type="radio" name="q6" value="C"> C) SELECT * FROM Customers ORDER BY CustomerName DESC, Country ASC;<br>
+                        <input type="radio" name="q6" value="D"> D) SELECT * FROM Customers ORDER BY Country ASC, CustomerName DESC;<br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. Which of the following SQL statements inserts a new record into the "Customers" table and only includes values for the "CustomerName", "City", and "Country" columns, while leaving the other columns to be auto-filled (like "CustomerID")?</p>
+                        <input type="radio" name="q7" value="A"> A) INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');<br>
+                        <input type="radio" name="q7" value="B"> B) INSERT INTO Customers VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');<br>
+                        <input type="radio" name="q7" value="C"> C) INSERT INTO Customers (CustomerName, City, Country) VALUES ('Cardinal', 'Stavanger', 'Norway');<br>
+                        <input type="radio" name="q7" value="D"> D) INSERT INTO Customers (CustomerName, ContactName, City, Country) VALUES ('Cardinal', 'Tom B. Erichsen', 'Stavanger', 'Norway');<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. Which of the following SQL statements lists all customers from the "Customers" table who have a NULL value in the "Address" field?</p>
+                        <input type="radio" name="q8" value="A"> A) SELECT CustomerName, ContactName, Address FROM Customers WHERE Address = NULL;<br>
+                        <input type="radio" name="q8" value="B"> B) SELECT CustomerName, ContactName, Address FROM Customers WHERE Address IS NULL;<br>
+                        <input type="radio" name="q8" value="C"> C) SELECT CustomerName, ContactName, Address FROM Customers WHERE Address <> NULL;<br>
+                        <input type="radio" name="q8" value="D"> D) SELECT CustomerName, ContactName, Address FROM Customers WHERE Address IS NOT NULL;<br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. Which SQL statement will update the City column of the customer with CustomerID = 1 to "Frankfurt"?</p>
+                        <input type="radio" name="q9" value="A"> A) UPDATE Customers SET City = 'Frankfurt' WHERE CustomerID = 1;<br>
+                        <input type="radio" name="q9" value="B"> B) UPDATE Customers SET City = 'Frankfurt';<br>
+                        <input type="radio" name="q9" value="C"> C) UPDATE Customers SET PostalCode = '00000' WHERE Country = 'Germany';<br>
+                        <input type="radio" name="q9" value="D"> D) UPDATE Customers SET City = 'Frankfurt' WHERE CustomerName = 'Alfreds Futterkiste';<br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. Which SQL statement will delete the customer "Alfreds Futterkiste" from the "Customers" table?</p>
+                        <input type="radio" name="q10" value="A"> A) DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';<br>
+                        <input type="radio" name="q10" value="B"> B) DELETE FROM Customers;<br>
+                        <input type="radio" name="q10" value="C"> C) DELETE FROM Customers WHERE City='Berlin';<br>
+                        <input type="radio" name="q10" value="D"> D) DELETE FROM Customers WHERE CustomerID=1;<br>
+                    </div>
+                    <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+                </form>
+            </section>
 
             <!-- Content Sections for Module 2 -->
             <section id="content-mysql-joins" class="content" style="display: none;">
@@ -2352,6 +2451,178 @@ th, td {
 <span style="color: blue;">FROM</span> Suppliers;</pre>
                 <ul><ul>Notice the "AS Type" above - it is an alias. SQL Aliases are used to give a table or a column a temporary name. An alias only exists for the duration of the query. So, here we have created a temporary column named "Type", that list whether the contact person is a "Customer" or a "Supplier".</ul></ul>
             </section>
+            <section id="content-module2-quiz" class="content" style="display: none;">
+                <h1>Module 2 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1. Consider the following tables:</p>
+                        <p>Orders Table:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>OrderID</th>
+                                    <th>CustomerID</th>
+                                    <th>OrderDate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>10308</td>
+                                    <td>2</td>
+                                    <td>1996-09-18</td>
+                                </tr>
+                                <tr>
+                                    <td>10309</td>
+                                    <td>37</td>
+                                    <td>1996-09-19</td>
+                                </tr>
+                                <tr>
+                                    <td>10310</td>
+                                    <td>77</td>
+                                    <td>1996-09-20</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Customers Table:</p><table>
+                            <thead>
+                                <tr>
+                                    <th>CustomerID</th>
+                                    <th>CustomerName</th>
+                                    <th>ContactName</th>
+                                    <th>Country</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Alfreds Futterkiste</td>
+                                    <td>Maria Anders</td>
+                                    <td>Germany</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Ana Trujillo Emparedados y helados</td>
+                                    <td>Ana Trujillo</td>
+                                    <td>Mexico</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Antonio Moreno Taquería</td>
+                                    <td>Antonio Moreno</td>
+                                    <td>Mexico</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Which of the following SQL queries would return the OrderID, CustomerName, and OrderDate for all orders placed by customers from Mexico?</p>
+                        <input type="radio" name="q1" value="A"> A) 
+<pre>SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+WHERE Customers.Country = 'Mexico';</pre><br>
+                        <input type="radio" name="q1" value="B"> B) 
+<pre>SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+LEFT JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+WHERE Customers.Country = 'Mexico';</pre><br>
+                        <input type="radio" name="q1" value="C"> C) 
+<pre>SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+RIGHT JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+WHERE Customers.Country = 'Mexico';</pre><br>
+                        <input type="radio" name="q1" value="D"> D) 
+<pre>SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+CROSS JOIN Customers
+WHERE Customers.Country = 'Mexico';</pre><br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2. What will be the output of the following SQL query?</p>
+<pre>SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;</pre>
+                        <input type="radio" name="q2" value="A"> A) It will display all the orders, including those with no customer information.<br>
+                        <input type="radio" name="q2" value="B"> B) It will display only the orders that have matching customer records in the Customers table.<br>
+                        <input type="radio" name="q2" value="C"> C) It will display all customers, including those with no orders.<br>
+                        <input type="radio" name="q2" value="D"> D) It will display an error because INNER JOIN is not supported<br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. What will be the result of the following SQL query?</p>
+<pre>SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+ORDER BY Customers.CustomerName;</pre>
+                        <input type="radio" name="q3" value="A"> A) It will display only customers who have placed orders.<br>
+                        <input type="radio" name="q3" value="B"> B) It will display all customers along with their orders, if any, ordered by customer name.<br>
+                        <input type="radio" name="q3" value="C"> C) It will display only customers who have not placed any orders.<br>
+                        <input type="radio" name="q3" value="D"> D) It will display an error because LEFT JOIN cannot be used with the "Orders" table.<br>
+                    </div>
+                    <div class="question" id="q4">
+                        <p>4. What does the LEFT JOIN keyword do in the following SQL query?</p>
+<pre>SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;</pre>
+                        <input type="radio" name="q4" value="A"> A) It returns only the customers who have orders.<br>
+                        <input type="radio" name="q4" value="B"> B) It returns all records from the "Customers" table, including those without matching orders.<br>
+                        <input type="radio" name="q4" value="C"> C) It returns only orders that have a matching customer.<br>
+                        <input type="radio" name="q4" value="D"> D) It returns all records from the "Orders" table, including those without matching customers.<br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5. What does the RIGHT JOIN keyword do in the following SQL query?</p>
+<pre>SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
+FROM Orders
+RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+ORDER BY Orders.OrderID;</pre>
+                        <input type="radio" name="q5" value="A"> A) It returns only employees who have placed orders.<br>
+                        <input type="radio" name="q5" value="B"> B) It returns all records from the "Orders" table, including those without matching employees.<br>
+                        <input type="radio" name="q5" value="C"> C) It returns all records from the "Employees" table, including those without matching orders.<br>
+                        <input type="radio" name="q5" value="D"> D) It returns only orders with matching employees.<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. What does the CROSS JOIN keyword do in the following SQL query?</p>
+<pre>SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+CROSS JOIN Orders;</pre>
+                        <input type="radio" name="q6" value="A"> A) It returns only records that have matching values between the "Customers" and "Orders" tables.<br>
+                        <input type="radio" name="q6" value="B"> B) It returns all records from the "Customers" table and all records from the "Orders" table, creating a combination of every row from both tables.<br>
+                        <input type="radio" name="q6" value="C"> C) It returns only orders placed by each customer.<br>
+                        <input type="radio" name="q6" value="D"> D) It returns only customers who have placed an order.<br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. What does the following SQL query do?</p>
+<pre>SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City
+FROM Customers A, Customers B
+WHERE A.CustomerID <> B.CustomerID
+AND A.City = B.City
+ORDER BY A.City;</pre>
+                        <input type="radio" name="q7" value="A"> A) It returns a list of customers who have the same name.<br>
+                        <input type="radio" name="q7" value="B"> B) It matches customers who live in the same city and displays pairs of customer names from the same city.<br>
+                        <input type="radio" name="q7" value="C"> C) It returns all customers who have placed an order.<br>
+                        <input type="radio" name="q7" value="D"> D) It lists customers who live in different cities.<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. What is the result of a SQL query using the CROSS JOIN keyword?</p>
+                        <input type="radio" name="q8" value="A"> A) It returns only the matching records from both tables based on a condition.<br>
+                        <input type="radio" name="q8" value="B"> B) It returns all records from both tables, even if there is no match.<br>
+                        <input type="radio" name="q8" value="C"> C) It only returns records from the first table.<br>
+                        <input type="radio" name="q8" value="D"> D) It returns records where the specified condition is not met.<br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. What is the main difference between the UNION and UNION ALL operators in SQL?</p>
+                        <input type="radio" name="q9" value="A"> A) UNION returns only distinct values, while UNION ALL returns all values including duplicates.<br>
+                        <input type="radio" name="q9" value="B"> B) UNION returns all values including duplicates, while UNION ALL returns only distinct values.<br>
+                        <input type="radio" name="q9" value="C"> C) UNION and UNION ALL are the same, and there is no difference between them.<br>
+                        <input type="radio" name="q9" value="D"> D) UNION is used to combine data from two tables, while UNION ALL is used to combine data from three tables.<br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. Which of the following statements is true when using the UNION operator in SQL?</p>
+                        <input type="radio" name="q10" value="A"> A) The number of columns in each SELECT statement must be different.<br>
+                        <input type="radio" name="q10" value="B"> B) The data types of the columns in each SELECT statement must be different.<br>
+                        <input type="radio" name="q10" value="C"> C) The columns in each SELECT statement must be in the same order and have similar data types.<br>
+                        <input type="radio" name="q10" value="D"> D) The UNION operator can only be used to combine results from two tables.<br>
+                    </div>
+                    <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+                </form>
+            </section>
 
             <!-- Content Sections for Module 3 -->
             <section id="content-count-avg-sum" class="content" style="display: none;">
@@ -2723,6 +2994,82 @@ th, td {
 <span style="color: blue;">SELECT</span> Shippers.ShipperName, <span style="color: blue;">COUNT</span>(Orders.OrderID) <span style="color: blue;">AS</span> NumberOfOrders <span style="color: blue;">FROM</span> Orders
 <span style="color: blue;">LEFT JOIN</span> Shippers <span style="color: blue;">ON</span> Orders.ShipperID = Shippers.ShipperID
 <span style="color: blue;">GROUP BY</span> ShipperName;</pre>
+            </section>
+            <section id="content-module3-quiz" class="content" style="display: none;">
+                <h1>Module 3 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1. Which of the following SQL functions is used to return the number of rows that match a specified condition?</p>
+                        <input type="radio" name="q1" value="A"> A) AVG()<br>
+                        <input type="radio" name="q1" value="B"> B) SUM()<br>
+                        <input type="radio" name="q1" value="C"> C) COUNT()<br>
+                        <input type="radio" name="q1" value="D"> D) MAX()<br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2. What does the AVG() function in SQL return?</p>
+                        <input type="radio" name="q2" value="A"> A) The total sum of a numeric column<br>
+                        <input type="radio" name="q2" value="B"> B) The number of rows in a column<br>
+                        <input type="radio" name="q2" value="C"> C) The average value of a numeric column<br>
+                        <input type="radio" name="q2" value="D"> D) The maximum value in a numeric column<br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. Which of the following statements is true about the SUM() function in SQL?</p>
+                        <input type="radio" name="q3" value="A"> A) The SUM() function returns the number of rows that match a condition<br>
+                        <input type="radio" name="q3" value="B"> B) The SUM() function returns the total sum of a numeric column, ignoring NULL values.<br>
+                        <input type="radio" name="q3" value="C"> C) The SUM() function is used to find the average value of a column.<br>
+                        <input type="radio" name="q3" value="D"> D) The SUM() function counts the number of NULL values in a column.<br>
+                    </div>
+                    <div class="question" id="q4">
+                        <p>4. In the SQL statement SELECT COUNT(ProductID) FROM Products;, what does the COUNT() function do?</p>
+                        <input type="radio" name="q4" value="A"> A) Counts the number of NULL values in the ProductID column<br>
+                        <input type="radio" name="q4" value="B"> B) Counts the total number of rows in the Products table<br>
+                        <input type="radio" name="q4" value="C"> C) Counts the total number of products in the ProductID column<br>
+                        <input type="radio" name="q4" value="D"> D) Counts the total sum of values in the ProductID column<br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5. Which SQL function is used to return the smallest value of a selected column?</p>
+                        <input type="radio" name="q5" value="A"> A) MAX()<br>
+                        <input type="radio" name="q5" value="B"> B) AVG()<br>
+                        <input type="radio" name="q5" value="C"> C) MIN()<br>
+                        <input type="radio" name="q5" value="D"> D) COUNT()<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. What does the MAX() function return in SQL?</p>
+                        <input type="radio" name="q6" value="A"> A) The smallest value in a selected column<br>
+                        <input type="radio" name="q6" value="B"> B) The number of rows in a table<br>
+                        <input type="radio" name="q6" value="C"> C) The largest value in a selected column<br>
+                        <input type="radio" name="q6" value="D"> D) The average value of a column<br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. In the SQL statement SELECT MIN(Price) AS SmallestPrice FROM Products;, what does the MIN() function do?</p>
+                        <input type="radio" name="q7" value="A"> A) It returns the total sum of the prices in the Products table.<br>
+                        <input type="radio" name="q7" value="B"> B) It finds the price of the most expensive product.<br>
+                        <input type="radio" name="q7" value="C"> C) It returns the smallest price in the Products table.<br>
+                        <input type="radio" name="q7" value="D"> D) It counts the number of rows in the Products table.<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. Which SQL statement is used to group rows that have the same values into summary rows?</p>
+                        <input type="radio" name="q8" value="A"> A) JOIN<br>
+                        <input type="radio" name="q8" value="B"> B) ORDER BY<br>
+                        <input type="radio" name="q8" value="C"> C) GROUP BY<br>
+                        <input type="radio" name="q8" value="D"> D) SELECT<br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. In the SQL query SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country;, what is being counted?</p>
+                        <input type="radio" name="q9" value="A"> A) The number of countries<br>
+                        <input type="radio" name="q9" value="B"> B) The number of customers in each country<br>
+                        <input type="radio" name="q9" value="C"> C) The number of orders in each country<br>
+                        <input type="radio" name="q9" value="D"> D) The total sales by country<br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. In the SQL query SELECT Shippers.ShipperName, COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID GROUP BY ShipperName;, what is the result being grouped by?</p>
+                        <input type="radio" name="q10" value="A"> A) ShipperName<br>
+                        <input type="radio" name="q10" value="B"> B) OrderID<br>
+                        <input type="radio" name="q10" value="C"> C) Country<br>
+                        <input type="radio" name="q10" value="D"> D) EmployeeID<br>
+                    </div>
+                    <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+                </form>
             </section>
 
         </div>

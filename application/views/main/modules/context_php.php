@@ -168,26 +168,27 @@ pre {
     white-space: pre-wrap; /* Allows wrapping */
     word-wrap: break-word; /* Prevents long lines from overflowing */
 }
-        .question {
-            margin: 20px 0;
-        }
-        .question.correct {
-            color: green;
-        }
-        .question.incorrect {
-            color: red;
-        }
-        .check-button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .check-button:hover {
-            background-color: #45a049;
-        }
+.question {
+    margin: 20px 0;
+}
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+.check-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.check-button:hover {
+    background-color: #45a049;
+}
 
 </style>
       <!-- Main Content Section -->
@@ -611,8 +612,8 @@ echo "Here we use a semicolon but leave out the closing tag";</pre>
                         <input type="radio" name="q10" value="C"> C) Echo tags<br>
                         <input type="radio" name="q10" value="D"> D) Standard tags<br>
                     </div>
+                    <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
                 </form>
-                <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
             </section>
 
             <!-- Content Sections for Module 2 -->
@@ -1071,8 +1072,8 @@ var_dump($unset_int);</pre>
                         <input type="radio" name="q10" value="C"> C) string(25)<br>
                         <input type="radio" name="q10" value="D"> D) NULL<br>
                     </div>
+                    <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
                 </form>
-                <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
             </section>
             </section>
             
@@ -1273,15 +1274,53 @@ log_message("Second log message!");</pre>
                         <input type="radio" name="q10" value="C"> C) The global keyword is more efficient than $GLOBALS.<br>
                         <input type="radio" name="q10" value="D"> D) $GLOBALS can only be used for arrays.<br>
                     </div>
+                    <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
                 </form>
-                <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
             </section>
             </section>
         </div>
     </div>
 </body>
 <script>
-    window.onload = function() {
+    // Function for checking answers, placed outside window.onload to be globally accessible
+function checkAnswers() {
+    const correctAnswers = {
+        q1: 'D',
+        q2: 'A',
+        q3: 'B',
+        q4: 'C',
+        q5: 'B',
+        q6: 'B',
+        q7: 'B',
+        q8: 'C',
+        q9: 'A',
+        q10: 'B'
+    };
+
+    // Loop through all questions
+    for (const [questionId, correctAnswer] of Object.entries(correctAnswers)) {
+        const selectedAnswer = document.querySelector(`input[name="${questionId}"]:checked`);
+
+        // Remove previous styles (correct or incorrect)
+        const labels = document.querySelectorAll(`#${questionId} .radio-label`);
+        labels.forEach(label => {
+            label.classList.remove('correct', 'incorrect');
+        });
+
+        // If an answer is selected
+        if (selectedAnswer) {
+            const selectedLabel = document.querySelector(`input[name="${questionId}"][value="${selectedAnswer.value}"]`).nextElementSibling;
+
+            if (selectedAnswer.value === correctAnswer) {
+                selectedLabel.classList.add('correct');  // Green for correct answer
+            } else {
+                selectedLabel.classList.add('incorrect');  // Red for incorrect answer
+            }
+        }
+    }
+};
+
+window.onload = function() {
     // Popup and collapsible functionality
     const openPopupBtn = document.querySelector("#open-popup");
     const closePopupBtn = document.querySelector(".popup .close-btn");
@@ -1289,7 +1328,7 @@ log_message("Second log message!");</pre>
     if (openPopupBtn) {
         openPopupBtn.addEventListener("click", function(e) {
             e.preventDefault();
-        document.body.classList.add("active-popup");
+            document.body.classList.add("active-popup");
         });
     }
 
@@ -1300,7 +1339,7 @@ log_message("Second log message!");</pre>
     }
 
     window.addEventListener("click", function(e) {
-    if (e.target.classList.contains("popup")) {
+        if (e.target.classList.contains("popup")) {
             document.body.classList.remove("active-popup");
         }
     });
@@ -1315,17 +1354,17 @@ log_message("Second log message!");</pre>
     content1.style.display = "block"; // Show Module 1 content by default
 
     collapsibleButtons.forEach(button => {
-    button.addEventListener("click", function() {
-        // Toggle the collapsible button
-        this.classList.toggle("active");
-        const content = this.nextElementSibling;
-        content.style.display = content.style.display === "block" ? "none" : "block";
+        button.addEventListener("click", function() {
+            // Toggle the collapsible button
+            this.classList.toggle("active");
+            const content = this.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
 
-        // Hide all content sections initially
-        contentSections.forEach(section => section.style.display = "none");
+            // Hide all content sections initially
+            contentSections.forEach(section => section.style.display = "none");
 
-        const module = this.getAttribute("data-module");
-        if (module === "module1") {
+            const module = this.getAttribute("data-module");
+            if (module === "module1") {
                 content1.style.display = "block"; // Show Module 1 content
             } else if (module === "module2") {
                 document.getElementById("content-accessing-variable").style.display = "block"; // Show Module 2 content
@@ -1355,48 +1394,8 @@ log_message("Second log message!");</pre>
             }
         });
     });
-    function checkAnswers() {
-        const correctAnswers = {
-            q1: 'B',
-            q2: 'B',
-            q3: 'C',
-            q4: 'B',
-            q5: 'B',
-            q6: 'C',
-            q7: 'B',
-            q8: 'A',
-            q9: 'B',
-            q10: 'C',
-            q11: 'B',
-            q12: 'B',
-            q13: 'D',
-            q14: 'B',
-            q15: 'A',
-            q16: 'C',
-            q17: 'B',
-            q18: 'B',
-            q19: 'C',
-            q20: 'B'
-            // Add correct answers as needed
-        };
+};
 
-        for (const [questionId, correctAnswer] of Object.entries(correctAnswers)) {
-            const questionDiv = document.getElementById(questionId);
-            const selectedAnswer = document.querySelector(`input[name="${questionId}"]:checked`);
-
-            questionDiv.classList.remove('correct', 'incorrect');
-            if (selectedAnswer) {
-                if (selectedAnswer.value === correctAnswer) {
-                    questionDiv.classList.add('correct');  // Green for correct
-                } else {
-                    questionDiv.classList.add('incorrect');  // Red for incorrect
-                }
-            } else {
-                questionDiv.classList.add('incorrect');  // Red if not answered
-            }
-        }
-    }
-    };
 
 </script>
 </html>
