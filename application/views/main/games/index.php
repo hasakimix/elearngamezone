@@ -4,26 +4,22 @@
   <nav>
     <h1 class="headertitle"> Games </h1>
     <div class="flex-container">
-      <a class="box" href="<?= base_url("games/play/crossword")?>">
-        <img src="<?= base_url("/assets/img/crossword.png") ?>">
-        <p>crossword puzzle</p>
-      </a>
       <a class="box" href="<?= base_url("games/play/hangman")?>">
         <img src="<?= base_url("/assets/img/hangman.png") ?>">
         <p>hangman game</p>
-      </a>
-      <a class="box" href="<?= base_url("games/play/memorygame")?>">
-        <img src="<?= base_url("/assets/img/memorygame.png") ?>">
-        <p>memory game</p>
       </a>
       <a class="box" href="<?= base_url("games/play/scramble")?>">
         <img src="<?= base_url("/assets/img/scramble.png") ?>">
         <p>word scramble game</p>
       </a>
       <a class="box" href="<?= base_url("games/play/guessinggame")?>">
-        <img src="<?= base_url("/assets/img/scramble.png") ?>">
+        <img src="<?= base_url("/assets/img/guessinggame.png") ?>">
         <p>Guessing Game</p>
       </a>
+			<a class="box">
+        <p></p>
+      </a>
+			<a class="box">
         <p></p>
       </a>
       <a class="box" href="<?= base_url("games/play/")?>">
