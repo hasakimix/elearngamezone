@@ -1,0 +1,182 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2C84D5, #99c4f2);
+  padding: 10px;
+  overflow: hidden;
+}
+
+.wrapper {
+  margin-top: 50px;
+  width: 80%;
+  max-width: 800px;
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  border-radius: 15px;
+  border: 2px solid #2C84D5;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: slide-in 0.5s ease;
+  padding: 20px;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.wrapper h1 {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  padding: 25px;
+  background: #2C84D5;
+  border-bottom: 5px solid #2370b0;
+}
+
+.score-board {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 15px;
+  color: #2C84D5;
+}
+
+.score-board .question-number {
+  font-weight: bold;
+  color: #2370b0;
+}
+
+.content {
+  margin: 30px 40px 40px;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.inputs input {
+  height: 80px;
+  width: 78px;
+  margin: 8px;
+  font-size: 30px;
+  font-weight: 600;
+  color: #2C84D5;
+  text-align: center;
+  border-radius: 10px;
+  background: #f0f8ff;
+  border: 2px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.inputs input.correct {
+  border-color: #2C84D5;
+  background: #e0f2ff;
+}
+
+.inputs input.incorrect {
+  border-color: #ff4b5c;
+  background: #ffe5e8;
+}
+
+.typing-input {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.details {
+  margin: 25px 0;
+}
+
+.details p {
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.details p span {
+  font-weight: 600;
+  color: #333;
+}
+
+.timer {
+  font-weight: bold;
+  color: #ff4b5c;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.reset-btn, .next-btn {
+  flex: 1;
+  padding: 18px 0;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 10px;
+  background: #2C84D5;
+  transition: background 0.3s;
+}
+
+.reset-btn:hover, .next-btn:hover {
+  background: #2370b0;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 90%;
+    padding: 15px;
+  }
+  .wrapper h1 {
+    font-size: 28px;
+  }
+  .inputs input {
+    height: 70px;
+    width: 68px;
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    width: 100%;
+    padding: 10px;
+  }
+  .wrapper h1 {
+    font-size: 24px;
+  }
+  .inputs input {
+    height: 60px;
+    width: 58px;
+    font-size: 22px;
+  }
+}

@@ -20,8 +20,10 @@
         <img src="<?= base_url("/assets/img/scramble.png") ?>">
         <p>word scramble game</p>
       </a>
-      <a class="box" href="<?= base_url("games/play/")?>">
-        
+      <a class="box" href="<?= base_url("games/play/guessinggame")?>">
+        <img src="<?= base_url("/assets/img/scramble.png") ?>">
+        <p>Guessing Game</p>
+      </a>
         <p></p>
       </a>
       <a class="box" href="<?= base_url("games/play/")?>">
