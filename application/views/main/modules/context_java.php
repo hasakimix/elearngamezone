@@ -648,18 +648,18 @@ if(obj instanceof Date) {
         <h1>Module 1 Quiz</h1>
         <form id="quizForm">
             <div class="question" id="q1">
-                <p>1. How can a global variable be accessed from within a function without using the global keyword in PHP?</p>
-                <input type="radio" name="q1" value="A"> A) Use the $GLOBALS array.<br>
-                <input type="radio" name="q1" value="B"> B) Declare the variable again within the function.<br>
-                <input type="radio" name="q1" value="C"> C) Use the static keyword.<br>
-                <input type="radio" name="q1" value="D"> D) Use the public access modifier.<br>
+                <p>1. What does the term "Object-Oriented Programming" (OOP) refer to in the "Modeling a Football Team" example?</p>
+                <input type="radio" name="q1" value="A"> A) Writing JavaScript code for web pages<br>
+                <input type="radio" name="q1" value="B"> B) Writing functions that return values<br>
+                <input type="radio" name="q1" value="C"> C) Organizing data and behavior into classes and objects<br>
+                <input type="radio" name="q1" value="D"> D) Writing HTML to display content on a website<br>
             </div>
             <div class="question" id="q2">
-                <p>2. Which of the following statements about $_POST superglobal is correct?</p>
-                <input type="radio" name="q2" value="A"> A) It is used to collect form data after submitting a form using the GET method.<br>
-                <input type="radio" name="q2" value="B"> B) It is a superglobal variable that can be accessed anywhere without the global keyword.<br>
-                <input type="radio" name="q2" value="C"> C) It can only be used inside functions.<br>
-                <input type="radio" name="q2" value="D"> D) It is used to store data in cookies.<br>
+                <p>2. What does the javac command do in the context of running a Java program?</p>
+                <input type="radio" name="q2" value="A"> A) It executes the Java program<br>
+                <input type="radio" name="q2" value="B"> B)  It compiles the Java program into bytecode<br>
+                <input type="radio" name="q2" value="C"> C) It links external libraries to the Java program<br>
+                <input type="radio" name="q2" value="D"> D)  It adds Java to the PATH environment variable<br>
             </div>
             <div class="question" id="q3">
                 <p>3. What will the following Java code output?</p>
@@ -1071,7 +1071,7 @@ System.out.println(str);
                 <input type="radio" name="q9" value="D"> D) isVariableName() for both getter and setter.<br>
             </div>
             <div class="question" id="q10">
-                <p>What is the benefit of making a variable private in Java and providing a <code>public</code> getter and setter for it?</p>
+                <p>10. What is the benefit of making a variable private in Java and providing a <code>public</code> getter and setter for it?</p>
                 <input type="radio" name="q10" value="A"> A) It allows external classes to directly modify the variable's value without any restrictions.<br>
                 <input type="radio" name="q10" value="B"> B) It makes the variable accessible to all classes in the same package.<br>
                 <input type="radio" name="q10" value="C"> C) It ensures that the variable is only modified in controlled ways through the setter method, protecting the integrity of the object's state.<br>
