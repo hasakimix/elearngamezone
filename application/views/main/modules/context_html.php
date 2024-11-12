@@ -137,7 +137,7 @@ body {
     background-color: white;
     border-radius: 10px;
     margin: 20px;
-    max-height: 500px; /* Set a maximum height */
+    height: 100vh;
     overflow-y: auto; /* Enable vertical scroll */
 }
 
@@ -203,6 +203,7 @@ caption {
                             <li><a href="#" data-target='content-Headings'>Headings</a></li>
                             <li><a href="#" data-target='content-Paragraphs'>Paragraphs</a></li>
                             <li><a href="#" data-target='content-Text Formatting'>Text Formatting</a></li>
+                            <li><a href="#" data-target='content-module1-quiz'>Module 1 Quiz</a></li>
                             
                         </ul>
                     </div>
@@ -215,6 +216,7 @@ caption {
                             <li><a href="#" data-target='content-Lists'>Lists</a></li>
                             <li><a href="#" data-target='content-Tables'>Tables</a></li>
                             <li><a href="#" data-target='content-Comments'>Comments</a></li>
+                            <li><a href="#" data-target='content-module2-quiz'>Module 2 Quiz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -226,6 +228,7 @@ caption {
                             <li><a href="#" data-target='content-Data Attributes'>Data Attributes</a></li>
                             <li><a href="#" data-target='content-Linking Resources'>Linking Resources</a></li>
                             <li><a href="#" data-target='content-Include JavaScript Code in HTML'>Include JavaScript Code in HTML</a></li>
+                            <li><a href="#" data-target='content-module3-quiz'>Module 3 Quiz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -460,6 +463,82 @@ caption {
 <pre><code>&lt;sup&gt;superscript here&lt;/sup&gt;</code></pre>
 <p>To create subscript:</p>
 <pre><code>&lt;sub&gt;subscript here&lt;/sub&gt;</code></pre>
+            </section>
+            <section id="content-module1-quiz" class="content" style="display: none;">
+                <h1>Module 1 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1.  What is the purpose of the <code>&lt;!DOCTYPE html&gt;</code> declaration in an HTML document?</p>
+                        <input type="radio" name="q1" value="A"> A) It specifies the language of the HTML document.<br>
+                        <input type="radio" name="q1" value="B"> B) It declares the version of HTML used.<br>
+                        <input type="radio" name="q1" value="C"> C) It opens the <code>&lt;html&gt;</code> element.<br>
+                        <input type="radio" name="q1" value="D"> D) It defines the character encoding for the document.<br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2.  Which HTML tag is used to define a level 1 heading in the content?</p>
+                        <input type="radio" name="q2" value="A"> A) <code>&lt;h2&gt;</code><br>
+                        <input type="radio" name="q2" value="B"> B) <code>&lt;h1&gt;</code><br>
+                        <input type="radio" name="q2" value="C"> C) <code>&lt;heading&gt;</code><br>
+                        <input type="radio" name="q2" value="D"> D) <code>&lt;header&gt;</code><br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. What type of elements are <code>&lt;meta&gt;</code>, <code>&lt;link&gt;</code>, and <code>&lt;input&gt;</code>?</p>
+                        <input type="radio" name="q3" value="A"> A) Void elements (elements without a closing tag)<br>
+                        <input type="radio" name="q3" value="B"> B) Structural elements<br>
+                        <input type="radio" name="q3" value="C"> C) Block-level elements<br>
+                        <input type="radio" name="q3" value="D"> D) Form elements<br>
+                    </div>
+                    <div class="question" id="q4">
+                        <p>4. What is the purpose of the <code>&lt;!DOCTYPE html&gt;</code> declaration in an HTML document?</p>
+                        <input type="radio" name="q4" value="A"> A) It defines the version of the HTML document.<br>
+                        <input type="radio" name="q4" value="B"> B) It specifies the character encoding of the document.<br>
+                        <input type="radio" name="q4" value="C"> C) It is used to link external CSS files.<br>
+                        <input type="radio" name="q4" value="D"> D) It defines the title of the web page.<br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5. In HTML5, what does the <code>&lt;!DOCTYPE html&gt;</code> declaration indicate?</p>
+                        <input type="radio" name="q5" value="A"> A) It specifies that the document is written in HTML5.<br>
+                        <input type="radio" name="q5" value="B"> B) It links to an external DTD (Document Type Definition).<br>
+                        <input type="radio" name="q5" value="C"> C) It indicates that the document is a CSS file.<br>
+                        <input type="radio" name="q5" value="D"> D) It defines the encoding used for the document.<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. What is the purpose of the <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> tags in HTML?</p>
+                        <input type="radio" name="q6" value="A"> A) To define different styles of text for paragraphs.<br>
+                        <input type="radio" name="q6" value="B"> B) To create headings of various sizes, with <code>&lt;h1&gt;</code> being the largest and <code>&lt;h6&gt;</code><br> being the smallest.<br>
+                        <input type="radio" name="q6" value="C"> C) To display images as headings.<br>
+                        <input type="radio" name="q6" value="D"> D) To define the background color of headings.<br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. In HTML, how should headings be structured for optimal SEO and accessibility?</p>
+                        <input type="radio" name="q7" value="A"> A) Use multiple <code>&lt;h1&gt;</code> tags for different sections, followed by <code>&lt;h2&gt;</code> and <code>&lt;h3&gt;</code> tags as needed.<br>
+                        <input type="radio" name="q7" value="B"> B) Use a single <code>&lt;h1&gt;</code> for the main title and then use <code>&lt;h2&gt;</code> tags for subtitles, continuing in order down to <code>&lt;h6&gt;</code>.<br>
+                        <input type="radio" name="q7" value="C"> C) Use <code>&lt;h1&gt;</code> tags for each paragraph and <code>&lt;h2&gt;</code> for the main title.<br>
+                        <input type="radio" name="q7" value="D"> D) Use <code>&lt;h3&gt;</code> tags only, and avoid using <code>&lt;h1&gt;</code> or <code>&lt;h2&gt;</code> tags.<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. What does the <code>&lt;p&gt;</code> element in HTML define?</p>
+                        <input type="radio" name="q8" value="A"> A) A heading<br>
+                        <input type="radio" name="q8" value="B"> B) A table row<br>
+                        <input type="radio" name="q8" value="C"> C)  A paragraph<br>
+                        <input type="radio" name="q8" value="D"> D) An image container<br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. How does HTML handle extra spaces and line breaks within the <code>&lt;p&gt;</code> element?</p>
+                        <input type="radio" name="q9" value="A"> A) Extra spaces and line breaks are preserved and displayed exactly as written.<br>
+                        <input type="radio" name="q9" value="B"> B) Extra spaces and line breaks are ignored and removed by the browser when rendering the page.<br>
+                        <input type="radio" name="q9" value="C"> C) Extra spaces and line breaks will cause the browser to throw an error.<br>
+                        <input type="radio" name="q9" value="D"> D) Extra spaces are displayed as a single space, but line breaks are kept.<br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. Which tag is used to mark text as an abbreviation in HTML?</p>
+                        <input type="radio" name="q10" value="A"> A) <code>&lt;abbr&gt;</code><br>
+                        <input type="radio" name="q10" value="B"> B) <code>&lt;acronym&gt;</code><br>
+                        <input type="radio" name="q10" value="C"> C) <code>&lt;abbrv&gt;</code><br>
+                        <input type="radio" name="q10" value="D"> D) <code>&lt;short&gt;</code><br>
+                    </div>
+                </form>
+                <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
             </section>
             
                
@@ -868,6 +947,85 @@ You can "comment out" entire sections of HTML code.--&gt;</code></pre>
 <pre><code>&lt;a href="#"&gt;I hope there will be no extra whitespace after this!&lt;/a&gt;
 &lt;button&gt;Foo&lt;/button&gt;</code></pre>
             </section>
+            <section id="content-module2-quiz" class="content" style="display: none;">
+            <h1>Module 2 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1. What is the purpose of the <code>download</code> attribute in an anchor tag?</p>
+                        <input type="radio" name="q1" value="A"> A) It specifies the destination URL of the link.<br>
+                        <input type="radio" name="q1" value="B"> B) It determines the language of the resource being linked.<br>
+                        <input type="radio" name="q1" value="C"> C) It causes the browser to download the linked resource instead of navigating to it.<br>
+                        <input type="radio" name="q1" value="D"> D) It opens the link in a new tab or window.<br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2.  Which of the following is the correct way to create a link that dials a phone number when clicked on a mobile device?</p>
+                        <input type="radio" name="q2" value="A"> A) <code>&lt;a href="tel:+123456789"&gt;Call us&lt;/a&gt;</code><br>
+                        <input type="radio" name="q2" value="B"> B) <code>&lt;a href="mailto:+123456789"&gt;Call us&lt;/a&gt;</code><br>
+                        <input type="radio" name="q2" value="C"> C) <code>&lt;a href="sms:+123456789"&gt;Send SMS&lt;/a&gt;</code><br>
+                        <input type="radio" name="q2" value="D"> D) <code>&lt;a href="ftp://+123456789"&gt;Call us&lt;/a&gt;</code><br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. What tag is used to create an ordered list in HTML?</p>
+                        <input type="radio" name="q3" value="A"> A) <code>&lt;ul&gt;</code><br>
+                        <input type="radio" name="q3" value="B"> B) <code>&lt;ol&gt;</code><br>
+                        <input type="radio" name="q3" value="C"> C) <code>&lt;dl&gt;</code><br>
+                        <input type="radio" name="q3" value="D"> D) <code>&lt;li&gt;</code><br>
+                    </div>
+                    <div class="question" id="q4">
+                        <p>4. How can you change the type of numbering in an ordered list to Roman numerals in HTML?</p>
+                        <input type="radio" name="q4" value="A"> A) <code>&lt;ol type="i"&gt;</code><br>
+                        <input type="radio" name="q4" value="B"> B) <code>&lt;ol type="I"&gt;</code><br>
+                        <input type="radio" name="q4" value="C"> C) <code>&lt;ol type="roman"&gt;</code><br>
+                        <input type="radio" name="q4" value="D"> D) <code>&lt;ol type="1|a|A|i|I"&gt;</code><br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5. What is the default style of an unordered list in HTML?</p>
+                        <input type="radio" name="q5" value="A"> A) Numbered list<br>
+                        <input type="radio" name="q5" value="B"> B) Bulleted list<br>
+                        <input type="radio" name="q5" value="C"> C) Roman numerals<br>
+                        <input type="radio" name="q5" value="D"> D) Alphabetical list<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. Which HTML tag is used to define the main table in HTML?</p>
+                        <input type="radio" name="q6" value="A"> A) <code>&lt;thead&gt;</code><br>
+                        <input type="radio" name="q6" value="B"> B) <code>&lt;table&gt;</code><br>
+                        <input type="radio" name="q6" value="C"> C) <code>&lt;otd&gt;</code><br>
+                        <input type="radio" name="q6" value="D"> D) <code>&lt;th&gt;</code><br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. How can you specify that a table heading applies to a row in HTML?</p>
+                        <input type="radio" name="q7" value="A"> A) Use the <code>scope</code> attribute with the value "row"<br>
+                        <input type="radio" name="q7" value="B"> B) Use the <code>scope</code>attribute with the value "col"<br>
+                        <input type="radio" name="q7" value="C"> C) Use the <code>th</code> tag with no attributes<br>
+                        <input type="radio" name="q7" value="D"> D) Use the <code>tr</code> tag with the <code>row</code> attribute<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. What tag is used to define a table row in HTML?</p>
+                        <input type="radio" name="q8" value="A"> A) <code>&lt;tr&gt;</code><br>
+                        <input type="radio" name="q8" value="B"> B) <code>&lt;td&gt;</code><br>
+                        <input type="radio" name="q8" value="C"> C) <code>&lt;th&gt;</code><br>
+                        <input type="radio" name="q8" value="D"> D) <code>&lt;table&gt;</code><br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. How do you create a comment in HTML?</p>
+                        <input type="radio" name="q9" value="A"> A) <code>&lt;!-- comment --&gt;</code><br>
+                        <input type="radio" name="q9" value="B"> B) <code>&lt;!--- comment ---&gt;</code><br>
+                        <input type="radio" name="q9" value="C"> C) <code>/* comment */</code><br>
+                        <input type="radio" name="q9" value="D"> D) <code>// comment</code><br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. What happens if you try to place a comment inside an HTML tag?</p>
+
+                        <input type="radio" name="q10" value="A"> A)  It will be displayed as text in the browser.<br>
+                        <input type="radio" name="q10" value="B"> B) It will be ignored by the browser.<br>
+                        <input type="radio" name="q10" value="C"> C) The HTML will become invalid, and the page may not render correctly.<br>
+                        <input type="radio" name="q10" value="D"> D) The browser will treat it as a special attribute.<br>
+                    </div>
+                </form>
+                <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+            </section>
+            </section>
+
             
             <!-- Content Sections for Module 3 -->
             <section id="content-Classes-and-IDs" class="content" style="display: none;">
@@ -1115,6 +1273,86 @@ You can "comment out" entire sections of HTML code.--&gt;</code></pre>
 <h2>Including a JavaScript File Executing Asynchronously</h2>
 <p>To include a JavaScript file that executes asynchronously, use:</p>
 <pre><code>&lt;script type="text/javascript" src="URL" async&gt;&lt;/script&gt;</code></pre>
+            </section>
+            <section id="content-module3-quiz" class="content" style="display: none;">
+            <h1>Module 3 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1. What is the primary difference between a class and an ID in HTML?</p>
+                        <input type="radio" name="q1" value="A"> A) An ID can be assigned to multiple elements, while a class can only be assigned to one.<br>
+                        <input type="radio" name="q1" value="B"> B) A class is unique within a document, while an ID can be used multiple times.<br>
+                        <input type="radio" name="q1" value="C"> C) A class can be assigned to multiple elements, while an ID must be unique within a document.<br>
+                        <input type="radio" name="q1" value="D"> D) Both IDs and classes are unique and cannot be reused.<br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2. Can you use the same ID multiple times within a single HTML document?</p>
+                        <input type="radio" name="q2" value="A"> A) Yes, it's perfectly valid.<br>
+                        <input type="radio" name="q2" value="B"> B) No, IDs must be unique within a document.<br>
+                        <input type="radio" name="q2" value="C"> C) Yes, but only in certain browsers.<br>
+                        <input type="radio" name="q2" value="D"> D) No, using the same ID will cause the page to not load.<br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. What is the recommended way to apply styling to multiple elements that share the same style?</p>
+
+                        <input type="radio" name="q3" value="A"> A) NUse an ID for each element.<br>
+                        <input type="radio" name="q3" value="B"> B) Use classes for the elements and apply styles via CSS.<br>
+                        <input type="radio" name="q3" value="C"> C) Use inline styles for each element.<br>
+                        <input type="radio" name="q3" value="D"> D) Use JavaScript to apply styles dynamically.<br>
+                    </div>                        
+                    <div class="question" id="q4">
+                        <p>4. What happens if you use a data attribute in HTML5 but the browser doesn't recognize it (e.g., in older browsers)?</p>
+                        <input type="radio" name="q4" value="A"> A) The browser will throw an error.<br>
+                        <input type="radio" name="q4" value="B"> B) The browser will ignore the data attribute and render the page as usual.<br>
+                        <input type="radio" name="q4" value="C"> C) The data attribute will be treated as a standard HTML attribute.<br>
+                        <input type="radio" name="q4" value="D"> D) The browser will fail to load the page.<br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5. What kind of data can you store in data attributes?</p>
+
+                        <input type="radio" name="q5" value="A"> A) Only numeric data<br>
+                        <input type="radio" name="q5" value="B"> B) Only text strings<br>
+                        <input type="radio" name="q5" value="C"> C) Any data in string format, including JSON<br>
+                        <input type="radio" name="q5" value="D"> D) Only URLs<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. How can data attributes be useful in web development?</p>
+                        <input type="radio" name="q6" value="A"> A) For storing additional data about elements without affecting the page layout<br>
+                        <input type="radio" name="q6" value="B"> B) For creating custom HTML tags<br>
+                        <input type="radio" name="q6" value="C"> C) For linking external stylesheets to elements<br>
+                        <input type="radio" name="q6" value="D"> D) For adding event listeners to elements<br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. What does the <code>crossorigin</code>attribute do when linked to a resource?</p>
+                        <input type="radio" name="q7" value="A"> A) It specifies the font type for the linked resource.<br>
+                        <input type="radio" name="q7" value="B"> B) It defines how the browser should handle cross-origin requests.<br>
+                        <input type="radio" name="q7" value="C"> C) It allows the browser to ignore the linked resource.<br>
+                        <input type="radio" name="q7" value="D"> D) It specifies the size of the linked resource.<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. Which attribute would you use to specify the character encoding for a linked document?</p>
+
+                        <input type="radio" name="q8" value="A"> A) <code>charset</code><br>
+                        <input type="radio" name="q8" value="B"> B) <code>type</code><br>
+                        <input type="radio" name="q8" value="C"> C) <code>media</code><br>
+                        <input type="radio" name="q8" value="D"> D) <code>hreflang</code><br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. Which attribute would you use to ensure that a JavaScript file is executed only after the HTML document has been fully parsed?</p>
+                        <input type="radio" name="q9" value="A"> A) <code>defer</code><br>
+                        <input type="radio" name="q9" value="B"> B) <code>async</code><br>
+                        <input type="radio" name="q9" value="C"> C) <code>src</code>.<br>
+                        <input type="radio" name="q9" value="D"> D) <code>type</code><br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. What is the correct usage of the &lt;nonce&gt; attribute in the &lt;script&gt; tag?</p>
+                        <input type="radio" name="q10" value="A"> A) It specifies a cryptographic nonce used for Content Security Policy (CSP3) checks.<br>
+                        <input type="radio" name="q10" value="B"> B) It sets the character encoding for the JavaScript file.<br>
+                        <input type="radio" name="q10" value="C"> C) It makes the JavaScript code execute asynchronously.<br>
+                        <input type="radio" name="q10" value="D"> D)  It defines the MIME type for the script.<br>
+                    </div>
+                </form>
+                <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+            </section>
             </section>
             
             
