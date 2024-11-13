@@ -12,7 +12,7 @@ const showPopup = (popupId) => {
     }
 
     popup.style.display = 'block';
-    popup.style.width = '50%';
+    popup.style.width = '26%';
     $("#modal_pop_up_overlay").removeClass("d-none");
 }
 
@@ -23,4 +23,13 @@ const hidePopup = () => {
     popups.forEach(popup => {
         popup.style.display = 'none';
     });
+}
+
+// Function to remove a box
+const removeBox = (event) => {
+    event.stopPropagation(); // Prevent triggering the popup
+    const box = event.target.closest('.box');
+    if (box) {
+        box.remove();
+    }
 }

@@ -1,0 +1,33 @@
+ .box {
+    position: relative;
+  }
+
+  .remove-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #cccccc;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .remove-btn .trash-icon {
+    margin: 0%;
+    width: 25px; /* Set desired width */
+    height: 25px; /* Set desired height */
+}
+
+  .remove-btn:hover {
+    background-color: #d52c2c;
+  }
+  .popup .close-btn {
+    position: absolute;
+    margin: 10px;
+  }
