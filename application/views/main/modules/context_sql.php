@@ -1,3 +1,30 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $data = json_decode(file_get_contents("php://input"), true);
+    $score = $data['score'];
+
+    // Database connection
+    $conn = new mysqli('localhost', 'username', 'password', 'database_name');
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Insert score into the database
+    $stmt = $conn->prepare("INSERT INTO scores (score) VALUES (?)");
+    $stmt->bind_param("i", $score);
+
+    if ($stmt->execute()) {
+        echo "Score saved successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 <style>
     * {
     margin: 0;
@@ -2620,7 +2647,7 @@ ORDER BY A.City;</pre>
                         <input type="radio" name="q10" value="C"> C) The columns in each SELECT statement must be in the same order and have similar data types.<br>
                         <input type="radio" name="q10" value="D"> D) The UNION operator can only be used to combine results from two tables.<br>
                     </div>
-                    <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+                    <button type="button" class="check-button" onclick="checkAnswersModule2()">Check Answers</button>
                 </form>
             </section>
 
@@ -3068,7 +3095,7 @@ ORDER BY A.City;</pre>
                         <input type="radio" name="q10" value="C"> C) Country<br>
                         <input type="radio" name="q10" value="D"> D) EmployeeID<br>
                     </div>
-                    <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+                    <button type="button" class="check-button" onclick="checkAnswersModule3()">Check Answers</button>
                 </form>
             </section>
 
@@ -3076,6 +3103,119 @@ ORDER BY A.City;</pre>
     </div>
 </body>
 <script>
+    function checkAnswers() {
+    const correctAnswers = {
+        q1: "A",
+        q2: "A",
+        q3: "C",
+        q4: "B",
+        q5: "C",
+        q6: "B",
+        q7: "C",
+        q8: "B",
+        q9: "A",
+        q10: "A"
+    };
+
+    let score = 0;
+
+    // Calculate score based on correct answers
+    for (const [question, answer] of Object.entries(correctAnswers)) {
+        const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+        if (selectedOption && selectedOption.value === answer) {
+            score++;
+        }
+    }
+
+    // Display score to the user
+    alert("Your score: " + score);
+
+    // Send score to PHP for saving
+    fetch('save_score.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ score: score })
+    }).then(response => response.text())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+}
+    function checkAnswersModule2() {
+        const answers = {
+            q1: "A",
+            q2: "B",
+            q3: "C",
+            q4: "B",
+            q5: "C",
+            q6: "B",
+            q7: "C",
+            q8: "B",
+            q9: "A",
+            q10: "A"
+        };
+    let score = 0;
+        let totalQuestions = Object.keys(answers).length;
+
+        for (let question in answers) {
+            const selectedAnswer = document.querySelector(`input[name=${question}]:checked`);
+            if (selectedAnswer && selectedAnswer.value === answers[question]) {
+                score++;
+            }
+        }
+
+        alert(`Your score is ${score} out of ${totalQuestions}`);
+        saveScoreModule2(score);
+    }
+    function saveScoreModule2(score) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "save_score.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send("module=2&score=" + score);
+    }
+    function checkAnswersModule3() {
+        const answers = {
+            q1: "A",
+            q2: "C",
+            q3: "D",
+            q4: "B",
+            q5: "A",
+            q6: "D",
+            q7: "C",
+            q8: "A",
+            q9: "A",
+            q10: "A"
+        };
+
+        let score = 0;
+        let totalQuestions = Object.keys(answers).length;
+
+        for (let question in answers) {
+            const selectedAnswer = document.querySelector(`input[name=${question}]:checked`);
+            if (selectedAnswer && selectedAnswer.value === answers[question]) {
+                score++;
+            }
+        }
+
+        alert(`Your score is ${score} out of ${totalQuestions}`);
+        saveScoreModule3(score);
+    }
+
+    function saveScoreModule3(score) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "save_score.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send("module=3&score=" + score);
+    }
+
     window.onload = function() {
     // Popup and collapsible functionality
     const openPopupBtn = document.querySelector("#open-popup");
