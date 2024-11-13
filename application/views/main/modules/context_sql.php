@@ -1,3 +1,30 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $data = json_decode(file_get_contents("php://input"), true);
+    $score = $data['score'];
+
+    // Database connection
+    $conn = new mysqli('localhost', 'username', 'password', 'database_name');
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Insert score into the database
+    $stmt = $conn->prepare("INSERT INTO scores (score) VALUES (?)");
+    $stmt->bind_param("i", $score);
+
+    if ($stmt->execute()) {
+        echo "Score saved successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 <style>
     * {
         margin: 0;
@@ -2685,35 +2712,35 @@ FROM Customers A, Customers B
 WHERE A.CustomerID <> B.CustomerID
 AND A.City = B.City
 ORDER BY A.City;</pre>
-                <input type="radio" name="q7" value="A"> A) It returns a list of customers who have the same name.<br>
-                <input type="radio" name="q7" value="B"> B) It matches customers who live in the same city and displays pairs of customer names from the same city.<br>
-                <input type="radio" name="q7" value="C"> C) It returns all customers who have placed an order.<br>
-                <input type="radio" name="q7" value="D"> D) It lists customers who live in different cities.<br>
-            </div>
-            <div class="question" id="q8">
-                <p>8. What is the result of a SQL query using the CROSS JOIN keyword?</p>
-                <input type="radio" name="q8" value="A"> A) It returns only the matching records from both tables based on a condition.<br>
-                <input type="radio" name="q8" value="B"> B) It returns all records from both tables, even if there is no match.<br>
-                <input type="radio" name="q8" value="C"> C) It only returns records from the first table.<br>
-                <input type="radio" name="q8" value="D"> D) It returns records where the specified condition is not met.<br>
-            </div>
-            <div class="question" id="q9">
-                <p>9. What is the main difference between the UNION and UNION ALL operators in SQL?</p>
-                <input type="radio" name="q9" value="A"> A) UNION returns only distinct values, while UNION ALL returns all values including duplicates.<br>
-                <input type="radio" name="q9" value="B"> B) UNION returns all values including duplicates, while UNION ALL returns only distinct values.<br>
-                <input type="radio" name="q9" value="C"> C) UNION and UNION ALL are the same, and there is no difference between them.<br>
-                <input type="radio" name="q9" value="D"> D) UNION is used to combine data from two tables, while UNION ALL is used to combine data from three tables.<br>
-            </div>
-            <div class="question" id="q10">
-                <p>10. Which of the following statements is true when using the UNION operator in SQL?</p>
-                <input type="radio" name="q10" value="A"> A) The number of columns in each SELECT statement must be different.<br>
-                <input type="radio" name="q10" value="B"> B) The data types of the columns in each SELECT statement must be different.<br>
-                <input type="radio" name="q10" value="C"> C) The columns in each SELECT statement must be in the same order and have similar data types.<br>
-                <input type="radio" name="q10" value="D"> D) The UNION operator can only be used to combine results from two tables.<br>
-            </div>
-            <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
-        </form>
-    </section>
+                        <input type="radio" name="q7" value="A"> A) It returns a list of customers who have the same name.<br>
+                        <input type="radio" name="q7" value="B"> B) It matches customers who live in the same city and displays pairs of customer names from the same city.<br>
+                        <input type="radio" name="q7" value="C"> C) It returns all customers who have placed an order.<br>
+                        <input type="radio" name="q7" value="D"> D) It lists customers who live in different cities.<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. What is the result of a SQL query using the CROSS JOIN keyword?</p>
+                        <input type="radio" name="q8" value="A"> A) It returns only the matching records from both tables based on a condition.<br>
+                        <input type="radio" name="q8" value="B"> B) It returns all records from both tables, even if there is no match.<br>
+                        <input type="radio" name="q8" value="C"> C) It only returns records from the first table.<br>
+                        <input type="radio" name="q8" value="D"> D) It returns records where the specified condition is not met.<br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. What is the main difference between the UNION and UNION ALL operators in SQL?</p>
+                        <input type="radio" name="q9" value="A"> A) UNION returns only distinct values, while UNION ALL returns all values including duplicates.<br>
+                        <input type="radio" name="q9" value="B"> B) UNION returns all values including duplicates, while UNION ALL returns only distinct values.<br>
+                        <input type="radio" name="q9" value="C"> C) UNION and UNION ALL are the same, and there is no difference between them.<br>
+                        <input type="radio" name="q9" value="D"> D) UNION is used to combine data from two tables, while UNION ALL is used to combine data from three tables.<br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. Which of the following statements is true when using the UNION operator in SQL?</p>
+                        <input type="radio" name="q10" value="A"> A) The number of columns in each SELECT statement must be different.<br>
+                        <input type="radio" name="q10" value="B"> B) The data types of the columns in each SELECT statement must be different.<br>
+                        <input type="radio" name="q10" value="C"> C) The columns in each SELECT statement must be in the same order and have similar data types.<br>
+                        <input type="radio" name="q10" value="D"> D) The UNION operator can only be used to combine results from two tables.<br>
+                    </div>
+                    <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+                </form>
+            </section>
 
     <!-- Content Sections for Module 3 -->
     <section id="content-count-avg-sum" class="content" style="display: none;">
@@ -3091,88 +3118,201 @@ ORDER BY A.City;</pre>
 <span style="color: blue;">SELECT</span> Shippers.ShipperName, <span style="color: blue;">COUNT</span>(Orders.OrderID) <span style="color: blue;">AS</span> NumberOfOrders <span style="color: blue;">FROM</span> Orders
 <span style="color: blue;">LEFT JOIN</span> Shippers <span style="color: blue;">ON</span> Orders.ShipperID = Shippers.ShipperID
 <span style="color: blue;">GROUP BY</span> ShipperName;</pre>
-    </section>
-    <section id="content-module3-quiz" class="content" style="display: none;">
-        <h1>Module 3 Quiz</h1>
-        <form id="quizForm">
-            <div class="question" id="q1">
-                <p>1. Which of the following SQL functions is used to return the number of rows that match a specified condition?</p>
-                <input type="radio" name="q1" value="A"> A) AVG()<br>
-                <input type="radio" name="q1" value="B"> B) SUM()<br>
-                <input type="radio" name="q1" value="C"> C) COUNT()<br>
-                <input type="radio" name="q1" value="D"> D) MAX()<br>
-            </div>
-            <div class="question" id="q2">
-                <p>2. What does the AVG() function in SQL return?</p>
-                <input type="radio" name="q2" value="A"> A) The total sum of a numeric column<br>
-                <input type="radio" name="q2" value="B"> B) The number of rows in a column<br>
-                <input type="radio" name="q2" value="C"> C) The average value of a numeric column<br>
-                <input type="radio" name="q2" value="D"> D) The maximum value in a numeric column<br>
-            </div>
-            <div class="question" id="q3">
-                <p>3. Which of the following statements is true about the SUM() function in SQL?</p>
-                <input type="radio" name="q3" value="A"> A) The SUM() function returns the number of rows that match a condition<br>
-                <input type="radio" name="q3" value="B"> B) The SUM() function returns the total sum of a numeric column, ignoring NULL values.<br>
-                <input type="radio" name="q3" value="C"> C) The SUM() function is used to find the average value of a column.<br>
-                <input type="radio" name="q3" value="D"> D) The SUM() function counts the number of NULL values in a column.<br>
-            </div>
-            <div class="question" id="q4">
-                <p>4. In the SQL statement SELECT COUNT(ProductID) FROM Products;, what does the COUNT() function do?</p>
-                <input type="radio" name="q4" value="A"> A) Counts the number of NULL values in the ProductID column<br>
-                <input type="radio" name="q4" value="B"> B) Counts the total number of rows in the Products table<br>
-                <input type="radio" name="q4" value="C"> C) Counts the total number of products in the ProductID column<br>
-                <input type="radio" name="q4" value="D"> D) Counts the total sum of values in the ProductID column<br>
-            </div>
-            <div class="question" id="q5">
-                <p>5. Which SQL function is used to return the smallest value of a selected column?</p>
-                <input type="radio" name="q5" value="A"> A) MAX()<br>
-                <input type="radio" name="q5" value="B"> B) AVG()<br>
-                <input type="radio" name="q5" value="C"> C) MIN()<br>
-                <input type="radio" name="q5" value="D"> D) COUNT()<br>
-            </div>
-            <div class="question" id="q6">
-                <p>6. What does the MAX() function return in SQL?</p>
-                <input type="radio" name="q6" value="A"> A) The smallest value in a selected column<br>
-                <input type="radio" name="q6" value="B"> B) The number of rows in a table<br>
-                <input type="radio" name="q6" value="C"> C) The largest value in a selected column<br>
-                <input type="radio" name="q6" value="D"> D) The average value of a column<br>
-            </div>
-            <div class="question" id="q7">
-                <p>7. In the SQL statement SELECT MIN(Price) AS SmallestPrice FROM Products;, what does the MIN() function do?</p>
-                <input type="radio" name="q7" value="A"> A) It returns the total sum of the prices in the Products table.<br>
-                <input type="radio" name="q7" value="B"> B) It finds the price of the most expensive product.<br>
-                <input type="radio" name="q7" value="C"> C) It returns the smallest price in the Products table.<br>
-                <input type="radio" name="q7" value="D"> D) It counts the number of rows in the Products table.<br>
-            </div>
-            <div class="question" id="q8">
-                <p>8. Which SQL statement is used to group rows that have the same values into summary rows?</p>
-                <input type="radio" name="q8" value="A"> A) JOIN<br>
-                <input type="radio" name="q8" value="B"> B) ORDER BY<br>
-                <input type="radio" name="q8" value="C"> C) GROUP BY<br>
-                <input type="radio" name="q8" value="D"> D) SELECT<br>
-            </div>
-            <div class="question" id="q9">
-                <p>9. In the SQL query SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country;, what is being counted?</p>
-                <input type="radio" name="q9" value="A"> A) The number of countries<br>
-                <input type="radio" name="q9" value="B"> B) The number of customers in each country<br>
-                <input type="radio" name="q9" value="C"> C) The number of orders in each country<br>
-                <input type="radio" name="q9" value="D"> D) The total sales by country<br>
-            </div>
-            <div class="question" id="q10">
-                <p>10. In the SQL query SELECT Shippers.ShipperName, COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID GROUP BY ShipperName;, what is the result being grouped by?</p>
-                <input type="radio" name="q10" value="A"> A) ShipperName<br>
-                <input type="radio" name="q10" value="B"> B) OrderID<br>
-                <input type="radio" name="q10" value="C"> C) Country<br>
-                <input type="radio" name="q10" value="D"> D) EmployeeID<br>
-            </div>
-            <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
-        </form>
-    </section>
+            </section>
+            <section id="content-module3-quiz" class="content" style="display: none;">
+                <h1>Module 3 Quiz</h1>
+                <form id="quizForm">
+                    <div class="question" id="q1">
+                        <p>1. Which of the following SQL functions is used to return the number of rows that match a specified condition?</p>
+                        <input type="radio" name="q1" value="A"> A) AVG()<br>
+                        <input type="radio" name="q1" value="B"> B) SUM()<br>
+                        <input type="radio" name="q1" value="C"> C) COUNT()<br>
+                        <input type="radio" name="q1" value="D"> D) MAX()<br>
+                    </div>
+                    <div class="question" id="q2">
+                        <p>2. What does the AVG() function in SQL return?</p>
+                        <input type="radio" name="q2" value="A"> A) The total sum of a numeric column<br>
+                        <input type="radio" name="q2" value="B"> B) The number of rows in a column<br>
+                        <input type="radio" name="q2" value="C"> C) The average value of a numeric column<br>
+                        <input type="radio" name="q2" value="D"> D) The maximum value in a numeric column<br>
+                    </div>
+                    <div class="question" id="q3">
+                        <p>3. Which of the following statements is true about the SUM() function in SQL?</p>
+                        <input type="radio" name="q3" value="A"> A) The SUM() function returns the number of rows that match a condition<br>
+                        <input type="radio" name="q3" value="B"> B) The SUM() function returns the total sum of a numeric column, ignoring NULL values.<br>
+                        <input type="radio" name="q3" value="C"> C) The SUM() function is used to find the average value of a column.<br>
+                        <input type="radio" name="q3" value="D"> D) The SUM() function counts the number of NULL values in a column.<br>
+                    </div>
+                    <div class="question" id="q4">
+                        <p>4. In the SQL statement SELECT COUNT(ProductID) FROM Products;, what does the COUNT() function do?</p>
+                        <input type="radio" name="q4" value="A"> A) Counts the number of NULL values in the ProductID column<br>
+                        <input type="radio" name="q4" value="B"> B) Counts the total number of rows in the Products table<br>
+                        <input type="radio" name="q4" value="C"> C) Counts the total number of products in the ProductID column<br>
+                        <input type="radio" name="q4" value="D"> D) Counts the total sum of values in the ProductID column<br>
+                    </div>
+                    <div class="question" id="q5">
+                        <p>5. Which SQL function is used to return the smallest value of a selected column?</p>
+                        <input type="radio" name="q5" value="A"> A) MAX()<br>
+                        <input type="radio" name="q5" value="B"> B) AVG()<br>
+                        <input type="radio" name="q5" value="C"> C) MIN()<br>
+                        <input type="radio" name="q5" value="D"> D) COUNT()<br>
+                    </div>
+                    <div class="question" id="q6">
+                        <p>6. What does the MAX() function return in SQL?</p>
+                        <input type="radio" name="q6" value="A"> A) The smallest value in a selected column<br>
+                        <input type="radio" name="q6" value="B"> B) The number of rows in a table<br>
+                        <input type="radio" name="q6" value="C"> C) The largest value in a selected column<br>
+                        <input type="radio" name="q6" value="D"> D) The average value of a column<br>
+                    </div>
+                    <div class="question" id="q7">
+                        <p>7. In the SQL statement SELECT MIN(Price) AS SmallestPrice FROM Products;, what does the MIN() function do?</p>
+                        <input type="radio" name="q7" value="A"> A) It returns the total sum of the prices in the Products table.<br>
+                        <input type="radio" name="q7" value="B"> B) It finds the price of the most expensive product.<br>
+                        <input type="radio" name="q7" value="C"> C) It returns the smallest price in the Products table.<br>
+                        <input type="radio" name="q7" value="D"> D) It counts the number of rows in the Products table.<br>
+                    </div>
+                    <div class="question" id="q8">
+                        <p>8. Which SQL statement is used to group rows that have the same values into summary rows?</p>
+                        <input type="radio" name="q8" value="A"> A) JOIN<br>
+                        <input type="radio" name="q8" value="B"> B) ORDER BY<br>
+                        <input type="radio" name="q8" value="C"> C) GROUP BY<br>
+                        <input type="radio" name="q8" value="D"> D) SELECT<br>
+                    </div>
+                    <div class="question" id="q9">
+                        <p>9. In the SQL query SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country;, what is being counted?</p>
+                        <input type="radio" name="q9" value="A"> A) The number of countries<br>
+                        <input type="radio" name="q9" value="B"> B) The number of customers in each country<br>
+                        <input type="radio" name="q9" value="C"> C) The number of orders in each country<br>
+                        <input type="radio" name="q9" value="D"> D) The total sales by country<br>
+                    </div>
+                    <div class="question" id="q10">
+                        <p>10. In the SQL query SELECT Shippers.ShipperName, COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID GROUP BY ShipperName;, what is the result being grouped by?</p>
+                        <input type="radio" name="q10" value="A"> A) ShipperName<br>
+                        <input type="radio" name="q10" value="B"> B) OrderID<br>
+                        <input type="radio" name="q10" value="C"> C) Country<br>
+                        <input type="radio" name="q10" value="D"> D) EmployeeID<br>
+                    </div>
+                    <button type="button" class="check-button" onclick="checkAnswers()">Check Answers</button>
+                </form>
+            </section>
 
 </div>
 </div>
 </body>
 <script>
+    function checkAnswers() {
+    const correctAnswers = {
+        q1: "A",
+        q2: "A",
+        q3: "C",
+        q4: "B",
+        q5: "C",
+        q6: "B",
+        q7: "C",
+        q8: "B",
+        q9: "A",
+        q10: "A"
+    };
+
+    let score = 0;
+
+    // Calculate score based on correct answers
+    for (const [question, answer] of Object.entries(correctAnswers)) {
+        const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+        if (selectedOption && selectedOption.value === answer) {
+            score++;
+        }
+    }
+
+    // Display score to the user
+    alert("Your score: " + score);
+
+    // Send score to PHP for saving
+    fetch('save_score.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ score: score })
+    }).then(response => response.text())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+}
+    function checkAnswersModule2() {
+        const answers = {
+            q1: "A",
+            q2: "B",
+            q3: "C",
+            q4: "B",
+            q5: "C",
+            q6: "B",
+            q7: "C",
+            q8: "B",
+            q9: "A",
+            q10: "A"
+        };
+    let score = 0;
+        let totalQuestions = Object.keys(answers).length;
+
+        for (let question in answers) {
+            const selectedAnswer = document.querySelector(`input[name=${question}]:checked`);
+            if (selectedAnswer && selectedAnswer.value === answers[question]) {
+                score++;
+            }
+        }
+
+        alert(`Your score is ${score} out of ${totalQuestions}`);
+        saveScoreModule2(score);
+    }
+    function saveScoreModule2(score) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "save_score.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send("module=2&score=" + score);
+    }
+    function checkAnswersModule3() {
+        const answers = {
+            q1: "A",
+            q2: "C",
+            q3: "D",
+            q4: "B",
+            q5: "A",
+            q6: "D",
+            q7: "C",
+            q8: "A",
+            q9: "A",
+            q10: "A"
+        };
+
+        let score = 0;
+        let totalQuestions = Object.keys(answers).length;
+
+        for (let question in answers) {
+            const selectedAnswer = document.querySelector(`input[name=${question}]:checked`);
+            if (selectedAnswer && selectedAnswer.value === answers[question]) {
+                score++;
+            }
+        }
+
+        alert(`Your score is ${score} out of ${totalQuestions}`);
+        saveScoreModule3(score);
+    }
+
+    function saveScoreModule3(score) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "save_score.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send("module=3&score=" + score);
+    }
+
     window.onload = function() {
         // Popup and collapsible functionality
         const openPopupBtn = document.querySelector("#open-popup");
