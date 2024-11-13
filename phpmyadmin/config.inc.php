@@ -28,8 +28,8 @@ $cfg['Servers'][$i]['host'] = '127.0.0.1';
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 
 /* User for advanced features */
-$cfg['Servers'][$i]['controluser'] = 'pma';
-$cfg['Servers'][$i]['controlpass'] = '';
+$cfg['Servers'][$i]['controluser'] = 'root';
+$cfg['Servers'][$i]['controlpass'] = 'g8gbV0noL$3&fA6x-GAMER';
 
 /* Advanced phpMyAdmin features */
 $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
