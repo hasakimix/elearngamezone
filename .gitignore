@@ -25,3 +25,4 @@
 /vendors/*
 
 .app_variables
+.htaccess
