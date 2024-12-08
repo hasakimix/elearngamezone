@@ -8,7 +8,7 @@
 }
 body {
   display: flex;
-  padding: 0 10px;
+  margin-top: 50px;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -78,10 +78,9 @@ body {
 .buttons button {
   border: none;
   outline: none;
-  color: #333; /* Adjust text color to a darker shade */
+  color: white; /* Adjust text color to a darker shade */
   cursor: pointer;
   padding: 15px 0;
-  font-size: 17px;
   border-radius: 5px;
   width: calc(50% - 8px); /* Simplified calc expression */
   transition: all 0.3s ease;
@@ -96,7 +95,7 @@ body {
   background: #5f666d;
 }
 .buttons .check-word {
-  background: #5372f0; /* Darker background color */
+  background: #2C84D5; /* Darker background color */
 }
 .buttons .check-word:hover {
   background: #2c52ed;

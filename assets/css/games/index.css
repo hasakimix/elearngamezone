@@ -31,10 +31,12 @@ body {
 }
 
 body.dark {
+  transition: all 0.2s ease;
   background-color: #333;
 }
 
 body.dark {
+  transition: all 0.2s ease;
   --white-color: #333;
   --blue-color: #fff;
   --grey-color: #f2f2f2;
@@ -46,7 +48,7 @@ body.dark {
   top: 0;
   width: 100%;
   left: 0;
-  background-color: #7091E6;
+  background-color: #2C84D5;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -74,251 +76,86 @@ body.dark {
   height: 47px;
   max-width: 430px;
   width: 100%;
-}
-
-::placeholder {
-  color: white;
-  opacity: 1; /* Firefox */
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
 }
 
 .search_bar input {
   height: 100%;
   width: 100%;
-  border-radius: 25px;
+  border-radius: 25px; 
   font-size: 18px;
   outline: none;
-  background-color: #7091E6;
-  color: var(--white-color);
-  border: 3px solid var(--white-color);
+  background-color: #f1f1f1; 
+  color: #202020; 
+  border: 2px solid #535353; 
   padding: 0 20px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.search_bar input::placeholder {
+  color: #1f1e1e; 
+  opacity: 1; 
+}
+
+/* Hover effect for input field */
+.search_bar input:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: #aaa; 
+}
+
+/* Focus effect for input field */
+.search_bar input:focus {
+  border-color: #2c84d5; 
+  box-shadow: 0px 4px 12px rgba(44, 132, 213, 0.3); 
+}
+
+.nav-btn {
+  background-color: #1f5c96; 
+  color: var(--white-color);
+  border: 2px solid transparent; 
+  border-radius: 12px; 
+  padding: 10px 20px; 
+  font-size: 18px;
+  font-weight: 500; 
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-btn:hover {
+  background-color: var(--white-color);
+  color: #1f5c96;
+  border: 2px solid #1f5c96;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.nav_link {
+  margin-right: -25px;
+}
+
+.nav-btn {
+  padding: 10px 20px; 
+}
+
+.nav-btn.active {
+  background-color: white;
+  color: #2C84D5; 
+  border-color: white;
 }
 
 .navbar_content {
   display: flex;
   align-items: center;
-  column-gap: 25px;
+  column-gap: 15px; 
 }
+  
 
 .navbar_content i {
   cursor: pointer;
   font-size: 20px;
   color: var(--white-color);
-}
-
-/* sidebar */
-.sidebar {
-  width: 230px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  padding: 80px 10px;
-  z-index: 100;
-  overflow-y: scroll;
-  box-shadow: 0 0 1px var(--grey-color-light);
-  transition: all 0.5s ease;
-}
-
-.sidebar.close {
-  padding: 60px 0;
-  width: 80px;
-}
-
-.sidebar::-webkit-scrollbar {
-  display: none;
-}
-
-.menu_content {
-  position: relative;
-}
-
-.menu_title {
-  margin: 15px 0;
-  padding: 0 20px;
-  font-size: 18px;
-}
-
-.sidebar.close .menu_title {
-  padding: 6px 30px;
-}
-
-.menu_title::before {
-  color: var(--grey-color);
-  white-space: nowrap;
-}
-
-.menu_dahsboard::before {
-  content: "Dashboard";
-}
-
-.menu_editor::before {
-  content: "Editor";
-}
-
-.menu_setting::before {
-  content: "Setting";
-}
-
-.sidebar.close .menu_title::before {
-  content: "";
-  position: absolute;
-  height: 2px;
-  width: 18px;
-  border-radius: 12px;
-  background: var(--grey-color-light);
-}
-
-.menu_items {
-  padding: 0;
-  list-style: none;
-}
-
-.navlink_icon {
-  position: relative;
-  font-size: 22px;
-  min-width: 50px;
-  line-height: 40px;
-  display: inline-block;
-  text-align: center;
-  border-radius: 6px;
-}
-
-.navlink_icon::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: calc(100% + 100px);
-  left: -20px;
-}
-
-.navlink_icon:hover {
-  background: #FFAF4D;
-}
-
-.sidebar .nav_link {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 4px 15px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: var(--grey-color);
-  white-space: nowrap;
-}
-
-.sidebar.close .navlink {
-  display: none;
-}
-
-.nav_link:hover {
-  color: var(--white-color);
-  background: #FFAF4D;
-}
-
-.sidebar.close .nav_link:hover {
-  background: var(--white-color);
-}
-
-.submenu_item {
-  cursor: pointer;
-}
-
-.submenu {
-  display: none;
-}
-
-.submenu_item .arrow-left {
-  position: absolute;
-  right: 10px;
-  display: inline-block;
-  margin-right: auto;
-}
-
-.sidebar.close .submenu {
-  display: none;
-}
-
-.show_submenu ~ .submenu {
-  display: block;
-}
-
-.show_submenu .arrow-left {
-  transform: rotate(90deg);
-}
-
-.submenu .sublink {
-  padding: 15px 15px 15px 52px;
-}
-
-.bottom_content {
-  position: fixed;
-  bottom: 60px;
-  left: 0;
-  width: 260px;
-  cursor: pointer;
-  transition: all 0.5s ease;
-}
-
-.bottom {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  left: 0;
-  justify-content: space-around;
-  padding: 18px 0;
-  text-align: center;
-  width: 100%;
-  color: var(--grey-color);
-}
-
-.bottom i {
-  font-size: 20px;
-}
-
-.bottom span {
-  font-size: 18px;
-}
-
-.sidebar.close .bottom_content {
-  width: 50px;
-  left: 15px;
-
-}
-
-.sidebar.close .bottom span {
-  display: none;
-
-}
-
-.sidebar.hoverable .collapse_sidebar {
-  display: none;
-}
-
-#sidebarOpen {
-  display: none;
-}
-
-@media screen and (max-width: 768px) {
-  #sidebarOpen {
-    font-size: 25px;
-    display: block;
-    margin-right: 10px;
-    cursor: pointer;
-    color: var(--grey-color);
-  }
-
-  .sidebar.close {
-    left: -100%;
-    padding: 18px 0;
-  }
-
-  .search_bar {
-    display: none;
-  }
-
-  .sidebar.close .bottom_content {
-    left: -100%;
-  }
 }
 
 /* div box */
@@ -339,47 +176,59 @@ header {
   color: #fff;
   padding: 50px;
   text-align: center;
+  justify-content: center;
 }
 
+main {  
+  margin:100px auto;
+  padding: auto;
+  justify-content: center; 
+}
 nav {
   color: #fff;
-  padding: 50px;
+  margin: auto;
+  padding: auto;
   padding-top: 30px;
+  justify-content: center; 
 }
 
 .flex-container {
-  display: flex;
-  gap: 10px;
-  margin-left: 90px;
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  
+}
+ &::-webkit-scrollbar {
+  display: none;
 }
 
 .box {
-  width: 400px; /* Set your desired width */
-  padding: 100px;
-  background-color: #7091E6;
+  display: block; 
+  margin: 10px;
+  width: 400px;
+  height: 550px; 
+  padding: 75px;
+  background-color: #2C84D5;
+  color: black;
+  text-decoration: none;
   border-radius: 50px;
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin: 5px;
-  flex-grow: 3; /* Allow the box to grow */
-  display: flex;
+  flex-grow: 3; 
   flex-direction: column;
   align-items: center;
-  font-size: 25px;
+  font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 20px;
-}
 
 .box img {
-  width: 220px;
-  margin-bottom: 20px; /* Adjust margin as needed */
+  pointer-events: none; 
+  width: 90%;
+  margin-bottom: 20px; 
   height: auto;
 }
 
@@ -387,145 +236,533 @@ nav {
   background-color: #707070;
 }
 
-main {
-  padding: 100px;
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-}
 
-@media (max-width: 800px) {
+
+@media (max-width: 1000px) {
   .box {
     width: calc(50% - 10px); /* Two boxes per row with some margin in between */
   }
-}
-
-@media (max-width: 800px) {
   main {
     padding: 100px 20px; /* Adjust padding as needed */
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1000px) {
   .box {
     width: calc(100% - 10px); /* One box per row with some margin */
   }
-}
-
-/* popup info */
-
-.menupopup {
-  height: 300px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  border: 2px solid black;
-  box-shadow: 5px 5px 10px gray;
-  display: none;
-  border-radius: 20px;
-}
-
-.menupopup h2 {
-  text-align: center;
-  margin-top: 7px;
-}
-
-.menupopup p {
-  text-align: justify;
-  padding: 10px;
+  .flex-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 
-/* Style the buttons inside the pop up */
-.menupopup button {
-  justify-content: center;
-  display: inline-block;
-  margin: 13px;
-  padding: 10px;
-  border: none;
-  background-color: #5d89ba;
-  color: var(--white-color);
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-/* difficulty pop up */
-.popup {
-  width: 323px;
-  height: 120px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  border: 2px solid black;
-  box-shadow: 5px 5px 10px gray;
-  display: none;
-  border-radius: 20px;
-  align-items: center;
-}
-
-/* Style the content inside the pop up */
-.popup h2 {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.popup p {
-  text-align: justify;
-  padding: 10px;
-}
-
-
-/* Style the buttons inside the pop up */
-.popup button {
-  display: inline-block;
-  align-items: center;
-  margin: 5px;
-  padding: 10px;
-  border: none;
-  background-color: #5d89ba;
-  color: var(--white-color);
-  border-radius: 10px;
-  cursor: pointer;
-}
+/* Profile icon styling */
 .dropbtn {
-  margin-right: 15px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   cursor: pointer;
+  transition: box-shadow 0.3s ease;
 }
 
-/* Dropdown content (hidden by default) */
+.dropbtn:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dropdown content */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background-color: #f1f1f1; 
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  border: 2px solid #ccc; 
+  border-radius: 8px;
+  overflow: hidden;
+  right: 0;
+  margin-top: 15px;
   z-index: 1;
-  left: -100px; /* Adjust this value to position the dropdown to the left */
-  border-radius: 10px; /* Add border-radius for rounded corners */
-
+  padding: 8px 0;
+  color: #020202; 
 }
 
-/* Style the dropdown items */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
+/* Triangle pointer on the dropdown */
+.dropdown-content::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 16px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #f1f1f1; 
+  box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown item styling */
+.dropdown-item {
+  color: #333;
+  padding: 10px 16px;
   text-decoration: none;
-  display: block;
-  border-radius: 10px; /* Add border-radius for rounded corners */
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  font-size: 0.95em;
 }
 
-/* Change color on hover */
-.dropdown-content a:hover {
-  background-color: #FFAF4D;
-  color: white;
-  border-radius: 8px; /* Add border-radius for rounded corners on hover */
+.dropdown-item:hover {
+  background-color: #cac5c5;
 }
 
-/* Show the dropdown content when the dropdown button is clicked */
+.dropdown-item::after {
+  content: '›';
+  margin-left: auto;
+  color: #888;
+  font-size: 1.2em;
+}
+
+/* Optional: Add icons to each item */
+.dropdown-item:nth-child(1)::before {
+  content: '👤'; 
+  margin-right: 10px;
+}
+
+.dropdown-item:nth-child(2)::before {
+  content: '🚪'; 
+  margin-right: 10px;
+}
+
 .show {
   display: block;
+}
+
+
+/*modal/popup content */
+.main-content {
+  transition: filter 300ms ease-in-out; 
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; 
+  text-align: center; 
+}
+
+button {
+  margin: 10px; 
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+.popup {
+  display: none; 
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  width: 400px;
+  max-height: 80%; 
+  overflow-y: auto; 
+  padding: 20px; 
+  background: #fff; 
+  border-radius: 10px; 
+  border: 2px solid black; 
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000; 
+}
+
+body.active-popup .popup {
+  display: flex; 
+  opacity: 1; 
+}
+
+
+.popup > * {
+    margin: 15px 0;
+}
+
+.popup .close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #cccccc;
+  color: #fff;
+  border: none;
+  font-size: 35px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.close-btn:hover {
+  background-color: #d52c2c;
+}
+
+body.active-popup .main-content {
+    filter: blur(5px); 
+}
+
+body.active-preview .main-content {
+  filter: blur(5px); 
+}
+
+body.active-popup .popup {
+    top: 50%;
+    opacity: 1;
+}
+
+body.active-popup .popup {
+  top: 50%;
+  opacity: 1;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  text-align: center; /* Center text */
+  padding: 20px;
+  width: 100%; /* Make sure it takes the full width of the popup */
+}
+
+.popup-content h2, 
+.popup-content .add-library-text {
+    font-size: 24px; /* Adjust as needed */
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin: 20px 0; /* Ensure consistent spacing */
+}
+
+.preview-content h2, 
+.preview-content .add-library-text {
+    font-size: 24px; /* Adjust as needed */
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin: 20px 0; /* Ensure consistent spacing */
+}
+
+.popup-content .preview-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #1f5c96;
+    color: white;
+    border: 3px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.popup-content .preview-btn:hover {
+    background-color: #FFAF4D;
+}
+
+.popup-content .add-library-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.decision-buttons {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  gap: 20px; /* Space between buttons */
+  margin-top: 20px; /* Space above buttons */
+}
+
+body.blur .background {
+  filter: blur(10px); /* Apply blur effect only to the background */
+}
+
+.background {
+  transition: filter 300ms ease-in-out; /* Smooth transition for blur effect */
+}
+
+.decision-buttons .yes-btn,
+.decision-buttons .no-btn {
+    width: 80px;
+    height: 50px;
+    font-size: 18px;
+    background-color: #1f5c96;
+    color: white;
+    border: 3px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.decision-buttons .yes-btn:hover,
+.decision-buttons .no-btn:hover {
+    background-color: #FFAF4D;
+}
+
+.closebutton .close{
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+    background-color: #1f5c96;
+    color: white;
+    border: 3px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.closebutton .close:hover{
+    background-color: #FFAF4D;
+}
+
+/* Preview Popup Specific Styles */
+.preview-popup {
+  display: none; /* Ensure the popup is hidden initially */
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); /* Center the popup */
+  width: 1000px; /* Set a width for your popup */
+  height: 80%; /* Limit the height of the popup */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+  padding: 20px; 
+  background: #fff; 
+  border-radius: 10px; 
+  border: 3px solid black; 
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+  transition: top 300ms ease-in-out, opacity 300ms ease-in-out;
+  z-index: 1000; 
+}
+
+/* When the modal is active, make it visible */
+body.active-preview #previewModal {
+  display: flex; 
+  opacity: 1; 
+  transform: translate(-50%, -50%) scale(1); 
+  justify-content: center; 
+  align-items: center; 
+}
+
+#preview-content {
+  padding: 20px; 
+  width: 100%; 
+}
+
+#previewModal h2 {
+  font-size: 30px;
+  color: #000000; 
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#previewModal p {
+  font-size: 25px;
+  color: #333;
+  text-align: left;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/* Back button in the preview popup (as a left arrow) */
+#previewModal .back-btn {
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  background-color: #cccccc; 
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+#previewModal .back-btn:hover {
+  background-color: #8e8e8e;
+}
+.left-arrow {
+  color: #fff;
+  margin-bottom: 5px;
+  
+}
+
+/* Hide the old close button in the preview modal */
+#previewModal .close-btn {
+  display: none;
+}
+
+/* Overlay Styling */
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+	z-index: 900; 
+}
+
+.overlay.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+/* Library popup */
+.custom-popup {
+	position: fixed;
+	top: -100%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 450px;
+	padding: 20px;
+	background: #fff;
+	border-radius: 10px;
+	border: 2px solid black;
+	box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+	opacity: 0;
+	transition: top 300ms ease-in-out, opacity 300ms ease-in-out;
+	z-index: 1000;
+}
+
+.custom-popup > * {
+	margin: 15px 0;
+}
+
+.custom-popup .close-btn {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	width: 35px;
+	height: 35px;
+	background: #bbb;
+	color: #fff;
+	border: none;
+	border-radius: 50%;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.custom-popup h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.button-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);  
+	gap: 20px;
+	justify-items: center;
+	align-items: center;
+}
+
+.button-grid .button {
+	display: inline-block;
+	width: 180px;
+	height: 80px;
+	font-size: 18px;
+	background-color: #1f5c96;
+	color: white;
+	text-align: center;
+	line-height: 70px; 
+	border: 3px solid black;
+	border-radius: 8px;
+	cursor: pointer;
+	text-decoration: none;  
+}
+
+.button-grid .button:hover {
+	background-color: #FFAF4D;
+}
+
+
+/* Background blur effect when popup is active */
+body.active-custom-popup .main-content {
+	filter: blur(8px); 
+	transition: filter 300ms ease-in-out;
+	pointer-events: none;
+}
+
+body.active-custom-popup #java-popup {
+	top: 50%;
+	opacity: 1;
+}
+
+/* Notification Dropdown Styling - Facebook Style without Image */
+.notification-dropdown {
+  display: none; 
+  position: absolute;
+  margin-top: 30px;
+  top: 50px;
+  right: 25px; 
+  width: 300px;
+  border-radius: 8px;
+  z-index: 1000;
+  padding: 10px 0;
+  overflow: hidden;
+	background-color: #f1f1f1; 
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  border: 2px solid #ccc; 
+}
+
+.notification-dropdown .notification-title {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  color: #444;
+}
+
+.notification-dropdown .notification-item {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.notification-dropdown .notification-item:hover {
+  background-color: #cac5c5;
+}
+
+.notification-dropdown .notification-message {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.notification-dropdown .notification-timestamp {
+  font-size: 12px;
+  color: #888;
+}
+
+#modal_pop_up_overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background: rgb(0 0 0 / 50%) !important;
+  z-index: 1;
+}
+
+.justify-items-center {
+  justify-items: center;
 }
