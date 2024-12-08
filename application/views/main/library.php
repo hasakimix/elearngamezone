@@ -30,10 +30,10 @@
         <button class="close-btn" onclick="hidePopup()">&times;</button>
         <h2><?= $library['library_name'] ?></h2>
         <div class="button-grid">
-          <button>Module</button>
-          <button>Videos</button>
-          <button>Flashcards</button>
-          <button>Games</button>
+          <a href="<?= base_url("modules/read/". $library["library_id"]) ?>">Module</a>
+          <a href="<?= base_url("videos/index/". $library["library_id"]) ?>">Videos</a>
+          <a href="<?= base_url("flashcard/index/". $library["library_id"]) ?>">Flashcards</a>
+          <a href="<?= base_url("games/index/". $library["library_id"]) ?>">Games</a>
         </div>
       </div>
     <?php endif; ?>
