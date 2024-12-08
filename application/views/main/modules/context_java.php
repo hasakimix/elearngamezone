@@ -1234,9 +1234,13 @@ com/example/HelloWorld.java</code></pre>
         <h2>Compiling Old Java with a Newer Compiler</h2>
         <p>If you need to (re-)compile older Java code on a newer Java platform to run on the newer platform, you generally don't need to give any special compilation flags. In a few cases (e.g., if you had used <code>enum</code> as an identifier), you could use the source option to disable the new syntax. For example, given the following class:</p>
 
-        <pre><code>public class OldSyntax {
-    private static int enum;  // invalid in Java 5 or later
-}</code></pre>
+        <pre>
+            <code>
+                public class OldSyntax {
+                    private static int enum;  // invalid in Java 5 or later
+                }
+            </code>
+        </pre>
 
         <p>The following is required to compile the class using a Java 5 compiler (or later):</p>
         <pre><code>$ javac -source 1.4 OldSyntax.java</code></pre>
