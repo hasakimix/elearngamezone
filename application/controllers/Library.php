@@ -35,7 +35,7 @@ class Library extends Auth_Controller {
 
         $remove = $this->m_lib->delete($data["user_id"], $data["library"]);
         if($remove){
-            $this->session->set_flashdata('success', 'Library successfully removed!');
+            $this->session->set_flashdata('success', 'Subject successfully removed!');
         }else{
             $this->session->set_flashdata('error', 'Unable to remove selected library');
         }
