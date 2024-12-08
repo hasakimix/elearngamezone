@@ -28,5 +28,19 @@ class Library extends Auth_Controller {
 		$data['libraries'] = $this->m_lib->get_libraries();
 		$this->load->view($data['final_view'], $data);
 	}
+
+    public function remove()
+    {
+        $data = $this->input->post();
+
+        $remove = $this->m_lib->delete($data["user_id"], $data["library"]);
+        if($remove){
+            $this->session->set_flashdata('success', 'Library successfully removed!');
+        }else{
+            $this->session->set_flashdata('error', 'Unable to remove selected library');
+        }
+
+        redirect($_SERVER['HTTP_REFERER']);
+    }
 }
 
