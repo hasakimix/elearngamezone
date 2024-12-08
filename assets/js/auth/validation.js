@@ -28,6 +28,10 @@ $(document).ready(function () {
                         error.push(true);
                         show_error(this, "First Name must have at least two characters.");
                     }
+					if (isValidName(value)== true) {
+						error.push(true);
+                        show_error(this, "Invalid first name format.");
+					}
                     break;
                 case "last_name":
                     if (isEmpty(value)) {
@@ -37,6 +41,10 @@ $(document).ready(function () {
                         error.push(true);
                         show_error(this, "Last Name must have at least two characters.");
                     }
+					if (isValidName(value)== true) {
+						error.push(true);
+                        show_error(this, "Invalid last name format.");
+					}
                     break;
                 case "email":
                     if (isEmpty(value)) {
@@ -52,6 +60,10 @@ $(document).ready(function () {
                         error.push(true);
                         show_error(this, "Password is Required.");
                     }
+					if (check_password_requirements()== false) {
+						error.push(true);
+                        show_error(this, "Invalid password format.");
+					}
                     break;
                 case "confirm_password":
                     if (isEmpty(value)) {
@@ -69,6 +81,50 @@ $(document).ready(function () {
             return e.preventDefault();
         }
     });
+
+	// Password Checker
+	$('input[name="password"]').on('keyup input', function (e) {
+        $("#password_requirements").removeClass("d-none");
+        if (checkPassword($(this).val())) {
+            $('#submit_button').prop('disabled', false);
+        } else {
+            $('#submit_button').prop('disabled', true);
+        }
+    });
+
+	const checkPassword = async (password) => {
+		var strength = [];
+		$(".pw-checkbox").prop("checked", false);
+		if (password.match(/[a-z]+/)) {
+			strength.push("lowercase");
+			document.getElementById("requirement-one").checked = strength.includes("lowercase") ? true : false;
+		}
+		if (password.match(/[A-Z]+/)) {
+			strength.push("uppercase");
+			document.getElementById("requirement-two").checked = strength.includes("uppercase") ? true : false;
+		}
+		if (password.match(/[0-9]+/)) {
+			strength.push("numeric");
+			document.getElementById("requirement-three").checked = strength.includes("numeric") ? true : false;
+		}
+		if (password.match(/[$@#&!]+/)) {
+			strength.push("special");
+			document.getElementById("requirement-four").checked = strength.includes("special") ? true : false;
+		}
+		if (password.length >= 8) {
+			strength.push("eight");
+			document.getElementById("requirement-five").checked = strength.includes("eight") ? true : false;
+		}
+		if (password == '') {
+			strength = [];
+			$(".pw-checkbox").prop("checked", false);
+		}
+		if (strength.length == 5) {
+			return true;
+		}
+		return false;
+	};
+
     $(document).ready(function () {
     // Toggle Password Visibility
     $('.password-icon').on('click', function () {
@@ -83,7 +139,7 @@ $(document).ready(function () {
         $(this).toggleClass('fa-eye fa-eye-slash');
     });
 });
-
+	
     // Function to check if a string is empty
     const isEmpty = (str) => {
         const string = str.trim();
@@ -102,6 +158,15 @@ $(document).ready(function () {
      
 });
 
+const check_password_requirements = () => {
+	var allChecked = $(".pw-checkbox").not(':checked').length == 0;
+	console.log(allChecked)
+	return allChecked;
+  };
 
+  const isValidName = (str) => {
+	var regex = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g;
+	return regex.test(str);
+}
 
 
