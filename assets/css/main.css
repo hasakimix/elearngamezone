@@ -664,26 +664,31 @@ body.active-preview #previewModal {
 
 .button-grid {
 	display: grid;
-	grid-template-columns: repeat(2, 0fr);
-	gap: 10px;
+	grid-template-columns: repeat(2, 1fr);  
+	gap: 20px;
 	justify-items: center;
 	align-items: center;
 }
 
-.button-grid button {
-	width: 150px;
-	height: 70px;
+.button-grid .button {
+	display: inline-block;
+	width: 180px;
+	height: 80px;
 	font-size: 18px;
 	background-color: #1f5c96;
 	color: white;
+	text-align: center;
+	line-height: 70px; 
 	border: 3px solid black;
 	border-radius: 8px;
 	cursor: pointer;
+	text-decoration: none;  
 }
 
-.button-grid button:hover {
+.button-grid .button:hover {
 	background-color: #FFAF4D;
 }
+
 
 /* Background blur effect when popup is active */
 body.active-custom-popup .main-content {
