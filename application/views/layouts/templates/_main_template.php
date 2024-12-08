@@ -22,9 +22,9 @@
      
     <?php $this->load->view("layouts/partials/_main_header"); ?> 
 
-
     <?php $this->load->view($primary_view); ?>
 
+    <?php $this->load->view("layouts/partials/_pop_alert"); ?> 
 
   </body>
 

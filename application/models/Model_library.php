@@ -33,4 +33,12 @@ class Model_library extends MY_Model
             return false;
         }
 	}
+
+    public function delete($user_id, $library_id)
+    {
+        $this->db->where("user_id", $user_id);
+        $this->db->where("library_id", $library_id);
+        $this->db->delete("user_library");
+        return ($this->db->affected_rows() > 0);
+    }
 }
