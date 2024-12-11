@@ -4,6 +4,7 @@ timeText = document.querySelector(".time b"),
 inputField = document.querySelector("input"),
 refreshBtn = document.querySelector(".refresh-word"),
 checkBtn = document.querySelector(".check-word");
+backBtn = document.querySelector(".back-button"); // Select the back button
 
 let correctWord, timer;
 
@@ -42,6 +43,11 @@ const checkWord = () => {
     alert(`Congrats! ${correctWord.toUpperCase()} is the correct word`);
     initGame();
 }
+// Event listener for the back button
+backBtn.addEventListener("click", () => {
+    window.location.href = 'http://localhost/elearngamezone/games/index/1'; // Change this to the actual URL of your game selection page
+});
+
 
 refreshBtn.addEventListener("click", initGame);
 checkBtn.addEventListener("click", checkWord);

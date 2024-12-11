@@ -7,6 +7,7 @@ scoreTag = document.querySelector(".score"),
 resetBtn = document.querySelector(".reset-btn"),
 nextBtn = document.querySelector(".next-btn"),
 typingInput = document.querySelector(".typing-input");
+backBtn = document.querySelector(".back-button"); // Select the back button
 
 let word, maxGuesses, incorrectLetters = [], correctLetters = [];
 let score = 0, questionCount = 0, questionNumber = 1, timer;
@@ -110,3 +111,8 @@ inputs.addEventListener("click", () => typingInput.focus());
 document.addEventListener("keydown", () => typingInput.focus());
 
 randomWord();
+
+// Event listener for the back button
+backBtn.addEventListener("click", () => {
+  window.location.href = 'http://localhost/elearngamezone/games/index/1'; // Change this to the actual URL of your game selection page
+});

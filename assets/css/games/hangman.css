@@ -150,6 +150,24 @@ body {
 .game-modal button {
     padding: 12px 23px;
 }
+.back-button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    outline: none;
+    color: white;
+    background: #dc3545; /* Red background color */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .back-button:hover {
+    background: #5f2228;
+  }
+  .back-button:active {
+    transform: scale(0.97);
+  }
 
 @media (max-width: 782px) {
     .container {

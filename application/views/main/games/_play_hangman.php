@@ -20,6 +20,7 @@
             <h4 class="hint-text">Hint: <b></b></h4>
             <h4 class="guesses-text">Incorrect guesses: <b></b></h4>
             <div class="keyboard"></div>
+            <button class="back-button">Back to Game Selection</button> <!-- Added back button -->
         </div>
     </div>
 </body>

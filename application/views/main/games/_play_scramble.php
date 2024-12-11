@@ -8,12 +8,14 @@
             <div class="details">
                 <p class="hint">Hint: <span></span></p>
                 <p class="time">Time Left: <span><b>30</b>s</span></p>
+                <p class="score">Score: <span>0</span></p> <!-- Added score display -->
             </div>
             <input type="text" spellcheck="false" placeholder="Enter a valid word">
             <div class="buttons">
                 <button class="refresh-word">Next Word</button>
                 <button class="check-word">Check Word</button>
             </div>
+                <button class="back-button">Back to Game Selection</button> <!-- Added back button -->
         </div>
     </div>
   </body>

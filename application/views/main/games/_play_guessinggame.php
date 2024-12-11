@@ -21,6 +21,7 @@
 		<button class="reset-btn">Reset Game</button>
 		<button class="next-btn">Next Word</button>
 	</div>
+		<button class="back-button">Back to Game Selection</button> <!-- Added back button -->
 	</div>
 </div>
 </body>

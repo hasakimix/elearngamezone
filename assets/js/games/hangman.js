@@ -8,6 +8,8 @@ const preloadGif = (src) => {
     const img = new Image();
     img.src = src;
 };
+backBtn = document.querySelector(".back-button"); // Select the back button
+
 
 preloadGif("../../assets/img/pics/hangman/victory.gif");
 preloadGif("../../assets/img/pics/hangman/lost.gif");
@@ -78,3 +80,7 @@ for (let i = 97; i <= 122; i++) {
 getRandomWord();
 playAgainBtn.addEventListener("click", getRandomWord);
 
+// Event listener for the back button
+backBtn.addEventListener("click", () => {
+    window.location.href = 'http://localhost/elearngamezone/games/index/1'; // Change this to the actual URL of your game selection page
+});
