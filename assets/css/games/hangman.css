@@ -12,7 +12,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-image: url('https://scontent.fcrk1-5.fna.fbcdn.net/v/t1.15752-9/440587303_821906863175544_518510045511611607_n.png?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFnzxb5Fy2lF88pvUTDaosOjbiITMRcqcuNuIhMxFypy1Wp6Gs_WZfYKqlboi_wL_aCgX5rbKuZDULhsPR2fXIn&_nc_ohc=c9MI7Ofi_mgQ7kNvgFPgLE9&_nc_ht=scontent.fcrk1-5.fna&oh=03_Q7cD1QHfhaZylffwPvUVbgLchG1-yxIReaWuSOxVgoxX95fvzA&oe=666692E6');
+    background: #1b60a0;
    background-repeat: no-repeat;
 }
 .container {
@@ -20,7 +20,7 @@ body {
     width: 850px;
     gap: 70px;
     padding: 60px 40px;
-    background: #2C84D5;
+    background: #fff;
     border-radius: 10px;
     align-items: flex-end;
     justify-content: space-between;
@@ -77,7 +77,7 @@ body {
     justify-content: center;
 }
 :where(.game-modal, .keyboard) button {
-    color: #f4f6f7;
+    color: #2C84D5;
     border: none;
     outline: none;
     cursor: pointer;
@@ -96,7 +96,7 @@ body {
     opacity: 0.6;
 }
 :where(.game-modal, .keyboard) button:hover {
-    background: #f6f6f7;
+    background: #b5b5b9;
 }
 .game-modal {
     position: fixed;
@@ -132,7 +132,7 @@ body {
     max-width: 130px;
     margin-bottom: 20px;
 }
-.game-modal img[src="assets/img/pics/hangman/victory.gif"] {
+.game-modal img[src="images/victory.gif"] {
     margin-left: -10px;
 }
 .game-modal h4 {
@@ -144,7 +144,7 @@ body {
     font-weight: 500;
 }
 .game-modal p b {
-    color: #5E63BA;
+    color: #2C84D5;
     font-weight: 600;
 }
 .game-modal button {
