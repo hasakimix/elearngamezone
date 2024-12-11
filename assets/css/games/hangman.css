@@ -85,7 +85,7 @@ body {
     font-weight: 600;
     border-radius: 4px;
     text-transform: uppercase;
-    background: url('https://scontent.fcrk1-5.fna.fbcdn.net/v/t1.15752-9/440587303_821906863175544_518510045511611607_n.png?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFnzxb5Fy2lF88pvUTDaosOjbiITMRcqcuNuIhMxFypy1Wp6Gs_WZfYKqlboi_wL_aCgX5rbKuZDULhsPR2fXIn&_nc_ohc=c9MI7Ofi_mgQ7kNvgFPgLE9&_nc_ht=scontent.fcrk1-5.fna&oh=03_Q7cD1QHfhaZylffwPvUVbgLchG1-yxIReaWuSOxVgoxX95fvzA&oe=666692E6');
+    background: #b7b9ba;
 }
 .keyboard button {
     padding: 7px;
