@@ -71,34 +71,34 @@
     </div>
 </div>
 
-<div id="password_requirements" class="d-none mb-3">
-	<h6 class="text-dark"> Password must contain </h6>
-	<ul class="list-group">
-		<!-- Req 1 -->
-		<div class="form-check">
-			<input id="requirement-one" class="pw-checkbox" type="checkbox" disabled>
-			<label class="custom-control-label" for="customCheck1">At least 1 lowercase</label>
-		</div>
-		<!-- Req 2 -->
-		<div class="form-check">
-			<input id="requirement-two" class="pw-checkbox" type="checkbox" disabled>
-			<label class="custom-control-label" for="customCheck1">At least 1 uppercase</label>
-		</div>
-		<!-- Req 3 -->
-		<div class="form-check">
-			<input id="requirement-three" class="pw-checkbox" type="checkbox" disabled>
-			<label class="custom-control-label" for="customCheck1">At least 1 numeric</label>
-		</div>
-		<!-- Req 4 -->
-		<div class="form-check">
-			<input id="requirement-four" class="pw-checkbox" type="checkbox" disabled>
-			<label class="custom-control-label" for="customCheck1">At least 1 special character</label>
-		</div>
-		<!-- Req 5 -->
-		<div class="form-check">
-			<input id="requirement-five" class="pw-checkbox" type="checkbox" disabled>
-			<label class="custom-control-label" for="customCheck1">At  least 8 Characters ( length ).</label>
-		</div>
+<div id="password_requirements" class="d-none mb-3 frame-box">
+    <h6 class="text-dark"> Password must contain </h6>
+    <ul class="list-group">
+        <!-- Req 1 -->
+        <div class="form-check">
+            <input id="requirement-one" class="pw-checkbox" type="checkbox" disabled>
+            <label class="custom-control-label" for="customCheck1">At least 1 lowercase</label>
+        </div>
+        <!-- Req 2 -->
+        <div class="form-check">
+            <input id="requirement-two" class="pw-checkbox" type="checkbox" disabled>
+            <label class="custom-control-label" for="customCheck1">At least 1 uppercase</label>
+        </div>
+        <!-- Req 3 -->
+        <div class="form-check">
+            <input id="requirement-three" class="pw-checkbox" type="checkbox" disabled>
+            <label class="custom-control-label" for="customCheck1">At least 1 numeric</label>
+        </div>
+        <!-- Req 4 -->
+        <div class="form-check">
+            <input id="requirement-four" class="pw-checkbox" type="checkbox" disabled>
+            <label class="custom-control-label" for="customCheck1">At least 1 special character</label>
+        </div>
+        <!-- Req 5 -->
+        <div class="form-check">
+            <input id="requirement-five" class="pw-checkbox" type="checkbox" disabled>
+            <label class="custom-control-label" for="customCheck1">At least 8 Characters ( length ).</label>
+        </div>
 	</ul>
 </div>
 

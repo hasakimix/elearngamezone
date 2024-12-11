@@ -227,3 +227,17 @@ body {
     right: 10px; /* Positioning of the eye icon */
     cursor: pointer;
 }
+/* Frame box for password requirements */
+.frame-box {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 100px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 340px; /* Adjust as needed */
+    z-index: 1000;
+}
