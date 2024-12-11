@@ -77,7 +77,7 @@ body {
     justify-content: center;
 }
 :where(.game-modal, .keyboard) button {
-    color: #fff;
+    color: #2C84D5;
     border: none;
     outline: none;
     cursor: pointer;
@@ -96,7 +96,7 @@ body {
     opacity: 0.6;
 }
 :where(.game-modal, .keyboard) button:hover {
-    background: #8286c9;
+    background: #2C84D5;
 }
 .game-modal {
     position: fixed;
