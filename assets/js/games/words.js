@@ -1,7 +1,8 @@
 let words = [
     {
         word: "computer program",
-        hint: "is a list of instructions to be executed by a computer."
+        hint: "is a list of instructions to be executed by a computer.",
+		subject: "html"
     },
     {
         word: "Data Types",
