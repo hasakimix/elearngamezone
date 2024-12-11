@@ -13,7 +13,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   background: rgb(18,115,176);
-  background: linear-gradient(0deg, rgba(18,115,176,1) 0%, rgba(108,141,205,1) 100%);
+  background: #1b60a0;
   font-family: "Open Sans", sans-serif;
 }
 
