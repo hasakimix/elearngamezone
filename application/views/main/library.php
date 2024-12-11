@@ -7,7 +7,7 @@
     <div class="flex-container">
       <?php foreach ($libraries as $key => $library): ?>
         <?php if (in_array($library["library_id"], $user_libraries)): ?>
-          <div class="box" onclick="showPopup('<?= pascal_to_snake_case($library['library_name']) ?>Modal')" data-search="Java">
+          <div class="box" onclick="showPopup('<?= pascal_to_snake_case($library['library_name']) ?>Modal')" data-search="<?= pascal_to_snake_case($library['library_name']) ?>">
             <!-- Remove Button -->
             <form action="<?= base_url("library/remove" ) ?>" method="POST" class="remove-form">
               <input type="hidden" value="<?= $user_id ?>" name="user_id">
