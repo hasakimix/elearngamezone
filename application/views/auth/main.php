@@ -1,14 +1,14 @@
-<link rel="stylesheet" href="<?= base_url("/assets/css/auth/main.css?version=".uniqid()) ?>" />
+<link rel="stylesheet" href="<?= base_url("/assets/css/auth/main.css?version=" . uniqid()) ?>" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
-<?php if(isset($_SESSION["error"])): ?>
+<?php if (isset($_SESSION["error"])): ?>
     <div class="alert alert-danger text-dark" role="alert">
         <h5 class="mb-0">Something went wrong : <?= $_SESSION["error"] ?></h5>
     </div>
     <?php unset($_SESSION["error"]) ?>
 <?php endif; ?>
 
-<?php if(isset($_SESSION["success"])): ?>
+<?php if (isset($_SESSION["success"])): ?>
     <div class="alert alert-success text-dark" role="alert">
         <h5 class="mb-0">Congratulations!: <?= $_SESSION["success"] ?></h5>
     </div>
@@ -76,31 +76,31 @@
     <ul class="list-group">
         <!-- Req 1 -->
         <div class="form-check">
-            <input id="requirement-one" class="pw-checkbox" type="checkbox" disabled>
+            <input id="requirement-one" class="pw-checkbox" type="checkbox" hidden>
             <label class="custom-control-label" for="customCheck1">At least 1 lowercase</label>
         </div>
         <!-- Req 2 -->
         <div class="form-check">
-            <input id="requirement-two" class="pw-checkbox" type="checkbox" disabled>
+            <input id="requirement-two" class="pw-checkbox" type="checkbox" hidden>
             <label class="custom-control-label" for="customCheck1">At least 1 uppercase</label>
         </div>
         <!-- Req 3 -->
         <div class="form-check">
-            <input id="requirement-three" class="pw-checkbox" type="checkbox" disabled>
+            <input id="requirement-three" class="pw-checkbox" type="checkbox" hidden>
             <label class="custom-control-label" for="customCheck1">At least 1 numeric</label>
         </div>
         <!-- Req 4 -->
         <div class="form-check">
-            <input id="requirement-four" class="pw-checkbox" type="checkbox" disabled>
+            <input id="requirement-four" class="pw-checkbox" type="checkbox" hidden>
             <label class="custom-control-label" for="customCheck1">At least 1 special character</label>
         </div>
         <!-- Req 5 -->
         <div class="form-check">
-            <input id="requirement-five" class="pw-checkbox" type="checkbox" disabled>
+            <input id="requirement-five" class="pw-checkbox" type="checkbox" hidden>
             <label class="custom-control-label" for="customCheck1">At least 8 Characters ( length ).</label>
         </div>
-	</ul>
+    </ul>
 </div>
 
-<script src="<?= base_url("assets/js/auth/main.js?version=".uniqid()) ?>"></script>
-<script src="<?= base_url("assets/js/auth/validation.js?version=".uniqid()) ?>"></script>
+<script src="<?= base_url("assets/js/auth/main.js?version=" . uniqid()) ?>"></script>
+<script src="<?= base_url("assets/js/auth/validation.js?version=" . uniqid()) ?>"></script>

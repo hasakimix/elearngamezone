@@ -118,11 +118,15 @@ body {
 }
 
 @keyframes move {
-    0%, 49.99% {
+
+    0%,
+    49.99% {
         opacity: 0;
         z-index: 1;
     }
-    50%, 100% {
+
+    50%,
+    100% {
         opacity: 1;
         z-index: 5;
     }
@@ -212,32 +216,41 @@ body {
 /* eye */
 .password-container {
     position: relative;
-    width: 100%; 
+    width: 100%;
     display: flex;
     align-items: center;
 }
 
 .password-container input {
-    width: 100%; 
-    padding-right: 30px; /* Space for the eye icon */
+    width: 100%;
+    padding-right: 30px;
+    /* Space for the eye icon */
 }
 
 .password-container .password-icon {
     position: absolute;
-    right: 10px; /* Positioning of the eye icon */
+    right: 10px;
+    /* Positioning of the eye icon */
     cursor: pointer;
 }
+
 /* Frame box for password requirements */
 .frame-box {
     border: 1px solid #ccc;
-    padding: 15px;
+    padding: 10px;
     border-radius: 8px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: absolute;
-    top: 100px; /* Adjust as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 340px; /* Adjust as needed */
     z-index: 1000;
+    display: none;
+    /* Default hidden */
+}
+
+.list-group {
+    color: red;
+}
+
+.pw-checkbox {
+    display: hide;
 }
