@@ -169,6 +169,13 @@ body {
     transform: scale(0.97);
   }
 
+  .progress-text, .score-text {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
 @media (max-width: 782px) {
     .container {
         flex-direction: column;

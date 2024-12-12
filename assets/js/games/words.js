@@ -1,95 +1,313 @@
 let words = [
+    // HTML
     {
-        word: "computer program",
-        hint: "is a list of instructions to be executed by a computer.",
-		subject: "html"
+        word: "HTML",
+        hint: "A markup language used to structure web pages.",
+        subject: "html"
     },
     {
-        word: "Data Types",
-        hint: "JavaScript has several data types, including numbers, strings, booleans etc."
+        word: "Element",
+        hint: "A single part of an HTML document, such as a tag.",
+        subject: "html"
     },
     {
-        word: "Operators",
-        hint: "it is called (+, -, *, /, %),"
+        word: "Attribute",
+        hint: "Provides additional information about an HTML element.",
+        subject: "html"
     },
     {
-        word: "Functions",
-        hint: "blocks of reusable code that perform a specific task. "
+        word: "Tag",
+        hint: "Used to create elements in HTML.",
+        subject: "html"
     },
     {
-        word: "Arrays",
-        hint: "Used to store multiple values in a single variable"
+        word: "DOCTYPE",
+        hint: "Defines the document type for HTML.",
+        subject: "html"
     },
     {
-        word: "Control Flow",
-        hint: " statements like if...else, switch, for, while, and do...while"
+        word: "Hyperlink",
+        hint: "Used to link one page to another in HTML.",
+        subject: "html"
     },
     {
-        word: "Scope",
-        hint: "the visibility and lifetime of variables and parameters."
+        word: "Form",
+        hint: "Used to collect user input in HTML.",
+        subject: "html"
     },
     {
-        word: "DOM Manipulation",
-        hint: " is a programming interface for HTML and XML documents."
+        word: "Table",
+        hint: "Used to display data in rows and columns in HTML.",
+        subject: "html"
     },
     {
-        word: "Events",
-        hint: "it is used to respond to events triggered by user interactions, such as clicks, keypresses, and mouse movements."
+        word: "Image",
+        hint: "Used to embed pictures in an HTML page.",
+        subject: "html"
     },
     {
-        word: "Error Handling",
-        hint: "JavaScript includes try...catch statements"
+        word: "Semantic",
+        hint: "HTML tags that provide meaning about the content.",
+        subject: "html"
+    },
+
+    // Java
+    {
+        word: "Class",
+        hint: "Defines a blueprint for objects in Java.",
+        subject: "java"
     },
     {
-        word: "Modules",
-        hint: "organize your code into reusable units. "
+        word: "Object",
+        hint: "An instance of a class in Java.",
+        subject: "java"
     },
     {
-        word: "JavaScript Object Notation",
-        hint: "is a lightweight data interchange format that is easy for humans to read and write and easy for machines to parse and generate."
+        word: "Inheritance",
+        hint: "A mechanism to acquire properties of another class.",
+        subject: "java"
     },
     {
-        word: "Browser Object Model",
-        hint: " to interact with the browser itself, such as manipulating the browser window, managing cookies, and navigating to different URLs."
+        word: "Polymorphism",
+        hint: "Allows methods to perform different tasks based on input.",
+        subject: "java"
     },
     {
-        word: "Classes",
-        hint: "provide a way to create objects using a class-based syntax."
+        word: "Constructor",
+        hint: "A special method to initialize objects.",
+        subject: "java"
     },
     {
-        word: "CSS Basics",
-        hint: "is a style sheet language used to control the presentation of HTML"
+        word: "Interface",
+        hint: "A reference type in Java, similar to a class.",
+        subject: "java"
     },
     {
-        word: "Properties",
-        hint: "define the visual style of selected elements, such as color, font size, margin, padding, and more."
+        word: "Method",
+        hint: "A block of code designed to perform a task in Java.",
+        subject: "java"
     },
     {
-        word: "Values",
-        hint: "assigned a value that specifies how the property should be styled."
+        word: "Encapsulation",
+        hint: "Wrapping data and code into a single unit.",
+        subject: "java"
     },
     {
-        word: "Declaration",
-        hint: "made up of a property and its corresponding value. "
+        word: "Package",
+        hint: "A namespace for organizing Java classes and interfaces.",
+        subject: "java"
     },
     {
-        word: "Cascading",
-        hint: " styles can be inherited from parent elements."
+        word: "Exception",
+        hint: "An event that disrupts the normal flow of Java program execution.",
+        subject: "java"
+    },
+
+    // JavaScript
+    {
+        word: "Variable",
+        hint: "A container for storing data in JavaScript.",
+        subject: "javascript"
     },
     {
-        word: "Responsive Design",
-        hint: "it is used to create responsive designs that adapt to different screen sizes and devices."
+        word: "Function",
+        hint: "A reusable block of code in JavaScript.",
+        subject: "javascript"
     },
     {
-        word: "Colors",
-        hint: "hexadecimal codes (#RRGGBB), RGB values (rgb(0, 0, 255)), and HSL values (hsl(240, 100%, 50%))."
+        word: "Array",
+        hint: "A collection of elements in JavaScript.",
+        subject: "javascript"
     },
     {
-        word: "Fonts",
-        hint: "size, weight, style, and variant for text on a web page. "
+        word: "Event",
+        hint: "An action that can be detected by JavaScript.",
+        subject: "javascript"
     },
     {
-        word: "Flexbox",
-        hint: "layout model that allows you to design complex layouts"
+        word: "DOM",
+        hint: "Document Object Model used to interact with HTML in JavaScript.",
+        subject: "javascript"
     },
-]
+    {
+        word: "Promise",
+        hint: "Represents a value that may be available in the future.",
+        subject: "javascript"
+    },
+    {
+        word: "Callback",
+        hint: "A function passed as an argument to another function.",
+        subject: "javascript"
+    },
+    {
+        word: "Async",
+        hint: "Allows asynchronous code in JavaScript.",
+        subject: "javascript"
+    },
+    {
+        word: "Loop",
+        hint: "Used to repeat a block of code in JavaScript.",
+        subject: "javascript"
+    },
+    {
+        word: "Closure",
+        hint: "A function that retains access to its parent scope.",
+        subject: "javascript"
+    },
+
+    // Python
+    {
+        word: "List",
+        hint: "A collection of elements in Python.",
+        subject: "python"
+    },
+    {
+        word: "Tuple",
+        hint: "An immutable collection in Python.",
+        subject: "python"
+    },
+    {
+        word: "Dictionary",
+        hint: "A collection of key-value pairs in Python.",
+        subject: "python"
+    },
+    {
+        word: "Function",
+        hint: "A block of reusable code in Python.",
+        subject: "python"
+    },
+    {
+        word: "Loop",
+        hint: "Used to repeat a block of code in Python.",
+        subject: "python"
+    },
+    {
+        word: "Class",
+        hint: "Defines a blueprint for creating objects in Python.",
+        subject: "python"
+    },
+    {
+        word: "Module",
+        hint: "A file containing Python code that can be reused.",
+        subject: "python"
+    },
+    {
+        word: "Lambda",
+        hint: "An anonymous function in Python.",
+        subject: "python"
+    },
+    {
+        word: "Decorator",
+        hint: "A function that modifies another function in Python.",
+        subject: "python"
+    },
+    {
+        word: "Import",
+        hint: "Used to include a module in a Python script.",
+        subject: "python"
+    },
+
+    // SQL
+    {
+        word: "Query",
+        hint: "Used to retrieve or manipulate data in SQL.",
+        subject: "sql"
+    },
+    {
+        word: "Table",
+        hint: "A collection of related data in SQL.",
+        subject: "sql"
+    },
+    {
+        word: "Column",
+        hint: "Represents a single field in a table in SQL.",
+        subject: "sql"
+    },
+    {
+        word: "Row",
+        hint: "Represents a single record in a table in SQL.",
+        subject: "sql"
+    },
+    {
+        word: "Primary Key",
+        hint: "A unique identifier for records in a table.",
+        subject: "sql"
+    },
+    {
+        word: "Foreign Key",
+        hint: "A key linking one table to another.",
+        subject: "sql"
+    },
+    {
+        word: "Index",
+        hint: "Used to speed up data retrieval in SQL.",
+        subject: "sql"
+    },
+    {
+        word: "Join",
+        hint: "Combines rows from multiple tables in SQL.",
+        subject: "sql"
+    },
+    {
+        word: "View",
+        hint: "A virtual table in SQL based on a query.",
+        subject: "sql"
+    },
+    {
+        word: "Transaction",
+        hint: "A sequence of operations performed as a single unit in SQL.",
+        subject: "sql"
+    },
+
+    // PHP
+    {
+        word: "Variable",
+        hint: "A container for storing data in PHP.",
+        subject: "php"
+    },
+    {
+        word: "Array",
+        hint: "A collection of values in PHP.",
+        subject: "php"
+    },
+    {
+        word: "Function",
+        hint: "A reusable block of code in PHP.",
+        subject: "php"
+    },
+    {
+        word: "Echo",
+        hint: "Used to output text in PHP.",
+        subject: "php"
+    },
+    {
+        word: "Include",
+        hint: "Used to include files in PHP scripts.",
+        subject: "php"
+    },
+    {
+        word: "Session",
+        hint: "Used to store user information across multiple pages.",
+        subject: "php"
+    },
+    {
+        word: "Cookie",
+        hint: "Used to store small pieces of data on the client side.",
+        subject: "php"
+    },
+    {
+        word: "Class",
+        hint: "Defines a blueprint for objects in PHP.",
+        subject: "php"
+    },
+    {
+        word: "Method",
+        hint: "A block of code designed to perform a task in PHP.",
+        subject: "php"
+    },
+    {
+        word: "PDO",
+        hint: "PHP Data Objects used for database access.",
+        subject: "php"
+    }
+];
