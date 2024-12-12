@@ -14,7 +14,15 @@
     </div>
     <?php unset($_SESSION["error"]) ?>
 <?php endif; ?>
+<style>
+    .modal-content.border-success {
+        border-color: #1f5c96 !important; 
+    }
 
+    .text-success {
+        color:  #2C84D5 !important; 
+    }
+</style>
 <?php if(isset($_SESSION["success"])): ?>
     <div class="modal fade" id="_serverFlashData" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-xl">

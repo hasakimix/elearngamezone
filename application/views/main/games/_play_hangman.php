@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="<?= base_url("/assets/css/games/hangman.css?version=".uniqid()) ?>" />
-
-    <title>Hangman Game</title>
+<title>Hangman Game</title>
 <body>
     <div class="game-modal">
         <div class="content">
@@ -16,11 +15,13 @@
             <h1>Hangman Game</h1>
         </div>
         <div class="game-box">
+            <h4 class="progress-text">Question: <b>1 / 10</b></h4>
+            <h4 class="score-text">Score: <b>0</b></h4>
             <ul class="word-display"></ul>
             <h4 class="hint-text">Hint: <b></b></h4>
             <h4 class="guesses-text">Incorrect guesses: <b></b></h4>
             <div class="keyboard"></div>
-            <button class="back-button">Back to Game Selection</button> <!-- Added back button -->
+            <button class="back-button">Back to Game Selection</button>
         </div>
     </div>
 </body>

@@ -1,262 +1,313 @@
 const wordList = [
+    // HTML
     {
-        word: "scripting",
-        hint: "JavaScript is a programming language used primarily for creating interactive effects within web browsers."
+        word: "doctype",
+        hint: "defines the document type and version of html.",
+        subject: "html"
     },
     {
-        word: "values",
-        hint: "Variables in JavaScript are used to store ."
+        word: "meta",
+        hint: "provides metadata about the html document.",
+        subject: "html"
     },
     {
-        word: "equality",
-        hint: "The "==" operator in JavaScript is used for comparison"
-    },
-    {
-        word: "strict equality",
-        hint: "The "===" operator in JavaScript is used for  comparison."
-    },
-    {
-        word: "function",
-        hint: "In JavaScript, a function can be defined using the keyword."
-    },
-    {
-        word: "for",
-        hint: "Thestatement in JavaScript is used to iterate over a block of code a specified number of times."
-    },
-    {
-        word: "language",
-        hint: "HTML stands for HyperText Markup "
-    },
-    {
-        word: "angle",
-        hint: "Tags in HTML are enclosed in brackets."
-    },
-    {
-        word: "content",
-        hint: "The <body> tag in HTML is used to define the document's."
-    },
-    {
-        word: "links",
-        hint: "The <a> tag in HTML is used to create to other web pages or files."
-    },
-    {
-        word: "images",
-        hint: "The <img> tag in HTML is used to insert into a web page."
-    },
-    {
-        word: "tables",
-        hint: "The <table> tag in HTML is used to create."
-    },
-    {
-        word: "bulleted",
-        hint: "The <ul> tag in HTML is used to create a list."
-    },
-    {
-        word: "input",
-        hint: "The <input> tag in HTML is used to create elements."
-    },
-    {
-        word: "headings",
-        hint: "The <h1> to <h6> tags in HTML are used to define."
-    },
-    {
-        word: "document",
-        hint: "The <!DOCTYPE> declaration in HTML is used to specify the version of HTML being used."
-    },
-    {
-        word: "structure",
-        hint: "The dailyThe <html> tag in HTML is used to define the of a web page.disappearance of the sun below the horizon."
-    },
-    {
-        word: "metadata",
-        hint: "The <meta> tag in HTML is used to provide about the document."
-    },
-    {
-        word: "emmbeddedresource",
-        hint: "The <iframe> tag in HTML is used to insert a(n) into a web page."
-    },
-    {
-        word: "inputform",
-        hint: "The <form> tag in HTML is used to create an for user input."
-    },
-    {
-        word: "line",
-        hint: "The <br> tag in HTML is used to insert a break."
-    },
-    {
-        word: "title",
-        hint: "The <title> tag in HTML is used to define the of the document, which is displayed in the browser's title bar."
-    },
-    {
-        word: "head",
-        hint: "The <head> tag in HTML is used to define the of the document, which contains meta-information about the document."
-    },
-    {
-        word: "dropdown",
-        hint: "The <select> tag in HTML is used to create a list."
-    },
-    {
-        word: "text",
-        hint: "The <textarea> tag in HTML is used to create a input field."
-    },
-    {
-        word: "stylesheet",
-        hint: "The <link> tag in HTML is used to link to an external."
-    },
-    {
-        word: "container",
-        hint: "The <div> tag in HTML is used to create sections or divisions in a web page."
-    },
-    {
-        word: "styling",
-        hint: "The <span> tag in HTML is used to applyto a part of a text."
-    },
-    {
-        word: "resource",
-        hint: "The <link> tag in HTML is used to link to an external "
-    },
-    {
-        word: "audio",
-        hint: "The <audio> tag in HTML is used to embed content in a web page."
-    },
-    {
-        word: "video",
-        hint: "The <video> tag in HTML is used to embed content in a web page."
-    },
-    {
-        word: "navigation",
-        hint: "The <nav> tag in HTML is used to define navigation links."
+        word: "header",
+        hint: "defines a header for a document or section.",
+        subject: "html"
     },
     {
         word: "footer",
-        hint: "The <footer> tag in HTML is used to define the of a web page"
+        hint: "defines a footer for a document or section.",
+        subject: "html"
     },
     {
-        word: "work",
-        hint: "he <cite> tag in HTML is used to define the title of a ___________."
+        word: "aside",
+        hint: "defines content aside from the main content.",
+        subject: "html"
     },
     {
-        word: "piece",
-        hint: "The <code> tag in HTML is used to define a of computer code."
+        word: "section",
+        hint: "defines a section in a document.",
+        subject: "html"
     },
     {
-        word: "superscript",
-        hint: "The <sup> tag in HTML is used to define text."
+        word: "article",
+        hint: "defines an independent piece of content.",
+        subject: "html"
     },
     {
-        word: "telephone",
-        hint: "A device used to transmit sound over long distances."
+        word: "nav",
+        hint: "defines navigation links in html.",
+        subject: "html"
     },
     {
-        word: "introduction",
-        hint: "The <header> tag in HTML is used to define the of a section or a page."
+        word: "figure",
+        hint: "represents self-contained content, often with a caption.",
+        subject: "html"
     },
     {
-        word: "caption",
-        hint: "The <figcaption> tag in HTML is used to define a for a <figure> element."
+        word: "blockquote",
+        hint: "used to define a section quoted from another source.",
+        subject: "html"
+    },
+
+    // Java
+    {
+        word: "arraylist",
+        hint: "a resizable array in java.",
+        subject: "java"
     },
     {
-        word: "tangential",
-        hint: "The <aside> tag in HTML is used to define content."
+        word: "hashmap",
+        hint: "a data structure to store key-value pairs in java.",
+        subject: "java"
     },
     {
-        word: "dynamic",
-        hint: "The <canvas> tag in HTML is used to draw graphics."
+        word: "thread",
+        hint: "a thread of execution in a program.",
+        subject: "java"
     },
     {
-        word: "selfcontained",
-        hint: "The <figure> tag in HTML is used to define content."
+        word: "servlet",
+        hint: "a java class used to handle requests on a web server.",
+        subject: "java"
     },
     {
-        word: "principal",
-        hint: "The <main> tag in HTML is used to specify the content of a document."
+        word: "jvm",
+        hint: "java virtual machine, executes java bytecode.",
+        subject: "java"
     },
     {
-        word: "highlighted",
-        hint: "The <mark> tag in HTML is used to highlight content."
+        word: "jre",
+        hint: "java runtime environment, provides the runtime for java.",
+        subject: "java"
     },
     {
-        word: "task",
-        hint: "The <progress> tag in HTML is used to represent the progress of a ___________."
+        word: "jar",
+        hint: "a java archive file used to distribute java applications.",
+        subject: "java"
     },
     {
-        word: "ruby",
-        hint: "The <ruby> tag in HTML is used to define a annotation for East Asian typography."
+        word: "annotation",
+        hint: "provides metadata for java code.",
+        subject: "java"
     },
     {
-        word: "calculation",
-        hint: "The <output> tag in HTML is used to represent the result of a ___________."
+        word: "generics",
+        hint: "allows type-safe collections in java.",
+        subject: "java"
     },
     {
-        word: "Sample",
-        hint: "The <samp> tag in HTML is used to define text."
+        word: "lambda",
+        hint: "a feature for writing anonymous functions in java.",
+        subject: "java"
+    },
+
+    // JavaScript
+    {
+        word: "json",
+        hint: "javascript object notation, a lightweight data-interchange format.",
+        subject: "javascript"
     },
     {
-        word: "cascading",
-        hint: "CSS stands for Style Sheets."
+        word: "es6",
+        hint: "a major update to javascript with new features.",
+        subject: "javascript"
     },
     {
-        word: "style",
-        hint: "CSS is used to define the _____ of HTML elements."
+        word: "nodejs",
+        hint: "a javascript runtime built on chrome's v8 engine.",
+        subject: "javascript"
     },
     {
-        word: "selectors",
-        hint: "CSS can be applied to HTML documents using ________."
+        word: "react",
+        hint: "a javascript library for building user interfaces.",
+        subject: "javascript"
     },
     {
-        word: "style",
-        hint: "Inline CSS is applied using the ________ attribute within an HTML tag."
+        word: "eventlistener",
+        hint: "used to listen for events like clicks in javascript.",
+        subject: "javascript"
     },
     {
-        word: "color",
-        hint: "The ________ property is used to set the text color of an element."
+        word: "hoisting",
+        hint: "javascript's default behavior of moving declarations to the top.",
+        subject: "javascript"
     },
     {
-        word: "width",
-        hint: "The ________ property is used to set the width of an element."
+        word: "scope",
+        hint: "defines the visibility of variables in javascript.",
+        subject: "javascript"
     },
     {
-        word: "position",
-        hint: "The ________ property is used to set the position of an element."
+        word: "prototype",
+        hint: "the mechanism by which javascript objects inherit features.",
+        subject: "javascript"
     },
     {
-        word: "height",
-        hint: "The ________ property is used to set the height of an element."
+        word: "eventloop",
+        hint: "handles execution of multiple operations in javascript.",
+        subject: "javascript"
     },
     {
-        word: "visibility",
-        hint: "The ________ property is used to control the visibility of an element."
+        word: "api",
+        hint: "a set of functions for interacting with a system or library.",
+        subject: "javascript"
+    },
+
+    // Python
+    {
+        word: "iterable",
+        hint: "an object capable of returning its members one at a time.",
+        subject: "python"
     },
     {
-        word: "opacity",
-        hint: "The ________ property is used to set the opacity of an element."
+        word: "generator",
+        hint: "a function that yields values one at a time in python.",
+        subject: "python"
     },
     {
-        word: "padding",
-        hint: "The ________ property is used to set the padding around an element."
+        word: "pandas",
+        hint: "a python library for data analysis and manipulation.",
+        subject: "python"
     },
     {
-        word: "margin",
-        hint: "The ________ property is used to set the margin around an element."
+        word: "numpy",
+        hint: "a library for numerical computations in python.",
+        subject: "python"
     },
     {
-        word: "border",
-        hint: "The ________ property is used to set the border of an element."
+        word: "flask",
+        hint: "a micro web framework for python.",
+        subject: "python"
     },
     {
-        word: "table",
-        hint: "The ________ tag is used to create a table."
+        word: "django",
+        hint: "a high-level python web framework.",
+        subject: "python"
     },
     {
-        word: "title",
-        hint: "The ________ tag is used to define the title of an HTML document."
+        word: "comprehension",
+        hint: "a concise way to create lists, sets, or dictionaries in python.",
+        subject: "python"
     },
     {
-        word: "target",
-        hint: "The ________ attribute is used to specify the target of a hyperlink."
+        word: "decorator",
+        hint: "a function that extends the behavior of another function.",
+        subject: "python"
     },
     {
-        word: "button",
-        hint: "The ________ tag is used to create a button."
+        word: "exception",
+        hint: "an error that can be handled in python.",
+        subject: "python"
     },
+    {
+        word: "interpreter",
+        hint: "executes python code line by line.",
+        subject: "python"
+    },
+
+    // SQL
+    {
+        word: "normalization",
+        hint: "process of organizing data to reduce redundancy.",
+        subject: "sql"
+    },
+    {
+        word: "denormalization",
+        hint: "process of introducing redundancy to improve performance.",
+        subject: "sql"
+    },
+    {
+        word: "subquery",
+        hint: "a query nested within another query.",
+        subject: "sql"
+    },
+    {
+        word: "aggregate",
+        hint: "functions like count, sum, avg in sql.",
+        subject: "sql"
+    },
+    {
+        word: "alias",
+        hint: "a temporary name for a table or column in sql.",
+        subject: "sql"
+    },
+    {
+        word: "trigger",
+        hint: "a procedure executed automatically in response to certain events.",
+        subject: "sql"
+    },
+    {
+        word: "storedprocedure",
+        hint: "a precompiled sql statement stored in the database.",
+        subject: "sql"
+    },
+    {
+        word: "constraint",
+        hint: "rules applied to table columns like unique or not null.",
+        subject: "sql"
+    },
+    {
+        word: "cursor",
+        hint: "a database object used to retrieve and manipulate data row by row.",
+        subject: "sql"
+    },
+    {
+        word: "replication",
+        hint: "copying data from one database to another.",
+        subject: "sql"
+    },
+
+    // PHP
+    {
+        word: "get",
+        hint: "http method used to request data from a server in php.",
+        subject: "php"
+    },
+    {
+        word: "post",
+        hint: "http method used to send data to a server in php.",
+        subject: "php"
+    },
+    {
+        word: "mysqli",
+        hint: "a php extension for interacting with mysql databases.",
+        subject: "php"
+    },
+    {
+        word: "composer",
+        hint: "a dependency manager for php.",
+        subject: "php"
+    },
+    {
+        word: "trait",
+        hint: "mechanism for code reuse in php.",
+        subject: "php"
+    },
+    {
+        word: "namespace",
+        hint: "organizes code into groups in php.",
+        subject: "php"
+    },
+    {
+        word: "autoloading",
+        hint: "automatically includes required php files.",
+        subject: "php"
+    },
+    {
+        word: "preparedstatement",
+        hint: "a feature to execute sql queries securely in php.",
+        subject: "php"
+    },
+    {
+        word: "superglobals",
+        hint: "built-in variables in php like $_post and $_get.",
+        subject: "php"
+    },
+    {
+        word: "htaccess",
+        hint: "a configuration file for web servers used with php.",
+        subject: "php"
+    }
 ];
