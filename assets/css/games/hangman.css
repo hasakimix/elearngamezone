@@ -12,7 +12,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #1b60a0;
+    background: linear-gradient(135deg, #2C84D5, #99c4f2);
    background-repeat: no-repeat;
 }
 .container {
@@ -77,7 +77,7 @@ body {
     justify-content: center;
 }
 :where(.game-modal, .keyboard) button {
-    color: #2C84D5;
+    color: #fff;
     border: none;
     outline: none;
     cursor: pointer;
@@ -85,7 +85,7 @@ body {
     font-weight: 600;
     border-radius: 4px;
     text-transform: uppercase;
-    background: #b7b9ba;
+    background: #2C84D5;
 }
 .keyboard button {
     padding: 7px;
