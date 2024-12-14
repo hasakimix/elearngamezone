@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="<?= base_url("/assets/css/games/main.css?version=".uniqid()) ?>" />
 <link rel="stylesheet" href="<?= base_url("/assets/css/games/index.css?version=".uniqid()) ?>" />
-
+  <div class="button-container">
+    <button class="back-button" data-url="<?= base_url("library") ?>">Back to Library</button>
+  </div>
 <main>
   <section class="hero">
 	<p>🎮 Let the games begin! Play more and Learn more.</p>
@@ -22,4 +24,6 @@
     </div>
   </nav>
 </main>
+
+<script src="<?= base_url("assets/js/games/main.js?version=" . uniqid()) ?>"></script>
 
