@@ -12,8 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: rgb(18,115,176);
-  background: #1b60a0;
+  background: linear-gradient(135deg, #2C84D5, #99c4f2);
   font-family: "Open Sans", sans-serif;
 }
 
