@@ -88,15 +88,13 @@ footer {
   color: var(--secondary-blue);
 }
 .button-container {
-  position: relative; /* Ensure the parent container is positioned relative */
+ position: relative;/* Ensure the parent container is positioned relative */
 }
 
 .back-button {
-  position: left; /* Position the button absolutely */
-  top: 10px; /* Adjust the top position as needed */
-  left: 0px; /* Adjust the left position as needed */
   width: auto; /* Adjust width as needed */
   padding: 10px 20px; /* Adjust padding as needed */
+  margin-left: -200px;
   border: none;
   outline: none;
   color: white;
@@ -107,7 +105,7 @@ footer {
 }
 
 .back-button:hover {
-  background: #5f2228;
+  background: #993640;
 }
 
 .back-button:active {
