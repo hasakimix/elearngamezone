@@ -657,9 +657,9 @@ if(obj instanceof Date) {
             <div class="question" id="q2">
                 <p>2. What does the javac command do in the context of running a Java program?</p>
                 <input type="radio" name="q2" value="A"> A) It executes the Java program<br>
-                <input type="radio" name="q2" value="B"> B)  It compiles the Java program into bytecode<br>
+                <input type="radio" name="q2" value="B"> B) It compiles the Java program into bytecode<br>
                 <input type="radio" name="q2" value="C"> C) It links external libraries to the Java program<br>
-                <input type="radio" name="q2" value="D"> D)  It adds Java to the PATH environment variable<br>
+                <input type="radio" name="q2" value="D"> D) It adds Java to the PATH environment variable<br>
             </div>
             <div class="question" id="q3">
                 <p>3. What will the following Java code output?</p>

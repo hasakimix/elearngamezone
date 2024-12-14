@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= base_url("/assets/css/modules/modules.css?version=".uniqid()) ?>" />
+<link rel="stylesheet" href="<?= base_url("/assets/css/modules/modules.css?version=" . uniqid()) ?>" />
 
 <!-- Main Content Section -->
 <div class="main-content">

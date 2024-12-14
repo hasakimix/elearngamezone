@@ -30,13 +30,13 @@
             <small class="text-danger mb-3"><strong class="field-error" data-field="email"></strong></small>
             <!-- Password -->
             <div class="password-container">
-                <input type="password" placeholder="Password" name="password" id="password">
+                <input class="Pass-require" type="password" placeholder="Password" name="password" id="password">
                 <i class="fa fa-eye-slash password-icon" id="togglePassword" data-target="password"></i>
             </div>
             <small class="text-danger mb-3"><strong class="field-error" data-field="password"></strong></small>
             <!-- Confirm Password -->
             <div class="password-container">
-                <input type="password" placeholder="Confirm Password" name="confirm_password" id="confirm_password">
+                <input class="Pass-require" type="password" placeholder="Confirm Password" name="confirm_password" id="confirm_password">
                 <i class="fa fa-eye-slash password-icon" id="toggleConfirmPassword" data-target="confirm_password"></i>
             </div>
             <small class="text-danger mb-3"><strong class="field-error" data-field="confirm_password"></strong></small>

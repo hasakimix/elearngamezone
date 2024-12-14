@@ -12,7 +12,7 @@ $(document).ready(function () {
     });
 
     // Password requirements logic
-    const passwordInputs = document.querySelectorAll('input[type="password"]');
+    const passwordInputs = document.querySelectorAll('input[class="Pass-require"]');
     const passwordRequirements = document.getElementById('password_requirements');
 
     const requirementCheckboxes = {
