@@ -12,6 +12,8 @@ backBtn = document.querySelector(".back-button"); // Select the back button
 let word, maxGuesses, incorrectLetters = [], correctLetters = [];
 let score = 0, questionCount = 0, questionNumber = 1, timer;
 
+let usedWords = [];
+
 function startTimer() {
   let timeLeft = 30;
   timerTag.innerText = timeLeft;
@@ -37,9 +39,14 @@ function updateQuestionNumber() {
 function randomWord() {
   if (questionCount >= 10) {
     alert(`Game over! You scored ${score}/10.`);
+    saveGameProgress();
     return;
   }
-  let ranItem = wordList[Math.floor(Math.random() * wordList.length)];
+
+  let newWordList = wordList.filter( val =>  val.subject == LIBRARY_ID );
+  newWordList = newWordList.filter( val => !usedWords.includes(val.word) );
+  let ranItem = newWordList[Math.floor(Math.random() * newWordList.length)];
+  usedWords.push(ranItem.word);
   word = ranItem.word;
   maxGuesses = word.length >= 5 ? 8 : 6;
   correctLetters = []; incorrectLetters = [];
@@ -116,3 +123,37 @@ randomWord();
 backBtn.addEventListener("click", () => {
   window.location.href = BACK_URL; // Change this to the actual URL of your game selection page
 });
+
+const getGameScorePercentage = () => {
+  var a = score / 10;
+  var percentage = (a * 100).toFixed(2);
+  return percentage;
+};
+
+const saveGameProgress = async () => {
+  await $.ajax({
+      url: `${PROGRESS_API_URL}`,
+      crossDomain: true,
+      type: 'POST',
+      contentType: "application/json",
+      dataType: "json",
+      data: JSON.stringify({
+          user_id : USER_ID,
+          game_id : GAME_ID,
+          progress : getGameScorePercentage()
+      }),
+      beforeSend: function (xhr) {
+          console.log("sending");
+      },
+      error: (error) => {
+          if (error.responseJSON == undefined) {
+              alert("Something Went Wrong", "Please report it to the team.", 'error');
+          } else {
+              alert("Something Went Wrong", error.responseJSON.message, 'error');
+          }
+      },
+      success: (response) => {
+          console.log(response);
+      }
+  });
+};

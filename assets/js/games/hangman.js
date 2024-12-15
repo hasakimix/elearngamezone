@@ -12,8 +12,8 @@ const preloadGif = (src) => {
     const img = new Image();
     img.src = src;
 };
-preloadGif("../../assets/img/pics/hangman/victory.gif");
-preloadGif("../../assets/img/pics/hangman/lost.gif");
+preloadGif("https://elearngamezone-bucket.sgp1.digitaloceanspaces.com/hangman/victory.gif");
+preloadGif("https://elearngamezone-bucket.sgp1.digitaloceanspaces.com/hangman/lost.gif");
 
 let currentWord, correctLetters, wrongGuessCount, questionCount, score;
 const maxGuesses = 6;
@@ -36,7 +36,8 @@ const resetGame = () => {
 };
 
 const getRandomWord = () => {
-    const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
+    let newWordList = wordList.filter(val => val.subject == LIBRARY_ID);
+    const { word, hint } = newWordList[Math.floor(Math.random() * newWordList.length)];
     currentWord = word;
     document.querySelector(".hint-text b").innerText = hint;
     resetGame();
@@ -63,6 +64,7 @@ const gameOver = (isVictory) => {
         };
     }
     updateProgressAndScore();
+    saveGameProgress();
 };
 
 const nextQuestion = () => {
@@ -87,6 +89,7 @@ const endGame = () => {
         getRandomWord();
         updateProgressAndScore();
     };
+    saveGameProgress();
 };
 
 const initGame = (button, clickedLetter) => {
@@ -125,3 +128,37 @@ playAgainBtn.addEventListener("click", getRandomWord);
 backBtn.addEventListener("click", () => {
     window.location.href = BACK_URL;
 });
+
+const getGameScorePercentage = () => {
+	var a = score / totalQuestions;
+	var percentage = (a * 100).toFixed(2);
+	return percentage;
+};
+
+const saveGameProgress = async () => {
+	await $.ajax({
+        url: `${PROGRESS_API_URL}`,
+        crossDomain: true,
+        type: 'POST',
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify({
+			user_id : USER_ID,
+			game_id : GAME_ID,
+			progress : getGameScorePercentage()
+		}),
+        beforeSend: function (xhr) {
+            console.log("sending");
+        },
+        error: (error) => {
+            if (error.responseJSON == undefined) {
+                alert("Something Went Wrong", "Please report it to the team.", 'error');
+            } else {
+                alert("Something Went Wrong", error.responseJSON.message, 'error');
+            }
+        },
+        success: (response) => {
+            console.log(response);
+        }
+    });
+};
