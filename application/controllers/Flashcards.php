@@ -5,20 +5,19 @@ class Flashcards extends Auth_Controller {
 
     protected $_template = 'layouts/templates/';
     protected $_primary_view = 'main/';
+
+	public function __construct()
+    {
+        parent::__construct();
+        $this->load->model("Model_flashcards", "m_flash");
+    }
 	
-	public function index()
+	public function index($library_id)
 	{
         $data = &$this->data;
         $data['final_view'] = $this->_template.'_main_template';
         $data['primary_view'] = $this->_primary_view.'flashcards/index';
-		$this->load->view($data['final_view'], $data);
-	}
-
-	public function cards($subject)
-	{
-        $data = &$this->data;
-        $data['final_view'] = $this->_template.'_main_template';
-        $data['primary_view'] = $this->_primary_view.'flashcards/_cards_'.$subject;
+		$data['flashcard'] = $this->m_flash->get_flashcard($library_id);
 		$this->load->view($data['final_view'], $data);
 	}
 }

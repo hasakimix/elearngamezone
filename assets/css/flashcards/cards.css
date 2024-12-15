@@ -148,13 +148,13 @@
     cursor: pointer;
   }
 
-  .flash_container{
+.flash_container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 	margin-top: 150px;
-	margin-right: 250px;
+	/* margin-right: 250px; */
 }
 
 .cards_container{

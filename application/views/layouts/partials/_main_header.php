@@ -40,7 +40,7 @@
 		<div class="dropdown">
 			<img src="<?= base_url("/assets/img/profileicon.png") ?>" onclick="toggleDropdown()" class="dropbtn">
 			<div id="DropDown" class="dropdown-content">
-				<a href="profile" class="dropdown-item">Profile</a>
+				<a href="<?= base_url("profile") ?>" class="dropdown-item">Profile</a>
 				<a href="<?= base_url("submit/logout") ?>" class="dropdown-item">Logout</a>
 			</div>
 		</div>

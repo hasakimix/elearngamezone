@@ -12,20 +12,14 @@ class Videos extends Auth_Controller {
         $this->load->model("Model_videos", "m_vid");
     }
 	
-	public function index()
+	public function index($library_id)
 	{
+		$session = $this->session->get_userdata();
         $data = &$this->data;
         $data['final_view'] = $this->_template.'_main_template';
         $data['primary_view'] = $this->_primary_view.'videos/index';
-		$this->load->view($data['final_view'], $data);
-	}
-
-	public function subject($subject)
-	{
-        $data = &$this->data;
-        $data['final_view'] = $this->_template.'_main_template';
-        $data['primary_view'] = $this->_primary_view.'videos/_vids_'.$subject;
-		$data['videos'] = $this->m_vid->get_videos($subject);
+		$data['videos'] = $this->m_vid->get_videos($library_id);
+		$data['user_id'] = $session['id'];
 		$this->load->view($data['final_view'], $data);
 	}
 }
