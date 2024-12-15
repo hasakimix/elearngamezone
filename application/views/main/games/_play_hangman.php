@@ -26,5 +26,12 @@
     </div>
 </body>
 
+<script>
+	const PROGRESS_API_URL  = '<?= base_url("api/progress/game"); ?>';
+	const GAME_ID = '<?= $game["games_id"] ?>';
+	const LIBRARY_ID = '<?= $game["library_id"] ?>';
+	const USER_ID = '<?= $user_id ?>';
+	const BACK_URL  = '<?= $back_url ?>';
+</script>
 <script src="<?= base_url("assets/js/games/wordlist.js?version=".uniqid()) ?>"></script>
 <script src="<?= base_url("assets/js/games/hangman.js?version=".uniqid()) ?>"></script>
