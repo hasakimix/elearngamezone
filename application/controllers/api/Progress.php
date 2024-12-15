@@ -28,7 +28,7 @@ class Progress extends MY_Api
 			$save_data["video_id"] = $data["video_id"];
 			$save_data["progress"] = round(floatval($data["progress"]), 2);
 
-			$get_existing_progress = $this->m_vid->get_user_and_video_progress(
+			$get_existing_progress = $this->m_vid->get_user_progress(
 				$save_data["user_id"], 
 				$save_data["video_id"]
 			);

@@ -114,5 +114,5 @@ randomWord();
 
 // Event listener for the back button
 backBtn.addEventListener("click", () => {
-  window.location.href = 'http://localhost/elearngamezone/games/index/1'; // Change this to the actual URL of your game selection page
+  window.location.href = BACK_URL; // Change this to the actual URL of your game selection page
 });

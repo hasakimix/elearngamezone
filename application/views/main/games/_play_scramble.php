@@ -23,5 +23,12 @@
 
 </html>
 
+<script>
+	const PROGRESS_API_URL  = '<?= base_url("api/progress/game"); ?>';
+	const GAME_ID = '<?= $game["games_id"] ?>';
+	const LIBRARY_ID = '<?= $game["library_id"] ?>';
+	const USER_ID = '<?= $user_id ?>';
+	const BACK_URL  = '<?= $back_url ?>';
+</script>
 <script src="<?= base_url("assets/js/games/words.js?version=" . uniqid()) ?>"></script>
 <script src="<?= base_url("assets/js/games/scramble.js?version=" . uniqid()) ?>"></script>

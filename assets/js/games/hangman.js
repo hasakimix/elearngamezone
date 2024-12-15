@@ -27,7 +27,7 @@ const updateProgressAndScore = () => {
 const resetGame = () => {
     correctLetters = [];
     wrongGuessCount = 0;
-    hangmanImage.src = "../../assets/img/pics/hangman/hangman-0.svg";
+    hangmanImage.src = "https://elearngamezone-bucket.sgp1.digitaloceanspaces.com/hangman/hangman-0.svg";
     guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
     wordDisplay.innerHTML = currentWord.split("").map(() => `<li class="letter"></li>`).join("");
     keyboardDiv.querySelectorAll("button").forEach(btn => btn.disabled = false);
@@ -44,7 +44,7 @@ const getRandomWord = () => {
 
 const gameOver = (isVictory) => {
     const modalText = isVictory ? `You found the word:` : 'The correct word was:';
-    gameModal.querySelector("img").src = `../../assets/img/pics/hangman/${isVictory ? 'victory' : 'lost'}.gif`;
+    gameModal.querySelector("img").src = `https://elearngamezone-bucket.sgp1.digitaloceanspaces.com/hangman/${isVictory ? 'victory' : 'lost'}.gif`;
     gameModal.querySelector("h4").innerText = isVictory ? 'Correct!' : 'Game Over!';
     gameModal.querySelector("p").innerHTML = `${modalText} <b>${currentWord}</b>`;
     gameModal.classList.add("show");
@@ -76,7 +76,7 @@ const nextQuestion = () => {
 };
 
 const endGame = () => {
-    gameModal.querySelector("img").src = "../../assets/img/pics/hangman/victory.gif";
+    gameModal.querySelector("img").src = "https://elearngamezone-bucket.sgp1.digitaloceanspaces.com/hangman/victory.gif";
     gameModal.querySelector("h4").innerText = "Congratulations!";
     gameModal.querySelector("p").innerHTML = `You completed ${totalQuestions} questions with a score of <b>${score}</b> out of ${totalQuestions}.`;
     gameModal.classList.add("show");
@@ -100,7 +100,7 @@ const initGame = (button, clickedLetter) => {
         });
     } else {
         wrongGuessCount++;
-        hangmanImage.src = `../../assets/img/pics/hangman/hangman-${wrongGuessCount}.svg`;
+        hangmanImage.src = `https://elearngamezone-bucket.sgp1.digitaloceanspaces.com/hangman/hangman-${wrongGuessCount}.svg`;
     }
     button.disabled = true;
     guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
@@ -123,5 +123,5 @@ getRandomWord();
 playAgainBtn.addEventListener("click", getRandomWord);
 
 backBtn.addEventListener("click", () => {
-    window.location.href = 'http://localhost/elearngamezone/games/index/1';
+    window.location.href = BACK_URL;
 });

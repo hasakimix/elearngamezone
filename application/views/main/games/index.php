@@ -10,18 +10,12 @@
   </section>
   <nav>
     <div class="flex-container">
-      <a class="box" href="<?= base_url("games/play/hangman") ?>">
-        <img src="<?= base_url("/assets/img/hangman.png") ?>" alt="Hangman">
-        <p>Hangman Game</p>
-      </a>
-      <a class="box" href="<?= base_url("games/play/scramble") ?>">
-        <img src="<?= base_url("/assets/img/scramble.png") ?>" alt="Word Scramble">
-        <p>Word Scramble Game</p>
-      </a>
-      <a class="box" href="<?= base_url("games/play/guessinggame") ?>">
-        <img src="<?= base_url("/assets/img/guessinggame.png") ?>" alt="Guessing Game">
-        <p>Guessing Game</p>
-      </a>
+			<?php foreach ($games as $key => $game): ?>
+				<a class="box" href="<?= base_url($game["game_url"]."/".$game["game_key"]."/".$game["library_id"]) ?>">
+					<img src="<?= base_url("/assets/img/".$game["game_key"].".png") ?>" alt="<?= $game["game_name"] ?>">
+					<p><?= $game["game_name"] ?> Game</p>
+				</a>
+			<?php endforeach; ?>
     </div>
   </nav>
 </main>

@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshBtn.addEventListener("click", initGame);
     checkBtn.addEventListener("click", checkWord);
     backBtn.addEventListener("click", () => {
-        window.location.href = 'http://localhost/elearngamezone/games/index/1'; // Change this to the actual URL of your game selection page
+        window.location.href = BACK_URL; // Change this to the actual URL of your game selection page
     });
 
     initGame(); // Start the first game
