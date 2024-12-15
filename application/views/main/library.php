@@ -31,8 +31,8 @@
         <h2><?= $library['library_name'] ?></h2>
         <div class="button-grid">
 						<a href="<?= base_url("modules/read/". $library["library_id"]) ?>" class="button">Module</a>
-						<a href="<?= base_url("videos/subject/". $library["library_id"]) ?>" class="button">Videos</a>
-						<a href="<?= base_url("flashcard/index/". $library["library_id"]) ?>" class="button">Flashcards</a>
+						<a href="<?= base_url("videos/index/". $library["library_id"]) ?>" class="button">Videos</a>
+						<a href="<?= base_url("flashcards/index/". $library["library_id"]) ?>" class="button">Flashcards</a>
 						<a href="<?= base_url("games/index/". $library["library_id"]) ?>" class="button">Games</a>
 				</div>
       </div>

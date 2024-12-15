@@ -14,27 +14,21 @@ class Model_videos extends MY_Model
         return $this->db->select("*")
                         ->from("video")
 						->where("library_id",$id)
-                        ->get()->result_array();
+                        ->get()->row_array();
     }
 	
-	public function get($id)
-    {
-        return $this->db->select("*")
-                        ->from("user_library")
-						->where("user_id",$id)
-                        ->get()->result_array();
-    }
-
-	public function get_libraries()
-    {
-        return $this->db->select("*")
-                        ->from("library")
-                        ->get()->result_array();
-    }
-
-	public function save($save_data)
+	public function get_user_and_video_progress($user_id, $video_id)
 	{
-		$this->writeDB->insert("user_library", $save_data);
+		return $this->db->select("*")
+						->from("video_progress")
+						->where("user_id", $user_id)
+						->where("video_id", $video_id)
+						->get()->row_array();
+	}
+
+	public function save_progress($save_data)
+	{
+		$this->writeDB->insert("video_progress", $save_data);
         if ($this->writeDB->affected_rows() > 0) {
             return $this->writeDB->insert_id();
         } else {
@@ -42,11 +36,16 @@ class Model_videos extends MY_Model
         }
 	}
 
-    public function delete($user_id, $library_id)
+    public function update_progress(array $save_data): mixed
     {
-        $this->db->where("user_id", $user_id);
-        $this->db->where("library_id", $library_id);
-        $this->db->delete("user_library");
-        return ($this->db->affected_rows() > 0);
+        $this->writeDB->where("progress_id", $save_data["progress_id"])
+                ->set($save_data)
+                ->update("video_progress");
+
+        if ($this->writeDB->affected_rows() >= 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

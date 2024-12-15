@@ -31,67 +31,12 @@ body.dark {
   --grey-color-light: #aaa;
 }
 
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  left: 0;
-  background-color: #7091E6;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 8px;
-  z-index: 1000;
-  box-shadow: 0 0 2px var(--grey-color-light);
-}
-
 .logo_item {
   display: flex;
   align-items: center;
   column-gap: 10px;
   font-size: 22px;
   font-weight: 500;
-  color: var(--white-color);
-}
-
-.navbar img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.search_bar {
-  height: 47px;
-  max-width: 430px;
-  width: 100%;
-}
-
-::placeholder {
-  color: white;
-  opacity: 1; /* Firefox */
-}
-
-.search_bar input {
-  height: 100%;
-  width: 100%;
-  border-radius: 25px;
-  font-size: 18px;
-  outline: none;
-  background-color: #7091E6;
-  color: var(--white-color);
-  border: 3px solid var(--white-color);
-  padding: 0 20px;
-}
-
-.navbar_content {
-  display: flex;
-  align-items: center;
-  column-gap: 25px;
-}
-
-.navbar_content i {
-  cursor: pointer;
-  font-size: 20px;
   color: var(--white-color);
 }
 
@@ -163,28 +108,6 @@ body.dark {
   list-style: none;
 }
 
-.navlink_icon {
-  position: relative;
-  font-size: 22px;
-  min-width: 50px;
-  line-height: 40px;
-  display: inline-block;
-  text-align: center;
-  border-radius: 6px;
-}
-
-.navlink_icon::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: calc(100% + 100px);
-  left: -20px;
-}
-
-.navlink_icon:hover {
-  background: #FFAF4D;
-}
-
 .sidebar .nav_link {
   display: flex;
   align-items: center;
@@ -198,11 +121,6 @@ body.dark {
 
 .sidebar.close .navlink {
   display: none;
-}
-
-.nav_link:hover {
-  color: var(--white-color);
-  background: #FFAF4D;
 }
 
 .sidebar.close .nav_link:hover {
@@ -499,6 +417,7 @@ video {
   justify-content: center;
   align-items: center;
   height: 100vh;
+	margin-top: 40px;
 }
 
 
@@ -514,6 +433,7 @@ video {
 
 .video-title {
   color: #ffffff;
+	margin-top: 50px;
 }
 
 /* Style the content inside the pop up */
