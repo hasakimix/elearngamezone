@@ -16,21 +16,28 @@ body {
    background-repeat: no-repeat;
 }
 .container {
+    margin-top: 100px;
     display: flex;
-    width: 850px;
+    width: 1200px;
+    height: 710px;
     gap: 70px;
-    padding: 60px 40px;
+    padding: 40px;
     background: #fff;
     border-radius: 10px;
     align-items: flex-end;
     justify-content: space-between;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
+.hangman-box{
+    height: 500px;
+}
 .hangman-box img {
     user-select: none;
     max-width: 270px;
+    margin-left: 20px;
 }
 .hangman-box h1 {
+    margin-left: 20px;
     font-size: 1.45rem;
     text-align: center;
     margin-top: 20px;
@@ -38,6 +45,7 @@ body {
 }
 .game-box .word-display {
     gap: 10px;
+    margin-top: 50px;
     list-style: none;
     display: flex;
     flex-wrap: wrap;

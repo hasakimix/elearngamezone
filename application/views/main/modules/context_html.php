@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="<?= base_url("/assets/css/modules/main.css?version=".uniqid()) ?>" />
-<link rel="stylesheet" href="<?= base_url("/assets/css/modules/modules.css?version=".uniqid()) ?>" />
+<link rel="stylesheet" href="<?= base_url("/assets/css/modules/main.css?version=" . uniqid()) ?>" />
+<link rel="stylesheet" href="<?= base_url("/assets/css/modules/modules.css?version=" . uniqid()) ?>" />
 
 <!-- Main Content Section -->
 <div class="main-content">
@@ -1174,95 +1174,7 @@ You can "comment out" entire sections of HTML code.--&gt;</code></pre>
 </div>
 </div>
 </body>
-<script>
-    window.onload = function() {
-        // Popup and collapsible functionality
-        const openPopupBtn = document.querySelector("#open-popup");
-        const closePopupBtn = document.querySelector(".popup .close-btn");
-
-        if (openPopupBtn) {
-            openPopupBtn.addEventListener("click", function(e) {
-                e.preventDefault();
-                document.body.classList.add("active-popup");
-            });
-        }
-
-        if (closePopupBtn) {
-            closePopupBtn.addEventListener("click", function() {
-                document.body.classList.remove("active-popup");
-            });
-        }
-
-        window.addEventListener("click", function(e) {
-            if (e.target.classList.contains("popup")) {
-                document.body.classList.remove("active-popup");
-            }
-        });
-
-        // Collapsible functionality and default content display based on module
-
-        const collapsibleButtons = document.querySelectorAll(".collapsible");
-        const content1 = document.getElementById("content1"); // Reference to Module 1 default content
-
-        // Initially hide all content sections and display content1 for Module 1
-        const contentSections = document.querySelectorAll(".content");
-        contentSections.forEach(section => section.style.display = "none");
-        content1.style.display = "block"; // Show Module 1 content by default
-
-        collapsibleButtons.forEach(button => {
-            button.addEventListener("click", function() {
-                // Toggle the collapsible button
-                this.classList.toggle("active");
-                const content = this.nextElementSibling;
-                content.style.display = content.style.display === "block" ? "none" : "block";
-
-                // Hide all content sections initially
-                contentSections.forEach(section => section.style.display = "none");
-
-                const module = this.getAttribute("data-module");
-                if (module === "module1") {
-                    content1.style.display = "block"; // Show Module 1 content
-                } else if (module === "module2") {
-                    document.getElementById("content-Using a setter-or getter to-implement a-constraint").style.display = "block"; // Show Module 2 content
-                } else if (module === "module3") {
-                    // Show Module 3 default content (Superglobal Variables)
-                    const superglobalContent = document.getElementById("content-Dereferencing");
-                    superglobalContent.style.display = "block";
-                }
-            });
-        });
-
-        // Content toggle based on link clicks in Module 3
-        const links = document.querySelectorAll(".module-content ul li a");
-
-        links.forEach(link => {
-            link.addEventListener("click", function(e) {
-                e.preventDefault();
-
-                // Hide all content sections initially
-                contentSections.forEach(section => section.style.display = "none");
-
-                // Show the content based on the link's data-target attribute
-                const targetContentId = this.getAttribute("data-target");
-                const targetContent = document.getElementById(targetContentId);
-                if (targetContent) {
-                    targetContent.style.display = "block"; // Display the specific content
-                }
-            });
-        });
-        // Highlight active topic
-        const topics = document.querySelectorAll('.topic');
-
-        topics.forEach(topic => {
-            topic.addEventListener('click', () => {
-                // Remove active class from all topics
-                topics.forEach(t => t.classList.remove('active'));
-
-                // Add active class to the clicked topic
-                topic.classList.add('active');
-            });
-        });
-    };
-</script>
+<script src="<?= base_url("assets/js/modules/main.js?version=" . uniqid()) ?>"></script>
+<script src="<?= base_url("assets/js/modules/contents.js?version=" . uniqid()) ?>"></script>
 
 </html>
