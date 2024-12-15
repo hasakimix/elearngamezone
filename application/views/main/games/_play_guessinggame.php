@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="<?= base_url("/assets/css/games/guessinggame.css?version=".uniqid()) ?>" />
 
-<title>Guess the Word Game - Java Basics</title>
+<title>Guess the Word Game - <?= $library["library_name"] ?> Basics</title>
 
 <body>
 <div class="wrapper">
-	<h1>Guess the Word - Java Basics</h1>
+	<h1>Guess the Word - <?= $library["library_name"] ?> Basics</h1>
 	<div class="score-board">
 	Question <span class="question-number">1</span> | Score: <span class="score">0</span>/10
 	</div>

@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let correctWord, timer, score = 0, questionCount = 0, totalQuestions = 10;
 
+    let usedWords = [];
+
     const updateProgressAndScore = () => {
         document.querySelector(".score").innerText = `${questionCount} / ${totalQuestions}`;
         scoreText.innerText = `${score}`;
@@ -37,7 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
         questionCount++;
     
         initTimer(30);
-        let randomObj = words[Math.floor(Math.random() * words.length)];
+
+        let newWordList = words.filter( val =>  val.subject == LIBRARY_ID );
+        newWordList = newWordList.filter( val => !usedWords.includes(val.word) );
+        let randomObj = newWordList[Math.floor(Math.random() * newWordList.length)];
+        usedWords.push(randomObj.word);
         let wordArray = randomObj.word.split("");
         for (let i = wordArray.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
@@ -73,9 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const endGame = () => {
+        saveGameProgress();
         alert(`Game Over! Your final score is ${score} out of ${totalQuestions}.`);
         questionCount = 0;
         score = 0;
+        usedWords = [];
         initGame();
     };
 
@@ -86,4 +94,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     initGame(); // Start the first game
+
+    const getGameScorePercentage = () => {
+        var a = score / totalQuestions;
+        var percentage = (a * 100).toFixed(2);
+        return percentage;
+    };
+    
+    const saveGameProgress = async () => {
+        await $.ajax({
+            url: `${PROGRESS_API_URL}`,
+            crossDomain: true,
+            type: 'POST',
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify({
+                user_id : USER_ID,
+                game_id : GAME_ID,
+                progress : getGameScorePercentage()
+            }),
+            beforeSend: function (xhr) {
+                console.log("sending");
+            },
+            error: (error) => {
+                if (error.responseJSON == undefined) {
+                    alert("Something Went Wrong", "Please report it to the team.", 'error');
+                } else {
+                    alert("Something Went Wrong", error.responseJSON.message, 'error');
+                }
+            },
+            success: (response) => {
+                console.log(response);
+            }
+        });
+    };
 });

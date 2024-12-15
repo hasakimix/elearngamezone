@@ -29,6 +29,7 @@ class Games extends Auth_Controller {
         $data['final_view'] = $this->_template.'_main_template';
         $data['primary_view'] = $this->_primary_view.'games/_play_'.$play;
 		$data['game'] = $this->m_games->get_game($play, $library_id);
+		$data['library'] = $this->m_games->get_library($library_id);
 		$data['user_id'] = $session['id'];
 		$data['back_url'] = $_SERVER['HTTP_REFERER'];
 		$this->load->view($data['final_view'], $data);

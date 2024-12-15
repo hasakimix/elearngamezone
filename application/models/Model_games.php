@@ -26,12 +26,20 @@ class Model_games extends MY_Model
                         ->get()->row_array();
 	}
 
-	public function get_user_progress($user_id, $video_id)
+	public function get_library($library_id)
+	{
+		return $this->db->select("*")
+                        ->from("library")
+						->where("library_id", $library_id)
+                        ->get()->row_array();
+	}
+
+	public function get_user_progress($user_id, $game_id)
 	{
 		return $this->db->select("*")
 						->from("game_progress")
 						->where("user_id", $user_id)
-						->where("game_id", $video_id)
+						->where("game_id", $game_id)
 						->get()->row_array();
 	}
 
