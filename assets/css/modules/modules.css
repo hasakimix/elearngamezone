@@ -161,6 +161,8 @@ body {
     margin-bottom: 5px;
 
 }
+.sidebar a{
+    text-decoration: none;}
 .topic {
     margin-left: -20px;
     padding: 10px;
