@@ -112,7 +112,7 @@ document.addEventListener("keydown", () => typingInput.focus());
 
 randomWord();
 
-// Event listener for the back button tests
+// Event listener for the back button rara
 backBtn.addEventListener("click", () => {
   window.location.href = BACK_URL; // Change this to the actual URL of your game selection page
 });
