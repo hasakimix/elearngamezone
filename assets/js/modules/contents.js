@@ -1,5 +1,7 @@
 $(document).ready(function () {
-    
+    $(".collapsible-quiz").on("click", function(){
+        window.location.replace(QUIZ_URL);
+    });
 });
 
 const displayModuleChapterContents = (chapter_id) => {
@@ -12,17 +14,17 @@ const displayModuleChapterContents = (chapter_id) => {
     });
 };
 
-    const topics = document.querySelectorAll(".topic");
+const topics = document.querySelectorAll(".topic");
 
-    topics.forEach(topic => {
-        topic.addEventListener("click", function (event) {
-            // Prevent the default action if necessary
-            event.preventDefault();
+topics.forEach(topic => {
+    topic.addEventListener("click", function (event) {
+        // Prevent the default action if necessary
+        event.preventDefault();
 
-            // Remove 'active' class from all topics
-            topics.forEach(t => t.classList.remove("active"));
+        // Remove 'active' class from all topics
+        topics.forEach(t => t.classList.remove("active"));
 
-            // Add 'active' class to the clicked topic
-            this.classList.add("active");
-        });
+        // Add 'active' class to the clicked topic
+        this.classList.add("active");
     });
+});

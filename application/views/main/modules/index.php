@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="<?= base_url("/assets/css/modules/modules.css?version=" . uniqid()) ?>" />
+<link rel="stylesheet" href="<?= base_url("/assets/css/modules/sidebar.css?version=" . uniqid()) ?>" />
 
 <!-- Main Content Section -->
 <div class="main-content">
@@ -16,6 +17,9 @@
                 <?php $this->load->view("main/modules/_module_chapters", $chapter_data) ?>
             </div>
         <?php endforeach; ?>
+        <div class="module">
+            <button class="collapsible-quiz">Take A Quiz!</button>
+        </div>
     </aside>
 
     <?php foreach ($chapters as $k => $chapter): ?>
@@ -24,5 +28,8 @@
 </div>
 <!-- Main Content Section END -->
 
+<script>
+    const QUIZ_URL = '<?= $quiz ?>';
+</script>
 <script src="<?= base_url("assets/js/modules/sidebar.js?version=" . uniqid()) ?>"></script>
 <script src="<?= base_url("assets/js/modules/contents.js?version=" . uniqid()) ?>"></script>
