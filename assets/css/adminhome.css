@@ -1,0 +1,105 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	min-height: 100vh;
+	background: #f4f4f9;
+	color: #333;
+}
+
+.sidenav {
+	width: 250px;
+	background: #2c3e50;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	padding-top: 20px;
+	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidenav h2 {
+	text-align: center;
+	font-size: 1.5rem;
+	margin-bottom: 15px;
+	font-weight: bold;
+}
+
+.sidenav .divider {
+	height: 1px;
+	background: #1e1e1e;
+	margin: 5px 0;
+	width: 80%;
+	align-self: center;
+}
+
+.sidenav a {
+	padding: 15px 20px;
+	text-decoration: none;
+	color: white;
+	font-size: 1.1rem;
+	display: block;
+	border-left: 4px solid transparent;
+	transition: background 0.3s, border-left-color 0.3s;
+}
+
+.sidenav a:hover {
+	background: #1abc9c;
+	border-left-color: #1abc9c;
+}
+
+.content {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-left: 720px;
+    margin-top: 305px;
+}
+
+.content h1 {
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+	color: #2c3e50;
+}
+
+.content p {
+	font-size: 1.2rem;
+	text-align: center;
+	max-width: 600px;
+	margin-bottom: 40px;
+	color: #555;
+}
+
+.content .actions {
+	display: flex;
+	gap: 20px;
+}
+
+.content .actions button {
+	padding: 15px 30px;
+	border: none;
+	border-radius: 5px;
+	background: #2980b9;
+	color: white;
+	font-size: 1rem;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background 0.3s;
+}
+
+.content .actions button:hover {
+	background: #1e6690;
+}
+
+footer {
+	text-align: center;
+	padding: 10px;
+	background: #2c3e50;
+	color: white;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	font-size: 0.9rem;
+}
