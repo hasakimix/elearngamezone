@@ -154,49 +154,14 @@
                     <input type="password" id="loginPassword" placeholder="Password" required>
                     <button type="submit">Log In</button>
                 </form>
-                <p class="toggle" id="switchToRegister">Don't have an account? Register</p>
             </div>
-
-            <!-- Register Form -->
-            <div id="registerForm" style="display: none;">
-                <h2 class="AdReg">Create Admin Account</h2>
-                <form id="register">
-                    <div id="registerSuccess" class="success" style="display: none;">Account created successfully!</div>
-                    <div id="registerError" class="error" style="display: none;">Passwords do not match.</div>
-                    <input type="text" id="firstName" placeholder="First Name" required>
-                    <input type="text" id="lastName" placeholder="Last Name" required>
-                    <input type="email" id="registerEmail" placeholder="Email" required>
-                    <input type="password" id="registerPassword" placeholder="Password" required>
-                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
-                    <button type="submit">Sign Up</button>
-                </form>
-                <p class="toggle" id="switchToLogin">Already have an account? Log In</p>
-            </div>
-        </div>
-    </div>
 
     <script>
         const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
-        const switchToRegister = document.getElementById('switchToRegister');
-        const switchToLogin = document.getElementById('switchToLogin');
         const toggleLogin = document.getElementById('toggleLogin');
 
         const login = document.getElementById('login');
-        const register = document.getElementById('register');
         const loginError = document.getElementById('loginError');
-        const registerError = document.getElementById('registerError');
-        const registerSuccess = document.getElementById('registerSuccess');
-
-        switchToRegister.addEventListener('click', () => {
-            loginForm.style.display = 'none';
-            registerForm.style.display = 'block';
-        });
-
-        switchToLogin.addEventListener('click', () => {
-            registerForm.style.display = 'none';
-            loginForm.style.display = 'block';
-        });
 
         toggleLogin.addEventListener('click', () => {
             registerForm.style.display = 'none';
@@ -216,24 +181,6 @@
             }
         });
 
-        register.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const password = document.getElementById('registerPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-
-            if (password !== confirmPassword) {
-                registerError.style.display = 'block';
-                registerSuccess.style.display = 'none';
-            } else {
-                registerError.style.display = 'none';
-                registerSuccess.style.display = 'block';
-                // Simulate account creation
-                setTimeout(() => {
-                    registerForm.style.display = 'none';
-                    loginForm.style.display = 'block';
-                }, 2000);
-            }
-        });
     </script>
 </body>
 </html>
