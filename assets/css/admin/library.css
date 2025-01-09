@@ -65,10 +65,11 @@ table th {
 }
 
 .actions {
-	display: flex;
+	/* display: flex; */
 	gap: 10px;
 	align-items: center;
 	justify-content: center;
+	margin-left: 10px;
 }
 
 .actions .icon {
@@ -186,7 +187,7 @@ td, th {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin: 10px 0; /* Optional: Add spacing for layout */
+    margin: 10px 0; 
 }
 
 .test-attributes label {
@@ -199,5 +200,5 @@ td, th {
 }
 
 .test-attributes input[type="checkbox"] {
-    margin-right: 8px; /* Add spacing between checkbox and label text */
+    margin-right: 8px;
 }
