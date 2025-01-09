@@ -14,6 +14,12 @@
     </div>
     <?php unset($_SESSION["success"]) ?>
 <?php endif; ?>
+<!-- Switch to Admin Icon -->
+<div class="admin-switch">
+  <a href="<?= base_url("admin/login") ?>" title="Switch to Admin">
+    <i class="fa fa-user-shield"></i>
+  </a>
+</div>
 
 <div class="container" id="container">
     <div class="form-container sign-up">
