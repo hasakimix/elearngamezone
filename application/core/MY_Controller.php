@@ -89,6 +89,27 @@ class Auth_Controller extends Base_Controller
     }
 }
 
+/**
+ * Extend this controller class when you want to ensure the user is logged before
+ * they access the resource
+ */
+class Admin_Controller extends Auth_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+		$session = $this->session->get_userdata();
+
+		if( isset($session["is_admin"])){
+			if($session["is_admin"] ==false){
+				redirect(base_url('/'));
+			}
+		}else{
+			redirect(base_url('/'));
+		}
+    }
+}
+
 class MY_Api extends CI_Controller{
     protected $request_data 	= [];
 	protected $response_data 	= [];

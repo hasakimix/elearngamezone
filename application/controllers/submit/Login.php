@@ -45,6 +45,7 @@ class Login extends MY_Controller {
         $this->session->set_userdata([
             'id' => $data['id'],
             'email' => $data['email'],
+			'is_admin' => false,
             'logged_in' => true
         ]);
         return true;
