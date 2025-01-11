@@ -133,12 +133,12 @@ body {
 			<div class="collapsible-content">
 				<a href="library">Library</a>
 				<a href="#">Modules</a>
-				<a href="#">Quizzes</a>
-				<a href="#">Flashcards</a>
+				<a href="quizzes">Quizzes</a>
+				<a href="flashcards">Flashcards</a>
 				<a href="#">Videos</a>
 			</div>
-        <a href="<?= base_url("admin/")?>">Admins</a>
-        <a href="<?= base_url("admin/")?>">Subjects</a>
+        <!-- <a href="<?= base_url("admin/")?>">Admins</a>
+        <a href="<?= base_url("admin/")?>">Subjects</a> -->
         <!-- <a href="#">Log Out</a> -->
     </div>
 <main class="main-content mt-0 ps">

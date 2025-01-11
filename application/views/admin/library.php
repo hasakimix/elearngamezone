@@ -16,8 +16,8 @@
         <table>
             <thead>
                 <tr>
-                    <th>library_name</th>
-                    <th>library_id</th>
+                    <th>Library Name</th>
+                    <th>Library ID</th>
                     <th>Status</th>
                     <th></th>
                 </tr>
@@ -26,7 +26,7 @@
                 <tr>
                     <td>Sampol</td>
                     <td>Ahk ahk</td>
-                    <td>Hehehe</td>
+                    <td>Active</td>
                     <td class="actions">
                         <i class="fas fa-edit icon edit"></i>
                         <i class="fas fa-trash icon delete"></i>
