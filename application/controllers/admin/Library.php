@@ -59,9 +59,9 @@ class Library extends Admin_Controller {
             }else{
                 $this->session->set_flashdata('error', 'Failed to delete subject');
             }
+        }else{
+            $this->session->set_flashdata('error', 'Invalid Request');
         }
-
-        $this->session->set_flashdata('error', 'Invalid Request');
         redirect($_SERVER["HTTP_REFERER"]);
     }
 }

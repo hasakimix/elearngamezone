@@ -149,13 +149,10 @@ body {
             <a href="<?= base_url("admin/manage/admins")?>">Admins</a>
         </div>
         <a href="<?= base_url("admin/library")?>" >Subjects</a>
-        <button class="collapsible">Crude</button>
-        <div class="collapsible-content">
-            <a href="#">Modules</a>
-            <a href="quizzes">Quizzes</a>
-            <a href="flashcards">Flashcards</a>
-            <a href="#">Videos</a>
-        </div>
+        <a href="<?= base_url("admin/modules")?>" >Modules</a>
+        <a href="<?= base_url("admin/quizzes")?>">Quizzes</a>
+        <a href="<?= base_url("admin/flashcards")?>">Flashcards</a>
+        <a href="<?= base_url("admin/videos")?>">Videos</a>
         <a href="<?= base_url('admin/authentication/end_sessions') ?>">Log Out</a>
     </div>
 </div>
