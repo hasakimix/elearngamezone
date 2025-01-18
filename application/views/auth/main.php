@@ -16,7 +16,7 @@
 <?php endif; ?>
 <!-- Switch to Admin Icon -->
 <div class="admin-switch">
-  <a href="<?= base_url("admin/login") ?>" title="Switch to Admin">
+  <a href="<?= base_url("admin/main") ?>" title="Switch to Admin">
     <i class="fa fa-user-shield"></i>
   </a>
 </div>
