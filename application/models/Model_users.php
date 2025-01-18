@@ -25,49 +25,124 @@ class Model_users extends MY_Model
         }
     }
 
-    public function save_user_data($data){
-        $this->writeDB->insert($this->table("users_data"), $data);
-        if ($this->writeDB->affected_rows() > 0) {
-            return $this->writeDB->insert_id();
-        } else {
-            return false;
-        }
-    }
-
-    public function save_user_spouse($data){
-        $this->writeDB->insert($this->table("users_spouse"), $data);
-        if ($this->writeDB->affected_rows() > 0) {
-            return $this->writeDB->insert_id();
-        } else {
-            return false;
-        }
-    }
-
-    public function get_user_and_spouse()
+    public function get_admin_users()
     {
-        $result = $this->db->select("*")
-                        ->from($this->table("users"))
+        return $this->db->select("*")
+                        ->from("users")
+                        ->where("is_admin", 1)
                         ->get()->result_array();
-        if($result){
-            foreach ($result as $k => $v) {
-                $data = $this->db->select("*")
-                        ->from($this->table("users_data"))
-                        ->where("user_id", $v['user_id'])
-                        ->get()->row_array();
-                if($data){
-                    $result[$k]['data'] = $data;
-                }
-
-                $spouse = $this->db->select("*")
-                        ->from($this->table("users_spouse"))
-                        ->where("user_id", $v['user_id'])
-                        ->get()->row_array();
-                if($spouse){
-                    $result[$k]['spouse'] = $spouse;
-                }
-            }
-        }
-
-        return $result;
     }
+
+    public function get_admin_user_by_id($id)
+    {
+        return $this->db->select("*")
+                        ->from("users")
+                        ->where("id", $id)
+                        ->where("is_admin", 1)
+                        ->get()->row_array();
+    }
+
+	public function save_admin_user($save_data)
+	{
+		$this->writeDB->insert("users", $save_data);
+        if ($this->writeDB->affected_rows() > 0) {
+            return $this->writeDB->insert_id();
+        } else {
+            return false;
+        }
+	}
+
+    public function update_admin_user(array $save_data): mixed
+    {
+        $this->writeDB->where("id", $save_data["id"])
+                ->set($save_data)
+                ->update("users");
+
+        if ($this->writeDB->affected_rows() >= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } 
+
+    public function delete_admin_user($id)
+    {
+        $this->db->where("id", $id);
+        $this->db->delete("users");
+        return ($this->db->affected_rows() > 0);
+    }
+
+    public function get_users()
+    {
+        return $this->db->select("*")
+                        ->from("users")
+                        ->get()->result_array();
+    }
+
+	public function save_client_user($save_data)
+	{
+		$this->writeDB->insert("users", $save_data);
+        if ($this->writeDB->affected_rows() > 0) {
+            return $this->writeDB->insert_id();
+        } else {
+            return false;
+        }
+	}
+
+    public function update_client_user(array $save_data): mixed
+    {
+        $this->writeDB->where("id", $save_data["id"])
+                ->set($save_data)
+                ->update("users");
+
+        if ($this->writeDB->affected_rows() >= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function get_client_user_by_id($id)
+    {
+        return $this->db->select("*")
+                        ->from("users")
+                        ->where("id", $id)
+                        ->where("is_admin", 0)
+                        ->get()->row_array();
+    }
+
+    public function delete_user_progress($id)
+    {
+        $this->db->where("user_id", $id);
+        $this->db->delete("video_progress");
+        $video_progress = ($this->db->affected_rows() > 0);
+
+        $this->db->where("user_id", $id);
+        $this->db->delete("module_progress");
+        $module_progress = ($this->db->affected_rows() > 0);
+
+        $this->db->where("user_id", $id);
+        $this->db->delete("game_progress");
+        $game_progress = ($this->db->affected_rows() > 0);
+
+        $this->db->where("user_id", $id);
+        $this->db->delete("user_library");
+        $user_library = ($this->db->affected_rows() > 0);
+
+        return true;
+    }
+
+    public function delete_client_user($id)
+    {
+        $this->db->where("id", $id);
+        $this->db->delete("users");
+        return ($this->db->affected_rows() > 0);
+    }
+
+    public function get_libraries()
+    {
+        return $this->db->select("*")
+                        ->from("library")
+                        ->get()->result_array();
+    } 
 }

@@ -49,6 +49,10 @@
                 <input type="text" id="library-name" name="library-name" placeholder="Enter Subject name">
             </div>
             <div class="form-group">
+                <label for="library-name">Short Name:</label>
+                <input type="text" id="library_key" name="library_key" placeholder="Enter Subject Short Name">
+            </div>
+            <div class="form-group">
                 <label for="ibrary-image">
                     ImageURL: <small class="text-info"> format (assets/img/subject.png) </small>
                 </label>
@@ -97,6 +101,7 @@
         $(".subejct-modal-title").empty().text("Update Subject");
         $("#library_id").val(`${_data.library_id}`);
         $("#library-name").val(`${_data.library_name}`);
+        $("#library_key").val(`${(_data.library_key == null ? '' : _data.library_key)}`);
         $("#library-image").val(`${_data.image_url}`);
         $("#preview").val(`${atob(_data.description)}`);
     };
@@ -106,6 +111,13 @@
             var library_name = $("#library-name").val();
             if(library_name.trim().length <= 0){
                 _this_swal_response("Subject Name", "Subject Name Is Required", "error");
+                e.preventDefault();
+                return;
+            }
+
+            var library_key = $("#library_key").val();
+            if(library_key.trim().length <= 0){
+                _this_swal_response("Subject Short Name", "Subject Short Name Is Required", "error");
                 e.preventDefault();
                 return;
             }

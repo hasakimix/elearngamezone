@@ -28,6 +28,7 @@ class Library extends Admin_Controller {
         if(intval($data["library_id"])){
             $save_data["library_id"] = $data["library_id"];
             $save_data["library_name"] = $data["library-name"];
+            $save_data["library_key"] = $data["library_key"];
             $save_data["image_url"] = $data["library-image"];
             $save_data["description"] = base64_encode($data["description"]);
             $save_data["updated_at"] = UTC_NOW();
@@ -39,6 +40,7 @@ class Library extends Admin_Controller {
         }else{
             $save_data["library_name"] = $data["library-name"];
             $save_data["image_url"] = $data["library-image"];
+            $save_data["library_key"] = $data["library_key"];
             $save_data["description"] = base64_encode($data["description"]);
             $save_data["created_at"] = UTC_NOW();
             if($this->m_library->save_library($save_data)){
