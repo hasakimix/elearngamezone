@@ -115,6 +115,19 @@ body {
     background: white;
     color: black;
 }
+
+.swal2-confirm{
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
     </style>
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url('assets/vendor/jquery/jquery.min.js') ?>"></script>
@@ -122,6 +135,7 @@ body {
 
     <!-- Core plugin JavaScript-->
     <script src="<?= base_url('assets/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
+    <script src="<?= base_url("assets/js/sweetalert.js?version=".uniqid()) ?>"></script>
 
 </head>
 <body>
@@ -147,20 +161,61 @@ body {
 </body>
 	<script>
 		document.addEventListener("DOMContentLoaded", function () {
-    const collapsibles = document.querySelectorAll(".collapsible");
+            const collapsibles = document.querySelectorAll(".collapsible");
 
-    collapsibles.forEach(collapsible => {
-        collapsible.addEventListener("click", function () {
-            this.classList.toggle("active");
+            collapsibles.forEach(collapsible => {
+                collapsible.addEventListener("click", function () {
+                    this.classList.toggle("active");
 
-            const content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
+                    const content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            });
         });
-    });
-});
+
+        const _this_swal_loader = (doing) => {
+            swal.fire({
+                html: `<h2>${doing}...</h2>
+                <h1><img src="<?= base_url("assets/img/waiting-7579_256.gif") ?>" class="img-fluid"></h1>`,
+                showConfirmButton: false
+            });
+        };
+
+        const _this_swal_response = (title, message, response) => {
+            swal.fire({
+                title: title,
+                text: message,
+                icon: response,
+                buttonsStyling: false,
+                confirmButtonClass: "bg-gradient-success swal2-confirm btn bg-gradient-success",
+                confirmButtonText: 'OK',
+                allowOutsideClick: false,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    swal.close();
+                }
+            });
+        };
 	</script>
+
+    <?php if(isset($_SESSION["error"])): ?>
+        <script>
+            $(document).ready(function(){
+                _this_swal_response("Something Went Wrong!", "<?= $_SESSION["error"] ?>", "error");
+            });
+        </script>
+        <?php unset($_SESSION["error"]) ?>
+    <?php endif; ?>
+    <?php if(isset($_SESSION["success"])): ?>
+        <script>
+            $(document).ready(function(){
+                _this_swal_response("Success!", "<?= $_SESSION["success"] ?>", "success");
+            });
+        </script>
+        <?php unset($_SESSION["success"]) ?>
+    <?php endif; ?>
 </html>

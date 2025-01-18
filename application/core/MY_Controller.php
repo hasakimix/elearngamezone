@@ -101,11 +101,11 @@ class Admin_Controller extends Auth_Controller
 		$session = $this->session->get_userdata();
 
 		if( isset($session["is_admin"])){
-			if($session["is_admin"] ==false){
-				redirect(base_url('/'));
+			if($session["is_admin"] == false){
+				redirect(base_url('admin/authentication/end_sessions'));
 			}
 		}else{
-			redirect(base_url('/'));
+			redirect(base_url('admin/authentication/end_sessions'));
 		}
     }
 }

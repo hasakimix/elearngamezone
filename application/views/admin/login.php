@@ -26,10 +26,10 @@
 		<!-- Login Form -->
 		<div id="loginForm">
 			<h2 class="AdLogin">Admin Login</h2>
-			<form id="login">
+			<form action="<?= base_url("admin/authentication/login") ?>" method="POST" id="login">
 				<div id="loginError" class="error" style="display: none;">Invalid email or password.</div>
-				<input type="email" id="loginEmail" placeholder="Email" required>
-				<input type="password" id="loginPassword" placeholder="Password" required>
+				<input type="email" id="loginEmail" name="email" placeholder="Email" required>
+				<input type="password" id="loginPassword" name="password" placeholder="Password" required>
 				<button type="submit">Log In</button>
 			</form>
 		</div>
@@ -45,19 +45,6 @@
         toggleLogin.addEventListener('click', () => {
             registerForm.style.display = 'none';
             loginForm.style.display = 'block';
-        });
-
-        login.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-
-            // Simple validation example
-            if (email === 'admin@example.com' && password === 'password') {
-                alert('Login successful!');
-            } else {
-                loginError.style.display = 'block';
-            }
         });
 
     </script>

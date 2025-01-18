@@ -11,7 +11,7 @@ class MY_Model extends CI_Model {
 		"users" => "users",
 		"users_data" => "users_data",
 		"users_spouse" => "users_spouse",
-		"admin_users" => "admin_users"
+		"admin_users" => "users"
 	];
 
 	public function __construct()

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends MY_Controller {
+class Main extends MY_Controller {
 
     protected $_template = 'layouts/templates/';
     protected $_primary_view = 'admin/';

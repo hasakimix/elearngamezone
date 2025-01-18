@@ -6,15 +6,12 @@ body {
 }
 
 .container {
-	max-width: 1500px;
+	max-width: 100%;
 	margin: 20px auto;
 	background: #fff;
-    border-radius: 8px;
-    border: 2px solid black; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 30px;
 	width: 1500px;
-    height: 300px;
     margin-left: 60px;
     margin-top: 80px;
 }

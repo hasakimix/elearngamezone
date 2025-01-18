@@ -22,6 +22,7 @@ class Model_admin_users extends MY_Model
         return $this->db->select("*")
                         ->from($this->table("admin_users"))
                         ->where("email", $username)
+                        ->where("is_admin", 1)
                         ->get()->row_array();
     }
 

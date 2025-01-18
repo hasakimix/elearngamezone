@@ -1,8 +1,4 @@
 <div class="sidenav">
-    <div class="login-main-text">
-        <h2>Conflict Check<br> Admin Access</h2>
-        <p>If you don't have admin access please reach out to your supperiors so they could give you your admin credentials.</p>
-    </div>
 </div>
 <div class="main">
     <div class="col-md-6 col-sm-12">
