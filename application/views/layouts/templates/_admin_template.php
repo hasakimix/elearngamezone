@@ -140,21 +140,25 @@ body {
 </head>
 <body>
 <div class="sidenav">
-        <h2>Admin Panel</h2>
-        <div class="divider"></div>
+    <h2>Admin Panel</h2>
+    <div class="divider"></div>
         <a href="<?= base_url("admin/panel")?>" >Dashboard</a>
+        <button class="collapsible">Manage Users</button>
+        <div class="collapsible-content">
+            <a href="<?= base_url("admin/manage/users")?>">Users</a>
+            <a href="<?= base_url("admin/manage/admins")?>">Admins</a>
+        </div>
+        <a href="<?= base_url("admin/library")?>" >Subjects</a>
         <button class="collapsible">Crude</button>
-			<div class="collapsible-content">
-				<a href="library">Library</a>
-				<a href="#">Modules</a>
-				<a href="quizzes">Quizzes</a>
-				<a href="flashcards">Flashcards</a>
-				<a href="#">Videos</a>
-			</div>
-        <!-- <a href="<?= base_url("admin/")?>">Admins</a>
-        <a href="<?= base_url("admin/")?>">Subjects</a> -->
-        <!-- <a href="#">Log Out</a> -->
+        <div class="collapsible-content">
+            <a href="#">Modules</a>
+            <a href="quizzes">Quizzes</a>
+            <a href="flashcards">Flashcards</a>
+            <a href="#">Videos</a>
+        </div>
+        <a href="<?= base_url('admin/authentication/end_sessions') ?>">Log Out</a>
     </div>
+</div>
 <main class="main-content mt-0 ps">
         <?php $this->load->view($primary_view); ?>
 </main>
