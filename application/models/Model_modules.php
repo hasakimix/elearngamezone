@@ -163,4 +163,45 @@ class Model_modules extends MY_Model
         }
     } 
 
+    public function get_module_by_chapter_id($chapter_id)
+    {
+        return $this->db->select("*")
+                        ->from("chapter")
+                        ->where("chapter_id", $chapter_id)
+                        ->get()->row_array();
+    }
+   
+    public function get_user_module_progress($module_id, $user_id)
+    {
+        return $this->db->select("*")
+                        ->from("module_progress")
+                        ->where("module_id", $module_id)
+                        ->where("user_id", $user_id)
+                        ->get()->row_array();
+    }   
+
+	public function save_module_progress($save_data)
+	{
+		$this->writeDB->insert("module_progress", $save_data);
+        if ($this->writeDB->affected_rows() > 0) {
+            return $this->writeDB->insert_id();
+        } else {
+            return false;
+        }
+	}
+
+    public function update_module_progress(array $save_data): mixed
+    {
+        $this->writeDB->where("progress_id", $save_data["progress_id"])
+                ->set($save_data)
+                ->update("module_progress");
+
+        if ($this->writeDB->affected_rows() >= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } 
+
+
 }

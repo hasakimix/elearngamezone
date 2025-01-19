@@ -25,6 +25,7 @@
 	const PROGRESS_API_URL  = '<?= base_url("api/progress/video"); ?>';
 	const VIDEO_ID = '<?= $videos["video_id"] ?>';
 	const USER_ID = '<?= $user_id ?>';
+	const CURRENT_PROGRESS = `<?= $progress ? $progress["progress"] : 0 ?>`;
 </script>
 <script src="<?= base_url("assets/js/video-js.js?version=" . uniqid()) ?>"></script>
 <script src="<?= base_url("assets/js/videos/main.js?version=" . uniqid()) ?>"></script>

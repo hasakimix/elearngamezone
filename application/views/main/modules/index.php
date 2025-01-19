@@ -11,7 +11,9 @@
             </button></a>
         <?php foreach ($modules as $key => $value): ?>
             <div class="module">
-                <button class="collapsible"><?= $value["module_topic"] ?></button>
+                <button class="collapsible">
+                    <?= $value["module_topic"] ?>
+                </button>
                 <?php $chapter_data["module_id"] = $value["module_id"]; ?>
                 <?php $chapter_data["chapters"] = $chapters; ?>
                 <?php $this->load->view("main/modules/_module_chapters", $chapter_data) ?>
@@ -30,6 +32,8 @@
 
 <script>
     const QUIZ_URL = '<?= $quiz ?>';
+    const USER_ID = '<?= $user_id ?>';
+    const PROGRESS_API_URL  = '<?= base_url("api/progress/module"); ?>';
 </script>
 <script src="<?= base_url("assets/js/modules/sidebar.js?version=" . uniqid()) ?>"></script>
 <script src="<?= base_url("assets/js/modules/contents.js?version=" . uniqid()) ?>"></script>

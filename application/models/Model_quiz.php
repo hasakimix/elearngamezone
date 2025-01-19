@@ -187,5 +187,13 @@ class Model_quiz extends MY_Model
         $this->db->delete("options");
         return ($this->db->affected_rows() > 0);
     }
+
+    public function get_module_progress_by_module_ids($module_ids)
+    {
+        return $this->db->select("*")
+                        ->from("module_progress")
+                        ->where("module_id IN ($module_ids)",NULL,FALSE)
+                        ->get()->result_array();
+    }
     
 }

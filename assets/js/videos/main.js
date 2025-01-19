@@ -30,6 +30,7 @@ $(document).ready(function () {
 
 const onLoadedMetadata = () => {
 	videoLength = videoPlayer.duration();
+	getVideoCurrentTimeProgress();
 };
 
 const playBackTimer = async () => {
@@ -41,6 +42,14 @@ const getVideoPlayBackPercentage = async() => {
 	var a = videoPlayBackTime / videoLength;
 	var percentage = (a * 100).toFixed(2);
 	videoPlayBackPercentage = percentage;
+};
+
+const getVideoCurrentTimeProgress = async() => {
+	if(parseFloat(CURRENT_PROGRESS) > 0){
+		var a = (parseFloat(CURRENT_PROGRESS) / 100);
+		var current_time = (a * videoLength).toFixed(2);
+		videoPlayer.currentTime(current_time);
+	}
 };
 
 const saveVideoProgress = async () => {

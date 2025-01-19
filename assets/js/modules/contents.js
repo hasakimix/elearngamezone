@@ -12,6 +12,7 @@ const displayModuleChapterContents = (chapter_id) => {
             $(this).removeClass("d-none");
         }
     });
+    saveModuleProgress(chapter_id);
 };
 
 const topics = document.querySelectorAll(".topic");
@@ -28,3 +29,31 @@ topics.forEach(topic => {
         this.classList.add("active");
     });
 });
+
+
+const saveModuleProgress = async (chapter_id) => {
+	await $.ajax({
+        url: `${PROGRESS_API_URL}`,
+        crossDomain: true,
+        type: 'POST',
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify({
+			user_id : USER_ID,
+			chapter_id : chapter_id
+		}),
+        beforeSend: function (xhr) {
+            console.log("sending");
+        },
+        error: (error) => {
+            if (error.responseJSON == undefined) {
+                alert("Something Went Wrong", "Please report it to the team.", 'error');
+            } else {
+                alert("Something Went Wrong", error.responseJSON.message, 'error');
+            }
+        },
+        success: (response) => {
+            console.log(response);
+        }
+    });
+};

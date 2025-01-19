@@ -20,6 +20,7 @@ class Videos extends Auth_Controller {
         $data['primary_view'] = $this->_primary_view.'videos/index';
 		$data['videos'] = $this->m_vid->get_videos($library_id);
 		$data['user_id'] = $session['id'];
+        $data['progress'] = $this->m_vid->get_user_progress($data['user_id'], $data['videos']['video_id']);
 		$this->load->view($data['final_view'], $data);
 	}
 }

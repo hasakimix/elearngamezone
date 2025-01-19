@@ -15,11 +15,14 @@ class Quiz extends Auth_Controller {
 
     public function take($library)
     {
+        $session = $this->session->get_userdata();
+
         $data = &$this->data;
         $data['final_view'] = $this->_template.'_main_template';
         $data['primary_view'] = $this->_primary_view.'quiz/index';
         $data['quiz'] = $this->m_quiz->get_quiz($library);
         $data['solutions'] = $this->m_quiz->get_questions($data['quiz']['quiz_id']);
+        $data['user_id'] = $session['id'];
 		$this->load->view($data['final_view'], $data);
     }
 }
