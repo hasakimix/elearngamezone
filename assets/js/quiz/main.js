@@ -17,8 +17,20 @@ $(document).ready(function () {
         $(".items-count").empty().text(`${(index+2)}/${QUIZ_TOTAL_ITEMS}`);
 
         if((index+2) > QUIZ_TOTAL_ITEMS){
-            await getQuizFinalScore();
-            await saveQuizProgress();
+            var current_swal = new swal({
+                title: "Score",
+                text: `${QUIZ_CORRECT_ANSWERS} correct answers out of ${QUIZ_TOTAL_ITEMS} questions`,
+                icon: null,
+                buttonsStyling: false,
+                confirmButtonClass: "bg-gradient-success swal2-confirm btn bg-gradient-success",
+                confirmButtonText: 'OK',
+                allowOutsideClick: false,
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    await getQuizFinalScore();
+                    await saveQuizProgress();
+                }
+            });
         }
     });
 });

@@ -128,13 +128,15 @@ class Users extends Admin_Controller {
         $progress = 0;
 
         $totalItems = count($this->m_progress->get_modules_by_library($library_id));
-        $totalItems = ($totalItems * 100);
+        if($totalItems){
+            $totalItems = ($totalItems * 100);
 
-        $totalUserProgress = $this->m_progress->get_user_total_module_progress($library_id, $user_id);
-        $totalUserProgress = $totalUserProgress ? $totalUserProgress['total'] : 0;
-
-        $progress = (floatval($totalUserProgress) / floatval($totalItems));
-        $progress = round(($progress * 100), 2);
+            $totalUserProgress = $this->m_progress->get_user_total_module_progress($library_id, $user_id);
+            $totalUserProgress = $totalUserProgress ? $totalUserProgress['total'] : 0;
+    
+            $progress = (floatval($totalUserProgress) / floatval($totalItems));
+            $progress = round(($progress * 100), 2);
+        }
 
         return $progress;
     }
@@ -154,13 +156,15 @@ class Users extends Admin_Controller {
         $progress = 0;
 
         $totalItems = count($this->m_progress->get_games_by_library($library_id));
-        $totalItems = ($totalItems * 100);
+        if($totalItems){
+            $totalItems = ($totalItems * 100);
 
-        $totalUserProgress = $this->m_progress->get_user_total_game_progress($library_id, $user_id);
-        $totalUserProgress = $totalUserProgress ? $totalUserProgress['total'] : 0;
-
-        $progress = (floatval($totalUserProgress) / floatval($totalItems));
-        $progress = round(($progress * 100), 2);
+            $totalUserProgress = $this->m_progress->get_user_total_game_progress($library_id, $user_id);
+            $totalUserProgress = $totalUserProgress ? $totalUserProgress['total'] : 0;
+    
+            $progress = (floatval($totalUserProgress) / floatval($totalItems));
+            $progress = round(($progress * 100), 2);
+        }
 
         return $progress;
     }

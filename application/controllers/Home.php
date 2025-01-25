@@ -25,7 +25,7 @@ class Home extends Auth_Controller {
 		$user_libraries = $this->m_lib->get($session["id"]);
 		$user_library_ids = array_map(function($data){ return $data["library_id"]; },$user_libraries);
 		$data['user_libraries'] = $user_library_ids;
-		$data['libraries'] = $this->m_lib->get_libraries();
+		$data['libraries'] = $this->m_lib->get_active_libraries();
 		$this->load->view($data['final_view'], $data);
 	}
 

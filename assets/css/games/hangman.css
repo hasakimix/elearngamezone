@@ -219,3 +219,18 @@ body {
         padding: 10px 18px;
     }
 }
+
+.swal2-confirm{
+    width: 100%;
+    border: none;
+    outline: none;
+    color: white;
+    background: #2C84D5;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.swal2-confirm:hover {
+    background: #2370b0;
+}

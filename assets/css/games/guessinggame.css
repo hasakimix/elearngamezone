@@ -147,7 +147,18 @@ body {
   transition: background 0.3s;
 }
 
-.reset-btn:hover, .next-btn:hover {
+.swal2-confirm{
+  flex: 1;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 10px;
+  background: #2C84D5;
+}
+
+.reset-btn:hover, .next-btn:hover, .swal2-confirm:hover {
   background: #2370b0;
 }
 .back-button {

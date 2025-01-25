@@ -152,9 +152,9 @@ const saveGameProgress = async () => {
         },
         error: (error) => {
             if (error.responseJSON == undefined) {
-                alert("Something Went Wrong", "Please report it to the team.", 'error');
+                _this_swal_response("Something Went Wrong", "Please report it to the team.", 'error');
             } else {
-                alert("Something Went Wrong", error.responseJSON.message, 'error');
+                _this_swal_response("Something Went Wrong", error.responseJSON.message, 'error');
             }
         },
         success: (response) => {

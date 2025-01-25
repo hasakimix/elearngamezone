@@ -21,7 +21,7 @@ class Profile extends Auth_Controller {
         $data['final_view'] = $this->_template.'_main_template';
         $data['primary_view'] = $this->_primary_view.'_index';
         $data['user'] = $this->m_users->get_client_user_by_id($user_id);
-        $data['libraries'] = $this->m_users->get_libraries();
+        $data['libraries'] = $this->m_users->get_active_libraries();
         $data['progress'] = $this->_user_account_progress($user_id);
 		$this->load->view($data['final_view'], $data);   
 	}
@@ -46,13 +46,15 @@ class Profile extends Auth_Controller {
         $progress = 0;
 
         $totalItems = count($this->m_progress->get_modules_by_library($library_id));
-        $totalItems = ($totalItems * 100);
-
-        $totalUserProgress = $this->m_progress->get_user_total_module_progress($library_id, $user_id);
-        $totalUserProgress = $totalUserProgress ? $totalUserProgress['total'] : 0;
-
-        $progress = (floatval($totalUserProgress) / floatval($totalItems));
-        $progress = round(($progress * 100), 2);
+        if($totalItems){
+            $totalItems = ($totalItems * 100);
+    
+            $totalUserProgress = $this->m_progress->get_user_total_module_progress($library_id, $user_id);
+            $totalUserProgress = $totalUserProgress ? $totalUserProgress['total'] : 0;
+    
+            $progress = (floatval($totalUserProgress) / floatval($totalItems));
+            $progress = round(($progress * 100), 2);
+        }
 
         return $progress;
     }
@@ -72,13 +74,15 @@ class Profile extends Auth_Controller {
         $progress = 0;
 
         $totalItems = count($this->m_progress->get_games_by_library($library_id));
-        $totalItems = ($totalItems * 100);
-
-        $totalUserProgress = $this->m_progress->get_user_total_game_progress($library_id, $user_id);
-        $totalUserProgress = $totalUserProgress ? $totalUserProgress['total'] : 0;
-
-        $progress = (floatval($totalUserProgress) / floatval($totalItems));
-        $progress = round(($progress * 100), 2);
+        if($totalItems){
+            $totalItems = ($totalItems * 100);
+    
+            $totalUserProgress = $this->m_progress->get_user_total_game_progress($library_id, $user_id);
+            $totalUserProgress = $totalUserProgress ? $totalUserProgress['total'] : 0;
+    
+            $progress = (floatval($totalUserProgress) / floatval($totalItems));
+            $progress = round(($progress * 100), 2);
+        }
 
         return $progress;
     }

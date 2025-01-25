@@ -71,4 +71,35 @@ class Model_library extends MY_Model
         $this->db->delete("library");
         return ($this->db->affected_rows() > 0);
     }
+
+	public function get_active_libraries()
+    {
+        $library = $this->db->select("*")
+                            ->from("library")
+                            ->get()->result_array();
+        
+        $active_libraries = [];
+        if($library){
+            foreach ($library as $key => $value) {
+                $games = count($this->get_library_module_count("games", $value["library_id"]));
+                $flashcard = count($this->get_library_module_count("flashcard", $value["library_id"]));
+                $module = count($this->get_library_module_count("module", $value["library_id"]));
+                $video = count($this->get_library_module_count("video", $value["library_id"]));
+                $quizzes = count($this->get_library_module_count("quizzes", $value["library_id"]));
+                if($games && $flashcard && $module && $video && $quizzes){
+                    array_push($active_libraries, $value);
+                }
+            }
+        }
+
+        return $active_libraries;
+    }
+
+    public function get_library_module_count($table, $library_id)
+    {
+        return $this->db->select("*")
+                        ->from($table)
+                        ->where("library_id", $library_id)
+                        ->get()->result_array();
+    }
 }

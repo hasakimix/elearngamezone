@@ -16,7 +16,7 @@ class Authentication extends MY_Controller {
     public function login()
     {
         $data = $this->input->post();
-
+        
         $result = $this->admin->validateUsernamePassword(make_string_safe($data['email']), $data['password']);
         if($result){
             if($this->build_session($result)){

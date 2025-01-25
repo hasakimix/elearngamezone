@@ -22,7 +22,7 @@ function startTimer() {
     timerTag.innerText = timeLeft;
     if (timeLeft <= 0) {
       clearInterval(timer);
-      alert("Time's up! The word was " + word.toUpperCase());
+      _this_swal_response("Time's up!", "The word was " + word.toUpperCase(), "error");
       showAnswer();
     }
   }, 1000);
@@ -38,7 +38,7 @@ function updateQuestionNumber() {
 
 function randomWord() {
   if (questionCount >= 10) {
-    alert(`Game over! You scored ${score}/10.`);
+    _this_swal_response("Game over!", `You scored ${score}/10.`, "success");
     saveGameProgress();
     return;
   }
@@ -95,7 +95,7 @@ function initGame(e) {
       guessLeft.innerText = maxGuesses;
       wrongLetter.innerText = incorrectLetters.join(", ");
       if (maxGuesses < 1) {
-        alert("Game over! You don't have remaining guesses");
+        _this_swal_response("Game over!", `You don't have remaining guesses.`, "error");
         showAnswer();
       }
     }
@@ -147,9 +147,9 @@ const saveGameProgress = async () => {
       },
       error: (error) => {
           if (error.responseJSON == undefined) {
-              alert("Something Went Wrong", "Please report it to the team.", 'error');
+            _this_swal_response("Something Went Wrong", "Please report it to the team.", 'error');
           } else {
-              alert("Something Went Wrong", error.responseJSON.message, 'error');
+            _this_swal_response("Something Went Wrong", "Please report it to the team.", 'error');
           }
       },
       success: (response) => {

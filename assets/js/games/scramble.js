@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 timeText.innerText = maxTime;
                 return;
             }
-            alert(`Time off! ${correctWord.toUpperCase()} was the correct word`);
+            _this_swal_response("Time off!", `${correctWord.toUpperCase()} was the correct word`, "error");
             nextQuestion(false);
         }, 1000);
     };
@@ -59,15 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkWord = () => {
         let userWord = inputField.value.toLowerCase().trim();
         if (!userWord) {
-            alert("Please enter the word to check!");
+            _this_swal_response("Check Word", `Please enter the word to check!`, null);
             return;
         }
         if (userWord !== correctWord) {
-            alert(`Oops! "${userWord}" is not the correct word.`);
+            _this_swal_response("Oops!", `"${userWord}" is not the correct word.`, "error");
             nextQuestion(false);
             return;
         }
-        alert(`Congrats! "${correctWord.toUpperCase()}" is the correct word!`);
+        _this_swal_response("Congrats!", `"${correctWord.toUpperCase()}" is the correct word!`, "success");
         nextQuestion(true);
     };
 
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const endGame = () => {
         saveGameProgress();
-        alert(`Game Over! Your final score is ${score} out of ${totalQuestions}.`);
+        _this_swal_response("Game Over!", `Your final score is ${score} out of ${totalQuestions}.`, null);
         questionCount = 0;
         score = 0;
         usedWords = [];
@@ -118,9 +118,9 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             error: (error) => {
                 if (error.responseJSON == undefined) {
-                    alert("Something Went Wrong", "Please report it to the team.", 'error');
+                    _this_swal_response("Something Went Wrong", "Please report it to the team.", 'error');
                 } else {
-                    alert("Something Went Wrong", error.responseJSON.message, 'error');
+                    _this_swal_response("Something Went Wrong", error.responseJSON.message, 'error');
                 }
             },
             success: (response) => {

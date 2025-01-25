@@ -106,8 +106,7 @@ class Model_users extends MY_Model
     {
         return $this->db->select("*")
                         ->from("users")
-                        ->where("id", $id)
-                        ->where("is_admin", 0)
+                        ->where("id", intval($id))
                         ->get()->row_array();
     }
 
@@ -145,4 +144,35 @@ class Model_users extends MY_Model
                         ->from("library")
                         ->get()->result_array();
     } 
+
+	public function get_active_libraries()
+    {
+        $library = $this->db->select("*")
+                            ->from("library")
+                            ->get()->result_array();
+        
+        $active_libraries = [];
+        if($library){
+            foreach ($library as $key => $value) {
+                $games = count($this->get_library_module_count("games", $value["library_id"]));
+                $flashcard = count($this->get_library_module_count("flashcard", $value["library_id"]));
+                $module = count($this->get_library_module_count("module", $value["library_id"]));
+                $video = count($this->get_library_module_count("video", $value["library_id"]));
+                $quizzes = count($this->get_library_module_count("quizzes", $value["library_id"]));
+                if($games && $flashcard && $module && $video && $quizzes){
+                    array_push($active_libraries, $value);
+                }
+            }
+        }
+
+        return $active_libraries;
+    }
+
+    public function get_library_module_count($table, $library_id)
+    {
+        return $this->db->select("*")
+                        ->from($table)
+                        ->where("library_id", $library_id)
+                        ->get()->result_array();
+    }
 }
