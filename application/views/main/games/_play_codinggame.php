@@ -17,7 +17,7 @@
 	const PROGRESS_API_URL  = '<?= base_url("api/progress/game"); ?>';
 	const GAME_ID = '<?= $game["games_id"] ?>';
 	const LIBRARY_ID = '<?= $game["library_id"] ?>';
-    const SUBJECT = '<?= strtolower($library["library_name"]) ?>';
+    const SUBJECT = '<?= strtolower($library["library_key"]) ?>';
 	const USER_ID = '<?= $user_id ?>';
 	const BACK_URL  = '<?= $back_url ?>';
 </script>
