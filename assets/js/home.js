@@ -47,6 +47,7 @@ const previewModule = (description) => {
           <strong>Overview:</strong> ${content.overview}<br><br>
           <strong>Modules:</strong>
           <ul>${content.modules.map(module => `<li>${module}</li>`).join('')}</ul>
+		  <strong>Credits: <a href="${content.credits.url}"> ${content.credits.title}</a></strong>
         `;
       
         previewModal.style.display = 'flex';

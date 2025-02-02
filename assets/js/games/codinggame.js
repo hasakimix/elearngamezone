@@ -70,7 +70,20 @@ const questions = {
         { question: "SELECT name FROM users WHERE age > ____;", answer: "18" },
         { question: "SELECT name FROM users ORDER BY ____;", answer: "age" },
         { question: "DROP TABLE ____;", answer: "users" }
-    ]
+    ],
+
+	"laravel": [
+    { question: "What command is used to create a new Laravel project? ____", "answer": "composer create-project laravel/laravel project-name" },
+    { question: "Which command is used to start the Laravel development server? ____", "answer": "php artisan serve" },
+    { question: "To create a new model in Laravel, you use the command ____", "answer": "php artisan make:model ModelName" },
+    { question: "Which file in Laravel contains the application's main routes? ____", "answer": "routes/web.php" },
+    { question: "In Laravel, to migrate database changes, you use the command ____", "answer": "php artisan migrate" },
+    { question: "Which command is used to create a new controller in Laravel? ____", "answer": "php artisan make:controller ControllerName" },
+    { question: "How do you retrieve all records from a table using Eloquent? ____", "answer": "ModelName::all()" },
+    { question: "Which Blade directive is used for displaying a variable? ____", "answer": "{{ \$variable }}" },
+    { question: "How do you define a route for a controller method in Laravel? ____", "answer": "Route::get('/path', [ControllerName::class, 'method']);" },
+    { question: "Which Laravel command is used to generate authentication scaffolding? ____", "answer": "php artisan make:auth" }
+	]
 };
 
 let currentQuestion = 0;
