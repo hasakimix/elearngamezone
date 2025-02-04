@@ -83,7 +83,20 @@ const questions = {
     { question: "Which Blade directive is used for displaying a variable? ____", "answer": "{{ \$variable }}" },
     { question: "How do you define a route for a controller method in Laravel? ____", "answer": "Route::get('/path', [ControllerName::class, 'method']);" },
     { question: "Which Laravel command is used to generate authentication scaffolding? ____", "answer": "php artisan make:auth" }
-	]
+	],
+
+    "c++": [
+    { question: "The notation of logical NOT operator in a C++ program is? ____", "answer": "!" },
+    { question: "For the class exforsys defined as below: class exforsys { }; int main() { exforsys a; } Which of the following is TRUE? ____", "answer": "The compiler provides the default constructor" },
+    { question: "The notation of ternary operator is", "answer": "?:" },
+    { question: "When the object of the first class is instantiated then which of the following is called? ____", "answer": "Constructor" },
+    { question: "In Laravel, to migrate database changes, you use the command ____", "answer": "php artisan migrate" },
+    { question: "Which command is used to create a new controller in Laravel? ____", "answer": "php artisan make:controller ControllerName" },
+    { question: "How do you retrieve all records from a table using Eloquent? ____", "answer": "ModelName::all()" },
+    { question: "Which Blade directive is used for displaying a variable? ____", "answer": "{{ \$variable }}" },
+    { question: "How do you define a route for a controller method in Laravel? ____", "answer": "Route::get('/path', [ControllerName::class, 'method']);" },
+    { question: "Which Laravel command is used to generate authentication scaffolding? ____", "answer": "php artisan make:auth" }
+    ]
 };
 
 let currentQuestion = 0;

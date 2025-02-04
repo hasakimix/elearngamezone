@@ -173,12 +173,6 @@
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
 
-            // Simple validation example
-            if (email === 'admin@example.com' && password === 'password') {
-                alert('Login successful!');
-            } else {
-                loginError.style.display = 'block';
-            }
         });
 
     </script>

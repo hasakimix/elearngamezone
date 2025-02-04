@@ -7,12 +7,12 @@
 </head>
 
 <body>
-<!-- Switch to User Icon -->
+<!-- Switch to User Icon
 <div class="user-switch">
   <a href="<?= base_url("#") ?>" title="Switch to User">
     <i class="fa fa-user"></i>
   </a>
-</div>
+</div> -->
 
 <div class="container">
 	<!-- Left Section -->

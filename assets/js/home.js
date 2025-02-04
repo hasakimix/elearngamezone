@@ -49,6 +49,7 @@ const previewModule = (description) => {
           <ul>${content.modules.map(module => `<li>${module}</li>`).join('')}</ul>
 		  <strong>Credits: <a href="${content.credits.url}"> ${content.credits.title}</a></strong>
         `;
+        
       
         previewModal.style.display = 'flex';
         // Trigger the transition by adding active-preview class

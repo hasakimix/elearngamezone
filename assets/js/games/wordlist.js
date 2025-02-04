@@ -309,5 +309,10 @@ const wordList = [
         word: "htaccess",
         hint: "a configuration file for web servers used with php.",
         subject: 4
+    },
+    {
+        word: "Ruby what?",
+        hint: "Whatc you mean",
+        subject: 11
     }
 ];

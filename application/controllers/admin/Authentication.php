@@ -21,7 +21,7 @@ class Authentication extends MY_Controller {
         if($result){
             if($this->build_session($result)){
                 if($this->buildCookies($result)){
-                    redirect(base_url('admin/dashboard'));
+                    redirect(base_url('admin/manage/users'));
                 }else{
                     $this->end_sessions();
                 }

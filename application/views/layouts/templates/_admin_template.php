@@ -142,7 +142,7 @@ body {
 <div class="sidenav">
     <h2>Admin Panel</h2>
     <div class="divider"></div>
-        <a href="<?= base_url("admin/panel")?>" >Dashboard</a>
+        <!-- <a href="<?= base_url("admin/panel")?>" >Dashboard</a> -->
         <button class="collapsible">Manage Users</button>
         <div class="collapsible-content">
             <a href="<?= base_url("admin/manage/users")?>">Users</a>
